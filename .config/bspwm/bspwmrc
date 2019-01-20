@@ -1,0 +1,55 @@
+#! /bin/sh
+
+sxhkd &
+compton -b &
+killall ibus-daemon
+ibus-daemon -drx &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
+
+if [ $(hostname) = "HOMEDESK" ]; then
+
+	bspc monitor HDMI-0 -d I II III IV V VI VII
+
+elif [ $(hostname) = "XMLaptop" ]; then
+	xrandr --output DP1 --primary --mode 1920x1200 \
+     		--pos 0x0 --rotate normal --output eDP1 --off
+	sleep 2
+	bspc monitor DP1 -d I II III IV V VI VII
+
+fi
+
+bspc config split_ratio          0.55
+#bspc monitor -d I II III IV V VI VII VIII IX X
+bspc config border_width         2
+bspc config window_gap          20
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+
+#bspc config initial_polarity second_child
+#bspc config automatic_scheme longest_side
+#spiral
+bspc config normal_frame_opacity 0.5
+bspc config focused_frame_opacity 0.8
+bspc config remove_disabled_monitors
+bspc config remove_unplugged_monitors
+bspc config top_padding 5
+#bspc config -m DP1 top_padding 15
+bspc config focused_border_color '#f98123'
+
+bspc rule -a Gimp desktop=^4 state=floating follow=on
+bspc rule -a Darktable desktop=^5 follow=on
+bspc rule -a Google-chrome desktop=^2 follow=on
+bspc rule -a Thunar desktop=^3 follow=on
+bspc rule -a mplayer2 state=floating
+bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off
+
+
+if [ $(hostname) = "HOMEDESK" ]; then
+	$HOME/.config/polybar/launch2.sh &
+elif [ $(hostname) = "XMLaptop" ]; then
+	$HOME/.config/polybar/launch.sh &
+fi
+feh --bg-fill ~/.config/wall.png &
