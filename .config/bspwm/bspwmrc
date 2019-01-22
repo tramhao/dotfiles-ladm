@@ -51,6 +51,8 @@ if [ $(hostname) = "HOMEDESK" ]; then
 	$HOME/.config/polybar/launch2.sh &
 elif [ $(hostname) = "XMLaptop" ]; then
 	$HOME/.config/polybar/launch.sh &
+else
+	$HOME/.config/polybar/launch.sh &
 fi
 
 feh --bg-fill ~/.config/wall.png &
