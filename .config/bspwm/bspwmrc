@@ -40,7 +40,8 @@ bspc config focused_border_color '#f98123'
 
 bspc rule -a Gimp desktop=^4 state=floating follow=on
 bspc rule -a Darktable desktop=^5 follow=on
-bspc rule -a Google-chrome desktop=^2 follow=on
+bspc rule -a Google-chrome desktop=^3 follow=on
+bspc rule -a Firefox desktop=^2 follow=on
 bspc rule -a Thunar desktop=^3 follow=on
 bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
