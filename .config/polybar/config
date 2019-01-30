@@ -1323,8 +1323,6 @@ scroll-down = ~/.config/polybar/scripts/pavolume.sh --down
 format-foreground = #d7d7d7
 format-background = #645377
 
-
-
 ################################################################################
 
 [module/pub-ip]

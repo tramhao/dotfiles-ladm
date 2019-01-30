@@ -7,7 +7,7 @@ inc='5'
 capvol='no'
 maxvol='200'
 autosync='yes'
-
+tmpfile='/tmp/pasink.tmp'
 # Muted status
 # yes: muted
 # no : not muted
@@ -72,7 +72,8 @@ function volDown {
 }
 
 function getSinkInputs {
-    input_array=$(pacmd list-sink-inputs | grep -B 4 "sink: $1 " | awk '/index:/{print $2}')
+    inputs=`pacmd list-sink-inputs | grep -B 4 "sink: $1 " | awk '/index:/{print $2}' > ${tmpfile}`
+    input_array=`cat $tmpfile`
 }
 
 function volSync {
