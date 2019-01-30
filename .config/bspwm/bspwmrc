@@ -59,7 +59,8 @@ fi
 feh --bg-fill ~/.config/wall.png &
 
 sleep 2
-for m in $(bspc query -M); do
+for m in $(bspc query -M --names); do
 	bspc config -m $m top_padding 5;
 done
+#bspc config -m DP1 top_padding 5
 
