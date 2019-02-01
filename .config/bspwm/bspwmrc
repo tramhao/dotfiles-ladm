@@ -25,7 +25,8 @@ bspc config border_width         2
 bspc config window_gap          20
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
-
+bspc config remove_disabled_monitors true
+bspc config remove_unplugged_monitors true
 
 #bspc config initial_polarity second_child
 #bspc config automatic_scheme longest_side
@@ -58,9 +59,10 @@ fi
 
 feh --bg-fill ~/.config/wall.png &
 
-sleep 2
-for m in $(bspc query -M --names); do
-	bspc config -m $m top_padding 5;
-done
+sleep 1
+bspc config top_padding 5
+#for m in $(bspc query -M --names); do
+#	bspc config -m $m top_padding 5;
+#done
 #bspc config -m DP1 top_padding 5
 
