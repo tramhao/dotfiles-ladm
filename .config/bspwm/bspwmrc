@@ -69,7 +69,7 @@ bspc config top_padding 5
 #bspc config -m DP1 top_padding 5
 
 # scratchpad
-bspc rule -a scratchpad sticky=on state=floating
+#bspc rule -a scratchpad sticky=on state=floating
 #hidden=on
 
 #st -c scratchpad -e ~/.scripts/scratch &
