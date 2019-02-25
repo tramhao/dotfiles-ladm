@@ -50,6 +50,8 @@ bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
+# scratchpad
+bspc rule -a st:scratchpad sticky=on state=floating boarder=off
 
 if [ $(hostname) = "HOMEDESK" ]; then
 	$HOME/.config/polybar/launch2.sh &
