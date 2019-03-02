@@ -7,9 +7,9 @@ ibus-daemon -drx &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
 
-if [ $(hostname) = "HOMEDESK" ]; then
+if [ $(hostname) = "tramhao-pc" ]; then
 
-	bspc monitor HDMI-0 -d I II III IV V VI VII
+	bspc monitor eDP1 -d I II III IV V VI VII
 
 elif [ $(hostname) = "XMLaptop" ]; then
 	xrandr --output DP1 --primary --mode 1920x1200 \
@@ -51,7 +51,7 @@ bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
 
-if [ $(hostname) = "HOMEDESK" ]; then
+if [ $(hostname) = "tramhao-pc" ]; then
 	$HOME/.config/polybar/launch2.sh &
 elif [ $(hostname) = "XMLaptop" ]; then
 	$HOME/.config/polybar/launch.sh &
