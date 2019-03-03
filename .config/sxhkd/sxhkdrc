@@ -159,5 +159,7 @@ XF86MonBrightnessUp
 # Volume control for home pc
 XF86AudioRaiseVolume
 	~/.config/polybar/scripts/pavolume.sh --up
+#	lmc up 10
 XF86AudioLowerVolume
 	~/.config/polybar/scripts/pavolume.sh --down
+#	lmc down 10
