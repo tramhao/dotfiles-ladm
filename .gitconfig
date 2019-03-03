@@ -1,3 +1,5 @@
 [user]
 	email = haoxinkui@gmail.com
 	name = tramhao
+[credential]
+	helper = store
