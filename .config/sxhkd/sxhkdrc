@@ -150,3 +150,14 @@ super + alt + shift + {h,j,k,l}
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
+# Backlight control for home pc
+XF86MonBrightnessDown
+	xbacklight -dec 10
+XF86MonBrightnessUp
+	xbacklight -inc 10
+
+# Volume control for home pc
+XF86AudioRaiseVolume
+	~/.config/polybar/scripts/pavolume.sh --up
+XF86AudioLowerVolume
+	~/.config/polybar/scripts/pavolume.sh --down
