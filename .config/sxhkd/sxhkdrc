@@ -34,7 +34,7 @@ super + F6
 	~/.config/polybar/scripts/pavolume.sh --down
 
 F12
-	tdrop -ma -w 35% -h 75% -x 63% -y 23% -s scratchpad st
+	tdrop -ma -w 42% -h 75% -x 57% -y 24% -s scratchpad st
 #	tdrop -ma -w -4 -y 20 -s scratchpad st
 #	id=$(cat /tmp/scratchid);\
 #	bspc node $id --flag hidden; bspc node -f $id
