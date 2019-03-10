@@ -72,5 +72,13 @@ export LESS_TERMCAP_ZO=$(tput ssupm)
 export LESS_TERMCAP_ZW=$(tput rsupm)
 export GROFF_NO_SGR=1         # For Konsole and Gnome-terminal
 
+function _update_ps1() {
+	    PS1=$(powerline-shell $?)
+    }
+
+if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
+	    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+fi
+
 
 neofetch
