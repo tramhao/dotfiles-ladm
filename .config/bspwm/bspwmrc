@@ -12,7 +12,7 @@ bspc config right_padding $gap
 bspc config bottom_padding $gap
 
 #Various settings
-bspc config gapless_monocle     true #Default setup uses negative padding, and gapless monocle looks really weird like that
+bspc config gapless_monocle     false #Default setup uses negative padding, and gapless monocle looks really weird like that
 bspc config borderless_monocle  true
 bspc config single_monocle true
 bspc config paddingless_monocle false
@@ -118,18 +118,24 @@ euclid_balancer &
 
 ##Autostart apps
 #Keybindings daemon
+killall sxhkd
 sxhkd &
+killall compton
 compton -b &
 killall ibus-daemon
 ibus-daemon -drx &
+killall polkit-gnome-authentication-agent-1
+killall gnome-keyring-daemon
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
+killall feh
 feh --bg-fill ~/.config/wall.png &
 sleep 1
 #Source autostartfile. Uncomment this if you use bspwm-git
 #. $HOME/.config/bspwm/autostart
 #limepanel &
 
+#killall polybar
 if [ $(hostname) = "tramhao-pc" ]; then
 	        $HOME/.config/polybar/launch2.sh &
 elif [ $(hostname) = "XMLaptop" ]; then

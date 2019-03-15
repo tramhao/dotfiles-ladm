@@ -23,7 +23,7 @@ super + F1
 
 # make sxhkd reload its configuration files:
 super + F2
-	pkill -USR1 -x sxhkd && bspwmreload
+	pkill -USR1 -x sxhkd && ~/.config/bspwm/bspwmrc
 
 # volume control
 super + F4
