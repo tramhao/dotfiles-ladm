@@ -130,7 +130,7 @@ killall gnome-keyring-daemon
 eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
 killall feh
 feh --bg-fill ~/.config/wall.png &
-sleep 1
+#sleep 1
 #Source autostartfile. Uncomment this if you use bspwm-git
 #. $HOME/.config/bspwm/autostart
 #limepanel &
