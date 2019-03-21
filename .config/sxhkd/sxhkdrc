@@ -54,6 +54,9 @@ F12
 super + shift + Escape
 	prompt "Are you going to logout?"	"bspc quit"
 
+super + shift + grave
+	prompt "Are you going to lock screen?"	"lockscreen"
+
 # close and kill
 super + {_,shift + }q
 	bspc node -{c,k}
