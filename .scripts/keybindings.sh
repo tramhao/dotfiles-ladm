@@ -13,6 +13,15 @@
 	Arrow keys, wasd and hjkl represent directions and numbers represent
 	different workspaces.
 
+	###st keys#############################################
+		Copy is alt-c, paste is alt-v or alt-p pastes from primary selection
+		Alt-l feeds all urls on screen to dmenu, so they user can choose and follow one (requires xurls and dmenu installed).
+		Zoom in/out or increase font size with Alt+Shift+k/j or u/d for larger intervals.
+		Hold alt and press either ↑/↓ or the vim keys k/j to move up/down in the terminal.
+		Shift+Mouse wheel do the same.
+		Alt-u and Alt-d scroll back/forward in history a page at a time.
+		Alt-PageUp and Alt-PageDown will do the same.
+
 	### Window manipulation ################################################################
 
 		Alt + Tab                     |- Cycle windows
