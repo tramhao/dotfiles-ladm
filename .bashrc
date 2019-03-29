@@ -33,7 +33,9 @@ alias trem="transmission-remote"
 alias mkd="mkdir -pv"
 alias ref="shortcuts && source ~/.bashrc" # Refresh shortcuts manually and reload bashrc
 alias bw="wal -i ~/.config/wall.png" # Rerun pywal
-alias duh="du -h --max-depth=1"
+alias duh="du -cBM --max-depth=1 2> /dev/null | sort -nr"
+alias sudo="sudo "
+
 
 # Adding color
 alias ls='ls -hN --color=auto --group-directories-first'
