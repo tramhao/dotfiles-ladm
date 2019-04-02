@@ -140,6 +140,7 @@ if [ $(hostname) = "tramhao-pc" ]; then
 	        $HOME/.config/polybar/launch2.sh &
 elif [ $(hostname) = "XMLaptop" ]; then
 	        $HOME/.config/polybar/launch.sh &
+		nextcloud &
 else
 	        $HOME/.config/polybar/launch.sh &
 fi
