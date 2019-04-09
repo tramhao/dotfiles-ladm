@@ -5,7 +5,7 @@ export gap
 export PANEL_HEIGHT
 
 #This creates negative padding equal to window gap so that gaps are shown only between windows and not on desktop edges.
-bspc config window_gap $gap;
+bspc config window_gap $gap
 bspc config top_padding $(($PANEL_HEIGHT-$gap))
 bspc config left_padding $gap
 bspc config right_padding $gap
