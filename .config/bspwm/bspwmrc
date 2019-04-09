@@ -130,6 +130,7 @@ killall gnome-keyring-daemon
 eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
 killall feh
 feh --bg-fill ~/.scripts/pix/wall2.jpg &
+nextcloud &
 #sleep 1
 #Source autostartfile. Uncomment this if you use bspwm-git
 #. $HOME/.config/bspwm/autostart
@@ -140,7 +141,6 @@ if [ $(hostname) = "tramhao-pc" ]; then
 	        $HOME/.config/polybar/launch2.sh &
 elif [ $(hostname) = "XMLaptop" ]; then
 	        $HOME/.config/polybar/launch.sh &
-		nextcloud &
 else
 	        $HOME/.config/polybar/launch.sh &
 fi
