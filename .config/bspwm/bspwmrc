@@ -19,8 +19,8 @@ bspc config paddingless_monocle false
 #bspc config ignore_ewmh_focus      true
 bspc config initial_polarity second_child
 bspc config automatic_scheme longest_side
-bspc config remove_disabled_monitors true
-bspc config remove_unplugged_monitors true
+bspc config remove_disabled_monitors true 
+bspc config remove_unplugged_monitors true 
 ## Honor size hints: do not make windows smaller than they wish to be
 #bspc config honor_size_hints true
 
@@ -48,9 +48,10 @@ if [ $(hostname) = "tramhao-pc" ]; then
 	bspc monitor eDP1 -d I II III IV V VI VII
 elif [ $(hostname) = "XMLaptop" ]; then
 	xrandr --output DP1 --primary --mode 1920x1200 \
-		--pos 0x0 --rotate normal --output eDP1 --off
+		--pos 0x0 --rotate normal --output eDP1 --off 
 	bspc monitor DP1 -d I II III IV V VI VII
 	bspc monitor eDP1 -d I II III IV V VI VII
+	bspc monitor HDMI2 -d I II III IV V VI VII
 fi
 
 
