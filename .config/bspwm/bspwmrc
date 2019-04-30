@@ -48,7 +48,7 @@ if [ $(hostname) = "tramhao-pc" ]; then
 	bspc monitor eDP1 -d I II III IV V VI VII
 elif [ $(hostname) = "XMLaptop" ]; then
 	xrandr --output DP1 --primary --mode 1920x1200 \
-		--pos 0x0 --rotate normal --output eDP1 --off 
+		--pos 0x0 --rotate normal --output eDP1 --off --output HDMI2 --auto 
 	bspc monitor DP1 -d I II III IV V VI VII
 	bspc monitor eDP1 -d I II III IV V VI VII
 	bspc monitor HDMI2 -d I II III IV V VI VII
