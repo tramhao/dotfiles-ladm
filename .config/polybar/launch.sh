@@ -10,12 +10,13 @@ while pgrep -x polybar >/dev/null; do sleep 1; done
 # Bar is the name set in the polybar config, so if you change it, you have to change it here too.
 #polybar bar
 
-if type "xrandr"; then
-	for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-		MONITOR=$m polybar --reload mainbar-bspwm &
+#if type "xrandr"; then
+#	for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+	for m in $(polybar --list-monitors | cut -d":" -f1); do
+		MONITOR=$m polybar --reload mainbar-bspwm  > /dev/null 2> ~/.config/polybar/mainbar-bspwm-$m.log &
 	done
-else
-	polybar --reload mainbar-bspwm &
-fi
+#else
+#	polybar --reload mainbar-bspwm &
+#fi
 
-echo "Bars launched..."
+#echo "Bars launched..."
