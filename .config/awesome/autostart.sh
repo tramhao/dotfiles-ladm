@@ -35,3 +35,7 @@ run "numlockx on"
 #run "dropbox"
 #run "insync start"
 #run "spotify"
+
+run "ibus-daemon -drx"
+run "nextcloud"
+
