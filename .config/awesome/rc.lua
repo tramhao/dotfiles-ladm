@@ -131,9 +131,10 @@ awful.util.terminal = terminal
 awful.util.tagnames = { "", "", "", "", "➎", "➏","➐" }
 awful.layout.suit.tile.left.mirror = true
 awful.layout.layouts = {
-    awful.layout.suit.tile,
-    awful.layout.suit.floating,
+    --awful.layout.suit.tile,
     awful.layout.suit.tile.left,
+    lain.layout.centerwork,
+    awful.layout.suit.floating,
     --awful.layout.suit.tile.bottom,
     --awful.layout.suit.tile.top,
     --awful.layout.suit.fair,
@@ -149,7 +150,6 @@ awful.layout.layouts = {
     --awful.layout.suit.corner.se,
     --lain.layout.cascade,
     --lain.layout.cascade.tile,
-    lain.layout.centerwork,
     --lain.layout.centerwork.horizontal,
     --lain.layout.termfair,
     --lain.layout.termfair.center,
@@ -303,18 +303,18 @@ globalkeys = my_table.join(
 
     -- {{{ Personal keybindings
     awful.key({ modkey }, "w", function () awful.util.spawn( browser1 ) end,
-        {description = browser1, group = "function keys"}),
+        {description = browser1, group = "1myhotkeys"}),
     -- dmenu
     awful.key({ modkey,     }, "d",
     function ()
-        awful.spawn(string.format("dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn NotoMonoRegular:bold:pixelsize=14",
+        awful.spawn(string.format("dmenu_run -i -nb '#292d3e' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'UbuntoMono Nerd Font:bold:pixelsize=16'",
         beautiful.bg_normal, beautiful.fg_normal, beautiful.bg_focus, beautiful.fg_focus))
 	end,
-    {description = "show dmenu", group = "hotkeys"}),
+    {description = "show dmenu", group = "1myhotkeys"}),
     -- F12 dropdown pad
     awful.key({}, "F12",function ()
         awful.util.spawn("tdrop -ma -w 42% -h 75% -x 57% -y 24% st") end,
-	{description = "Dropdown Pad", group = "function keys"}),
+	{description = "Dropdown Pad", group = "1myhotkeys"}),
 
     -- super + ... function keys
     awful.key({ modkey }, "F1", function () awful.util.spawn( browser1 ) end,
@@ -814,7 +814,7 @@ clientkeys = my_table.join(
 		c.maximized_horizontal = false
 		c:raise()
 	end ,
-	{description = "demaximize", group = "client"})
+	{description = "demaximize", group = "1myhotkeys"})
 )
 
 -- Bind all key numbers to tags.
@@ -959,8 +959,8 @@ awful.rules.rules = {
         --properties = { screen = 1, tag = awful.util.tagnames[3], switchtotag = true  } },
 
     -- Set applications to always map on the tag 4 on screen 1.
-    --{ rule = { class = "Gimp" },
-        --properties = { screen = 1, tag = awful.util.tagnames[4], switchtotag = true  } },
+    { rule = { class = "Gimp" },
+        properties = { screen = 1, tag = awful.util.tagnames[4], switchtotag = true  } },
 
     -- Set applications to always map on the tag 5 on screen 1.
     --{ rule = { class = "Meld" },
