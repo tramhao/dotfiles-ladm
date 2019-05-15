@@ -806,7 +806,15 @@ clientkeys = my_table.join(
             c.maximized = not c.maximized
             c:raise()
         end ,
-        {description = "maximize", group = "client"})
+        {description = "maximize", group = "client"}),
+    awful.key({ modkey, "Shift" }, "m",
+        function (c)
+		c.maximized = false
+		c.maximized_vertical = false
+		c.maximized_horizontal = false
+		c:raise()
+	end ,
+	{description = "demaximize", group = "client"})
 )
 
 -- Bind all key numbers to tags.
