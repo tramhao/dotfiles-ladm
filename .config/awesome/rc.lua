@@ -323,12 +323,24 @@ globalkeys = my_table.join(
         {description = editorgui , group = "function keys" }),
     awful.key({ modkey }, "F3", function () awful.util.spawn( "inkscape" ) end,
         {description = "inkscape" ,wgroup = "function keys" }),
-    awful.key({ modkey }, "F4", function () awful.util.spawn( "gimp" ) end,
-        {description = "gimp" , group = "function keys" }),
-    awful.key({ modkey }, "F5", function () awful.util.spawn( "meld" ) end,
-        {description = "meld" , group = "function keys" }),
-    awful.key({ modkey }, "F6", function () awful.util.spawn( "vlc --video-on-top" ) end,
-        {description = "vlc" , group = "function keys" }),
+    awful.key({ modkey }, "F4", 
+    function () 
+	awful.spawn.with_shell( "~/.config/polybar/scripts/pavolume.sh --togmute" )
+        beautiful.volume.update()
+    	end,
+        {description = "volume mute" , group = "1myhotkeys" }),
+    awful.key({ modkey }, "F5", 
+    function () 
+	awful.spawn.with_shell( "~/.config/polybar/scripts/pavolume.sh --up" ) 
+        beautiful.volume.update()
+	end,
+        {description = "volume up" , group = "1myhotkeys" }),
+    awful.key({ modkey }, "F6", 
+    function () 
+	awful.spawn.with_shell( "~/.config/polybar/scripts/pavolume.sh --down" ) 
+        beautiful.volume.update()
+	end,
+        {description = "volume down" , group = "1myhotkeys" }),
     awful.key({ modkey }, "F7", function () awful.util.spawn( "virtualbox" ) end,
         {description = virtualmachine , group = "function keys" }),
     awful.key({ modkey }, "F8", function () awful.util.spawn( filemanager ) end,
@@ -339,18 +351,20 @@ globalkeys = my_table.join(
         {description = mediaplayer , group = "function keys" }),
     awful.key({ modkey }, "F11", function () awful.util.spawn( "rofi -show run -fullscreen" ) end,
         {description = "rofi fullscreen" , group = "function keys" }),
-    awful.key({ modkey }, "F12", function () awful.util.spawn( "rofi -show run" ) end,
-        {description = "rofi" , group = "function keys" }),
+    awful.key({ modkey }, "r", function () awful.util.spawn( "rofi -show run -show-icons -columns 3" ) end,
+        {description = "rofi" , group = "1myhotkeys" }),
 
     -- super + ...
     awful.key({ modkey }, "e", function () awful.util.spawn( editorgui ) end,
         {description = "run gui editor", group = "super"}),
+    awful.key({ modkey }, "f", function () awful.util.spawn( "dolphin" ) end,
+        {description = "open file manager", group = "1myhotkeys"}),
     awful.key({ modkey }, "h", function () awful.util.spawn( "urxvt -T 'htop task manager' -e htop" ) end,
         {description = "htop", group = "super"}),
     awful.key({ modkey }, "m", function () awful.util.spawn( mediaplayer ) end,
         {description = "mediaplayer", group = "super"}),
-    awful.key({ modkey }, "r", function () awful.util.spawn( "rofi-theme-selector" ) end,
-        {description = "rofi theme selector", group = "super"}),
+    awful.key({ modkey,altkey }, "r", function () awful.util.spawn( "rofi-theme-selector" ) end,
+        {description = "rofi theme selector", group = "1myhotkeys"}),
     awful.key({ modkey }, "t", function () awful.util.spawn( terminal ) end,
         {description = "terminal", group = "super"}),
     awful.key({ modkey }, "v", function () awful.util.spawn( "pavucontrol" ) end,
@@ -364,6 +378,14 @@ globalkeys = my_table.join(
 
     -- super + shift + ...
     awful.key({ modkey, "Shift"   }, "Return", function() awful.util.spawn( filemanager ) end),
+    awful.key({ modkey, "Shift"   }, "Escape", 
+    function() 
+      awful.util.spawn( "prompt 'Are you going to logout?' 'awesome-client 'awesome.quit()''" ) 
+      end,
+    	{description ="quit with prompt", group = "1myhotkeys"}),
+    awful.key({ modkey, "Shift"   }, "grave", function() awful.util.spawn( "prompt 'Are you going to lock screen?' 'lockscreen'" ) end,
+    	{description ="lock screen with prompt", group = "1myhotkeys"}),
+
 
 
     -- ctrl + shift + ...
@@ -957,7 +979,9 @@ awful.rules.rules = {
     -- Set applications to always map on the tag 3 on screen 1.
     --{ rule = { class = "Inkscape" },
         --properties = { screen = 1, tag = awful.util.tagnames[3], switchtotag = true  } },
-
+    { rule = { class = "dolphin" },
+      properties = { screen = 1, tag = awful.util.tagnames[3], switchtotag = true  } },
+ 
     -- Set applications to always map on the tag 4 on screen 1.
     { rule = { class = "Gimp" },
         properties = { screen = 1, tag = awful.util.tagnames[4], switchtotag = true  } },
