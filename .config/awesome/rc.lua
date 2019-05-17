@@ -401,8 +401,8 @@ globalkeys = my_table.join(
         {description = "catfish", group = "alt+ctrl"}),
     awful.key({ modkey1, altkey   }, "e", function() awful.util.spawn( mailclient ) end,
         {description = mailclient, group = "alt+ctrl"}),
-    awful.key({ modkey1, altkey   }, "f", function() awful.util.spawn( browser2 ) end,
-        {description = browser2, group = "alt+ctrl"}),
+    awful.key({ modkey, "Shift"   }, "w", function() awful.util.spawn( browser2 ) end,
+        {description = browser2, group = "1myhotkeys"}),
     awful.key({ modkey1, altkey   }, "g", function() awful.util.spawn( browser3 ) end,
         {description = browser3, group = "alt+ctrl"}),
     awful.key({ modkey1, altkey   }, "i", function() awful.util.spawn("nitrogen") end,
@@ -981,7 +981,10 @@ awful.rules.rules = {
         --properties = { screen = 1, tag = awful.util.tagnames[3], switchtotag = true  } },
     { rule = { class = "dolphin" },
       properties = { screen = 1, tag = awful.util.tagnames[3], switchtotag = true  } },
+    { rule = { class = "Google-chrome" },
+      properties = { screen = 1, tag = awful.util.tagnames[3], switchtotag = true  } },
  
+
     -- Set applications to always map on the tag 4 on screen 1.
     { rule = { class = "Gimp" },
         properties = { screen = 1, tag = awful.util.tagnames[4], switchtotag = true  } },
