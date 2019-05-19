@@ -227,6 +227,7 @@ end)
 --]]
 -- Coretemp (lain, average)
 local temp = lain.widget.temp({
+    tempfile = "/sys/class/thermal/thermal_zone2/temp",
     settings = function()
         widget:set_markup(markup.font(theme.font, " " .. coretemp_now .. "°C "))
     end
