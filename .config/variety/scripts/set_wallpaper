@@ -240,10 +240,10 @@ gsettings set org.gnome.desktop.screensaver picture-uri "file://$WP" 2> /dev/nul
 # Be sure to start variety when you start awesome, such as by adding it to ~/.xinitrc
 # NOTE: This config will change the wallpaper after your current awesome theme sets it.
 # As such, the theme's wallpaper will briefly appear before being replaced with Variety's wallpaper.
-#if [[ "$DESKTOP_STARTUP_ID" == "awesome"* ]]; then
-#	echo "local gears = require(\"gears\") gears.wallpaper.maximized(\"$1\", s, true)" | awesome-client
-#echo "hello awesome"
-#fi
+if [[ "$DESKTOP_STARTUP_ID" == "awesome"* ]]; then
+	echo "local gears = require(\"gears\") gears.wallpaper.maximized(\"$1\", s, true)" | awesome-client
+#	echo "hello awesome"
+fi
 
 # =====================================================================================
 
@@ -252,5 +252,6 @@ gsettings set org.gnome.desktop.screensaver picture-uri "file://$WP" 2> /dev/nul
 name=$(echo "$3" | sed 's/\//\n/g'| tail -n 1)
 if [ "$2" == "auto" ]; then notify-send --icon "$WP" "Wallpaper changed" "$name" ; fi
 
-echo "local gears = require(\"gears\") gears.wallpaper.maximized(\"$1\", s, true)" | awesome-client
+echo "local gears = require(\"gears\") gears.wallpaper.maximized(\"$1\", s, true)" | awesome-client 
+#&& echo "hello my scripts works"
 
