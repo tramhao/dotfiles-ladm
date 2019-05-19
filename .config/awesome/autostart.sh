@@ -40,6 +40,7 @@ run "eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)"
 run "compton -b"
 run "ibus-daemon -drx"
 #run "nextcloud"
+#if [ $(hostname) = "tramhao-pc" ]; then
 if [ $(hostname) = "XMLaptop" ]; then
 	run "nextcloud"
 fi
