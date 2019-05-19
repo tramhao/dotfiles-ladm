@@ -39,5 +39,9 @@ run "eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)"
 
 run "compton -b"
 run "ibus-daemon -drx"
-run "nextcloud"
+#run "nextcloud"
+if [ $(hostname) = "XMLaptop" ]; then
+	run "nextcloud"
+fi
+
 
