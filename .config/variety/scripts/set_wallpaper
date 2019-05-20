@@ -241,11 +241,11 @@ gsettings set org.gnome.desktop.screensaver picture-uri "file://$WP" 2> /dev/nul
 # NOTE: This config will change the wallpaper after your current awesome theme sets it.
 # As such, the theme's wallpaper will briefly appear before being replaced with Variety's wallpaper.
 #if [[ "$DESKTOP_STARTUP_ID" == "awesome"* ]]; then
-if [ "$DESKTOP_SESSION" == "awesome" ]; then
+#if [ "$DESKTOP_SESSION" == *"awesome"* ]; then
 	echo "local gears = require(\"gears\") gears.wallpaper.maximized(\"$1\", s, true)" | awesome-client
 #	echo "hello awesome"
-fi
-
+#fi
+#echo "hello awesome"
 # =====================================================================================
 
 # OPTIONAL: Show a notification on automatic wallpaper change.
