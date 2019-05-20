@@ -250,8 +250,8 @@ gsettings set org.gnome.desktop.screensaver picture-uri "file://$WP" 2> /dev/nul
 
 # OPTIONAL: Show a notification on automatic wallpaper change.
 # Display the original filename in the notification, but actually apply the post-effects image.
-name=$(echo "$3" | sed 's/\//\n/g'| tail -n 1)
-if [ "$2" == "auto" ]; then notify-send --icon "$WP" "Wallpaper changed" "$name" ; fi
+#name=$(echo "$3" | sed 's/\//\n/g'| tail -n 1)
+#if [ "$2" == "auto" ]; then notify-send --icon "$WP" "Wallpaper changed" "$name" ; fi
 
 #echo "local gears = require(\"gears\") gears.wallpaper.maximized(\"$1\", s, true)" | awesome-client 
 #&& echo "hello my scripts works"
