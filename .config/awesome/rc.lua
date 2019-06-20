@@ -321,8 +321,8 @@ globalkeys = my_table.join(
         {description = browser1, group = "function keys"}),
     awful.key({ modkey }, "F2", function () awful.util.spawn( editorgui ) end,
         {description = editorgui , group = "function keys" }),
-    awful.key({ modkey }, "F3", function () awful.util.spawn( "inkscape" ) end,
-        {description = "inkscape" ,wgroup = "function keys" }),
+    awful.key({ modkey }, "F3", function () awful.util.spawn( "pavucontrol" ) end,
+        {description = "Volume Control" ,group = "1myhotkeys" }),
     awful.key({ modkey }, "F4", 
     function () 
 	awful.spawn.with_shell( "~/.config/polybar/scripts/pavolume.sh --togmute" )
