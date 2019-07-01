@@ -989,6 +989,8 @@ awful.rules.rules = {
     { rule = { class = "Gimp" },
         properties = { screen = 1, tag = awful.util.tagnames[4], switchtotag = true  } },
 
+    { rule = { class = "Blender" },
+        properties = { screen = 1, tag = awful.util.tagnames[4], switchtotag = true } },
     -- Set applications to always map on the tag 5 on screen 1.
     --{ rule = { class = "Meld" },
         --properties = { screen = 1, tag = awful.util.tagnames[5] , switchtotag = true  } },
@@ -1004,6 +1006,8 @@ awful.rules.rules = {
           properties = { maximized = false, floating = false } },
       
     { rule = { class = "Gimp*", role = "gimp-image-window" },
+          properties = { maximized = true } },
+    { rule = { class = "Blender*", role = "gimp-image-window"},
           properties = { maximized = true } },
 
     { rule = { class = "Gnome-disks" },
