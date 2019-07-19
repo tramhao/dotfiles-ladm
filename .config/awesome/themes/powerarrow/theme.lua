@@ -343,7 +343,7 @@ end
 function theme.at_screen_connect(s)
     -- Quake application
    -- s.quake = lain.util.quake({ app = awful.util.terminal })
-   s.quake = lain.util.quake({ app = "termite", height = 0.50, argname = "--name %s" })
+   s.quake = lain.util.quake({ app = "termite", followtag = true, height = 0.50, argname = "--name %s" })
 
 
 
