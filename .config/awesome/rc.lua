@@ -958,7 +958,7 @@ awful.rules.rules = {
       --properties = { screen = 1, tag = awful.util.tagnames[1],switchtotag = true  } },
 
     -- Set applications to always map on the tag 2 on screen 1.
-    { rule = { class = "Firefox" },
+    { rule = { class = "firefox" },
       properties = { screen = 1, tag = awful.util.tagnames[2], switchtotag = true  } },
     --{ rule = { class = "Subl3" },
         --properties = { screen = 1, tag = awful.util.tagnames[2],switchtotag = true  } },
