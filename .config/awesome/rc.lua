@@ -109,7 +109,7 @@ local modkey1      = "Control"
 
 -- personal variables
 --change these variables if you want
-local browser1          = "firefox"
+local browser1          = "chromium"
 local browser2          = "google-chrome-stable"
 local browser3          = "chromium -no-default-browser-check"
 local editor            = os.getenv("EDITOR") or "nano"
@@ -959,7 +959,7 @@ awful.rules.rules = {
       --properties = { screen = 1, tag = awful.util.tagnames[1],switchtotag = true  } },
 
     -- Set applications to always map on the tag 2 on screen 1.
-    { rule = { class = "firefox" },
+    { rule = { class = "Chromium" },
       properties = { screen = 1, tag = awful.util.tagnames[2], switchtotag = true  } },
     --{ rule = { class = "Subl3" },
         --properties = { screen = 1, tag = awful.util.tagnames[2],switchtotag = true  } },
