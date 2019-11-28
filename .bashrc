@@ -72,13 +72,17 @@ export LESS_TERMCAP_ZW=$(tput rsupm)
 export GROFF_NO_SGR=1         # For Konsole and Gnome-terminal
 export LC_ALL=en_US.UTF-8
 
-function _update_ps1() {
-	    PS1=$(powerline-shell $?)
-    }
+#function _update_ps1() {
+#	    PS1=$(powerline-shell $?)
+#    }
 
-if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
-	    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
-fi
+#if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
+#	    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+#:Ifi
 
+powerline-daemon -q
+POWERLINE_BASH_CONTINUATION=1
+POWERLINE_BASH_SELECT=1
+. /usr/share/powerline/bindings/bash/powerline.sh
 
 neofetch
