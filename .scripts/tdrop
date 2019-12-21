@@ -381,7 +381,7 @@ set_class() {
 		elif [[ $program =~ ^google-chrome ]]; then
 			class=google-chrome
 		elif [[ $program == st ]]; then
-			class=st#-256color
+			class=St
 		elif [[ $program == gnome-terminal ]]; then
 			class=Gnome-terminal
 		elif [[ $program =~ ^urxvt.* ]]; then

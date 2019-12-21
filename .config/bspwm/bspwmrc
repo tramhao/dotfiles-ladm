@@ -24,6 +24,7 @@ bspc desktop -f 1
 # arrange. I have this sensible default for most people's use cases.
 
 
+source $HOME/.config/bspwm/autostart.sh
 #This creates negative padding equal to window gap so that gaps are shown only between windows and not on desktop edges.
 bspc config window_gap $gap
 bspc config top_padding $(($PANEL_HEIGHT-$gap))
@@ -119,7 +120,8 @@ bspc rule -a tint2 border=off manage=off
 #bspc desktop II --layout monocle
 bspc rule -a Gimp desktop=IV state=floating follow=on
 bspc rule -a Darktable desktop=V follow=on
-bspc rule -a oblogout state=floating center=true private=on
+bspc rule -a Oblogout state=floating center=true private=on
+bspc rule -a scratchpad state=floating 
 
 ##  Autogap adjusts windowgap automatically according to the number of
 ##  windows on the desktop. Using it disables negative window gap.
@@ -140,18 +142,18 @@ bspc rule -a oblogout state=floating center=true private=on
 
 ##Autostart apps
 #Keybindings daemon
-killall sxhkd
-sxhkd &
-killall compton
-compton -b &
-killall ibus-daemon
-ibus-daemon -drx &
-killall polkit-gnome-authentication-agent-1
-killall gnome-keyring-daemon
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
-killall feh
-feh --bg-fill ~/.scripts/pix/wall2.jpg &
+#killall sxhkd
+#sxhkd &
+#killall compton
+#compton -b &
+#killall ibus-daemon
+#ibus-daemon -drx &
+#killall polkit-gnome-authentication-agent-1
+#killall gnome-keyring-daemon
+#/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+#eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
+#killall feh
+#feh --bg-fill ~/.scripts/pix/wall2.jpg &
 #nextcloud &
 #sleep 1
 #Source autostartfile. Uncomment this if you use bspwm-git
@@ -175,11 +177,10 @@ fi
 
 #bspc config external_rules_command "$(which floaters)"
 
-killall nm-applet
-nm-applet &
+#killall nm-applet
+#nm-applet &
 #killall variety
 #variiety &
 
 #st -c scratchterm &
 #bspc rule -a scratchterm sticky=on state=floating hidden=on
-
