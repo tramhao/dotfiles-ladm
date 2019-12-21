@@ -20,6 +20,7 @@ super + w
 	$BROWSER
 
 
+
 # Show keybindings
 super + F1
 	$TERMINAL -e keybindings.sh
@@ -37,14 +38,18 @@ super + F6
 	~/.config/polybar/scripts/pavolume.sh --down
 
 F12
-	tdrop -ma -w 42% -h 75% -x 57% -y 24% st
+#	scratch
+#	tdrop -ma -w 42% -h 75% -x 57% -y 24% st
 #	tdrop -ma -w 42% -h 75% -x 57% -y 24% -s scratchpad st
 #	tdrop -ma -w -4 -y 20 -s scratchpad st
 #	id=$(cat /tmp/scratchid);\
 #	bspc node $id --flag hidden; bspc node -f $id
-#	xdotool search --onlyvisible --classname scratchpad windowunmap \
-#            || xdotool search --classname scratchpad windowmap \
-#            || st -c scratchpad -g 93x31+960+250
+	xdotool search --onlyvisible --classname scratchpad windowunmap \
+            || xdotool search --classname scratchpad windowmap \
+            || st -c scratchpad -g 93x31+960+250
+
+super + x
+	oblogout
 
 
 #

@@ -4,9 +4,11 @@
 # Adds `~/.scripts` and all subdirectories to $PATH
 export PATH="$(du "$HOME/.scripts/" | cut -f2 | tr '\n' ':')$PATH"
 export PATH="/home/tramhao/.gem/ruby/2.5.0/bin:$PATH"
+export PATH="$HOME/.config/bspwm:$PATH"
+
 export EDITOR="vim"
 export TERMINAL="st"
-export BROWSER="firefox"
+export BROWSER="chromium"
 export READER="zathura"
 export BIB="$HOME/Documents/LaTeX/uni.bib"
 export REFER="$HOME/.referbib"

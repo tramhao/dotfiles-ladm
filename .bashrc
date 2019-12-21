@@ -80,9 +80,11 @@ export LC_ALL=en_US.UTF-8
 #	    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 #:Ifi
 
-powerline-daemon -q
-POWERLINE_BASH_CONTINUATION=1
-POWERLINE_BASH_SELECT=1
-. /usr/share/powerline/bindings/bash/powerline.sh
+#powerline-daemon -q
+#POWERLINE_BASH_CONTINUATION=1
+#POWERLINE_BASH_SELECT=1
+#. /usr/share/powerline/bindings/bash/powerline.sh
 
-neofetch
+#neofetch
+PF_INFO="ascii title os host kernel uptime pkgs memory"
+pfetch

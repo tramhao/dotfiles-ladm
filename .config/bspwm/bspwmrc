@@ -4,6 +4,26 @@ PANEL_HEIGHT=25
 export gap
 export PANEL_HEIGHT
 
+# If refreshing bspwm, remove all previous rules to prevent doubling up.
+bspc rule -r "*"
+
+# We look for a non-laptop monitor to use for default, but use the laptop screen
+# (LVSD) if there is nothing else. This is because I assume that if you have an
+# extra screen attached to a laptop, you want to use that.
+mainmonitor="$(bspc query --monitors --names | grep -v LVDS | head -n 1)"
+
+if ! echo "$mainmonitor" | grep LVDS > /dev/null 2>&1; then
+	xrandr --output "$mainmonitor" --auto --output LVDS 1 --off
+fi
+
+# Start workspaces on the main monitor.
+bspc monitor $mainmonitor -d I II III IV V VI VII
+bspc desktop -f 1
+
+# If you want a multi-monitor display or something else, I leave that to you to 
+# arrange. I have this sensible default for most people's use cases.
+
+
 #This creates negative padding equal to window gap so that gaps are shown only between windows and not on desktop edges.
 bspc config window_gap $gap
 bspc config top_padding $(($PANEL_HEIGHT-$gap))
@@ -30,7 +50,7 @@ bspc config normal_border_color "#2D2D2D"
 #"#000000"
 bspc config presel_feedback_color "#1ABB9B"
 #"#8F3724"
-bspc config border_width 2
+bspc config border_width 3
 
 bspc config focus_follows_pointer true
 #bspc config pointer_follows_focus true #Some keybindings automatically enable and disable this setting
@@ -44,19 +64,19 @@ bspc config split_ratio         0.5
 #bspc monitor -d • • • • • • • • • •
 #bspc monitor -d I II III IV V VI
 
-if [ $(hostname) = "tramhao-pc" ]; then
-	bspc monitor eDP1 -d I II III IV V VI VII
-elif [ $(hostname) = "XMLaptop" ]; then
-	xrandr --output DP1 --primary --mode 1920x1200 \
-		--pos 0x0 --rotate normal --output eDP1 --off --output HDMI2 --auto 
-	bspc monitor DP1 -d I II III IV V VI VII
-	bspc monitor eDP1 -d I II III IV V VI VII
-	bspc monitor HDMI2 -d I II III IV V VI VII
-fi
+#if [ $(hostname) = "tramhao-pc" ]; then
+#	bspc monitor eDP1 -d I II III IV V VI VII
+#elif [ $(hostname) = "XMLaptop" ]; then
+#	xrandr --output DP1 --primary --mode 1920x1200 \
+#		--pos 0x0 --rotate normal --output eDP1 --off --output HDMI2 --auto 
+#	bspc monitor DP1 -d I II III IV V VI VII
+#	bspc monitor eDP1 -d I II III IV V VI VII
+#	bspc monitor HDMI2 -d I II III IV V VI VII
+#fi
 
 
 ###This creates and names desktops for multiple monitors.
-workspaces_multimonitor &
+#workspaces_multimonitor &
 
 bspc rule -a screenkey --unmanage
 bspc rule -a gcolor2 state=floating center=true
@@ -82,7 +102,7 @@ bspc rule -a dockbarx layer=above
 bspc rule -a google-chrome-unstable private=on
 bspc rule -a google-chrome-stable private=on
 bspc rule -a chromium private=on
-bspc rule -a Firefox desktop=II follow=on
+bspc rule -a Chromium desktop=II follow=on
 bspc rule -a midori private=on
 bspc rule -a gnome-pie border=off manage=off
 bspc rule -a wpa_gui state=pseudo_tiled
@@ -99,13 +119,14 @@ bspc rule -a tint2 border=off manage=off
 #bspc desktop II --layout monocle
 bspc rule -a Gimp desktop=IV state=floating follow=on
 bspc rule -a Darktable desktop=V follow=on
+bspc rule -a oblogout state=floating center=true private=on
 
 ##  Autogap adjusts windowgap automatically according to the number of
 ##  windows on the desktop. Using it disables negative window gap.
 #autogap &
 
 ##  This script balances all windows when new one is spawned
-euclid_balancer &
+#euclid_balancer &
 
 ##Edge-switcher switches to next workspace when moves moves to the
 ##edge of the monitor (behavior similar to enlightenment)
@@ -131,7 +152,7 @@ killall gnome-keyring-daemon
 eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
 killall feh
 feh --bg-fill ~/.scripts/pix/wall2.jpg &
-nextcloud &
+#nextcloud &
 #sleep 1
 #Source autostartfile. Uncomment this if you use bspwm-git
 #. $HOME/.config/bspwm/autostart
@@ -146,5 +167,19 @@ else
 	        $HOME/.config/polybar/launch.sh &
 fi
 
+#dropdownname="dropdown"
+#bspc query -N -n .hidden >/dev/null || setsid $TERMINAL -n "$dropdownname" -e dropdown >/dev/null 2>&1 &
+#bspc rule -a St:$dropdownname hidden=on
+#bspc rule -a St:$dropdownname sticky=on
+#bspc rule -a St:$dropdownname state=floating
 
+#bspc config external_rules_command "$(which floaters)"
+
+killall nm-applet
+nm-applet &
+#killall variety
+#variiety &
+
+#st -c scratchterm &
+#bspc rule -a scratchterm sticky=on state=floating hidden=on
 
