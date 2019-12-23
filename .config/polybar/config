@@ -340,7 +340,7 @@ font-4 = "Font Awesome 5 Brands:pixelsize=8;1"
 
 modules-left = bspwm xwindow
 modules-center = date weather
-modules-right = arrow1 networkspeedup networkspeeddown arrow2 memory2 arrow3 cpu2 arrow4 pavolume arrow5 arch-aur-updates arrow6 temperature1 arrow7 battery arrow8
+modules-right = arrow1 networkspeedup networkspeeddown arrow2 memory2 arrow3 cpu2 arrow4 pavolume arrow5 arch-aur-updates arrow6 temperature3 arrow7 battery arrow8
 
 
 tray-detached = false
@@ -1453,6 +1453,43 @@ ramp-2 = 
 ramp-3 = 
 ramp-4 = 
 ramp-foreground =${colors.foreground}
+
+################################################################################
+[module/temperature3]
+;https://github.com/jaagr/polybar/wiki/Module:-temperature
+type = internal/temperature
+; Thermal zone to use
+; To list all the zone types, run
+; $ for i in /sys/class/thermal/thermal_zone*; do echo "$i: $(<$i/type)"; done
+; Default: 0
+thermal-zone = 0
+
+; Full path of temperature sysfs path
+; Use `sensors` to find preferred temperature source, then run
+; $ for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done
+; to find path to desired file
+; Default reverts to thermal zone setting
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input
+
+warn-temperature = 70
+format = <ramp> <label>
+format-foreground = ${colors.foreground}
+format-background = #4B5665
+;format-background = ${colors.background}
+format-underline = #c72581
+format-warn = <ramp> <label-warn>
+format-warn-underline = #c7254f
+label = %temperature%
+label-warn =  %temperature%
+label-warn-foreground = #c7254f
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+ramp-4 = 
+ramp-foreground =${colors.foreground}
+
 
 ################################################################################
 

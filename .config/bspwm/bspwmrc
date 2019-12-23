@@ -3,6 +3,7 @@ gap=15
 PANEL_HEIGHT=25
 export gap
 export PANEL_HEIGHT
+export DESKTOP_SESSION="bspwm"
 
 # If refreshing bspwm, remove all previous rules to prevent doubling up.
 bspc rule -r "*"
@@ -10,15 +11,15 @@ bspc rule -r "*"
 # We look for a non-laptop monitor to use for default, but use the laptop screen
 # (LVSD) if there is nothing else. This is because I assume that if you have an
 # extra screen attached to a laptop, you want to use that.
-mainmonitor="$(bspc query --monitors --names | grep -v LVDS | head -n 1)"
+mainmonitor="$(bspc query --monitors --names | grep -v eDP1 | head -n 1)"
 
-if ! echo "$mainmonitor" | grep LVDS > /dev/null 2>&1; then
-	xrandr --output "$mainmonitor" --auto --output LVDS 1 --off
+if ! echo "$mainmonitor" | grep eDP1 > /dev/null 2>&1; then
+	xrandr --output "$mainmonitor" --auto --output eDP1 --off
 fi
 
 # Start workspaces on the main monitor.
 bspc monitor $mainmonitor -d I II III IV V VI VII
-bspc desktop -f 1
+bspc desktop -f I
 
 # If you want a multi-monitor display or something else, I leave that to you to 
 # arrange. I have this sensible default for most people's use cases.
@@ -122,6 +123,7 @@ bspc rule -a tint2 border=off manage=off
 bspc rule -a Gimp desktop=IV state=floating follow=on
 bspc rule -a Darktable desktop=V follow=on
 bspc rule -a Oblogout state=floating center=true private=on
+bspc rule -a dolphin desktop=III follow=on
 #bspc rule -a scratchpad state=floating 
 
 ##  Autogap adjusts windowgap automatically according to the number of
