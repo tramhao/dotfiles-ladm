@@ -14,13 +14,16 @@
 	different workspaces.
 
 	###st keys#############################################
-		Copy is alt-c, paste is alt-v or alt-p pastes from primary selection
-		Alt-l feeds all urls on screen to dmenu, so they user can choose and follow one (requires xurls and dmenu installed).
-		Zoom in/out or increase font size with Alt+Shift+k/j or u/d for larger intervals.
-		Hold alt and press either ↑/↓ or the vim keys k/j to move up/down in the terminal.
-		Shift+Mouse wheel do the same.
-		Alt-u and Alt-d scroll back/forward in history a page at a time.
-		Alt-PageUp and Alt-PageDown will do the same.
+
+		Unique features (using dmenu)
+		follow urls by pressing alt-l
+		copy urls in the same way with alt-y
+		copy the output of commands with alt-o
+	Bindings for
+		scrollback with alt-↑/↓ or alt-pageup/down or shift while scrolling the mouse
+		OR vim-bindings: scroll up/down in history with alt-k and alt-j. Faster with alt-u/alt-d.
+		zoom/change font size: same bindings as above, but holding down shift as well. alt-home returns to default
+		copy text with alt-c, paste is alt-v or shift-insert
 
 	### Window manipulation ################################################################
 

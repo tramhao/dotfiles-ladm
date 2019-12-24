@@ -339,8 +339,8 @@ font-3 = "Font Awesome 5 Free:style=Solid:pixelsize=8;1"
 font-4 = "Font Awesome 5 Brands:pixelsize=8;1"
 
 modules-left = bspwm xwindow
-modules-center = date 
-modules-right = weather arrow1 networkspeedup networkspeeddown arrow2 memory2 arrow3 cpu2 arrow4 pavolume arrow5 arch-aur-updates arrow6 temperature3 arrow7 battery arrow8
+modules-center =  
+modules-right = arrow10 date arrow4 weather arrow5 networkspeedup networkspeeddown arrow2 memory2 arrow3 cpu2 arrow4 pavolume arrow5 arch-aur-updates arrow6 temperature3 arrow7 battery arrow8
 
 
 tray-detached = false
@@ -402,8 +402,8 @@ font-3 = "Font Awesome 5 Free:style=Solid:pixelsize=8;1"
 font-4 = "Font Awesome 5 Brands:pixelsize=8;1"
 
 modules-left = bspwm xwindow
-modules-center = date 
-modules-right = weather arrow1 networkspeedup2 networkspeeddown2 arrow2 memory2 arrow3 cpu2 arrow4 pavolume arrow5 arch-aur-updates arrow6 temperature1 arrow9
+modules-center =  
+modules-right = arrow10 date arrow4 weather arrow5 networkspeedup2 networkspeeddown2 arrow2 memory2 arrow3 cpu2 arrow4 pavolume arrow5 arch-aur-updates arrow6 temperature1 arrow9
 
 
 tray-detached = false
@@ -724,7 +724,7 @@ type = custom/text
 content = "%{T2} %{T-}"
 content-font = 2
 content-foreground = #4B5665
-content-background = #84598D
+content-background = #AD69AF
 
 [module/arrow3]
 ; grey to Blue
@@ -784,6 +784,13 @@ content-font = 2
 content-foreground = #1D2330
 content-background = #4B5665
 
+[module/arrow10]
+; grey to Blue
+type = custom/text
+content = "%{T2} %{T-}"
+content-font = 2
+content-foreground = #92969D
+content-background = #1D2330
 
 
 
@@ -1025,9 +1032,9 @@ date-alt = " %a %b %d, %Y"
 time = %l:%M%p
 time-alt = %l:%M%p
 format-prefix = " "
-format-prefix-foreground = ${colors.foreground}
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
+format-prefix-foreground = #1D2330
+format-foreground = #1D2330
+format-background = #92969D
 label = "%date% %time% "
 
 #################################################################
@@ -1284,8 +1291,8 @@ label-connected = "%upspeed:7%"
 format-connected = <label-connected>
 format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground}
-format-connected-foreground = ${colors.foreground}
-format-connected-background = #84598D
+format-connected-foreground = #ededed
+format-connected-background = #AD69AF
 
 ################################################################################
 
@@ -1300,8 +1307,8 @@ label-connected = "%downspeed:7%"
 format-connected = <label-connected>
 format-connected-prefix = "  "
 format-connected-prefix-foreground = ${colors.foreground}
-format-connected-foreground = ${colors.foreground}
-format-connected-background = #84598D
+format-connected-foreground = #ededed 
+format-connected-background = #AD69AF
 
 [module/networkspeedup2]
 ;https://github.com/jaagr/polybar/wiki/Module:-network
@@ -1314,8 +1321,8 @@ label-connected = "%upspeed:7%"
 format-connected = <label-connected>
 format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground}
-format-connected-foreground = ${colors.foreground}
-format-connected-background = #84598D
+format-connected-foreground = #ededed 
+format-connected-background = #d7d7d7
 
 ################################################################################
 
@@ -1330,7 +1337,7 @@ label-connected = "%downspeed:7%"
 format-connected = <label-connected>
 format-connected-prefix = "  "
 format-connected-prefix-foreground = ${colors.foreground}
-format-connected-foreground = ${colors.foreground}
+format-connected-foreground = #ededed 
 format-connected-background = #84598D
 
 
@@ -1562,8 +1569,8 @@ format = <label>
 format-prefix = " "
 format-prefix-foreground = #3EC13F
 format-underline = #3EC13F
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
+format-foreground = #d7d7d7
+format-background = #645377
 exec = python -u ~/.config/polybar/scripts/weather.py
 tail = true
 
