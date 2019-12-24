@@ -49,3 +49,4 @@ fi
 
 run "nm-applet"
 run "variety"
+run "powerline-daemon -q"
