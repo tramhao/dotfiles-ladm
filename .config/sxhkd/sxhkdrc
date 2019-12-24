@@ -50,7 +50,6 @@ F12
 
 super + x
 	oblogout -c $HOME/.config/bspwm/oblogout.conf
-	bspc rule -a oblogout state=floating
 super + f
 	dolphin
 
