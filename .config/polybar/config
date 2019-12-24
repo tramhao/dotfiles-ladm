@@ -1322,7 +1322,7 @@ format-connected = <label-connected>
 format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground}
 format-connected-foreground = #ededed 
-format-connected-background = #d7d7d7
+format-connected-background = #AD69AF
 
 ################################################################################
 
@@ -1338,8 +1338,7 @@ format-connected = <label-connected>
 format-connected-prefix = "  "
 format-connected-prefix-foreground = ${colors.foreground}
 format-connected-foreground = #ededed 
-format-connected-background = #84598D
-
+format-connected-background = #AD69AF
 
 ################################################################################
 
