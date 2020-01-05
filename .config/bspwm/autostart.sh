@@ -12,7 +12,7 @@ function run {
 #		--pos 0x0 --rotate normal --output eDP1 --off --output HDMI2 --auto
 #fi
 
-#run "autorandr --change"
+run "autorandr --change"
 
 run "sxhkd"
 
