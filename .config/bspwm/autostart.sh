@@ -48,5 +48,5 @@ fi
 
 
 run "nm-applet"
-run "variety"
+sleep 2 && run "variety"
 run "powerline-daemon -q"
