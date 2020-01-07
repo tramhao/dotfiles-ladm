@@ -3,7 +3,7 @@
 "  \ V /| | | | | | | | | (__
 "   \_/ |_|_| |_| |_|_|  \___|
 
-inoremap jk <ESC>
+inoremap ii <ESC>
 let mapleader =" "
 
 call plug#begin('~/.vim/plugged')
