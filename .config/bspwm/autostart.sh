@@ -50,3 +50,5 @@ fi
 run "nm-applet"
 sleep 2 && run "variety"
 run "powerline-daemon -q"
+
+xset r rate 200 60
