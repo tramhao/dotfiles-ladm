@@ -34,7 +34,7 @@ alias ref="shortcuts && source ~/.bashrc" # Refresh shortcuts manually and reloa
 alias bw="wal -i ~/.config/wall.png" # Rerun pywal
 alias duh="du -cBM --max-depth=1 2> /dev/null | sort -nr"
 alias sudo="sudo "
-
+#alias j="autojump"
 
 # Adding color
 alias ls='ls -hN --color=auto --group-directories-first'
@@ -84,6 +84,10 @@ export LC_ALL=en_US.UTF-8
 POWERLINE_BASH_CONTINUATION=1
 POWERLINE_BASH_SELECT=1
 . /usr/share/powerline/bindings/bash/powerline.sh
+
+
+#autojump
+. /usr/share/autojump/autojump.bash
 
 #neofetch
 PF_INFO="ascii title os host kernel uptime pkgs memory"
