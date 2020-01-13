@@ -25,6 +25,7 @@ alias psref="gpg-connect-agent RELOADAGENT /bye" # Refresh gpg
 alias e="$EDITOR"
 alias sv="systemctl"
 alias v="vim"
+alias n="nvim"
 alias r="ranger"
 alias ka="killall"
 alias g="git"
