@@ -109,8 +109,10 @@ bspc rule -a wbar layer=above
 bspc rule -a dockbarx layer=above
 bspc rule -a google-chrome-unstable private=on
 bspc rule -a google-chrome-stable private=on
-bspc rule -a chromium private=on
-bspc rule -a Chromium desktop=II follow=on
+#bspc rule -a chromium private=on
+#bspc rule -a Chromium desktop=II follow=on
+bspc rule -a Brave-browser private=on
+bspc rule -a Brave-browser desktop=II follow=on
 bspc rule -a midori private=on
 bspc rule -a gnome-pie border=off manage=off
 bspc rule -a wpa_gui state=pseudo_tiled

@@ -50,5 +50,5 @@ fi
 run "nm-applet"
 sleep 2 && run "variety"
 run "powerline-daemon -q"
-
-xset r rate 400 60
+run "$HOME/sources/verysync-linux-amd64-v1.3.1/verysync"
+xset r rate 400 30
