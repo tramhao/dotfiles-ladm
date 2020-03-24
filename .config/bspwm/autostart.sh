@@ -12,7 +12,9 @@ function run {
 #		--pos 0x0 --rotate normal --output eDP1 --off --output HDMI2 --auto
 #fi
 
-run "autorandr --change"
+#xrandr --output eDP1 --primary --mode 1920x1080 --pos 0x0 --rotate normal
+
+#run "autorandr --change"
 
 run "sxhkd"
 
@@ -43,7 +45,7 @@ run "ibus-daemon -drx"
 #run "nextcloud"
 #if [ $(hostname) = "tramhao-pc" ]; then
 if [ $(hostname) = "XMLaptop" ]; then
-	run "nextcloud"
+	run "nextcloud --background"
 fi
 
 
