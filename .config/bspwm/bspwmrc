@@ -11,17 +11,27 @@ bspc rule -r "*"
 # We look for a non-laptop monitor to use for default, but use the laptop screen
 # (LVSD) if there is nothing else. This is because I assume that if you have an
 # extra screen attached to a laptop, you want to use that.
-mainmonitor="$(bspc query --monitors --names | grep -v eDP1 | head -n 1)"
 
-if ! echo "$mainmonitor" | grep eDP1 > /dev/null 2>&1; then
-	xrandr --output "$mainmonitor" --auto --output eDP1 --off
+#mainmonitor="$(bspc query --monitors --names | grep -v eDP1 | head -n 1)"
+
+mainmonitor="$(bspc query --monitors --names | grep -v eDP1 | head -n 1)"
+#mainmonitor="eDP1"
+if [ -z $mainmonitor ]; then
+	mainmonitor="eDP1"
 fi
+
+#if ! echo "$mainmonitor" | grep eDP1 > /dev/null 2>&1; then
+#	xrandr --output "$mainmonitor" --auto --output eDP1 --off
+#else
+#	xrandr --output eDP1 --auto
+#fi
+autorandr --change
 
 # Start workspaces on the main monitor.
 bspc monitor $mainmonitor -d I II III IV V VI VII
 bspc desktop -f I
 
-# If you want a multi-monitor display or something else, I leave that to you to 
+# If you want a multi-monitor display or something else, I leave that to you to
 # arrange. I have this sensible default for most people's use cases.
 
 
@@ -40,8 +50,8 @@ bspc config paddingless_monocle false
 #bspc config ignore_ewmh_focus      true
 bspc config initial_polarity second_child
 bspc config automatic_scheme longest_side
-bspc config remove_disabled_monitors true 
-bspc config remove_unplugged_monitors true 
+bspc config remove_disabled_monitors true
+bspc config remove_unplugged_monitors true
 ## Honor size hints: do not make windows smaller than they wish to be
 #bspc config honor_size_hints true
 
@@ -74,7 +84,7 @@ bspc config split_ratio         0.5
 #	bspc monitor eDP1 -d I II III IV V VI VII
 #elif [ $(hostname) = "XMLaptop" ]; then
 #	xrandr --output DP1 --primary --mode 1920x1200 \
-#		--pos 0x0 --rotate normal --output eDP1 --off --output HDMI2 --auto 
+#		--pos 0x0 --rotate normal --output eDP1 --off --output HDMI2 --auto
 #	bspc monitor DP1 -d I II III IV V VI VII
 #	bspc monitor eDP1 -d I II III IV V VI VII
 #	bspc monitor HDMI2 -d I II III IV V VI VII
@@ -131,7 +141,7 @@ bspc rule -a Gimp desktop=IV state=floating follow=on
 bspc rule -a Darktable desktop=V follow=on
 bspc rule -a Oblogout state=floating center=true private=on
 bspc rule -a dolphin desktop=III follow=on
-#bspc rule -a scratchpad state=floating 
+#bspc rule -a scratchpad state=floating
 
 ##  Autogap adjusts windowgap automatically according to the number of
 ##  windows on the desktop. Using it disables negative window gap.
