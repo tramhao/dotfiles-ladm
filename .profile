@@ -44,3 +44,4 @@ export XMODIFIERS="@im=ibus"
 #ibus-daemon -drx
 
 export $(dbus-launch)
+DOWNGRADE_FROM_ALA=1

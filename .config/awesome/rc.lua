@@ -109,7 +109,7 @@ local modkey1      = "Control"
 
 -- personal variables
 --change these variables if you want
-local browser1          = "chromium"
+local browser1          = "brave"
 local browser2          = "google-chrome-stable"
 local browser3          = "chromium -no-default-browser-check"
 local editor            = os.getenv("EDITOR") or "nano"

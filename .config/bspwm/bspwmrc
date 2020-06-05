@@ -182,6 +182,7 @@ bspc rule -a dolphin desktop=III follow=on
 
 source $HOME/.config/bspwm/autostart.sh
 
+sleep 2
 
 #killall polybar
 if [ $(hostname) = "tramhao-pc" ]; then
