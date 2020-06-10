@@ -3,3 +3,5 @@
 	name = tramhao
 [credential]
 	helper = store
+[pull]
+	rebase = false
