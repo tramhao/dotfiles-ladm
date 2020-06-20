@@ -25,7 +25,7 @@ fi
 #else
 #	xrandr --output eDP1 --auto
 #fi
-autorandr --change
+#autorandr --change
 
 # Start workspaces on the main monitor.
 bspc monitor $mainmonitor -d I II III IV V VI VII
@@ -207,4 +207,9 @@ fi
 #variiety &
 
 #st -c scratchterm &
+
 #bspc rule -a scratchterm sticky=on state=floating hidden=on
+
+#bspwm swallow
+bspc subscribe node_add node_remove \
+	        | grep -o --line-buffered '0x[0-9A-F]\+$' | xargs -n1 pidswallow &
