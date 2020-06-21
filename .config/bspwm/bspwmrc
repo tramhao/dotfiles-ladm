@@ -25,7 +25,7 @@ fi
 #else
 #	xrandr --output eDP1 --auto
 #fi
-#autorandr --change
+autorandr --change
 
 # Start workspaces on the main monitor.
 bspc monitor $mainmonitor -d I II III IV V VI VII
