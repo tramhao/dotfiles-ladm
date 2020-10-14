@@ -37,9 +37,14 @@ export SUDO_ASKPASS="$HOME/.scripts/tools/dmenupass"
 # Switch escape and caps and use wal colors if tty:
 sudo -n loadkeys ~/.scripts/ttymaps.kmap 2>/dev/null
 
-export GTK_IM_MODULE=ibus
-export QT_IM_MODULE=ibus
-export XMODIFIERS="@im=ibus"
+#export GTK_IM_MODULE=ibus
+#export QT_IM_MODULE=ibus
+#export XMODIFIERS="@im=ibus"
+
+export INPUT_METHOD DEFAULT=fcitx5
+export GTK_IM_MODULE=fcitx5
+export QT_IM_MODULE=fcitx5
+export XMODIFIERS="@im=fcitx5"
 
 #ibus-daemon -drx
 
