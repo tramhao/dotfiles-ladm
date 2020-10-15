@@ -41,6 +41,7 @@ sudo -n loadkeys ~/.scripts/ttymaps.kmap 2>/dev/null
 #export QT_IM_MODULE=ibus
 #export XMODIFIERS="@im=ibus"
 
+export INPUT_METHOD DEFAULT=fcitx5
 export GTK_IM_MODULE=fcitx5
 export QT_IM_MODULE=fcitx5
 export XMODIFIERS="@im=fcitx5"
