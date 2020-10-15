@@ -39,7 +39,8 @@ run "eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)"
 
 #run "compton -b"
 export $DESKTOP_STARTUP_ID = "awesome2312"
-run "ibus-daemon -drx"
+#run "ibus-daemon -drx"
+run "fcitx5"
 #run "nextcloud"
 #if [ $(hostname) = "tramhao-pc" ]; then
 if [ $(hostname) = "XMLaptop" ]; then
