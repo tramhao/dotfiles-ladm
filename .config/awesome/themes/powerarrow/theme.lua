@@ -161,11 +161,12 @@ theme.mail = lain.widget.imap({
 --]]
 
 -- ALSA volume
+--[[
 theme.volume = lain.widget.alsabar({
     --togglechannel = "IEC958,3",
     notification_preset = { font = theme.font, fg = theme.fg_normal },
 })
-
+--]]
 -- MPD
 --local musicplr = "urxvt -title Music -g 130x34-320+16 -e ncmpcpp"
 --local mpdicon = wibox.widget.imagebox(theme.widget_music)
@@ -291,8 +292,53 @@ local bat = lain.widget.bat({
     end
 })
 
--- ALSA volume
+--PULSE AUDIO volume
 local volicon = wibox.widget.imagebox(theme.widget_vol)
+theme.volume = lain.widget.pulse({
+    settings = function()
+       if volume_now.status == "off" then
+            volicon:set_image(theme.widget_vol_mute)
+        elseif tonumber(volume_now.left) == 0 then
+            volicon:set_image(theme.widget_vol_no)
+        elseif tonumber(volume_now.left) <= 50 then
+            volicon:set_image(theme.widget_vol_low)
+        else
+            volicon:set_image(theme.widget_vol)
+        end
+
+--        widget:set_markup(markup.font(theme.font, " " .. volume_now.left .. "% "))
+        vlevel = volume_now.left .."% "
+        if volume_now.muted == "yes" then
+            vlevel = vlevel .. " M"
+        end
+        widget:set_markup(markup.font(theme.font, vlevel))
+
+    end
+})
+theme.volume.widget:buttons(awful.util.table.join(
+    awful.button({}, 1, function() -- left click
+        awful.spawn("pavucontrol")
+    end),
+    awful.button({}, 2, function() -- middle click
+        os.execute(string.format("pactl set-sink-volume %s 100%%", theme.volume.device))
+        theme.volume.update()
+    end),
+    awful.button({}, 3, function() -- right click
+        os.execute(string.format("pactl set-sink-mute %s toggle", theme.volume.device))
+        theme.volume.update()
+    end),
+    awful.button({}, 4, function() -- scroll up
+        os.execute(string.format("pactl set-sink-volume %s +1%%", theme.volume.device))
+        theme.volume.update()
+    end),
+    awful.button({}, 5, function() -- scroll down
+        os.execute(string.format("pactl set-sink-volume %s -1%%", theme.volume.device))
+        theme.volume.update()
+    end)
+))
+
+-- ALSA volume
+--[[local volicon = wibox.widget.imagebox(theme.widget_vol)
 theme.volume = lain.widget.alsa({
     settings = function()
         if volume_now.status == "off" then
@@ -308,6 +354,8 @@ theme.volume = lain.widget.alsa({
         widget:set_markup(markup.font(theme.font, " " .. volume_now.level .. "% "))
     end
 })
+
+
 theme.volume.widget:buttons(awful.util.table.join(
     awful.button({}, 1, function() -- left click
         awful.spawn(string.format("%s -e alsamixer", terminal))
@@ -329,6 +377,7 @@ theme.volume.widget:buttons(awful.util.table.join(
         theme.volume.update()
     end)
 ))
+]]--
 
 -- Net
 local neticon = wibox.widget.imagebox(theme.widget_net)
@@ -433,8 +482,7 @@ function theme.at_screen_connect(s)
 --            wibox.container.background(wibox.container.margin(wibox.widget { mpdicon, theme.mpd.widget, layout = wibox.layout.align.horizontal }, dpi(3), dpi(6)), "#889FA7"),
 --            arrow("#889FA7", "#497B96"),
             arrow("alpha", "#497B96"),
---	    wibox.container.background(wibox.container.margin(volume_widget({}),dpi(2),dpi(3)), "#497B96"),
-	    wibox.container.background(wibox.container.margin(wibox.widget { volicon, theme.volume.widget, layout = wibox.layout.align.horizontal }, dpi(2), dpi(3)), "#497B96"),
+      	    wibox.container.background(wibox.container.margin(wibox.widget { volicon, theme.volume.widget, layout = wibox.layout.align.horizontal }, dpi(2), dpi(3)), "#497B96"),
             arrow("#497B96", "#777E76"),
             wibox.container.background(wibox.container.margin(wibox.widget { memicon, mem.widget, layout = wibox.layout.align.horizontal }, dpi(2), dpi(3)), "#777E76"),
             arrow("#777E76", "#4B696D"),
