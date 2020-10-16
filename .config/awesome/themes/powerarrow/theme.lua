@@ -297,10 +297,10 @@ theme.volume = lain.widget.pulse({
     settings = function()
        if volume_now.status == "off" then
             volicon:set_image(theme.widget_vol_mute)
-        elseif tonumber(volume_now.left) == 0 then
-            volicon:set_image(theme.widget_vol_no)
-        elseif tonumber(volume_now.left) <= 50 then
-            volicon:set_image(theme.widget_vol_low)
+--        elseif tonumber(volume_now.left) == 0 then
+--            volicon:set_image(theme.widget_vol_no)
+--        elseif tonumber(volume_now.left) <= 50 then
+--            volicon:set_image(theme.widget_vol_low)
         else
             volicon:set_image(theme.widget_vol)
         end

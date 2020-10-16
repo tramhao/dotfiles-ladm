@@ -986,7 +986,7 @@ awful.rules.rules = {
         --properties = { screen = 1, tag = awful.util.tagnames[3], switchtotag = true  } },
     { rule = { class = "dolphin" },
       properties = { screen = 1, tag = awful.util.tagnames[3], switchtotag = true  } },
-    { rule = { class = "Brave" },
+    { rule = { class = "Brave-browser" },
       properties = { screen = 1, tag = awful.util.tagnames[2], switchtotag = true  } },
 
 

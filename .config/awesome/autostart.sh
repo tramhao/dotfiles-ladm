@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function run {
-  if ! pgrep $1 ;
+  if ! pgrep -f $1 ;
   then
     $@&
   fi
@@ -12,7 +12,8 @@ function run {
 #		--pos 0x0 --rotate normal --output eDP1 --off --output HDMI2 --auto
 #fi
 
-run "autorandr --change"
+run "autorandr"
+# --change"
 
 
 #run "xrandr --output VGA-1 --primary --mode 1360x768 --pos 0x0 --rotate normal"
@@ -24,7 +25,7 @@ run "variety"
 #run "xfce4-power-manager"
 #run "blueberry-tray"
 run "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
-run "eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)"
+#run "$(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)"
 #run "numlockx on"
 #run "volumeicon"
 #run "nitrogen --restore"
@@ -38,7 +39,7 @@ run "eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)"
 #run "spotify"
 
 #run "compton -b"
-export $DESKTOP_STARTUP_ID = "awesome2312"
+export DESKTOP_STARTUP_ID="awesome2312"
 #run "ibus-daemon -drx"
 run "fcitx5"
 #run "nextcloud"
