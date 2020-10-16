@@ -316,7 +316,9 @@ globalkeys = my_table.join(
     {description = "show dmenu", group = "1myhotkeys"}),
     -- F12 dropdown pad
     awful.key({}, "F12",function ()
-        awful.util.spawn("tdrop -ma -w 42% -h 75% -x 57% -y 24% st") end,
+	    awful.screen.focused().quake:toggle() end,
+    --    awful.util.spawn("tdrop -ma -w 42% -h 75% -x 57% -y 24% st") end,
+
 	{description = "Dropdown Pad", group = "1myhotkeys"}),
 
     -- super + ... function keys

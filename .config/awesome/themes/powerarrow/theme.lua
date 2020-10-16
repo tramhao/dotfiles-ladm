@@ -10,7 +10,6 @@ local lain  = require("lain")
 local awful = require("awful")
 local wibox = require("wibox")
 local dpi   = require("beautiful.xresources").apply_dpi
---local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
 
 local math, string, os = math, string, os
 local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
@@ -416,7 +415,7 @@ end
 function theme.at_screen_connect(s)
     -- Quake application
    -- s.quake = lain.util.quake({ app = awful.util.terminal })
-   s.quake = lain.util.quake({ app = "termite", followtag = true, height = 0.50, argname = "--name %s" })
+   s.quake = lain.util.quake({ app = "termite", followtag = true, height = 0.75, width = 0.42, vert = "bottom", horiz = "right", argname = "--name %s" })
 
 
 
