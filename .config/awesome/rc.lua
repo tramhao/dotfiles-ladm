@@ -27,6 +27,7 @@ naughty.config.defaults['icon_size'] = 100
 --local menubar       = require("menubar")
 
 local lain          = require("lain")
+
 local freedesktop   = require("freedesktop")
 
 -- Enable hotkeys help widget for VIM and other apps
@@ -35,7 +36,7 @@ local hotkeys_popup = require("awful.hotkeys_popup").widget
                       require("awful.hotkeys_popup.keys")
 local my_table      = awful.util.table or gears.table -- 4.{0,1} compatibility
 local dpi           = require("beautiful.xresources").apply_dpi
-local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
+--local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
 -- }}}
 
 
@@ -294,7 +295,7 @@ root.buttons(my_table.join(
     awful.button({ }, 3, function () awful.util.mymainmenu:toggle() end)
     --,
 --    awful.button({ }, 4, awful.tag.viewnext),
---    awful.button({ }, 5, awful.tag.viewprev) 
+--    awful.button({ }, 5, awful.tag.viewprev)
 ))
 -- }}}
 
@@ -325,21 +326,21 @@ globalkeys = my_table.join(
         {description = editorgui , group = "function keys" }),
     awful.key({ modkey }, "F3", function () awful.util.spawn( "pavucontrol" ) end,
         {description = "Volume Control" ,group = "1myhotkeys" }),
-    awful.key({ modkey }, "F4", 
-    function () 
+    awful.key({ modkey }, "F4",
+    function ()
 	awful.spawn.with_shell( "~/.config/polybar/scripts/pavolume.sh --togmute" )
         beautiful.volume.update()
     	end,
         {description = "volume mute" , group = "1myhotkeys" }),
-    awful.key({ modkey }, "F5", 
-    function () 
-	awful.spawn.with_shell( "~/.config/polybar/scripts/pavolume.sh --up" ) 
+    awful.key({ modkey }, "F5",
+    function ()
+	awful.spawn.with_shell( "~/.config/polybar/scripts/pavolume.sh --up" )
         beautiful.volume.update()
 	end,
         {description = "volume up" , group = "1myhotkeys" }),
-    awful.key({ modkey }, "F6", 
-    function () 
-	awful.spawn.with_shell( "~/.config/polybar/scripts/pavolume.sh --down" ) 
+    awful.key({ modkey }, "F6",
+    function ()
+	awful.spawn.with_shell( "~/.config/polybar/scripts/pavolume.sh --down" )
         beautiful.volume.update()
 	end,
         {description = "volume down" , group = "1myhotkeys" }),
@@ -380,9 +381,9 @@ globalkeys = my_table.join(
 
     -- super + shift + ...
     awful.key({ modkey, "Shift"   }, "Return", function() awful.util.spawn( filemanager ) end),
-    awful.key({ modkey, "Shift"   }, "Escape", 
-    function() 
-      awful.util.spawn( "prompt 'Are you going to logout?' 'awesome-client 'awesome.quit()''" ) 
+    awful.key({ modkey, "Shift"   }, "Escape",
+    function()
+      awful.util.spawn( "prompt 'Are you going to logout?' 'awesome-client 'awesome.quit()''" )
       end,
     	{description ="quit with prompt", group = "1myhotkeys"}),
     awful.key({ modkey, "Shift"   }, "grave", function() awful.util.spawn( "prompt 'Are you going to lock screen?' 'lockscreen'" ) end,
@@ -601,18 +602,18 @@ globalkeys = my_table.join(
             end
         end,
         {description = "toggle wibox", group = "awesome"}),
- 
- -- Show/Hide Systray       
+
+ -- Show/Hide Systray
     awful.key({ modkey }, "-", function ()
     awful.screen.focused().systray.visible = not awful.screen.focused().systray.visible
     end, {description = "Toggle systray visibility", group = "awesome"}),
-    
- -- Show/Hide Systray       
+
+ -- Show/Hide Systray
     awful.key({ modkey }, "KP_Subtract", function ()
     awful.screen.focused().systray.visible = not awful.screen.focused().systray.visible
     end, {description = "Toggle systray visibility", group = "awesome"}),
 
-        
+
 
     -- On the fly useless gaps change
     awful.key({ altkey, "Control" }, "j", function () lain.util.useless_gaps_resize(1) end,
@@ -809,7 +810,7 @@ clientkeys = my_table.join(
     awful.key({ modkey, "Shift"   }, "q",      function (c) c:kill()                         end,
               {description = "close", group = "hotkeys"}),
     awful.key({ modkey, },           "q",      function (c) c:kill()                         end,
-              {description = "close", group = "hotkeys"}),              
+              {description = "close", group = "hotkeys"}),
     awful.key({ modkey, "Shift" }, "space",  awful.client.floating.toggle                     ,
               {description = "toggle floating", group = "client"}),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end,
@@ -985,7 +986,7 @@ awful.rules.rules = {
       properties = { screen = 1, tag = awful.util.tagnames[3], switchtotag = true  } },
     { rule = { class = "Google-chrome" },
       properties = { screen = 1, tag = awful.util.tagnames[3], switchtotag = true  } },
- 
+
 
     -- Set applications to always map on the tag 4 on screen 1.
     { rule = { class = "Gimp" },
@@ -1003,10 +1004,10 @@ awful.rules.rules = {
 
     { rule = { class = editorgui },
           properties = { maximized = true } },
-          
+
     { rule = { class = "Geany" },
           properties = { maximized = false, floating = false } },
-      
+
     { rule = { class = "Gimp*", role = "gimp-image-window" },
           properties = { maximized = true } },
     { rule = { class = "Blender*", role = "gimp-image-window"},
@@ -1032,17 +1033,17 @@ awful.rules.rules = {
 
     { rule = { class = "Vivaldi-stable" },
           properties = { maximized = false, floating = false } },
-          
-    { rule = { class = "Vivaldi-stable" }, 
-          properties = { callback = function (c) c.maximized = false end } },  
-          
-    --IF using Vivaldi snapshot you must comment out the rules above for Vivaldi-stable as they conflict        
+
+    { rule = { class = "Vivaldi-stable" },
+          properties = { callback = function (c) c.maximized = false end } },
+
+    --IF using Vivaldi snapshot you must comment out the rules above for Vivaldi-stable as they conflict
 --    { rule = { class = "Vivaldi-snapshot" },
 --          properties = { maximized = false, floating = false } },
-          
---    { rule = { class = "Vivaldi-snapshot" }, 
---          properties = { callback = function (c) c.maximized = false end } },  
-                        
+
+--    { rule = { class = "Vivaldi-snapshot" },
+--          properties = { callback = function (c) c.maximized = false end } },
+
     { rule = { class = "Xfce4-settings-manager" },
           properties = { floating = false } },
 

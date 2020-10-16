@@ -10,6 +10,7 @@ local lain  = require("lain")
 local awful = require("awful")
 local wibox = require("wibox")
 local dpi   = require("beautiful.xresources").apply_dpi
+--local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
 
 local math, string, os = math, string, os
 local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
@@ -307,6 +308,27 @@ theme.volume = lain.widget.alsa({
         widget:set_markup(markup.font(theme.font, " " .. volume_now.level .. "% "))
     end
 })
+theme.volume.widget:buttons(awful.util.table.join(
+    awful.button({}, 1, function() -- left click
+        awful.spawn(string.format("%s -e alsamixer", terminal))
+    end),
+    awful.button({}, 2, function() -- middle click
+        os.execute(string.format("%s set %s 100%%", theme.volume.cmd, theme.volume.channel))
+        theme.volume.update()
+    end),
+    awful.button({}, 3, function() -- right click
+        os.execute(string.format("%s set %s toggle", theme.volume.cmd, theme.volume.togglechannel or theme.volume.channel))
+        theme.volume.update()
+    end),
+    awful.button({}, 4, function() -- scroll up
+        os.execute(string.format("%s set %s 5%%+", theme.volume.cmd, theme.volume.channel))
+        theme.volume.update()
+    end),
+    awful.button({}, 5, function() -- scroll down
+        os.execute(string.format("%s set %s 5%%-", theme.volume.cmd, theme.volume.channel))
+        theme.volume.update()
+    end)
+))
 
 -- Net
 local neticon = wibox.widget.imagebox(theme.widget_net)
@@ -412,7 +434,6 @@ function theme.at_screen_connect(s)
 --            arrow("#889FA7", "#497B96"),
             arrow("alpha", "#497B96"),
 --	    wibox.container.background(wibox.container.margin(volume_widget({}),dpi(2),dpi(3)), "#497B96"),
-	   -- volume_widget({display_notification = true}),
 	    wibox.container.background(wibox.container.margin(wibox.widget { volicon, theme.volume.widget, layout = wibox.layout.align.horizontal }, dpi(2), dpi(3)), "#497B96"),
             arrow("#497B96", "#777E76"),
             wibox.container.background(wibox.container.margin(wibox.widget { memicon, mem.widget, layout = wibox.layout.align.horizontal }, dpi(2), dpi(3)), "#777E76"),
