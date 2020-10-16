@@ -986,8 +986,8 @@ awful.rules.rules = {
         --properties = { screen = 1, tag = awful.util.tagnames[3], switchtotag = true  } },
     { rule = { class = "dolphin" },
       properties = { screen = 1, tag = awful.util.tagnames[3], switchtotag = true  } },
-    { rule = { class = "Google-chrome" },
-      properties = { screen = 1, tag = awful.util.tagnames[3], switchtotag = true  } },
+    { rule = { class = "Brave" },
+      properties = { screen = 1, tag = awful.util.tagnames[2], switchtotag = true  } },
 
 
     -- Set applications to always map on the tag 4 on screen 1.

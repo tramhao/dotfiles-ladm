@@ -42,7 +42,7 @@ alias sudo="sudo "
 
 # Adding color
 alias ls='ls -hN --color=auto --group-directories-first'
-alias ls='lsd'
+#alias ls='lsd'
 alias grep="grep --color=auto"
 alias diff="diff --color=auto"
 alias ccat="highlight --out-format=ansi" # Color cat - print file with syntax highlighting.
