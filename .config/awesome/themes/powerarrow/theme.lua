@@ -336,6 +336,22 @@ theme.volume.widget:buttons(awful.util.table.join(
     end)
 ))
 
+local updates = awful.widget.watch(
+    {awful.util.shell, "-c", string.format("checkupdates 2> /dev/null | wc -l")},
+    7200, -- how many  seconds
+    function(widget, stdout)
+--        local btc, pos, err = require("dkjson").decode(stdout, 1, nil) -- dkjson
+--        local btc, pos, err = require("lain.util").dkjson.decode(stdout, 1, nil) -- lain
+--        local btc_price = (not err and btc and btc["subtotal"]["amount"]) or "N/A"
+--	update_manjaro = string.match(stdout, )
+	update_text = "Updates:"..stdout
+        -- customize here
+        widget:set_markup(markup.font(theme.font,update_text))
+        --widget:set_markup(" " .. markup.font(theme.font, stdout))
+    end
+)
+
+
 -- ALSA volume
 --[[local volicon = wibox.widget.imagebox(theme.widget_vol)
 theme.volume = lain.widget.alsa({
@@ -480,8 +496,10 @@ function theme.at_screen_connect(s)
 --            arrow("alpha", "#889FA7"),
 --            wibox.container.background(wibox.container.margin(wibox.widget { mpdicon, theme.mpd.widget, layout = wibox.layout.align.horizontal }, dpi(3), dpi(6)), "#889FA7"),
 --            arrow("#889FA7", "#497B96"),
-            arrow("alpha", "#497B96"),
-      	    wibox.container.background(wibox.container.margin(wibox.widget { volicon, theme.volume.widget, layout = wibox.layout.align.horizontal }, dpi(2), dpi(3)), "#497B96"),
+            arrow("alpha", "#777E76"),
+            wibox.container.background(wibox.container.margin(updates, dpi(4), dpi(8)), "#777E76"),
+            arrow("#777E76", "#497B96"),
+	    wibox.container.background(wibox.container.margin(wibox.widget { volicon, theme.volume.widget, layout = wibox.layout.align.horizontal }, dpi(2), dpi(3)), "#497B96"),
             arrow("#497B96", "#777E76"),
             wibox.container.background(wibox.container.margin(wibox.widget { memicon, mem.widget, layout = wibox.layout.align.horizontal }, dpi(2), dpi(3)), "#777E76"),
             arrow("#777E76", "#4B696D"),
