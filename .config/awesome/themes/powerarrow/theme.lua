@@ -79,6 +79,7 @@ theme.widget_mail_on                            = theme.dir .. "/icons/mail_on.p
 theme.widget_task                               = theme.dir .. "/icons/task.png"
 theme.widget_scissors                           = theme.dir .. "/icons/scissors.png"
 theme.widget_weather                            = theme.dir .. "/icons/dish.png"
+theme.widget_updates				= theme.dir .. "/icons/task.png"
 theme.tasklist_plain_task_name                  = true
 theme.tasklist_disable_icon                     = true
 theme.useless_gap                               = dpi(15)
@@ -336,6 +337,7 @@ theme.volume.widget:buttons(awful.util.table.join(
     end)
 ))
 
+local updatesicon = wibox.widget.imagebox(theme.widget_updates)
 local updates = awful.widget.watch(
     {awful.util.shell, "-c", string.format("checkupdates 2> /dev/null | wc -l")},
     7200, -- how many  seconds
@@ -344,10 +346,10 @@ local updates = awful.widget.watch(
 --        local btc, pos, err = require("lain.util").dkjson.decode(stdout, 1, nil) -- lain
 --        local btc_price = (not err and btc and btc["subtotal"]["amount"]) or "N/A"
 --	update_manjaro = string.match(stdout, )
-	update_text = "Updates:"..stdout
+	update_text = "Updates: "..stdout.." "
         -- customize here
         widget:set_markup(markup.font(theme.font,update_text))
-        --widget:set_markup(" " .. markup.font(theme.font, stdout))
+        --widget:set_markup(markup.font(theme.font, stdout))
     end
 )
 
@@ -497,7 +499,8 @@ function theme.at_screen_connect(s)
 --            wibox.container.background(wibox.container.margin(wibox.widget { mpdicon, theme.mpd.widget, layout = wibox.layout.align.horizontal }, dpi(3), dpi(6)), "#889FA7"),
 --            arrow("#889FA7", "#497B96"),
             arrow("alpha", "#777E76"),
-            wibox.container.background(wibox.container.margin(updates, dpi(4), dpi(8)), "#777E76"),
+	    wibox.container.background(wibox.container.margin(wibox.widget {updatesicon, updates.widget, layout = wibox.layout.align.horizontal}, dpi(4), dpi(8)), "#777E76"),
+	    wibox.container.background(wibox.container.margin(updates, dpi(4), dpi(8)), "#777E76"),
             arrow("#777E76", "#497B96"),
 	    wibox.container.background(wibox.container.margin(wibox.widget { volicon, theme.volume.widget, layout = wibox.layout.align.horizontal }, dpi(2), dpi(3)), "#497B96"),
             arrow("#497B96", "#777E76"),
