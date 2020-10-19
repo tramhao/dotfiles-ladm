@@ -122,7 +122,7 @@ local filemanager       = "thunar"
 local mailclient        = "evolution"
 local mediaplayer       = "spotify"
 local scrlocker         = "slimlock"
-local terminal          = "st"
+local terminal          = "termite"
 local virtualmachine    = "virtualbox"
 
 -- awesome variables
