@@ -434,7 +434,7 @@ function theme.at_screen_connect(s)
     -- Quake application
    -- s.quake = lain.util.quake({ app = awful.util.terminal })
    s.quake = lain.util.quake({ app = "termite", followtag = true, height = 0.75, width = 0.42, vert = "bottom", horiz = "right", argname = "--name %s" })
-
+  -- s.quake = lain.util.quake({app = "st", followtag = true})
 
 
     -- If wallpaper is a function, call it with the screen
