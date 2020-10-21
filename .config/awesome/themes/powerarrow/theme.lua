@@ -328,11 +328,11 @@ theme.volume.widget:buttons(awful.util.table.join(
         theme.volume.update()
     end),
     awful.button({}, 4, function() -- scroll up
-        os.execute(string.format("pactl set-sink-volume %s +1%%", theme.volume.device))
+        os.execute(string.format("pactl set-sink-volume %s +5%%", theme.volume.device))
         theme.volume.update()
     end),
     awful.button({}, 5, function() -- scroll down
-        os.execute(string.format("pactl set-sink-volume %s -1%%", theme.volume.device))
+        os.execute(string.format("pactl set-sink-volume %s -5%%", theme.volume.device))
         theme.volume.update()
     end)
 ))
