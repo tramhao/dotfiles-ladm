@@ -52,5 +52,5 @@ if [ $(hostname) = "XMLaptop" ]; then
 	run nextcloud
 	run autorandr --change
 fi
-
+run compton -b --config $HOME/.config/awesome/compton.conf
 

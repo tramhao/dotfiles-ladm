@@ -1172,4 +1172,4 @@ end)
 
 -- Autostart applications
 awful.spawn.with_shell("~/.config/awesome/autostart.sh")
-awful.spawn.with_shell("compton -b --config  $HOME/.config/awesome/compton.conf")
+--awful.spawn.with_shell("compton -b --config  $HOME/.config/awesome/compton.conf")
