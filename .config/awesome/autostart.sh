@@ -12,7 +12,7 @@ function run {
 #		--pos 0x0 --rotate normal --output eDP1 --off --output HDMI2 --auto
 #fi
 
-run "autorandr"
+
 # --change"
 
 
@@ -47,6 +47,7 @@ run "fcitx5"
 #if [ $(hostname) = "tramhao-pc" ]; then
 if [ $(hostname) = "XMLaptop" ]; then
 	run "nextcloud"
+	autorandr --change
 fi
 
 
