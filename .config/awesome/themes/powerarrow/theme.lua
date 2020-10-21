@@ -296,21 +296,20 @@ local bat = lain.widget.bat({
 local volicon = wibox.widget.imagebox(theme.widget_vol)
 theme.volume = lain.widget.pulse({
     settings = function()
-       if volume_now.status == "off" then
+        if volume_now.status == "off" then
             volicon:set_image(theme.widget_vol_mute)
---        elseif tonumber(volume_now.left) == 0 then
---            volicon:set_image(theme.widget_vol_no)
---        elseif tonumber(volume_now.left) <= 50 then
---            volicon:set_image(theme.widget_vol_low)
+        elseif tonumber(volume_now.left) == 0 then
+            volicon:set_image(theme.widget_vol_no)
+        elseif tonumber(volume_now.left) <= 50 then
+            volicon:set_image(theme.widget_vol_low)
         else
             volicon:set_image(theme.widget_vol)
         end
-
 --        widget:set_markup(markup.font(theme.font, " " .. volume_now.left .. "% "))
         vlevel = volume_now.left .."% "
         if volume_now.muted == "yes" then
             vlevel = vlevel .. " M"
-        end
+   	end
         widget:set_markup(markup.font(theme.font, vlevel))
 
     end
@@ -340,7 +339,7 @@ theme.volume.widget:buttons(awful.util.table.join(
 local updatesicon = wibox.widget.imagebox(theme.widget_updates)
 local updates = awful.widget.watch(
     {awful.util.shell, "-c", string.format("checkupdates 2> /dev/null | wc -l")},
-    7200, -- how many  seconds
+    360, -- how many  seconds
     function(widget, stdout)
 --        local btc, pos, err = require("dkjson").decode(stdout, 1, nil) -- dkjson
 --        local btc, pos, err = require("lain.util").dkjson.decode(stdout, 1, nil) -- lain
