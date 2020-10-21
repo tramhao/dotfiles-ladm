@@ -1,35 +1,38 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
+## run (only once) processes which spawn with the same name
 function run {
-  if ! pgrep -f $1 ;
-  then
-    $@&
-  fi
+   if (command -v $1 && ! pgrep $1); then
+     $@&
+   fi
 }
 
+## run (only once) processes which spawn with different name
+if (command -v gnome-keyring-daemon && ! pgrep gnome-keyring-d); then
+    gnome-keyring-daemon --daemonize --login &
+fi
+if (command -v start-pulseaudio-x11 && ! pgrep pulseaudio); then
+    start-pulseaudio-x11 &
+fi
+if (command -v /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 && ! pgrep polkit-gnome-au) ; then
+    /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+fi
+#if (command -v  xfce4-power-manager && ! pgrep xfce4-power-man) ; then
+#    xfce4-power-manager &
+#fi
+
+run nm-applet
 #if [ $(hostname) = "XMLaptop" ]; then
 #	xrandr --output DP1 --primary --mode 1920x1200 \
 #		--pos 0x0 --rotate normal --output eDP1 --off --output HDMI2 --auto
 #fi
 
 
-# --change"
-
-
-#run "xrandr --output VGA-1 --primary --mode 1360x768 --pos 0x0 --rotate normal"
-#run "xrandr --output HDMI2 --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off"
-run "nm-applet"
-#run "caffeine"
 #run "pamac-tray"
-run "variety"
-#run "xfce4-power-manager"
-#run "blueberry-tray"
-run "blueman-tray"
-run "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+run variety
+run blueman-tray
+#run "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 #run "$(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)"
-#run "numlockx on"
-#run "volumeicon"
-#run "nitrogen --restore"
 #run "conky -c $HOME/.config/awesome/system-overview"
 
 #run applications from startup
@@ -42,12 +45,12 @@ run "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 #run "compton -b"
 export DESKTOP_STARTUP_ID="awesome2312"
 #run "ibus-daemon -drx"
-run "fcitx5"
+run fcitx5
 #run "nextcloud"
 #if [ $(hostname) = "tramhao-pc" ]; then
 if [ $(hostname) = "XMLaptop" ]; then
-	run "nextcloud"
-	autorandr --change
+	run nextcloud
+	run autorandr --change
 fi
 
 
