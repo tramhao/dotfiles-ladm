@@ -994,7 +994,7 @@ awful.rules.rules = {
 
     -- Set applications to always map on the tag 4 on screen 1.
     { rule = { class = "Gimp" },
-        properties = { screen = 1, tag = awful.util.tagnames[4], switchtotag = true  } },
+        properties = { screen = 1, tag = awful.util.tagnames[5], switchtotag = true  } },
 
     { rule = { class = "Blender" },
         properties = { screen = 1, tag = awful.util.tagnames[4], switchtotag = true } },

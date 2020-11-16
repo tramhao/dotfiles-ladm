@@ -17,6 +17,8 @@ export REFER="$HOME/.referbib"
 export PIX="$HOME/.scripts/pix"
 export SUDO_ASKPASS="$HOME/.scripts/tools/dmenupass"
 
+export TERM="xterm"
+
 # less/man colors
 #export LESS=-R
 #export LESS_TERMCAP_mb=$'\E[1;31m'     # begin bold
