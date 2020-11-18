@@ -398,7 +398,7 @@ globalkeys = my_table.join(
     -- ctrl + shift + ...
     awful.key({ modkey1, "Shift"  }, "Escape", function() awful.util.spawn("xfce4-taskmanager") end),
 
-
+--[[
     -- alt+ctrl +  ...
     awful.key({ modkey1, altkey   }, "a", function() awful.util.spawn( "xfce4-appfinder" ) end,
         {description = "Xfce appfinder", group = "alt+ctrl"}),
@@ -434,6 +434,7 @@ globalkeys = my_table.join(
         {description = "Xfce settings manager", group = "alt+ctrl"}),
     awful.key({ modkey1, altkey   }, "p", function() awful.util.spawn( "pamac-manager" ) end,
         {description = "Pamac Manager", group = "alt+ctrl"}),
+--]]
 
     -- alt + ...
     awful.key({ altkey, "Shift"   }, "t", function () awful.spawn.with_shell( "variety -t  && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&" ) end,
