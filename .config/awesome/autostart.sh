@@ -34,7 +34,6 @@ run blueman-tray
 #run "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 #run "$(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)"
 #run "conky -c $HOME/.config/awesome/system-overview"
-
 #run applications from startup
 #run "firefox"
 #run "atom"
@@ -50,6 +49,7 @@ run fcitx5
 #if [ $(hostname) = "tramhao-pc" ]; then
 if [ $(hostname) = "XMLaptop" ]; then
 	run nextcloud
+	run termite
 	run autorandr --change
 fi
 run compton -b --config $HOME/.config/awesome/compton.conf
