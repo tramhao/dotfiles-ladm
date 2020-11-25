@@ -49,7 +49,6 @@ run fcitx5
 #if [ $(hostname) = "tramhao-pc" ]; then
 if [ $(hostname) = "XMLaptop" ]; then
 	run nextcloud
-	run termite
 	[ -n "$(xrandr | grep 'DP1 connected')" ] && \
 #		echo "hello"
 		xrandr --output DP1 --primary --mode 1920x1200 \
