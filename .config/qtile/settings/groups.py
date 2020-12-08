@@ -4,7 +4,7 @@
 
 # Qtile workspaces
 
-from libqtile.config import Key, Group, ScratchPad, DropDown
+from libqtile.config import Key, Group, ScratchPad, DropDown, Match
 from libqtile.command import lazy
 from settings.keys import mod, keys
 
@@ -21,9 +21,14 @@ from settings.keys import mod, keys
 # nf-fa-video_camera, 
 # nf-mdi-layers
 
-groups = [Group(i) for i in [
-    " ", " ", " ", " ", " ", "6","7"
-]
+groups = [
+    Group(" "),
+    Group(" ",matches=[Match(wm_class=["brave-browser"])]),
+    Group(" "),
+    Group(" "),
+    Group(" "),
+    Group("6"),
+    Group("7"),
 ]
 
 groups.append(

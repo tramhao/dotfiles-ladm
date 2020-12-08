@@ -1,3 +1,4 @@
+import socket
 from libqtile import widget
 from settings.theme import colors
 
@@ -23,7 +24,6 @@ powerline = lambda fg="light", bg="dark": widget.TextBox(
     fontsize=37,
     padding=-2
 )
-
 workspaces = lambda: [
     separator(),
     widget.GroupBox(
@@ -52,6 +52,9 @@ workspaces = lambda: [
     separator(),
 ]
 
+myhostname =  socket.gethostname()
+#if myhostname = 'tramhao-pc'
+#fi
 primary_widgets = [
     *workspaces(),
 
@@ -61,12 +64,12 @@ primary_widgets = [
 
     icon(bg="color4", text=' '), # Icon: nf-fa-download
     
-    widget.CheckUpdates(**base(bg='color4'), update_interval=1800),
+    widget.CheckUpdates(**base(bg='color4'), update_interval=20,custom_command='yay -Qu'),
 
     powerline('color3', 'color4'),
 
     icon(bg="color3", text=' '),  # Icon: nf-fa-feed
-    
+
     widget.Net(**base(bg='color3'), interface='wlp2s0'),
 
     powerline('color2', 'color3'),

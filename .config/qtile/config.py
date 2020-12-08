@@ -25,7 +25,7 @@ def autostart():
     subprocess.call([path.join(qtile_path, 'autostart.sh')])
 @hook.subscribe.screen_change
 def restart_on_randr(ev):
-    libqtile.qtile.cmd_restart()
+    qtile.cmd_restart()
 
 
 main = None

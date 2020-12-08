@@ -241,10 +241,10 @@ gsettings set org.gnome.desktop.screensaver picture-uri "file://$WP" 2> /dev/nul
 # NOTE: This config will change the wallpaper after your current awesome theme sets it.
 # As such, the theme's wallpaper will briefly appear before being replaced with Variety's wallpaper.
 #if [[ "$DESKTOP_STARTUP_ID" == "awesome"* ]]; then
-#if [ "$DESKTOP_SESSION" == *"awesome"* ]; then
+if [[ "$DESKTOP_SESSION" == *"awesome"* ]]; then
 	echo "local gears = require(\"gears\") gears.wallpaper.maximized(\"$1\", s, true)" | awesome-client
 #	echo "hello awesome"
-#fi
+fi
 #echo "hello awesome"
 # =====================================================================================
 
@@ -257,9 +257,9 @@ gsettings set org.gnome.desktop.screensaver picture-uri "file://$WP" 2> /dev/nul
 #&& echo "hello my scripts works"
 
 # Qtile : use either feh or nitrogen
-if [ "$DESKTOP_SESSION" == "/usr/share/xsessions/qtile" ] ; then
+if [[ "$DESKTOP_SESSION" == *"qtile"* ]] ; then
   if command -v "feh" >/dev/null 2>&1; then
-     feh --bg-fill "$WP" 2> /dev/null
+       feh --bg-fill "$WP" 2> /dev/null
   elif command -v "nitrogen" >/dev/null 2>&1; then
      nitrogen --set-zoom-fill --save "$WP" 2> /dev/null
   fi
