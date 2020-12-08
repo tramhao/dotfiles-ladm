@@ -7,7 +7,6 @@
 from libqtile.config import Key
 from libqtile.command import lazy
 
-
 mod = "mod4"
 
 keys = [Key(key[0], key[1], *key[2:]) for key in [
@@ -71,8 +70,9 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     # Screenshot
     ([mod], "s", lazy.spawn("scrot")),
     ([],"F12", lazy.spawn("tdrop -ma -w 42% -h 75% -x 57% -y 24% st")),
+    ([mod], "x", lazy.spawn("oblogout -c /home/tramhao/.config/qtile/oblogout.conf")),
 
-    # ------------ Hardware Configs ------------
+# ------------ Hardware Configs ------------
 
     # Volume
     ([], "XF86AudioLowerVolume", lazy.spawn(

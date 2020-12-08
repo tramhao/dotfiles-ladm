@@ -44,6 +44,7 @@ floating_layout = layout.Floating(
         {'wname': 'branchdialog'},
         {'wname': 'pinentry'},
         {'wmclass': 'ssh-askpass'},
+        {'wmclass': 'oblogout'},
     ],
     border_focus=colors["color4"][0]
 )

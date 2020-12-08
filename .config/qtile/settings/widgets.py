@@ -83,7 +83,7 @@ primary_widgets = [
 
     powerline('dark', 'color1'),
 
-    widget.Wallpaper(random_selection=True,background=colors['dark']),
+    #widget.Wallpaper(random_selection=True,background=colors['dark']),
 
     widget.Systray(background=colors['dark'], padding=5),
 
