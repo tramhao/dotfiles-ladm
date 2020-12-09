@@ -270,9 +270,14 @@ workspaces = lambda: [
     separator(),
 ]
 
-#myhostname =  socket.gethostname()
-##if myhostname = 'tramhao-pc'
-##fi
+myhostname =  socket.gethostname()
+if myhostname == "tramhao-pc":
+    network_interface="enp3s0"
+elif myhostname =="XMLAPTOP":
+    network_interface="wp"
+else:
+    network_interface="None"
+
 primary_widgets = [
     *workspaces(),
 
@@ -288,7 +293,7 @@ primary_widgets = [
 
     icon(bg="color3", text=' '),  # Icon: nf-fa-feed
 
-    widget.Net(**base(bg='color3')),
+    widget.Net(**base(bg='color3'), interface=network_interface),
 
     powerline('color2', 'color3'),
 
