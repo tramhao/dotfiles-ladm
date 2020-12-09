@@ -55,9 +55,10 @@ export DOWNGRADE_FROM_ALA=1
 
 if [[ "$HOSTNAME" == "XMLaptop" ]]; then
 #	echo "hello2"
-	[ -n "$(xrandr | grep 'DP1 connected')" ] && \
-		xrandr --output DP1 --auto \
-		--output eDP1 --off \
-		--output HDMI2 --auto
+#	[ -n "$(xrandr | grep 'DP1 connected')" ] && \
+#		xrandr --output DP1 --auto \
+#		--output eDP1 --off \
+#		--output HDMI2 --auto
+	source ~/.xrandr
 fi
 
