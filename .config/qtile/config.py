@@ -289,7 +289,11 @@ primary_widgets = [
     
     widget.CheckUpdates(**base(bg='color4'), update_interval=20,custom_command='yay -Qu'),
 
-    powerline('color3', 'color4'),
+    powerline('color2','color4'),
+    widget.CPU(**base(bg='color2')),
+    powerline('color1','color2'),
+    widget.Memory(**base(bg='color1')),
+    powerline('color3', 'color1'),
 
     icon(bg="color3", text=' '),  # Icon: nf-fa-feed
 
@@ -305,7 +309,7 @@ primary_widgets = [
 
     icon(bg="color1", fontsize=17, text=' '), # Icon: nf-mdi-calendar_clock
 
-    widget.Clock(**base(bg='color1'), format='%d/%m/%Y - %H:%M '),
+    widget.Clock(**base(bg='color1'), format='%m/%d-%H:%M '),
 
     powerline('dark', 'color1'),
 
