@@ -31,6 +31,7 @@ from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, 
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 from os import path
+from subprocess import check_output, call
 import subprocess
 import json
 import socket
@@ -397,10 +398,25 @@ def autostart():
 
 #@hook.subscribe.screen_change
 #def restart_on_randr(ev):
-#    lazy.restart()
-#    qtile.log.debug('screen change event: %s' % ev)
+##    lazy.restart()
+##    qtile.log.debug('screen change event: %s' % ev)
 #    xrandr_state = check_output(['xrandr'])
-#    qtile.log.debug('xrandr output:\n%s' % xrandr_state.decode("latin_1"))
+##    qtile.log.debug('xrandr output:\n%s' % xrandr_state.decode("latin_1"))
+#    if b'DP1 connected' in xrandr_state:
+#        xrandr_setting = [
+#            'xrandr',
+#            '--output','DP1', '--primary', '--mode', '1920x1200',
+#            '--output','eDP1', '--off',
+#            '--output','HDMI2','--auto',
+#        ]
+#    else:
+#        xrandr_setting = [
+#            'xrandr',
+#            '--output','eDP1','--auto',
+#        ]
+#    call(xrandr_setting)
+#    lazy.restart()
+
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the

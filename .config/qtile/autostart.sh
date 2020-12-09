@@ -51,10 +51,10 @@ run fcitx5
 #if [ $(hostname) = "tramhao-pc" ]; then
 if [ $(hostname) = "XMLaptop" ]; then
 	run nextcloud
-	[ -n "$(xrandr | grep 'DP1 connected')" ] && \
+#	[ -n "$(xrandr | grep 'DP1 connected')" ] && \
 #		echo "hello"
-		xrandr --output DP1 --primary --mode 1920x1200 \
-		--pos 0x0 --rotate normal --output eDP1 --off --output HDMI2 --auto
+#		xrandr --output DP1 --primary --mode 1920x1200 \
+#		--pos 0x0 --rotate normal --output eDP1 --off --output HDMI2 --auto
 	#run autorandr --change
 fi
 #run compton -b --config $HOME/.config/awesome/compton.conf
