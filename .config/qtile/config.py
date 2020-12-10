@@ -422,16 +422,19 @@ def autostart():
 
 @hook.subscribe.client_new
 def set_group(window):
-    if "Brave" in window.name:
+    wm=window.cmd_inspect()
+#    print (wm['wm_class'])
+
+    if "brave-browser" in wm['wm_class']:
         window.togroup("2", switch_group=True)
 #        print("222")
-    if "Dolphin" in window.name:
+    if "dolphin" in wm['wm_class']:
         window.togroup("3", switch_group=True)
-    if "Krita" in window.name:
+    if "krita" in wm['wm_class']:
         window.togroup("4", switch_group=True)
-    if "GNU Image Manipulation Program" in window.name:
+    if "gimp" in wm['wm_class']:
         window.togroup("4", switch_group=True)
-    if "Blender" in window.name:
+    if "Blender" in wm['wm_class']:
         window.togroup("5", switch_group=True)
 
 
