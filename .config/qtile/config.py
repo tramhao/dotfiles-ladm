@@ -141,10 +141,14 @@ keys = [
 groups = []
 groups.extend([
        Group('1', label=''),
-       Group('2', matches=Match(wm_class='brave-browser'), layout='max', label='爵'),
-       Group('3', matches=Match(wm_class='dolphin'), label=''),
-       Group('4', matches=[Match(wm_class='gimp'),Match(wm_class='krita')], layout='max', label=''),
-       Group('5', matches=Match(wm_class='Blender'), layout='max',  label=''),
+#      Group('2', matches=Match(wm_class='brave-browser'), layout='max', label='爵'),
+#       Group('3', matches=Match(wm_class='dolphin'), label=''),
+#       Group('4', matches=[Match(wm_class='gimp'),Match(wm_class='krita')], layout='max', label=''),
+#       Group('5', matches=Match(wm_class='Blender'), layout='max',  label=''),
+       Group('2', layout='max', label='爵'),
+       Group('3', label=''),
+       Group('4', layout='max', label=''),
+       Group('5', layout='max',  label=''),
        Group('6', persist=False, label='6'),
        Group('7', persist=False, label='7')
 ])
@@ -377,7 +381,7 @@ mouse = [
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: List
 main = None  # WARNING: this is deprecated and will be removed soon
-follow_mouse_focus = True
+follow_mouse_focus = False
 bring_front_click = False
 cursor_warp = False
 
@@ -418,8 +422,18 @@ def autostart():
 
 @hook.subscribe.client_new
 def set_group(window):
-    if window.wm_class._contains_("Brave"):
+    if "Brave" in window.name:
         window.togroup("2", switch_group=True)
+#        print("222")
+    if "Dolphin" in window.name:
+        window.togroup("3", switch_group=True)
+    if "Krita" in window.name:
+        window.togroup("4", switch_group=True)
+    if "GNU Image Manipulation Program" in window.name:
+        window.togroup("4", switch_group=True)
+    if "Blender" in window.name:
+        window.togroup("5", switch_group=True)
+
 
 #@hook.subscribe.screen_change
 #def restart_on_randr(ev):
