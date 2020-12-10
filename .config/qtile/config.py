@@ -42,7 +42,7 @@ qtile_path = path.join(path.expanduser('~'),".config","qtile")
 def load_theme():
      theme = "dark-grey"
 
-     config = path.join(qtile_path, "config.json")
+     config = path.join(qtile_path, "themeconfig.json")
      if path.isfile(config):
          with open(config) as f:
              theme = json.load(f)["theme"]
@@ -112,7 +112,8 @@ keys = [
     Key([mod], "r", lazy.spawn("rofi -show run -show-icons -columns 3"),desc="Rofi run commands"),
     Key([mod],"w",lazy.spawn("brave"),desc="Brave browser"),
     Key([mod],"f",lazy.spawn("dolphin"),desc="File Manager"),
-    Key([mod], "x", lazy.spawn("oblogout -c /home/tramhao/.config/qtile/oblogout.conf"),desc="Logout screen"),
+    Key([mod], "x", lazy.spawn("oblogout -c "+path.join(qtile_path,"oblogout.conf")),desc="Logout screen"),
+    Key([mod], "F1", lazy.spawn(terminal+" --hold -e "+path.join(qtile_path,"mykey.py")),desc="Show hotkeys"),
 ]
 
 #groups = [
@@ -418,7 +419,7 @@ focus_on_window_activation = "smart"
 
 @hook.subscribe.startup_once
 def autostart():
-    subprocess.call([path.join(qtile_path,'autostart.sh')])
+    subprocess.call(path.join(qtile_path,'autostart.sh'))
 
 @hook.subscribe.client_new
 def set_group(window):
