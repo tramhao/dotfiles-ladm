@@ -125,19 +125,30 @@ keys = [
 #     Group("7"),
 #]
 
-group_info = [
-        ['1',''],
-        ['2','爵'],
-        ['3',''],
-        ['4',''],
-        ['5',''],
-        ['6','6'],
-        ['7','7'],
-
-]
+#group_info = [
+#        ['1',''],
+#        ['2','爵'],
+#        ['3',''],
+#        ['4',''],
+#        ['5',''],
+#        ['6','6'],
+#        ['7','7'],
+#
+#]
 
 #groups= [Group(i) for i in "1234566"]
-groups = [Group(name=i[0],label=i[1]) for i in group_info]
+#groups = [Group(name=i[0],label=i[1]) for i in group_info]
+groups = []
+groups.extend([
+       Group('1', label=''),
+       Group('2', matches=Match(wm_class='brave-browser'), layout='max', label='爵'),
+       Group('3', matches=Match(wm_class='dolphin'), label=''),
+       Group('4', matches=[Match(wm_class='gimp'),Match(wm_class='krita')], layout='max', label=''),
+       Group('5', matches=Match(wm_class='Blender'), layout='max',  label=''),
+       Group('6', persist=False, label='6'),
+       Group('7', persist=False, label='7')
+])
+
 groups.append(
      ScratchPad("8", [
          DropDown("term","alacritty",height=0.8,width=0.5,x=0.499,y=0.199,opacity=0.8,on_focus_lost_hide=False)]),
@@ -273,10 +284,10 @@ workspaces = lambda: [
 myhostname =  socket.gethostname()
 if myhostname == "tramhao-pc":
     network_interface="enp3s0"
-elif myhostname =="XMLAPTOP":
-    network_interface="wp"
+elif myhostname =="XMLaptop":
+    network_interface="wlp2s0"
 else:
-    network_interface="None"
+    network_interface=None
 
 primary_widgets = [
     *workspaces(),
@@ -404,6 +415,11 @@ focus_on_window_activation = "smart"
 @hook.subscribe.startup_once
 def autostart():
     subprocess.call([path.join(qtile_path,'autostart.sh')])
+
+@hook.subscribe.client_new
+def set_group(window):
+    if window.wm_class._contains_("Brave"):
+        window.togroup("2", switch_group=True)
 
 #@hook.subscribe.screen_change
 #def restart_on_randr(ev):
