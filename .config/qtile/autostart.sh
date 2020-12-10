@@ -32,7 +32,7 @@ run variety
 run nm-applet
 run blueman-tray
 run volumeicon
-run cbatticon
+run cbatticon -i symbolic
 #run "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 #run "$(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)"
 #run "conky -c $HOME/.config/awesome/system-overview"

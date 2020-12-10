@@ -306,8 +306,10 @@ primary_widgets = [
     widget.CheckUpdates(**base(bg='color4'), update_interval=20,custom_command='yay -Qu'),
 
     powerline('color2','color4'),
+    icon(bg="color2",text=''),
     widget.CPU(**base(bg='color2')),
     powerline('color1','color2'),
+    icon(bg="color1",text=''),
     widget.Memory(**base(bg='color1')),
     powerline('color3', 'color1'),
 
