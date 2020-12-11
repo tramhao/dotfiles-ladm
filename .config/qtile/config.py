@@ -146,7 +146,8 @@ groups.extend([
 #       Group('3', matches=Match(wm_class='dolphin'), label=''),
 #       Group('4', matches=[Match(wm_class='gimp'),Match(wm_class='krita')], layout='max', label=''),
 #       Group('5', matches=Match(wm_class='Blender'), layout='max',  label=''),
-       Group('2', layout='max', label='爵'),
+#       Group('2', layout='max', label='爵'),
+       Group('2', label='爵'),
        Group('3', label=''),
        Group('4', layout='max', label=''),
        Group('5', layout='max',  label=''),
@@ -307,7 +308,7 @@ primary_widgets = [
 
     powerline('color2','color4'),
     icon(bg="color2",text=''),
-    widget.CPU(**base(bg='color2'),mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal+" -e bpytop")}),
+    widget.CPU(**base(bg='color2'),format = '{freq_current}GHz {load_percent}%', mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal+" -e bpytop")}),
     powerline('color1','color2'),
     icon(bg="color1",text=''),
     widget.Memory(**base(bg='color1')),
