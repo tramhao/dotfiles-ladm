@@ -302,12 +302,12 @@ primary_widgets = [
     powerline('color4', 'dark'),
 
     icon(bg="color4", text=' '), # Icon: nf-fa-download
-    
-    widget.CheckUpdates(**base(bg='color4'), update_interval=20,custom_command='yay -Qu'),
+
+    widget.CheckUpdates(**base(bg='color4'), no_update_string=' ', update_interval=300,execute='yay -Qu'),
 
     powerline('color2','color4'),
     icon(bg="color2",text=''),
-    widget.CPU(**base(bg='color2')),
+    widget.CPU(**base(bg='color2'),mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal+" -e bpytop")}),
     powerline('color1','color2'),
     icon(bg="color1",text=''),
     widget.Memory(**base(bg='color1')),

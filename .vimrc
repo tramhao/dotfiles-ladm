@@ -13,6 +13,7 @@ Plug 'jreybert/vimagit'
 Plug 'LukeSmithxyz/vimling'
 Plug 'vimwiki/vimwiki'
 call plug#end()
+set clipboard=unnamedplus
 
 " Some basics:
 	set nocompatible
