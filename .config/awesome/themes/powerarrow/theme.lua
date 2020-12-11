@@ -30,8 +30,8 @@ theme.taglist_fg_focus                          = "#7b88d3"
 theme.tasklist_bg_focus                         = "#222222"
 theme.tasklist_fg_focus                         = "#7b88d3"
 theme.border_width                              = dpi(2)
-theme.border_normal                             = "#3F3F3F"
-theme.border_focus                              = "#6F6F6F"
+theme.border_normal                             = "#6600FF"
+theme.border_focus                              = "#6600FF"
 theme.border_marked                             = "#CC9393"
 theme.titlebar_bg_focus                         = "#3F3F3F"
 theme.titlebar_bg_normal                        = "#3F3F3F"
@@ -479,7 +479,6 @@ function theme.at_screen_connect(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            wibox.widget.systray(),
             --[[ using shapes
             pl(wibox.widget { mpdicon, theme.mpd.widget, layout = wibox.layout.align.horizontal }, "#343434"),
             pl(task, "#343434"),
@@ -521,6 +520,7 @@ function theme.at_screen_connect(s)
             arrow("#777E76", "alpha"),
             --]]
             s.mylayoutbox,
+            wibox.widget.systray(),
         },
     }
 end

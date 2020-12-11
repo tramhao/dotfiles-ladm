@@ -122,7 +122,7 @@ local filemanager       = "thunar"
 local mailclient        = "evolution"
 local mediaplayer       = "spotify"
 local scrlocker         = "slimlock"
-local terminal          = "termite"
+local terminal          = "alacritty"
 local virtualmachine    = "virtualbox"
 
 -- awesome variables
@@ -135,9 +135,9 @@ awful.util.terminal = terminal
 awful.util.tagnames = { "", "", "", "", "➎", "➏","➐" }
 awful.layout.suit.tile.left.mirror = true
 awful.layout.layouts = {
-    --awful.layout.suit.tile,
-    awful.layout.suit.tile.left,
-    lain.layout.centerwork,
+    awful.layout.suit.tile,
+    --awful.layout.suit.tile.left,
+    --lain.layout.centerwork,
     awful.layout.suit.floating,
     --awful.layout.suit.tile.bottom,
     --awful.layout.suit.tile.top,
@@ -145,7 +145,7 @@ awful.layout.layouts = {
     --awful.layout.suit.fair.horizontal,
     --awful.layout.suit.spiral,
     --awful.layout.suit.spiral.dwindle,
-    --awful.layout.suit.max,
+    awful.layout.suit.max,
     --awful.layout.suit.max.fullscreen,
     --awful.layout.suit.magnifier,
     --awful.layout.suit.corner.nw,

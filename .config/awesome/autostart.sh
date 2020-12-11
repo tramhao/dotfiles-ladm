@@ -55,5 +55,5 @@ if [ $(hostname) = "XMLaptop" ]; then
 		--pos 0x0 --rotate normal --output eDP1 --off --output HDMI2 --auto
 	#run autorandr --change
 fi
-run compton -b --config $HOME/.config/awesome/compton.conf
-
+#run compton -b --config $HOME/.config/awesome/compton.conf
+run picom -b -f
