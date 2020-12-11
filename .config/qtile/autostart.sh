@@ -58,4 +58,4 @@ if [ $(hostname) = "XMLaptop" ]; then
 	#run autorandr --change
 fi
 #run compton -b --config $HOME/.config/awesome/compton.conf
-run picom
+run picom -b -f
