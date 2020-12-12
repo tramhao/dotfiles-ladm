@@ -328,7 +328,7 @@ primary_widgets = [
 
     icon(bg="color1", fontsize=17, text=' '), # Icon: nf-mdi-calendar_clock
 
-    widget.Clock(**base(bg='color1'), format='%m/%d-%H:%M '),
+    widget.Clock(**base(bg='color1'), format='%m/%d-%H:%M ', mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal+' -e calcurse')}),
 
     powerline('dark', 'color1'),
 

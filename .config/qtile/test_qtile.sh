@@ -1,7 +1,7 @@
 #!/bin/sh
 
 HERE=$(dirname $(readlink -f $0))
-SCREEN_SIZE=${SCREEN_SIZE:-400x300}
+SCREEN_SIZE=${SCREEN_SIZE:-1024x768}
 XDISPLAY=:1
 LOG_LEVEL=${LOG_LEVEL:-INFO}
 if [[ -z PYTHON ]]; then
