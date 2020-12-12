@@ -332,7 +332,7 @@ primary_widgets = [
 
     widget.CurrentLayoutIcon(**base(bg='color2'), scale=0.65),
 
-    widget.CurrentLayout(**base(bg='color2'), padding=5),
+    #widget.CurrentLayout(**base(bg='color2'), padding=5),
 
     powerline('color1', 'color2'),
 
