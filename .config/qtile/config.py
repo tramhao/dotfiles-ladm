@@ -109,7 +109,7 @@ keys = [
     Key([mod, "shift"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
 #    Key([mod], "r", lazy.spawncmd(),
 #        desc="Spawn a command using a prompt widget"),
-    Key([mod], "r", lazy.spawn("rofi -show run -show-icons -columns 3"),desc="Rofi run commands"),
+    Key([mod], "r", lazy.spawn("rofi -combi-modi drun,run -show combi -modi combi -icon-theme 'Moka' -show-icons -columns 3"),desc="Rofi run commands"),
     Key([mod],"w",lazy.spawn("brave"),desc="Brave browser"),
     Key([mod],"f",lazy.spawn("dolphin"),desc="File Manager"),
     Key([mod], "x", lazy.spawn("oblogout -c "+path.join(qtile_path,"oblogout.conf")),desc="Logout screen"),
