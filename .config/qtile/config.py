@@ -114,6 +114,16 @@ keys = [
     Key([mod],"f",lazy.spawn("dolphin"),desc="File Manager"),
     Key([mod], "x", lazy.spawn("oblogout -c "+path.join(qtile_path,"oblogout.conf")),desc="Logout screen"),
     Key([mod], "F1", lazy.spawn(terminal+" --hold -e "+path.join(qtile_path,"mykey.py")),desc="Show hotkeys"),
+    # Sound
+    Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle"), desc="Volume Mute"),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%"), desc="Volume Down"),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%"),desc="Volume Up"),
+#    Key([], "XF86AudioNext", lazy.spawn(""),desc="Next Song"),
+#    Key([], "XF86AudioPrev", lazy.spawn(""),desc="Previous Song"),
+#    Key([], "XF86AudioPause", lazy.spawn(""),desc="Pause Song"),
+    Key([], "XF86MonBrightnessUp", lazy.spawn("xbacklight -inc 10"), desc="Brightness Up"),
+    Key([], "XF86MonBrightnessDown", lazy.spawn("xbacklight -dec 10"), desc="Birghtness Down"),
+
 ]
 
 #groups = [
