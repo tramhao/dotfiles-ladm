@@ -304,7 +304,7 @@ primary_widgets = [
 
     icon(bg="color4", text=' '), # Icon: nf-fa-download
 
-    widget.CheckUpdates(**base(bg='color4'), no_update_string=' ', update_interval=300,custom_command='checkupdates', execute=terminal+' --hold -e yay -Syu'),
+    widget.CheckUpdates(**base(bg='color4'), colour_no_updates='5567cd', colour_have_updates='b7121e', no_update_string=' ', update_interval=300,custom_command='checkupdates', execute=terminal+' --hold -e yay -Syu'),
 
     powerline('color2','color4'),
     icon(bg="color2",text=''),
