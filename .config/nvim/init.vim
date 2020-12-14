@@ -11,6 +11,7 @@ Plug 'LukeSmithxyz/vimling'
 Plug 'vimwiki/vimwiki'
 Plug 'bling/vim-airline'
 Plug 'tpope/vim-commentary'
+Plug 'itchyny/lightline.vim'
 call plug#end()
 
 " set leader key
@@ -70,6 +71,11 @@ cmap w!! w !sudo tee %
 
 " Spell-check set to <leader>o, 'o' for 'orthography':
 	map <leader>o :setlocal spell! spelllang=en_us<CR>
+
+"lightline configuration
+"let g:lightline = {
+"    \ 'colorscheme': 'darcula',
+"    \ }
 
 " Nerd tree
 	map <C-n> :NERDTreeToggle<CR>
