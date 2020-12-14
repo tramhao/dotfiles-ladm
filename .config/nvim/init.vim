@@ -1,5 +1,5 @@
 inoremap ii <ESC>
-let mapleader =","
+let g:mapleader =","
 
 call plug#begin('~/.config/nvim/plugged')
 Plug 'tpope/vim-surround'
