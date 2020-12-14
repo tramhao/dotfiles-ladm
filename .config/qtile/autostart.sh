@@ -28,7 +28,7 @@ fi
 
 
 #run "pamac-tray"
-run variety
+#run variety
 run nm-applet
 run blueman-tray
 run volumeicon

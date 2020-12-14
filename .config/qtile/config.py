@@ -334,11 +334,15 @@ primary_widgets = [
 
     #widget.CurrentLayout(**base(bg='color2'), padding=5),
 
-    powerline('color1', 'color3'),
+    powerline('color2', 'color3'),
 
-    icon(bg="color1", fontsize=17, text=' '), # Icon: nf-mdi-calendar_clock
+    icon(bg="color2", fontsize=17, text=' '), # Icon: nf-mdi-calendar_clock
 
-    widget.Clock(**base(bg='color1'), format='%m/%d-%H:%M ', mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal+" --class 'Floating' -e calcurse")}),
+    widget.Clock(**base(bg='color2'), format='%m/%d-%H:%M ', mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal+" --class 'Floating' -e calcurse")}),
+
+    powerline('color1','color2'),
+
+    widget.Wallpaper(**base(bg='color1'), label=''),
 
     powerline('dark', 'color1'),
 
