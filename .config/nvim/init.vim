@@ -9,7 +9,7 @@ Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'jreybert/vimagit'
 Plug 'LukeSmithxyz/vimling'
 Plug 'vimwiki/vimwiki'
-Plug 'bling/vim-airline'
+"Plug 'bling/vim-airline'
 Plug 'tpope/vim-commentary'
 Plug 'itchyny/lightline.vim'
 call plug#end()
@@ -73,9 +73,9 @@ cmap w!! w !sudo tee %
 	map <leader>o :setlocal spell! spelllang=en_us<CR>
 
 "lightline configuration
-"let g:lightline = {
-"    \ 'colorscheme': 'darcula',
-"    \ }
+let g:lightline = {
+    \ 'colorscheme': 'wombat',
+    \ }
 
 " Nerd tree
 	map <C-n> :NERDTreeToggle<CR>
