@@ -310,6 +310,7 @@ primary_widgets = [
 
     separator(),
 
+    widget.Systray(background=colors['dark'], padding=5),
     powerline('color4', 'dark'),
 
     icon(bg="color4", text=' '), # Icon: nf-fa-download
@@ -328,13 +329,12 @@ primary_widgets = [
 
     widget.Net(**base(bg='color3'), interface=network_interface),
 
-    powerline('color2', 'color3'),
+ #   powerline('color2', 'color3'),
 
-    widget.CurrentLayoutIcon(**base(bg='color2'), scale=0.65),
 
     #widget.CurrentLayout(**base(bg='color2'), padding=5),
 
-    powerline('color1', 'color2'),
+    powerline('color1', 'color3'),
 
     icon(bg="color1", fontsize=17, text=' '), # Icon: nf-mdi-calendar_clock
 
@@ -342,9 +342,9 @@ primary_widgets = [
 
     powerline('dark', 'color1'),
 
+    widget.CurrentLayoutIcon(**base(bg='dark'), scale=0.65),
     #widget.Wallpaper(random_selection=True,background=colors['dark']),
 
-    widget.Systray(background=colors['dark'], padding=5),
 
 ]
 
