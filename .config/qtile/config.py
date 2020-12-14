@@ -161,8 +161,8 @@ groups.extend([
        Group('3', label=''),
        Group('4', layout='max', label=''),
        Group('5', layout='max',  label=''),
-       Group('6', persist=False, label='➏'),
-       Group('7', persist=False, label='➐')
+       Group('6', persist=True, label='➏'),
+       Group('7', persist=True, label='➐')
 ])
 
 groups.append(
@@ -314,11 +314,11 @@ primary_widgets = [
 
     icon(bg="color4", text=' '), # Icon: nf-fa-download
 
-    widget.CheckUpdates(**base(bg='color4'), colour_no_updates='ffffff', colour_have_updates='7fff00', no_update_string=' ', update_interval=300,custom_command='checkupdates', execute=terminal+' --hold -e yay -Syu'),
+    widget.CheckUpdates(**base(bg='color4'), colour_no_updates='ffffff', colour_have_updates='7fff00', no_update_string=' ', update_interval=300,custom_command='checkupdates', execute=terminal+" --class 'Floating' --hold -e yay -Syu"),
 
     powerline('color2','color4'),
     icon(bg="color2",text=''),
-    widget.CPU(**base(bg='color2'),format = '{freq_current}GHz {load_percent}%', mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal+" -e bpytop")}),
+    widget.CPU(**base(bg='color2'),format = '{freq_current}GHz {load_percent}%', mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal+" --class 'Floating' -e bpytop")}),
     powerline('color1','color2'),
     icon(bg="color1",text=''),
     widget.Memory(**base(bg='color1')),
@@ -338,7 +338,7 @@ primary_widgets = [
 
     icon(bg="color1", fontsize=17, text=' '), # Icon: nf-mdi-calendar_clock
 
-    widget.Clock(**base(bg='color1'), format='%m/%d-%H:%M ', mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal+' -e calcurse')}),
+    widget.Clock(**base(bg='color1'), format='%m/%d-%H:%M ', mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal+" --class 'Floating' -e calcurse")}),
 
     powerline('dark', 'color1'),
 
@@ -423,6 +423,7 @@ floating_layout = layout.Floating(float_rules=[
     Match(title='branchdialog'),  # gitk
     Match(title='pinentry'),  # GPG key password entry
     Match(wm_class='oblogout'),
+#    Match(wm_class='Floating'),
 ],
    border_focus=colors["color4"][0]
 )
@@ -435,22 +436,24 @@ def autostart():
     subprocess.call(path.join(qtile_path,'autostart.sh'))
 
 @hook.subscribe.client_new
-def set_group(window):
-    wm=window.cmd_inspect()
+def set_group(mywindow):
+    wm=mywindow.cmd_inspect()
 #    print (wm['wm_class'])
 
     if "brave-browser" in wm['wm_class']:
-        window.togroup("2", switch_group=True)
+        mywindow.togroup("2", switch_group=True)
 #        print("222")
     if "dolphin" in wm['wm_class']:
-        window.togroup("3", switch_group=True)
+        mywindow.togroup("3", switch_group=True)
     if "krita" in wm['wm_class']:
-        window.togroup("4", switch_group=True)
+        mywindow.togroup("4", switch_group=True)
     if "gimp" in wm['wm_class']:
-        window.togroup("4", switch_group=True)
+        mywindow.togroup("4", switch_group=True)
     if "Blender" in wm['wm_class']:
-        window.togroup("5", switch_group=True)
-
+        mywindow.togroup("5", switch_group=True)
+    if "Floating" in wm['wm_class']:
+        mywindow.togroup("7", switch_group=True)
+        mywindow.toggle_maximized()
 
 #@hook.subscribe.screen_change
 #def restart_on_randr(ev):
