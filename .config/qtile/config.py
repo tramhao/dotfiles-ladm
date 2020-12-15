@@ -342,7 +342,7 @@ primary_widgets = [
 
     powerline('color1','color2'),
 
-    widget.Wallpaper(**base(bg='color1'), label=''),
+    widget.Wallpaper(**base(bg='color1'), label='', random_selection = True),
 
     powerline('dark', 'color1'),
 

@@ -74,7 +74,7 @@ cmap w!! w !sudo tee %
 
 "lightline configuration
 let g:lightline = {
-    \ 'colorscheme': 'wombat',
+    \ 'colorscheme': 'jellybeans',
     \ }
 
 " Nerd tree
