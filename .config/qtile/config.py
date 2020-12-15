@@ -157,7 +157,7 @@ groups.extend([
 #       Group('4', matches=[Match(wm_class='gimp'),Match(wm_class='krita')], layout='max', label=''),
 #       Group('5', matches=Match(wm_class='Blender'), layout='max',  label=''),
 #       Group('2', layout='max', label='爵'),
-       Group('2', label='爵'),
+       Group('2', label=''),
        Group('3', label=''),
        Group('4', layout='max', label=''),
        Group('5', layout='max',  label=''),
