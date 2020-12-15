@@ -35,6 +35,7 @@ from subprocess import check_output, call
 import subprocess
 import json
 import socket
+from libqtile.widget.wallpaper import Wallpaper
 
 mod = "mod4"
 terminal = guess_terminal()
@@ -305,6 +306,16 @@ elif myhostname =="XMLaptop":
 else:
     network_interface=None
 
+class MyWallpaper(Wallpaper):
+    def __init__(self, **config):
+       Wallpaper.__init__(self, **config)
+       self.update_interval = 5
+
+    def update(self, text):
+       if not self.update_interval:
+          return
+       Wallpaper.set_wallpaper()
+
 primary_widgets = [
     *workspaces(),
 
@@ -346,7 +357,7 @@ primary_widgets = [
     widget.Clock(**base(bg='color2'), format='%m/%d-%H:%M ', mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal+" --class 'Floating' -e calcurse")}),
 
     powerline('color1','color2'),
-    widget.Wallpaper(**base(bg='color1'), label='', random_selection = True),
+    MyWallpaper(**base(bg='color1'), label='', random_selection = True),
 
     powerline('dark', 'color1'),
     widget.CurrentLayoutIcon(**base(bg='dark'), scale=0.65),
