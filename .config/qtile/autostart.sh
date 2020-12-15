@@ -29,6 +29,7 @@ fi
 
 #run "pamac-tray"
 #run variety
+run dunst
 run nm-applet
 run blueman-tray
 run volumeicon

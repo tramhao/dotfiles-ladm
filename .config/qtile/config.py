@@ -309,24 +309,31 @@ primary_widgets = [
     *workspaces(),
 
     separator(),
-
     widget.Systray(background=colors['dark'], padding=5),
+
     powerline('color4', 'dark'),
+    icon(bg="color4", text=''), # Icon: nf-fa-download
+    widget.Clipboard(**base(bg='color4')),
 
-    icon(bg="color4", text=' '), # Icon: nf-fa-download
 
-    widget.CheckUpdates(**base(bg='color4'), colour_no_updates='ffffff', colour_have_updates='7fff00', no_update_string=' ', update_interval=300,custom_command='checkupdates', execute=terminal+" --class 'Floating' --hold -e yay -Syu"),
+    powerline('color3', 'color4'),
+    icon(bg="color3", text=''), # Icon: nf-fa-download
+    widget.Pomodoro(**base(bg='color3')),
 
-    powerline('color2','color4'),
-    icon(bg="color2",text=''),
-    widget.CPU(**base(bg='color2'),format = '{freq_current}GHz {load_percent}%', mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal+" --class 'Floating' -e bpytop")}),
+    powerline('color2', 'color3'),
+    icon(bg="color2", text=' '), # Icon: nf-fa-download
+    widget.CheckUpdates(**base(bg='color2'), colour_no_updates='ffffff', colour_have_updates='7fff00', no_update_string=' ', update_interval=300,custom_command='checkupdates', execute=terminal+" --class 'Floating' --hold -e yay -Syu"),
+
     powerline('color1','color2'),
-    icon(bg="color1",text=''),
-    widget.Memory(**base(bg='color1')),
-    powerline('color3', 'color1'),
+    icon(bg="color1",text=''),
+    widget.CPU(**base(bg='color1'),format = '{freq_current}GHz {load_percent}%', mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal+" --class 'Floating' -e bpytop")}),
 
+    powerline('color4','color1'),
+    icon(bg="color4",text=''),
+    widget.Memory(**base(bg='color4')),
+
+    powerline('color3', 'color4'),
     icon(bg="color3", text=' '),  # Icon: nf-fa-feed
-
     widget.Net(**base(bg='color3'), interface=network_interface),
 
  #   powerline('color2', 'color3'),
@@ -335,20 +342,14 @@ primary_widgets = [
     #widget.CurrentLayout(**base(bg='color2'), padding=5),
 
     powerline('color2', 'color3'),
-
     icon(bg="color2", fontsize=17, text=' '), # Icon: nf-mdi-calendar_clock
-
     widget.Clock(**base(bg='color2'), format='%m/%d-%H:%M ', mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal+" --class 'Floating' -e calcurse")}),
 
     powerline('color1','color2'),
-
     widget.Wallpaper(**base(bg='color1'), label='', random_selection = True),
 
     powerline('dark', 'color1'),
-
     widget.CurrentLayoutIcon(**base(bg='dark'), scale=0.65),
-    #widget.Wallpaper(random_selection=True,background=colors['dark']),
-
 
 ]
 
@@ -442,20 +443,21 @@ def autostart():
 @hook.subscribe.client_new
 def set_group(mywindow):
     wm=mywindow.cmd_inspect()
-#    print (wm['wm_class'])
+    wm_class_string = json.dumps (wm['wm_class'])
 
-    if "brave-browser" in wm['wm_class']:
+#print (wm_string)
+
+    if "brave-browser" in wm_class_string:
         mywindow.togroup("2", switch_group=True)
-#        print("222")
-    if "dolphin" in wm['wm_class']:
+    if "dolphin" in wm_class_string:
         mywindow.togroup("3", switch_group=True)
-    if "krita" in wm['wm_class']:
+    if "krita" in wm_class_string:
         mywindow.togroup("4", switch_group=True)
-    if "gimp" in wm['wm_class']:
+    if "gimp" in wm_class_string:
         mywindow.togroup("4", switch_group=True)
-    if "Blender" in wm['wm_class']:
+    if "Blender" in wm_class_string:
         mywindow.togroup("5", switch_group=True)
-    if "Floating" in wm['wm_class']:
+    if "Floating" in wm_class_string:
         mywindow.togroup("7", switch_group=True)
         mywindow.toggle_maximized()
 
