@@ -21,6 +21,10 @@ Plug 'tpope/vim-commentary'
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-sleuth'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'jiangmiao/auto-pairs'
+Plug 'machakann/vim-sandwich'
+Plug 'easymotion/vim-easymotion'
+"Plug 'tpope/vim-sensible'
 call plug#end()
 
 " set leader key
@@ -54,6 +58,8 @@ set bg=light
 set showtabline=1                       " Always show tabs
 set noshowmode                          " We don't need to see things like -- INSERT -- anymore
 set nobackup                            " This is recommended by coc
+set noswapfile
+"set list
 set nowritebackup                       " This is recommended by coc
 set updatetime=300                      " Faster completion
 set timeoutlen=500                      " By default timeoutlen is 1000 ms
@@ -84,7 +90,33 @@ cmap w!! w !sudo tee %
 "lightline configuration
 let g:lightline = {
     \ 'colorscheme': 'jellybeans',
+    \ 'active': {
+    \     'left': [['mode', 'paste'],
+    \              ['readonly','filename','modified','vim-sleuth']]
+    \ },
+    \ 'component_function': {
+    \ 	'vim-sleuth': 'SleuthIndicator'
+    \	},
     \ }
+"Easy Motion
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+
+" Jump to anywhere you want with minimal keystrokes, with just one key binding.
+" `s{char}{label}`
+nmap s <Plug>(easymotion-overwin-f)
+" or
+" `s{char}{char}{label}`
+" Need one more keystroke, but on average, it may be more comfortable.
+nmap s <Plug>(easymotion-overwin-f2)
+
+" Turn on case-insensitive feature
+let g:EasyMotion_smartcase = 1
+
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+
+
 
 " Nerd tree
 	map <C-n> :NERDTreeToggle<CR>
