@@ -314,7 +314,7 @@ class MyWallpaper(Wallpaper):
     def update(self, text):
        if not self.update_interval:
           return
-       Wallpaper.set_wallpaper()
+       super().set_wallpaper()
 
 primary_widgets = [
     *workspaces(),
