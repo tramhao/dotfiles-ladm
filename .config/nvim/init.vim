@@ -19,6 +19,8 @@ Plug 'vimwiki/vimwiki'
 "Plug 'bling/vim-airline'
 Plug 'tpope/vim-commentary'
 Plug 'itchyny/lightline.vim'
+Plug 'tpope/vim-sleuth'
+Plug 'editorconfig/editorconfig-vim'
 call plug#end()
 
 " set leader key
@@ -38,8 +40,8 @@ set splitbelow                          " Horizontal splits will automatically b
 set splitright                          " Vertical splits will automatically be to the right
 set t_Co=256                            " Support 256 colors
 set conceallevel=0                      " So that I can see `` in markdown files
-set tabstop=4                           " Insert 2 spaces for a tab
-set shiftwidth=4                        " Change the number of space characters inserted for indentation
+set tabstop=2                           " Insert 2 spaces for a tab
+set shiftwidth=2                        " Change the number of space characters inserted for indentation
 set smarttab                            " Makes tabbing smarter will realize you have 2 vs 4
 set expandtab                           " Converts tabs to spaces
 set smartindent                         " Makes indenting smart
@@ -182,10 +184,32 @@ vnoremap < <gv
 vnoremap > >gv
 
 " Better window navigation
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+"nnoremap <C-h> <C-w>h
+"nnoremap <C-j> <C-w>j
+"nnoremap <C-k> <C-w>k
+"nnoremap <C-l> <C-w>l
+
+
+function! WinMove(key)
+    let t:curwin = winnr()
+    exec "wincmd ".a:key
+    if (t:curwin == winnr())
+        if (match(a:key,'[jk]'))
+            wincmd v
+        else
+            wincmd s
+        endif
+        exec "wincmd ".a:key
+    endif
+endfunction
+
+nnoremap <silent> <C-h> :call WinMove('h')<CR>
+nnoremap <silent> <C-j> :call WinMove('j')<CR>
+nnoremap <silent> <C-k> :call WinMove('k')<CR>
+nnoremap <silent> <C-l> :call WinMove('l')<CR>
+
+
+
 
 nnoremap <Leader>o o<Esc>^Da
 nnoremap <Leader>O O<Esc>^Da
