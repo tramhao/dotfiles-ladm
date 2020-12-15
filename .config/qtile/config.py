@@ -36,6 +36,8 @@ import subprocess
 import json
 import socket
 from libqtile.widget.wallpaper import Wallpaper
+#import threading
+from time import time, sleep
 
 mod = "mod4"
 terminal = guess_terminal()
@@ -311,10 +313,12 @@ class MyWallpaper(Wallpaper):
        Wallpaper.__init__(self, **config)
        self.update_interval = 5
 
-    def update(self, text):
-       if not self.update_interval:
-          return
-       super().set_wallpaper()
+    def _configure(self, qtile, bar):
+#       if not self.update_interval:
+#          return
+#      while True:
+        super()._configure(qtile,bar)
+#        sleep(100.0)
 
 primary_widgets = [
     *workspaces(),
