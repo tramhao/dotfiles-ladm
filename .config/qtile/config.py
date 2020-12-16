@@ -35,13 +35,11 @@ from subprocess import check_output, call
 import subprocess
 import json
 import socket
-from libqtile.widget.wallpaper import Wallpaper
-#import threading
-from time import time, sleep
 
 mod = "mod4"
 terminal = guess_terminal()
 qtile_path = path.join(path.expanduser('~'),".config","qtile")
+
 def load_theme():
      theme = "dark-grey"
 
@@ -308,23 +306,11 @@ elif myhostname =="XMLaptop":
 else:
     network_interface=None
 
-class MyWallpaper(Wallpaper):
-    def __init__(self, **config):
-       Wallpaper.__init__(self, **config)
-       self.update_interval = 5
-
-    def _configure(self, qtile, bar):
-#       if not self.update_interval:
-#          return
-#      while True:
-        super()._configure(qtile,bar)
-#        sleep(100.0)
 
 primary_widgets = [
     *workspaces(),
 
     separator(),
-    widget.Systray(background=colors['dark'], padding=5),
 
     powerline('color4', 'dark'),
     icon(bg="color4", text=''), # Icon: nf-fa-download
@@ -361,10 +347,11 @@ primary_widgets = [
     widget.Clock(**base(bg='color2'), format='%m/%d-%H:%M ', mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal+" --class 'Floating' -e calcurse")}),
 
     powerline('color1','color2'),
-    MyWallpaper(**base(bg='color1'), label='', random_selection = True),
+    widget.Wallpaper(**base(bg='color1'), label='', random_selection = True, update_interval=3),
 
     powerline('dark', 'color1'),
     widget.CurrentLayoutIcon(**base(bg='dark'), scale=0.65),
+    widget.Systray(background=colors['dark'], padding=5),
 
 ]
 
@@ -415,8 +402,8 @@ mouse = [
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: List
 main = None  # WARNING: this is deprecated and will be removed soon
-follow_mouse_focus = False
-bring_front_click = False
+follow_mouse_focus = True
+bring_front_click = True
 cursor_warp = False
 
 
@@ -443,7 +430,6 @@ floating_layout = layout.Floating(float_rules=[
     Match(title='branchdialog'),  # gitk
     Match(title='pinentry'),  # GPG key password entry
     Match(wm_class='oblogout'),
-#    Match(wm_class='Floating'),
 ],
    border_focus=colors["color4"][0]
 )
@@ -459,9 +445,6 @@ def autostart():
 def set_group(mywindow):
     wm=mywindow.cmd_inspect()
     wm_class_string = json.dumps (wm['wm_class'])
-
-#print (wm_string)
-
     if "brave-browser" in wm_class_string:
         mywindow.togroup("2", switch_group=True)
     if "dolphin" in wm_class_string:
@@ -476,26 +459,6 @@ def set_group(mywindow):
         mywindow.togroup("7", switch_group=True)
         mywindow.toggle_maximized()
 
-#@hook.subscribe.screen_change
-#def restart_on_randr(ev):
-##    lazy.restart()
-##    qtile.log.debug('screen change event: %s' % ev)
-#    xrandr_state = check_output(['xrandr'])
-##    qtile.log.debug('xrandr output:\n%s' % xrandr_state.decode("latin_1"))
-#    if b'DP1 connected' in xrandr_state:
-#        xrandr_setting = [
-#            'xrandr',
-#            '--output','DP1', '--primary', '--mode', '1920x1200',
-#            '--output','eDP1', '--off',
-#            '--output','HDMI2','--auto',
-#        ]
-#    else:
-#        xrandr_setting = [
-#            'xrandr',
-#            '--output','eDP1','--auto',
-#        ]
-#    call(xrandr_setting)
-#    lazy.restart()
 
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
