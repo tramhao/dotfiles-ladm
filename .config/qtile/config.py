@@ -114,7 +114,7 @@ keys = [
     Key([mod],"w",lazy.spawn("brave"),desc="Brave browser"),
     Key([mod],"f",lazy.spawn("dolphin"),desc="File Manager"),
     Key([mod], "x", lazy.spawn("oblogout -c "+path.join(qtile_path,"oblogout.conf")),desc="Logout screen"),
-    Key([mod], "F1", lazy.spawn(terminal+" --hold -e "+path.join(qtile_path,"mykey.py")),desc="Show hotkeys"),
+    Key([mod], "F1", lazy.spawn(terminal+" --class 'Floating' --hold -e "+path.join(qtile_path,"mykey.py")),desc="Show hotkeys"),
     # Sound
     Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle"), desc="Volume Mute"),
     Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%"), desc="Volume Down"),
@@ -347,7 +347,7 @@ primary_widgets = [
     widget.Clock(**base(bg='color2'), format='%m/%d-%H:%M ', mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal+" --class 'Floating' -e calcurse")}),
 
     powerline('color1','color2'),
-    widget.Wallpaper(**base(bg='color1'), label='', random_selection = True),
+    widget.Wallpaper2(**base(bg='color1'), label='', random_selection = True),
 
     powerline('dark', 'color1'),
     widget.CurrentLayoutIcon(**base(bg='dark'), scale=0.65),
