@@ -347,7 +347,7 @@ primary_widgets = [
     widget.Clock(**base(bg='color2'), format='%m/%d-%H:%M ', mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal+" --class 'Floating' -e calcurse")}),
 
     powerline('color1','color2'),
-    widget.Wallpaper(**base(bg='color1'), label='', random_selection = True, update_interval=3),
+    widget.Wallpaper(**base(bg='color1'), label='', random_selection = True),
 
     powerline('dark', 'color1'),
     widget.CurrentLayoutIcon(**base(bg='dark'), scale=0.65),
