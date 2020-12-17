@@ -349,7 +349,7 @@ primary_widgets = [
 
     powerline('color2', 'color3'),
     owm.OpenWeatherMap(**base(bg='color2'),api_key="d3bbbac74bc0d5aba7e664387bf7fb55", latitude=22.542883, longitude=114.062996,),
-#    owm.OpenWeatherMap(**base(bg='color2'),api_key="d3bbbac74bc0d5aba7e664387bf7fb55", latitude=22.542883, longitude=114.062996, icon_font="Material Design Icons"),
+    # owm.OpenWeatherMap(**base(bg='color2'),api_key="d3bbbac74bc0d5aba7e664387bf7fb55", latitude=22.542883, longitude=114.062996, icon_font="Material Design Icons"),
 
 
     powerline('color1','color2'),
