@@ -1,7 +1,7 @@
 #!/bin/sh
 
 HERE=$(dirname $(readlink -f $0))
-SCREEN_SIZE=${SCREEN_SIZE:-1024x768}
+SCREEN_SIZE=${SCREEN_SIZE:-1280x1024}
 XDISPLAY=:1
 LOG_LEVEL=${LOG_LEVEL:-INFO}
 if [[ -z PYTHON ]]; then
@@ -15,7 +15,7 @@ XEPHYR_PID=$!
 #  env DISPLAY=${XDISPLAY} ${PYTHON} /usr/bin/qtile -l ${LOG_LEVEL} $@ &
   env DISPLAY=${XDISPLAY} ${PYTHON} /usr/bin/qtile start -l ${LOG_LEVEL} $@ &
   QTILE_PID=$!
-  env DISPLAY=${XDISPLAY} alacritty &
+#  env DISPLAY=${XDISPLAY} alacritty &
   wait $QTILE_PID
   kill $XEPHYR_PID
 )

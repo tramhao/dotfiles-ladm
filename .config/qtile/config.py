@@ -35,6 +35,7 @@ from subprocess import check_output, call
 import subprocess
 import json
 import socket
+import owm
 
 mod = "mod4"
 terminal = guess_terminal()
@@ -312,42 +313,47 @@ primary_widgets = [
 
     separator(),
 
-    powerline('color4', 'dark'),
-    icon(bg="color4", text=''), # Icon: nf-fa-download
-    widget.Clipboard(**base(bg='color4')),
+    powerline('color1', 'dark'),
+    icon(bg="color1", text=''), # Icon: nf-fa-download
+    widget.Clipboard(**base(bg='color1')),
 
+
+    powerline('color4', 'color1'),
+    icon(bg="color4", text=''), # Icon: nf-fa-download
+    widget.Pomodoro(**base(bg='color4')),
 
     powerline('color3', 'color4'),
-    icon(bg="color3", text=''), # Icon: nf-fa-download
-    widget.Pomodoro(**base(bg='color3')),
+    icon(bg="color3", text=' '), # Icon: nf-fa-download
+    widget.CheckUpdates(**base(bg='color3'), colour_no_updates='ffffff', colour_have_updates='7fff00', no_update_string=' ', update_interval=300,custom_command='checkupdates', execute=terminal+" --class 'Floating' --hold -e yay -Syu"),
 
-    powerline('color2', 'color3'),
-    icon(bg="color2", text=' '), # Icon: nf-fa-download
-    widget.CheckUpdates(**base(bg='color2'), colour_no_updates='ffffff', colour_have_updates='7fff00', no_update_string=' ', update_interval=300,custom_command='checkupdates', execute=terminal+" --class 'Floating' --hold -e yay -Syu"),
+    powerline('color2','color3'),
+    icon(bg="color2",text=''),
+    widget.CPU(**base(bg='color2'),format = '{freq_current}GHz {load_percent}%', mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal+" --class 'Floating' -e bpytop")}),
 
     powerline('color1','color2'),
-    icon(bg="color1",text=''),
-    widget.CPU(**base(bg='color1'),format = '{freq_current}GHz {load_percent}%', mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal+" --class 'Floating' -e bpytop")}),
+    icon(bg="color1",text=''),
+    widget.Memory(**base(bg='color1')),
 
-    powerline('color4','color1'),
-    icon(bg="color4",text=''),
-    widget.Memory(**base(bg='color4')),
-
-    powerline('color3', 'color4'),
-    icon(bg="color3", text=' '),  # Icon: nf-fa-feed
-    widget.Net(**base(bg='color3'), interface=network_interface),
+    powerline('color4', 'color1'),
+    icon(bg="color4", text=' '),  # Icon: nf-fa-feed
+    widget.Net(**base(bg='color4'), interface=network_interface),
 
  #   powerline('color2', 'color3'),
 
 
     #widget.CurrentLayout(**base(bg='color2'), padding=5),
 
+    powerline('color3', 'color4'),
+    icon(bg="color3", fontsize=17, text=' '), # Icon: nf-mdi-calendar_clock
+    widget.Clock(**base(bg='color3'), format='%m/%d-%H:%M ', mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal+" --class 'Floating' -e calcurse")}),
+
     powerline('color2', 'color3'),
-    icon(bg="color2", fontsize=17, text=' '), # Icon: nf-mdi-calendar_clock
-    widget.Clock(**base(bg='color2'), format='%m/%d-%H:%M ', mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(terminal+" --class 'Floating' -e calcurse")}),
+    owm.OpenWeatherMap(**base(bg='color2'),api_key="d3bbbac74bc0d5aba7e664387bf7fb55", latitude=22.542883, longitude=114.062996,),
+#    owm.OpenWeatherMap(**base(bg='color2'),api_key="d3bbbac74bc0d5aba7e664387bf7fb55", latitude=22.542883, longitude=114.062996, icon_font="Material Design Icons"),
+
 
     powerline('color1','color2'),
-    widget.Wallpaper2(**base(bg='color1'), label='', random_selection = True),
+    widget.Wallpaper(**base(bg='color1'), label='', random_selection = True, update_interval=300),
 
     powerline('dark', 'color1'),
     widget.CurrentLayoutIcon(**base(bg='dark'), scale=0.65),
