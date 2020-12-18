@@ -19,11 +19,16 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'machakann/vim-sandwich'
 Plug 'easymotion/vim-easymotion'
+Plug 'norcalli/nvim-colorizer.lua'
 "Plug 'tpope/vim-sensible'
 call plug#end()
 
+set termguicolors
+lua require'colorizer'.setup()
+
 " set leader key
 "let g:mapleader = "\<Space>"
+
 
 syntax enable                           " Enables syntax highlighing
 set hidden                              " Required to keep multiple buffers open multiple buffers
@@ -47,7 +52,7 @@ set smartindent                         " Makes indenting smart
 set autoindent                          " Good auto indent
 set laststatus=2                        " Always display the status line
 set number relativenumber               " Line numbers
-set cursorline                          " Enable highlighting of the current line
+" set cursorline                          " Enable highlighting of the current line
 "set background=dark                     " tell vim what the background color looks like
 set bg=light
 set showtabline=1                       " Always show tabs
