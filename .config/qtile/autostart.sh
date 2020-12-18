@@ -32,7 +32,8 @@ fi
 run dunst
 run nm-applet
 run blueman-tray
-run volumeicon
+# run volctl
+# run volumeicon
 #run "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 #run "$(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)"
 #run "conky -c $HOME/.config/awesome/system-overview"
@@ -51,7 +52,7 @@ run fcitx5
 #if [ $(hostname) = "tramhao-pc" ]; then
 if [ $(hostname) = "XMLaptop" ]; then
 	run nextcloud
-	run cbatticon
+	# run cbatticon
 #	[ -n "$(xrandr | grep 'DP1 connected')" ] && \
 #		echo "hello"
 #		xrandr --output DP1 --primary --mode 1920x1200 \

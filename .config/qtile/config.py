@@ -37,10 +37,13 @@ import json
 import socket
 import owm
 import wallpaperng
+from laptopbattery import LaptopBatteryWidget
 
 mod = "mod4"
 terminal = guess_terminal()
 qtile_path = path.join(path.expanduser('~'),".config","qtile")
+
+
 
 def load_theme():
      theme = "dark-grey"
@@ -357,6 +360,15 @@ primary_widgets = [
     wallpaperng.Wallpaperng(**base(bg='color1'), label='', random_selection = True, update_interval=60),
 
     powerline('dark', 'color1'),
+
+    widget.Volume(
+       **base(bg='dark',fg='light'),
+       # step=5,
+       volume_up_command = "pavolume.sh --up",
+       volume_down_command = "pavolume.sh --down",
+       mute_command = "pavolume.sh --togmute",
+       ),
+    LaptopBatteryWidget(**base(bg='dark')),
     widget.CurrentLayoutIcon(**base(bg='dark'), scale=0.65),
     widget.Systray(background=colors['dark'], padding=5),
 
