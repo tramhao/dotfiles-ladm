@@ -36,6 +36,7 @@ import subprocess
 import json
 import socket
 import owm
+import wallpaperng
 
 mod = "mod4"
 terminal = guess_terminal()
@@ -353,7 +354,7 @@ primary_widgets = [
 
 
     powerline('color1','color2'),
-    widget.Wallpaper(**base(bg='color1'), label='', random_selection = True, update_interval=300),
+    wallpaperng.Wallpaperng(**base(bg='color1'), label='', random_selection = True, update_interval=60),
 
     powerline('dark', 'color1'),
     widget.CurrentLayoutIcon(**base(bg='dark'), scale=0.65),
