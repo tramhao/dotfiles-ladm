@@ -55,5 +55,5 @@ if [ $(hostname) = "XMLaptop" ]; then
 	run $HOME/sources/verysync-linux-amd64-v1.3.1/verysync
 fi
 run picom -b -f
-ntfd &
-bsp-layout set tall 1 --master-size 0.45
+run ntfd
+bsp-layout set tall 1 --master-size 0.5

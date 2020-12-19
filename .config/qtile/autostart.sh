@@ -61,3 +61,4 @@ if [ $(hostname) = "XMLaptop" ]; then
 fi
 #run compton -b --config $HOME/.config/awesome/compton.conf
 run picom -b -f
+run ntfd

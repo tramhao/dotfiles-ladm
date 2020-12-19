@@ -33,10 +33,10 @@ format-foreground = #FF0000
 format-background = #00FF00
 format-underline =
 format-overline =
-format-spacing =
-format-padding =
-format-margin =
-format-offset =
+format-spacing = 0
+format-padding = 0
+format-margin = 0
+format-offset = 0
 
 [colors]
 ; Nord theme ============
@@ -332,12 +332,12 @@ module-margin-right = 0
 ;https://github.com/jaagr/polybar/wiki/Fonts
 ;font-0 = "UbuntuMono Nerd Font:size=10;2"
 font-0 = "Microsoft YaHei:pixelsize=10;1"
-font-1 = "UbuntuMono Nerd Font:size=16;3"
+font-1 = "UbuntuMono Nerd Font:size=16;4"
 font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=8;1"
 font-3 = "Font Awesome 5 Free:style=Solid:pixelsize=8;1"
 font-4 = "Font Awesome 5 Brands:pixelsize=8;1"
-font-5 = WeatherIcons:size=17
-font-6 = MaterialIcons:size=8
+font-5 = WeatherIcons:size=12;4
+font-6 = MaterialIcons:size=12;4
 
 modules-left = bspwm xwindow
 modules-center =
@@ -401,8 +401,8 @@ font-1 = "UbuntuMono Nerd Font:size=16;4"
 font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=8;1"
 font-3 = "Font Awesome 5 Free:style=Solid:pixelsize=8;1"
 font-4 = "Font Awesome 5 Brands:pixelsize=8;1"
-font-5 = WeatherIcons:size=12
-font-6 = MaterialIcons:size=8
+font-5 = WeatherIcons:size=12;4
+font-6 = MaterialIcons:size=12;4
 
 modules-left = bspwm xwindow
 modules-center =
@@ -1573,7 +1573,7 @@ format = <label>
 ;format-prefix = " "
 ;format-prefix-foreground = #3EC13F
 ;format-underline = #3EC13F
-format-foreground = #d7d7d7
+format-foreground = ${colors.foreground}
 format-background = #645377
 ;/* exec = python -u ~/.config/polybar/scripts/weather.py */
 ;/* tail = true */
