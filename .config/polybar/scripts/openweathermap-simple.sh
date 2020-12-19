@@ -55,7 +55,11 @@ if [ -n "$CITY" ]; then
         CITY_PARAM="q=$CITY"
     fi
 
-    weather=$(curl -sf "$API/weather?appid=$KEY&$CITY_PARAM&units=$UNITS")
+    COUNTER=0
+    while [ $COUNTER -lt 10 ] & ! [ -n "$weather" ];do
+        weather=$(curl -sf "$API/weather?appid=$KEY&$CITY_PARAM&units=$UNITS")
+        let COUNTER=COUNTER+1
+    done
 else
     location=$(curl -sf https://location.services.mozilla.com/v1/geolocate?key=geoclue)
 
@@ -72,4 +76,6 @@ if [ -n "$weather" ]; then
     weather_icon=$(echo "$weather" | jq -r ".weather[0].icon")
 
     echo "$(get_icon "$weather_icon")" "$weather_temp$SYMBOL"
+else
+    echo "Service not available"
 fi
