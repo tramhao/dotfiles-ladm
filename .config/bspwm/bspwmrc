@@ -122,7 +122,7 @@ bspc rule -a google-chrome-stable private=on
 #bspc rule -a chromium private=on
 #bspc rule -a Chromium desktop=II follow=on
 bspc rule -a Brave-browser private=on
-bspc rule -a Brave-browser desktop=II follow=on
+bspc rule -a Brave-browser desktop=2 follow=on
 bspc rule -a midori private=on
 bspc rule -a gnome-pie border=off manage=off
 bspc rule -a wpa_gui state=pseudo_tiled
@@ -137,10 +137,10 @@ bspc rule -a 9menu border=off manage=off
 bspc rule -a tint2 border=off manage=off
 #bspc desktop I --layout monocle
 #bspc desktop II --layout monocle
-bspc rule -a Gimp desktop=IV state=floating follow=on
-bspc rule -a Darktable desktop=V follow=on
+bspc rule -a Gimp desktop=4 state=floating follow=on
+bspc rule -a Darktable desktop=5 follow=on
 bspc rule -a Oblogout state=floating center=true private=on
-bspc rule -a dolphin desktop=III follow=on
+bspc rule -a dolphin desktop=3 follow=on
 #bspc rule -a scratchpad state=floating
 bspc rule -a Pavucontrol state=floating
 
@@ -186,13 +186,13 @@ source $HOME/.config/bspwm/autostart.sh
 sleep 2
 
 #killall polybar
-if [ $(hostname) = "tramhao-pc" ]; then
-	        $HOME/.config/polybar/launch2.sh &
-elif [ $(hostname) = "XMLaptop" ]; then
+# if [ $(hostname) = "tramhao-pc" ]; then
+# 	        $HOME/.config/polybar/launch2.sh &
+# elif [ $(hostname) = "XMLaptop" ]; then
+# 	        $HOME/.config/polybar/launch.sh &
+# else
 	        $HOME/.config/polybar/launch.sh &
-else
-	        $HOME/.config/polybar/launch.sh &
-fi
+# fi
 
 #dropdownname="dropdown"
 #bspc query -N -n .hidden >/dev/null || setsid $TERMINAL -n "$dropdownname" -e dropdown >/dev/null 2>&1 &

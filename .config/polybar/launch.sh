@@ -12,9 +12,22 @@ while pgrep -x polybar >/dev/null; do sleep 1; done
 
 #if type "xrandr"; then
 #	for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-	for m in $(polybar --list-monitors | cut -d":" -f1); do
-		MONITOR=$m polybar --reload mainbar-bspwm  > /dev/null 2> ~/.config/polybar/mainbar-bspwm-$m.log &
+if [ $(hostname) = "tramhao-pc" ]; then
+  for m in $(polybar --list-monitors | cut -d":" -f1); do
+		MONITOR=$m polybar --reload mainbar-bspwm-home  > /dev/null 2> ~/.config/polybar/mainbar-bspwm-$m.log &
 	done
+elif [ $(hostname) = "XMLaptop" ]; then
+	if type "xrandr"; then
+		for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+			MONITOR=$m polybar --reload mainbar-bspwm-office &
+		done
+	else
+		polybar --reload mainbar-bspwm-office &
+	fi
+else
+  polybar --reload mainbar-bspwm-office &
+fi
+
 #else
 #	polybar --reload mainbar-bspwm &
 #fi

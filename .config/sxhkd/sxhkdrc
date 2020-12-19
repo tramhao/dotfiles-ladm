@@ -5,8 +5,8 @@
 # terminal emulator
 super + Return
 	$TERMINAL
-super + shift + Return
-	samedir
+#super + shift + Return
+#	samedir
 
 # program launcher
 #super + @space
