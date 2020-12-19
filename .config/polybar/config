@@ -406,7 +406,7 @@ font-6 = MaterialIcons:size=12;4
 
 modules-left = bspwm xwindow
 modules-center =
-modules-right = arrow10 date arrow4 weather arrow5 networkspeedup2 networkspeeddown2 arrow2 memory2 arrow3 cpu2 arrow4 pavolume arrow5 arch-aur-updates arrow6 temperature1 arrow9
+modules-right = arrow10 date arrow4 weather arrow5 networkspeedup2 networkspeeddown2 arrow2 memory2 arrow3 cpu2 arrow4 pavolume arrow5 arch-aur-updates arrow6 temperature1 arrow9 wallpaper
 
 
 tray-detached = false
@@ -805,7 +805,7 @@ content-background = #1D2330
 
 [module/arch-aur-updates]
 type = custom/script
-exec = ~/.config/polybar/scripts/check-all-updates.sh
+exec = ~/.config/polybar/scripts/updates-pacman-aurhelper.sh
 interval = 1000
 label = Updates: %output%
 format-foreground = #ededed
@@ -1713,3 +1713,15 @@ format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 
 ###############################################################################
+
+[module/wallpaper]
+type = custom/script
+exec = ~/.config/polybar/scripts/wallpaper.sh
+interval = 600
+label = WallPaper
+format-foreground = #000000
+format-background = #FFFFFF
+format-prefix = "  "
+format-prefix-foreground = #d7d7d7
+
+

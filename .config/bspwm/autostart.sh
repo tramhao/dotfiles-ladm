@@ -50,7 +50,7 @@ fi
 
 
 run nm-applet
-run variety
+#run variety
 if [ $(hostname) = "XMLaptop" ]; then
 	run $HOME/sources/verysync-linux-amd64-v1.3.1/verysync
 fi

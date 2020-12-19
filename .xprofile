@@ -62,3 +62,4 @@ if [[ "$HOSTNAME" == "XMLaptop" ]]; then
 	source ~/.xrandr
 fi
 
+xset r rate 400 25
