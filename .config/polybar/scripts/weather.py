@@ -16,7 +16,7 @@
 import requests
 
 CITY = "1795565"
-API_KEY = "756edce7e9d4c385ef9499a53492678c"
+API_KEY = "d3bbbac74bc0d5aba7e664387bf7fb55"
 UNITS = "Metric"
 UNIT_KEY = "C"
 #UNIT_KEY = "F"
@@ -26,7 +26,7 @@ LANG = "en"
 
 try:
     # HTTP CODE = OK
-    
+
     REQ = requests.get("http://api.openweathermap.org/data/2.5/weather?id={}&lang={}&appid={}&units={}".format(CITY, LANG,  API_KEY, UNITS))
     if REQ.status_code == 200:
         CURRENT = REQ.json()["weather"][0]["description"].capitalize()

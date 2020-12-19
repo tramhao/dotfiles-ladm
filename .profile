@@ -7,7 +7,7 @@ export PATH="/home/tramhao/.gem/ruby/2.5.0/bin:$PATH"
 export PATH="$HOME/.config/bspwm:$PATH"
 
 export EDITOR="nvim"
-export TERMINAL="st"
+export TERMINAL="alacritty"
 export BROWSER="brave"
 #export BROWSER="chromium"
 export READER="zathura"

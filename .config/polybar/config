@@ -339,7 +339,7 @@ font-3 = "Font Awesome 5 Free:style=Solid:pixelsize=8;1"
 font-4 = "Font Awesome 5 Brands:pixelsize=8;1"
 
 modules-left = bspwm xwindow
-modules-center =  
+modules-center =
 modules-right = arrow10 date arrow4 weather arrow5 networkspeedup networkspeeddown arrow2 memory2 arrow3 cpu2 arrow4 pavolume arrow5 arch-aur-updates arrow6 temperature3 arrow7 battery arrow8
 
 
@@ -402,7 +402,7 @@ font-3 = "Font Awesome 5 Free:style=Solid:pixelsize=8;1"
 font-4 = "Font Awesome 5 Brands:pixelsize=8;1"
 
 modules-left = bspwm xwindow
-modules-center =  
+modules-center =
 modules-right = arrow10 date arrow4 weather arrow5 networkspeedup2 networkspeeddown2 arrow2 memory2 arrow3 cpu2 arrow4 pavolume arrow5 arch-aur-updates arrow6 temperature1 arrow9
 
 
@@ -625,13 +625,13 @@ wrapping-scroll = false
 ;pin-workspaces = true
 pin-workspaces = true
 
-ws-icon-0 = I;  
-ws-icon-1 = II;
-ws-icon-2 = III;
-ws-icon-3 = IV;
-ws-icon-4 = V;5
-ws-icon-5 = VI;6
-ws-icon-6 = VII;7
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;5
+ws-icon-5 = 6;6
+ws-icon-6 = 7;7
 
 ;ws-icon-0 = 1;
 ;ws-icon-1 = 2;
@@ -1307,7 +1307,7 @@ label-connected = "%downspeed:7%"
 format-connected = <label-connected>
 format-connected-prefix = "  "
 format-connected-prefix-foreground = ${colors.foreground}
-format-connected-foreground = #ededed 
+format-connected-foreground = #ededed
 format-connected-background = #AD69AF
 
 [module/networkspeedup2]
@@ -1321,7 +1321,7 @@ label-connected = "%upspeed:7%"
 format-connected = <label-connected>
 format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground}
-format-connected-foreground = #ededed 
+format-connected-foreground = #ededed
 format-connected-background = #AD69AF
 
 ################################################################################
@@ -1337,7 +1337,7 @@ label-connected = "%downspeed:7%"
 format-connected = <label-connected>
 format-connected-prefix = "  "
 format-connected-prefix-foreground = ${colors.foreground}
-format-connected-foreground = #ededed 
+format-connected-foreground = #ededed
 format-connected-background = #AD69AF
 
 ################################################################################

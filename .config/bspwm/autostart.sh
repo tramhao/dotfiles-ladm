@@ -1,8 +1,7 @@
 #!/bin/bash
 
 function run {
-  if ! pgrep $1 ;
-  then
+  if (command -v $1 && ! pgrep $1); then
     $@&
   fi
 }
@@ -22,11 +21,11 @@ run "sxhkd"
 #run "xrandr --output HDMI2 --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off"
 #run "caffeine"
 #run "pamac-tray"
-run "feh --bg-fill $HOME/.scripts/pix/wall2.jpg"
+run feh --bg-fill $HOME/.scripts/pix/wall2.jpg
 #run "xfce4-power-manager"
 #run "blueberry-tray"
-run "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
-run "eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)"
+run /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+run eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)
 #run "numlockx on"
 #run "volumeicon"
 #run "nitrogen --restore"
@@ -39,10 +38,10 @@ run "eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)"
 #run "insync start"
 #run "spotify"
 
-run "compton -b --config $HOME/.config/awesome/compton.conf"
+# run compton -b --config $HOME/.config/awesome/compton.conf
 export $DESKTOP_STARTUP_ID = "bspwm2323"
 #run "ibus-daemon -drx"
-run "fcitx5"
+run fcitx5
 #run "nextcloud"
 #if [ $(hostname) = "tramhao-pc" ]; then
 if [ $(hostname) = "XMLaptop" ]; then
@@ -50,10 +49,10 @@ if [ $(hostname) = "XMLaptop" ]; then
 fi
 
 
-run "nm-applet"
-sleep 2 && run "variety"
-run "powerline-daemon -q"
+run nm-applet
+run variety
 if [ $(hostname) = "XMLaptop" ]; then
-	run "$HOME/sources/verysync-linux-amd64-v1.3.1/verysync"
+	run $HOME/sources/verysync-linux-amd64-v1.3.1/verysync
 fi
-xset r rate 400 30
+run picom -b -f
+bsp-layout set tall 1 --master-size 0.45
