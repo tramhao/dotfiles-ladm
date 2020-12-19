@@ -45,6 +45,7 @@ KEY="d3bbbac74bc0d5aba7e664387bf7fb55"
 CITY="1812896"
 UNITS="metric"
 SYMBOL="°"
+weather=$'\0'
 
 API="https://api.openweathermap.org/data/2.5"
 
@@ -56,7 +57,7 @@ if [ -n "$CITY" ]; then
     fi
 
     COUNTER=0
-    while [ $COUNTER -lt 10 ] & ! [ -n "$weather" ];do
+    while [ $COUNTER -lt 10 ] && [ -z "$weather" ];do
         weather=$(curl -sf "$API/weather?appid=$KEY&$CITY_PARAM&units=$UNITS")
         let COUNTER=COUNTER+1
     done
