@@ -20,7 +20,7 @@ margin-bottom = 0
 ;https://github.com/jaagr/polybar/wiki/Configuration#application-settings
 throttle-output = 5
 throttle-output-for = 10
-throttle-input-for = 30
+;throttle-input-for = 30
 screenchange-reload = false
 compositing-background = over
 compositing-foreground = over
@@ -31,8 +31,8 @@ compositing-border = over
 ; Define fallback values used by all module formats
 format-foreground = #FF0000
 format-background = #00FF00
-format-underline =
-format-overline =
+;format-underline =
+;format-overline =
 format-spacing = 0
 format-padding = 0
 format-margin = 0
@@ -1452,8 +1452,8 @@ format-background = #4B5665
 format-underline = #c72581
 format-warn = <ramp> <label-warn>
 format-warn-underline = #c7254f
-label = %temperature%
-label-warn =  %temperature%
+label = %temperature-c%
+label-warn =  %temperature-c%
 label-warn-foreground = #c7254f
 
 ramp-0 = 
@@ -1488,7 +1488,7 @@ format-background = #4B5665
 format-underline = #c72581
 format-warn = <ramp> <label-warn>
 format-warn-underline = #c7254f
-label = %temperature%
+label = %temperature-c%
 label-warn =  %temperature%
 label-warn-foreground = #c7254f
 
@@ -1566,10 +1566,10 @@ format-muted-background = ${colors.background}
 
 [module/weather]
 type = custom/script
-exec = busctl --user -j get-property io.ntfd /weather openweathermap.strings RenderedTemplate | jq -r .data
-interval = 60
+exec = ~/.config/polybar/scripts/openweathermap-simple.sh
+interval = 600
 label-font = 6
-format = <label>
+;format = <label>
 ;format-prefix = " "
 ;format-prefix-foreground = #3EC13F
 ;format-underline = #3EC13F

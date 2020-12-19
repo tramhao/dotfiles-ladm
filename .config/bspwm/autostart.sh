@@ -39,7 +39,7 @@ run eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)
 #run "spotify"
 
 # run compton -b --config $HOME/.config/awesome/compton.conf
-export DESKTOP_STARTUP_ID="bspwm2323"
+#export DESKTOP_STARTUP_ID="bspwm2323"
 #run "ibus-daemon -drx"
 run fcitx5
 #run "nextcloud"
@@ -55,5 +55,3 @@ if [ $(hostname) = "XMLaptop" ]; then
 	run $HOME/sources/verysync-linux-amd64-v1.3.1/verysync
 fi
 run picom -b -f
-run ntfd
-bsp-layout set tall 1 --master-size 0.5

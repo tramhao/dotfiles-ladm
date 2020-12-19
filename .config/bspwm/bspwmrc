@@ -181,8 +181,9 @@ bspc rule -a Pavucontrol state=floating
 #limepanel &
 
 
+bsp-layout set tall 1 --master-size 0.5
+
 source $HOME/.config/bspwm/autostart.sh
-sleep 2
 
 #killall polybar
 # if [ $(hostname) = "tramhao-pc" ]; then
