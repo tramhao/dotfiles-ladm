@@ -14,7 +14,7 @@ while pgrep -x polybar >/dev/null; do sleep 1; done
 #	for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
 if [ $(hostname) = "tramhao-pc" ]; then
   for m in $(polybar --list-monitors | cut -d":" -f1); do
-		MONITOR=$m polybar mainbar-bspwm-home  >> ~/.config/polybar/mainbar-bspwm-home-$m.log 2>&1 & disown
+		MONITOR=$m polybar mainbar-bspwm-home  > ~/.config/polybar/mainbar-bspwm-home-$m.log 2>&1 & disown
 	done
 elif [ $(hostname) = "XMLaptop" ]; then
 	if type "xrandr"; then
