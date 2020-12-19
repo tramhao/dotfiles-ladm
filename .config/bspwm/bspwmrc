@@ -142,6 +142,7 @@ bspc rule -a Oblogout state=floating center=true private=on
 bspc rule -a dolphin desktop=3 follow=on
 #bspc rule -a scratchpad state=floating
 bspc rule -a Pavucontrol state=floating
+bspc rule -a dropdown state=floating
 
 ##  Autogap adjusts windowgap automatically according to the number of
 ##  windows on the desktop. Using it disables negative window gap.
@@ -181,7 +182,7 @@ bspc rule -a Pavucontrol state=floating
 #limepanel &
 
 
-bsp-layout set tall 1 --master-size 0.5
+#bsp-layout set tall 1 --master-size 0.5
 
 source $HOME/.config/bspwm/autostart.sh
 

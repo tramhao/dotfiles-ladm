@@ -632,10 +632,9 @@ ws-icon-0 = 1;
 ws-icon-1 = 2;
 ws-icon-2 = 3;
 ws-icon-3 = 4;
-ws-icon-4 = 5;5
-ws-icon-5 = 6;6
-ws-icon-6 = 7;7
-
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
 ;ws-icon-0 = 1;
 ;ws-icon-1 = 2;
 ;ws-icon-2 = 3;
@@ -1364,7 +1363,7 @@ type = custom/script
 tail = true
 label = %output%
 exec = ~/.config/polybar/scripts/pavolume.sh --listen
-click-right = exec pavucontrol
+click-right = pavucontrol
 click-left = ~/.config/polybar/scripts/pavolume.sh --togmute
 scroll-up = ~/.config/polybar/scripts/pavolume.sh --up
 scroll-down = ~/.config/polybar/scripts/pavolume.sh --down
@@ -1716,12 +1715,13 @@ format-background = ${colors.background}
 
 [module/wallpaper]
 type = custom/script
+tail = true
 exec = ~/.config/polybar/scripts/wallpaper.sh
+click_left = exec ~/.config/polybar/scripts/wallpaper.sh
 interval = 600
-label = WallPaper
-format-foreground = #000000
-format-background = #FFFFFF
-format-prefix = "  "
+label = "  "
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
 format-prefix-foreground = #d7d7d7
 
 
