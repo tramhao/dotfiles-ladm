@@ -192,7 +192,7 @@ source $HOME/.config/bspwm/autostart.sh
 # elif [ $(hostname) = "XMLaptop" ]; then
 # 	        $HOME/.config/polybar/launch.sh &
 # else
-$HOME/.config/polybar/launch.sh &
+$HOME/.config/polybar/launch.sh
 # fi
 
 #ntfd &

@@ -353,8 +353,8 @@ tray-maxsize = 20
 tray-scale = 1.0
 tray-background = ${colors.background}
 
-scroll-up = bspwm-desknext
-scroll-down = bspwm-deskprev
+scroll-up = #bspwm.next
+scroll-down = #bspwm.prev
 
 [bar/mainbar-bspwm-home]
 monitor = ${env:MONITOR:}
@@ -418,8 +418,8 @@ tray-maxsize = 20
 tray-scale = 1.0
 tray-background = ${colors.background}
 
-scroll-up = bspwm-desknext
-scroll-down = bspwm-deskprev
+scroll-up = #bspwm.next
+scroll-down = #bspwm.prev
 
 
 ################################################################################
@@ -1363,7 +1363,7 @@ type = custom/script
 tail = true
 label = %output%
 exec = ~/.config/polybar/scripts/pavolume.sh --listen
-click-right = pavucontrol
+click-right = pavucontrol &
 click-left = ~/.config/polybar/scripts/pavolume.sh --togmute
 scroll-up = ~/.config/polybar/scripts/pavolume.sh --up
 scroll-down = ~/.config/polybar/scripts/pavolume.sh --down
@@ -1715,13 +1715,16 @@ format-background = ${colors.background}
 
 [module/wallpaper]
 type = custom/script
-tail = true
+;tail = true
 exec = ~/.config/polybar/scripts/wallpaper.sh
-click_left = exec ~/.config/polybar/scripts/wallpaper.sh
 interval = 600
-label = "  "
+click_left = pavucontrol &
+;label = "  "
+format = <label>
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
-format-prefix-foreground = #d7d7d7
+format-padding = 0
+;format-prefix-foreground = #d7d7d7
+label = %output%
 
-
+###############################################################################
