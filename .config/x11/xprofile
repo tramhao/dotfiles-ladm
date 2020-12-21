@@ -2,7 +2,8 @@
 
 # This file runs when a DM logs you into a graphical session.
 # If you use startx/xinit like a Chad, this file will also be sourced.
-if [[ "$HOSTNAME" == "XMLaptop" ]]; then
+if [ $(hostname) == "XMLaptop" ]; then
+	echo "ok"
 	source ~/.xrandr
 fi
 #mpd &			# music player daemon-you might prefer it as a service though
