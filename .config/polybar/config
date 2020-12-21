@@ -341,7 +341,7 @@ font-6 = MaterialIcons:size=12;4
 
 modules-left = bspwm xwindow
 modules-center =
-modules-right = arrow10 date arrow4 weather arrow5 networkspeedup networkspeeddown arrow2 memory2 arrow3 cpu2 arrow4 pavolume arrow5 arch-aur-updates arrow6 temperature3 arrow7 battery arrow8
+modules-right = arrow10 date arrow4 weather arrow5 networkspeedup networkspeeddown arrow2 memory2 arrow3 cpu2 arrow4 pavolume arrow5 arch-aur-updates arrow6 temperature3 arrow7 battery arrow8 wallpaper
 
 
 tray-detached = false

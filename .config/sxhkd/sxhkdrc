@@ -44,7 +44,7 @@ super + F6
 F12
 #	scratch
 #	tdrop -ma -w 42% -h 75% -x 57% -y 24% st
-	tdrop -ma -w 50% -h 80% -x 49% -y 19% alacritty --class "dropdown"
+	tdrop -ma -w 50% -h 80% -x 49% -y 19% st --class "dropdown"
 #	tdrop -ma -w -4 -y 20 -s scratchpad st
 #	id=$(cat /tmp/scratchid);\
 #	bspc node $id --flag hidden; bspc node -f $id

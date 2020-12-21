@@ -1,0 +1,12 @@
+hash -d cac=/home/tramtram/.cache 
+hash -d cf=/home/tramtram/.config 
+hash -d D=/home/tramtram/Downloads 
+hash -d d=/home/tramtram/Documents 
+hash -d dt=/home/tramtram/.local/share 
+hash -d h=/home/tramtram 
+hash -d m=/home/tramtram/Music 
+hash -d mn=/mnt 
+hash -d pp=/home/tramtram/Pictures 
+hash -d sc=/home/tramtram/.local/bin 
+hash -d src=/home/tramtram/.local/src 
+hash -d vv=/home/tramtram/Videos 
