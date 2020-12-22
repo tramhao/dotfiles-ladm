@@ -11,8 +11,6 @@ endif
 "         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 "     autocmd VimEnter * PlugInstall --sync | source ~/.config/nvim/init.vim
 " endif
-
-
 call plug#begin('~/.config/nvim/plugged')
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
@@ -74,6 +72,9 @@ set updatetime=300                      " Faster completion
 set timeoutlen=500                      " By default timeoutlen is 1000 ms
 set formatoptions-=cro                  " Stop newline continution of comments
 set clipboard=unnamedplus               " Copy paste between vim and everything else
+set complete+=kspell
+set completeopt=menuone,longest
+
 "set autochdir                           " Your working directory will always be the same as your working directory
 
 au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
