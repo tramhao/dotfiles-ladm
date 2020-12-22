@@ -156,7 +156,6 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,		XK_equal,	spawn,		SHCMD("pamixer --allow-boost -i 15; kill -44 $(pidof dwmblocks)") },
 	{ MODKEY,			XK_BackSpace,	spawn,		SHCMD("sysact") },
 	{ MODKEY|ShiftMask,		XK_BackSpace,	spawn,		SHCMD("sysact") },
-
 	{ MODKEY,			XK_Tab,		view,		{0} },
 	/* { MODKEY|ShiftMask,		XK_Tab,		spawn,		SHCMD("") }, */
 	{ MODKEY,			XK_q,		killclient,	{0} },
