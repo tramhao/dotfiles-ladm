@@ -26,7 +26,7 @@ static const Block blocks[] = {
 	{"",	"clock",	60,	1},
 	{"",	"internet",	5,	4},
 	{"",	"help-icon",	0,	15},
-	{"", "wallpaper.sh",0,25},
+	{"", "wallpaperwidget",0,25},
 };
 
 //Sets delimiter between status commands. NULL character ('\0') means no delimiter.

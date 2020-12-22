@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# Prints the current volume or 🔇 if muted.
+
+case $BLOCK_BUTTON in
+	1) wallpaper.sh ;;
+	2) pamixer -t ;;
+	4) pamixer --allow-boost -i 1 ;;
+	5) pamixer --allow-boost -d 1 ;;
+	3) notify-send "📢 Volume module" "\- Shows volume 🔊, 🔇 if muted.
+- Middle click to mute.
+- Scroll to change." ;;
+	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
+esac
+
+	icon="🖼️"
+
+echo "$icon"
