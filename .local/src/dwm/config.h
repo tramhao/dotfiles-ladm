@@ -203,7 +203,8 @@ static Key keys[] = {
 	{ MODKEY,			XK_apostrophe,	togglescratch,	{.ui = 1} },
 	/* { MODKEY|ShiftMask,		XK_apostrophe,	spawn,		SHCMD("") }, */
 	{ MODKEY,			XK_Return,	spawn,		{.v = termcmd } },
-	{ MODKEY|ShiftMask,		XK_Return,	togglescratch,	{.ui = 0} },
+	{ MODKEY|ShiftMask,		XK_Return,	spawn,		SHCMD("samedir") },
+	{ 0,				XK_F12,		togglescratch,	{.ui = 0} },
 
 	{ MODKEY,			XK_z,		incrgaps,	{.i = +3 } },
 	/* { MODKEY|ShiftMask,		XK_z,		spawn,		SHCMD("") }, */
