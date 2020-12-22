@@ -6,6 +6,8 @@
 
 st.font:	UbuntuMono Nerd Font:pixelsize=24:antialias=true:autohint=true;
 
+/* st.font: Microsoft YaHei:pixelsize=24:antialias=true:autohint=true; */
+
 /* name		dark	light */
 /* black	0	8 */
 /* red		1	9 */
