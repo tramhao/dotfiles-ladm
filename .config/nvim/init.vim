@@ -1,11 +1,16 @@
 inoremap ii <ESC>
 let g:mapleader =","
-
-if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
-    silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    autocmd VimEnter * PlugInstall --sync | source ~/.config/nvim/init.vim
+if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim"'))
+	echo "Downloading junegunn/vim-plug to manage plugins..."
+	silent !mkdir -p ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/
+	silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim
+	autocmd VimEnter * PlugInstall --sync | source ~/.config/nvim/init.vim
 endif
+" if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+"     silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
+"         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+"     autocmd VimEnter * PlugInstall --sync | source ~/.config/nvim/init.vim
+" endif
 
 
 call plug#begin('~/.config/nvim/plugged')
@@ -20,6 +25,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'machakann/vim-sandwich'
 Plug 'easymotion/vim-easymotion'
 Plug 'norcalli/nvim-colorizer.lua'
+Plug 'vimwiki/vimwiki'
 "Plug 'tpope/vim-sensible'
 call plug#end()
 
@@ -35,7 +41,10 @@ set hidden                              " Required to keep multiple buffers open
 "set nowrap                              " Display long lines as just one line
 set encoding=utf-8                      " The encoding displayed
 set pumheight=10                        " Makes popup menu smaller
-set fileencoding=utf-8                  " The encoding written to file
+" set fileencoding=utf-8                  " The encoding written to file
+set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
+set enc=utf8
+set fencs=utf8,gbk,gb2312,gb18030
 set ruler              			            " Show the cursor position all the time
 set cmdheight=1                         " More space for displaying messages
 set iskeyword+=-                      	" treat dash separated words as a word text object"
@@ -248,7 +257,7 @@ nnoremap <Leader>O O<Esc>^Da
 
 """For dwm and dwmblocks"""
 autocmd BufWritePost ~/.local/src/dwmblocks/config.h !cd ~/.local/src/dwmblocks/; sudo make install && { killall -q dwmblocks;setsid dwmblocks & }
-autocmd BufWritePost ~/.local/src/dwm/config.h !cd ~/.local/src/dwm/; sudo make install && { killall -q dwm;setsid dwm & }
+autocmd BufWritePost ~/.local/src/dwm/config.h !cd ~/.local/src/dwm/; sudo make install && { kill -HUP $(pgrep -u $USER "\bdwm$") }
 
 
 

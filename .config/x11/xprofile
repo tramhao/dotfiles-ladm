@@ -10,7 +10,8 @@ fi
 remaps &		# run the remaps script, switching caps/esc and more; check it for more info
 wallpaper.sh &			# set the background with the `setbg` script
 xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources &	# Uncomment to use Xresources colors/settings on startup
-xcompmgr &		# xcompmgr for transparency
+#xcompmgr &		# xcompmgr for transparency
+picom -f -b
 dunst &			# dunst for notifications
 #xset r rate 400 50 &	# Speed xrate up
 unclutter &		# Remove mouse when idle

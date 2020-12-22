@@ -237,4 +237,4 @@ ex ()
 
 ##neofetch
 #PF_INFO="ascii title os host kernel uptime pkgs memory"
-#pfetch
+

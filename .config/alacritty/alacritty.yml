@@ -29,9 +29,11 @@ font:
   normal:
     family: UbuntuMono Nerd Font
     style: Regular
-  size: 14
+  size: 16
 window:
   padding:
     x: 2
 key_bindings:
   - { key: Return,   mods: Super|Shift, action: SpawnNewInstance }
+  - { key: C, mods: Alt, action: Copy }
+  - { key: V, mods: Alt, action: Paste }

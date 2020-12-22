@@ -55,6 +55,7 @@ static const Rule rules[] = {
 	{ NULL,      "spterm",    NULL,       	    SPTAG(0),     1,           1,         0,        -1 },
 	{ NULL,      "spcalc",    NULL,       	    SPTAG(1),     1,           1,         0,        -1 },
 	{ "Brave-browser",   NULL,       NULL,      1 << 1, 	  0,           0,         0,        -1 },
+	{ NULL,		"mydropdown",    NULL,      0, 	  	  1,           1,         1,        -1 },
 };
 
 /* layout(s) */
@@ -204,8 +205,8 @@ static Key keys[] = {
 	/* { MODKEY|ShiftMask,		XK_apostrophe,	spawn,		SHCMD("") }, */
 	{ MODKEY,			XK_Return,	spawn,		{.v = termcmd } },
 	{ MODKEY|ShiftMask,		XK_Return,	spawn,		SHCMD("samedir") },
-	{ 0,				XK_F12,		togglescratch,	{.ui = 0} },
-
+	{ 0,				XK_F12,		spawn,		SHCMD("mydropdown") },
+	/* { 0,				XK_F12,		togglescratch,	{.ui = 0} }, */
 	{ MODKEY,			XK_z,		incrgaps,	{.i = +3 } },
 	/* { MODKEY|ShiftMask,		XK_z,		spawn,		SHCMD("") }, */
 	{ MODKEY,			XK_x,		incrgaps,	{.i = -3 } },
