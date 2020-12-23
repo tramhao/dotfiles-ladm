@@ -65,7 +65,7 @@ static const Rule rules[] = {
 	{ "Blueman-manager", NULL, NULL,       	    0, 		  1,		1,           0,0,0,0,			5,		0,         1,        -1 },
 	{ TERMCLASS,   NULL,       NULL,       	    0,            0,		0,           0,0,0,0,			5,		1,         0,        -1 },
 	{ NULL,       NULL,       "Event Tester",   0,            0,		0,           0,0,0,0,			5,		0,         1,        -1 },
-	{ NULL,      "spterm",    NULL,       	    SPTAG(0),     0,		1,           10,10,800,800,		5,		1,         0,        -1 },
+	{ NULL,      "spterm",    NULL,       	    SPTAG(0),     0,		1,           50,10,1900,800,		5,		1,         0,        -1 },
 	{ NULL,      "spcalc",    NULL,       	    SPTAG(1),     1,		1,           10,10,500,400,		5,		1,         0,        -1 },
 	{ "Brave-browser",   NULL,       NULL,      1 << 1, 	  0,		0,           0,0,0,0,			5,		0,         0,        -1 },
 	{ NULL,		"mydropdown",    NULL,      0,  	  0,		1,           0,0,0,0,			5,		1,         0,        -1 },
@@ -219,7 +219,10 @@ static Key keys[] = {
 	{ MODKEY,			XK_Return,	spawn,		{.v = termcmd } },
 	{ MODKEY|ShiftMask,		XK_Return,	spawn,		SHCMD("samedir") },
 	/* { 0,				XK_F12,		spawn,		SHCMD("mydropdown") }, */
-	{ 0,				XK_F12,		togglescratch,	{.ui = 0} },
+	/* { 0,				XK_F12,		togglescratch,	{.ui = 0} }, */
+	/* { 0,				XK_Insert,	togglescratch,	{.ui = 0} }, */
+	{ 0,				XK_F12,		spawn,		SHCMD("mydropdown") },
+	{ 0,				XK_Insert,	spawn,		SHCMD("mydropdown") },
 	{ MODKEY,			XK_z,		incrgaps,	{.i = +3 } },
 	/* { MODKEY|ShiftMask,		XK_z,		spawn,		SHCMD("") }, */
 	{ MODKEY,			XK_x,		incrgaps,	{.i = -3 } },

@@ -408,8 +408,10 @@ applyrules(Client *c)
 			if ((r->tags & SPTAGMASK) && r->isfloating) {
 				/* c->x = c->mon->wx + (c->mon->ww / 2 - WIDTH(c) / 2); */
 				/* c->y = c->mon->wy + (c->mon->wh / 2 - HEIGHT(c) / 2); */
-				c->x = c->mon->wx + (c->mon->ww  - WIDTH(c) );
-				c->y = c->mon->wy + (c->mon->wh  - HEIGHT(c));
+				c->x = c->mon->ww - r->floatx;
+				c->y = c->mon->wh - r->floaty;
+				c->w = r->floatw;
+				c->h = r->floath;
 
 			}
 //floating 5 fix
@@ -859,9 +861,10 @@ configurerequest(XEvent *e)
 				c->oldh = c->h;
 				c->h = ev->height;
 			}
-			if ((c->x + c->w) > m->mx + m->mw && c->isfloating)
+/* /floating5 fix */
+			if ((c->x + c->w) > m->mx + m->mw && c->isfloating && c->iscentered)
 				c->x = m->mx + (m->mw / 2 - WIDTH(c) / 2); /* center in x direction */
-			if ((c->y + c->h) > m->my + m->mh && c->isfloating)
+			if ((c->y + c->h) > m->my + m->mh && c->isfloating && c->iscentered)
 				c->y = m->my + (m->mh / 2 - HEIGHT(c) / 2); /* center in y direction */
 			if ((ev->value_mask & (CWX|CWY)) && !(ev->value_mask & (CWWidth|CWHeight)))
 				configure(c);
