@@ -37,7 +37,7 @@ typedef struct {
 	const char *name;
 	const void *cmd;
 } Sp;
-const char *spcmd1[] = {TERMINAL, "-n", "spterm", "-g", "120x34", NULL };
+const char *spcmd1[] = {TERMINAL, "-n", "spterm", "-g", "120x34+100+100", NULL };
 const char *spcmd2[] = {TERMINAL, "-n", "spcalc", "-f", "monospace:size=16", "-g", "50x20", "-e", "bc", "-lq", NULL };
 static Sp scratchpads[] = {
 	/* name          cmd  */
@@ -46,21 +46,29 @@ static Sp scratchpads[] = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+/* static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }; */
+/* static const char *tagsalt[] = { "", "", "", "", "", "➏", "➐", "➑", "➒" }; */
+static const char *tagsalt[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "", "", "", "", "", "➏", "➐", "➑", "➒" };
 
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	*/
-	/* class    instance      title       	 tags mask    isfloating   isterminal  noswallow  monitor */
-	{ "Gimp",     NULL,       NULL,       	    1 << 4,       0,           0,         0,        -1 },
-	{ TERMCLASS,   NULL,       NULL,       	    0,            0,           1,         0,        -1 },
-	{ NULL,       NULL,       "Event Tester",   0,            0,           0,         1,        -1 },
-	{ NULL,      "spterm",    NULL,       	    SPTAG(0),     1,           1,         0,        -1 },
-	{ NULL,      "spcalc",    NULL,       	    SPTAG(1),     1,           1,         0,        -1 },
-	{ "Brave-browser",   NULL,       NULL,      1 << 1, 	  0,           0,         0,        -1 },
-	{ NULL,		"mydropdown",    NULL,      0, 	  	  1,           1,         1,        -1 },
+	/* class    instance      title        	 tags mask    iscentered	isfloating  isterminal  noswallow  monitor */
+	{ "Gimp",     NULL,       NULL,       	    1 << 3,       0,		0,           0,         1,        -1 },
+	{ "Darktable", NULL,       NULL,       	    1 << 4,       0,		0,           0,         1,        -1 },
+	{ "krita",     NULL,       NULL,       	    1 << 3,       0,		0,           0,         1,        -1 },
+	{ "dolphin",   NULL,       NULL,       	    1 << 2,       0,		0,           0,         1,        -1 },
+	{ "Blender",     NULL,     NULL,       	    1 << 4,       0,		0,           0,         1,        -1 },
+	{ "Blueman-manager", NULL, NULL,       	    0, 		  1,		1,           0,         1,        -1 },
+	{ TERMCLASS,   NULL,       NULL,       	    0,            0,		0,           1,         0,        -1 },
+	{ NULL,       NULL,       "Event Tester",   0,            0,		0,           0,         1,        -1 },
+	{ NULL,      "spterm",    NULL,       	    SPTAG(0),     0,		1,           1,         0,        -1 },
+	{ NULL,      "spcalc",    NULL,       	    SPTAG(1),     1,		1,           1,         0,        -1 },
+	{ "Brave-browser",   NULL,       NULL,      1 << 1, 	  0,		0,           0,         0,        -1 },
+	{ NULL,		"mydropdown",    NULL,      0,  	  0,		1,           1,         0,        -1 },
 };
 
 /* layout(s) */
@@ -144,6 +152,7 @@ static Key keys[] = {
 	/* { MODKEY|ShiftMask,		XK_Escape,	spawn,	SHCMD("") }, */
 	{ MODKEY,			XK_grave,	spawn,	SHCMD("dmenuunicode") },
 	/* { MODKEY|ShiftMask,		XK_grave,	togglescratch,	SHCMD("") }, */
+	{ MODKEY|ControlMask,		XK_n,		togglealttag, {0} },
 	TAGKEYS(			XK_1,		0)
 	TAGKEYS(			XK_2,		1)
 	TAGKEYS(			XK_3,		2)
@@ -209,8 +218,8 @@ static Key keys[] = {
 	/* { MODKEY|ShiftMask,		XK_apostrophe,	spawn,		SHCMD("") }, */
 	{ MODKEY,			XK_Return,	spawn,		{.v = termcmd } },
 	{ MODKEY|ShiftMask,		XK_Return,	spawn,		SHCMD("samedir") },
-	{ 0,				XK_F12,		spawn,		SHCMD("mydropdown") },
-	/* { 0,				XK_F12,		togglescratch,	{.ui = 0} }, */
+	/* { 0,				XK_F12,		spawn,		SHCMD("mydropdown") }, */
+	{ 0,				XK_F12,		togglescratch,	{.ui = 0} },
 	{ MODKEY,			XK_z,		incrgaps,	{.i = +3 } },
 	/* { MODKEY|ShiftMask,		XK_z,		spawn,		SHCMD("") }, */
 	{ MODKEY,			XK_x,		incrgaps,	{.i = -3 } },
