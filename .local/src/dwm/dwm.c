@@ -401,6 +401,7 @@ applyrules(Client *c)
 		&& (!r->class || strstr(class, r->class))
 		&& (!r->instance || strstr(instance, r->instance)))
 		{
+			c->iscentered = r->iscentered;
 			c->isterminal = r->isterminal;
 			c->isfloating = r->isfloating;
 			c->noswallow  = r->noswallow;
@@ -414,8 +415,8 @@ applyrules(Client *c)
 				c->h = r->floath;
 
 			}
-//floating 5 fix
-			if (r->floatborderpx >=0){
+//floating5 fix
+			if (c->floatborderpx >=0){
 				c->floatborderpx = r->floatborderpx;
 				c->hasfloatbw = 1;
 			}
