@@ -68,6 +68,7 @@ static const Rule rules[] = {
 	{ NULL,      "spterm",    NULL,       	    SPTAG(0),     0,		1,           1,         0,        -1 },
 	{ NULL,      "spcalc",    NULL,       	    SPTAG(1),     1,		1,           1,         0,        -1 },
 	{ "Brave-browser",   NULL,       NULL,      1 << 1, 	  0,		0,           0,         0,        -1 },
+	{ "Lutris",   NULL,       NULL,             1 << 5, 	  0,		0,           0,         1,        -1 },
 	{ NULL,		"mydropdown",    NULL,      0,  	  0,		1,           1,         0,        -1 },
 };
 
