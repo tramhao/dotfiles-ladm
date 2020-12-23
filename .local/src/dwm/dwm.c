@@ -123,8 +123,6 @@ struct Client {
 	int bw, oldbw;
 	unsigned int tags;
 	int isfixed, iscentered, isfloating, isurgent, neverfocus, oldstate, isfullscreen, isterminal, noswallow, issticky;
-	int floatborderpx;
-	int hasfloatbw;
 	pid_t pid;
 	Client *next;
 	Client *snext;
@@ -178,8 +176,6 @@ typedef struct {
 	unsigned int tags;
 	int iscentered;
 	int isfloating;
-	int floatx,floaty,floatw,floath;
-	int floatborderpx;
 	int isterminal;
 	int noswallow;
 	int monitor;
@@ -407,26 +403,9 @@ applyrules(Client *c)
 			c->noswallow  = r->noswallow;
 			c->tags |= r->tags;
 			if ((r->tags & SPTAGMASK) && r->isfloating) {
-				/* c->x = c->mon->wx + (c->mon->ww / 2 - WIDTH(c) / 2); */
-				/* c->y = c->mon->wy + (c->mon->wh / 2 - HEIGHT(c) / 2); */
-				c->x = c->mon->ww - r->floatx;
-				c->y = c->mon->wh - r->floaty;
-				c->w = r->floatw;
-				c->h = r->floath;
-
+				c->x = c->mon->wx + (c->mon->ww / 2 - WIDTH(c) / 2);
+				c->y = c->mon->wy + (c->mon->wh / 2 - HEIGHT(c) / 2);
 			}
-//floating5 fix
-			if (c->floatborderpx >=0){
-				c->floatborderpx = r->floatborderpx;
-				c->hasfloatbw = 1;
-			}
-			/* if (r->isfloating){ */
-			/* 	c->x=c->mon->mx + r->floatx; */
-			/* 	c->y=r->floaty; */
-			/* 	c->w=r->floatw; */
-			/* 	c->h=r->floath; */
-			/* } */
-
 
 			for (m = mons; m && m->num != r->monitor; m = m->next);
 			if (m)
@@ -1366,11 +1345,7 @@ manage(Window w, XWindowAttributes *wa)
 		&& (c->x + (c->w / 2) < c->mon->wx + c->mon->ww)) ? bh : c->mon->my);
 	c->bw = borderpx;
 //floating patch
-	/* wc.border_width = c->bw; */
-	if (c->isfloating && c->hasfloatbw && !c->isfullscreen)
-		wc.border_width = c->floatborderpx;
-	else
-		wc.border_width = c->bw;
+	wc.border_width = c->bw;
 	XConfigureWindow(dpy, w, CWBorderWidth, &wc);
 	XSetWindowBorder(dpy, w, scheme[SchemeNorm][ColBorder].pixel);
 	configure(c); /* propagates border_width, if size doesn't change */
