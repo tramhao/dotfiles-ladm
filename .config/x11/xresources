@@ -4,7 +4,7 @@
 !! Set a default font and font size as below:
 *.font: monospace:size=16
 
-st.font:	UbuntuMono Nerd Font:pixelsize=24:antialias=true:autohint=true;
+/* st.font:	UbuntuMono Nerd Font:pixelsize=24:antialias=true:autohint=true; */
 
 /* st.font: Microsoft YaHei:pixelsize=24:antialias=true:autohint=true; */
 
