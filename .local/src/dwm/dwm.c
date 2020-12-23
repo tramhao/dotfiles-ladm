@@ -123,6 +123,8 @@ struct Client {
 	int bw, oldbw;
 	unsigned int tags;
 	int isfixed, iscentered, isfloating, isurgent, neverfocus, oldstate, isfullscreen, isterminal, noswallow, issticky;
+	int floatborderpx;
+	int hasfloatbw;
 	pid_t pid;
 	Client *next;
 	Client *snext;
@@ -176,6 +178,8 @@ typedef struct {
 	unsigned int tags;
 	int iscentered;
 	int isfloating;
+	int floatx,floaty,floatw,floath;
+	int floatborderpx;
 	int isterminal;
 	int noswallow;
 	int monitor;
@@ -399,13 +403,27 @@ applyrules(Client *c)
 		{
 			c->isterminal = r->isterminal;
 			c->isfloating = r->isfloating;
-			c->isfloating = r->isfloating;
 			c->noswallow  = r->noswallow;
 			c->tags |= r->tags;
-			if ((r->tags & SPTAGMASK) && r->isfloating && r->iscentered) {
-				c->x = c->mon->wx + (c->mon->ww / 2 - WIDTH(c) / 2);
-				c->y = c->mon->wy + (c->mon->wh / 2 - HEIGHT(c) / 2);
+			if ((r->tags & SPTAGMASK) && r->isfloating) {
+				/* c->x = c->mon->wx + (c->mon->ww / 2 - WIDTH(c) / 2); */
+				/* c->y = c->mon->wy + (c->mon->wh / 2 - HEIGHT(c) / 2); */
+				c->x = c->mon->wx + (c->mon->ww  - WIDTH(c) );
+				c->y = c->mon->wy + (c->mon->wh  - HEIGHT(c));
+
 			}
+//floating 5 fix
+			if (r->floatborderpx >=0){
+				c->floatborderpx = r->floatborderpx;
+				c->hasfloatbw = 1;
+			}
+			/* if (r->isfloating){ */
+			/* 	c->x=c->mon->mx + r->floatx; */
+			/* 	c->y=r->floaty; */
+			/* 	c->w=r->floatw; */
+			/* 	c->h=r->floath; */
+			/* } */
+
 
 			for (m = mons; m && m->num != r->monitor; m = m->next);
 			if (m)
@@ -1343,8 +1361,12 @@ manage(Window w, XWindowAttributes *wa)
 	c->y = MAX(c->y, ((c->mon->by == c->mon->my) && (c->x + (c->w / 2) >= c->mon->wx)
 		&& (c->x + (c->w / 2) < c->mon->wx + c->mon->ww)) ? bh : c->mon->my);
 	c->bw = borderpx;
-
-	wc.border_width = c->bw;
+//floating patch
+	/* wc.border_width = c->bw; */
+	if (c->isfloating && c->hasfloatbw && !c->isfullscreen)
+		wc.border_width = c->floatborderpx;
+	else
+		wc.border_width = c->bw;
 	XConfigureWindow(dpy, w, CWBorderWidth, &wc);
 	XSetWindowBorder(dpy, w, scheme[SchemeNorm][ColBorder].pixel);
 	configure(c); /* propagates border_width, if size doesn't change */

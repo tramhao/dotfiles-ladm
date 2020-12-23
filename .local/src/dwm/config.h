@@ -37,7 +37,7 @@ typedef struct {
 	const char *name;
 	const void *cmd;
 } Sp;
-const char *spcmd1[] = {TERMINAL, "-n", "spterm", "-g", "120x34+100+100", NULL };
+const char *spcmd1[] = {TERMINAL, "-n", "spterm", "-g", "120x34", NULL };
 const char *spcmd2[] = {TERMINAL, "-n", "spcalc", "-f", "monospace:size=16", "-g", "50x20", "-e", "bc", "-lq", NULL };
 static Sp scratchpads[] = {
 	/* name          cmd  */
@@ -56,19 +56,19 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	*/
-	/* class    instance      title        	 tags mask    iscentered	isfloating  isterminal  noswallow  monitor */
-	{ "Gimp",     NULL,       NULL,       	    1 << 3,       0,		0,           0,         1,        -1 },
-	{ "Darktable", NULL,       NULL,       	    1 << 4,       0,		0,           0,         1,        -1 },
-	{ "krita",     NULL,       NULL,       	    1 << 3,       0,		0,           0,         1,        -1 },
-	{ "dolphin",   NULL,       NULL,       	    1 << 2,       0,		0,           0,         1,        -1 },
-	{ "Blender",     NULL,     NULL,       	    1 << 4,       0,		0,           0,         1,        -1 },
-	{ "Blueman-manager", NULL, NULL,       	    0, 		  1,		1,           0,         1,        -1 },
-	{ TERMCLASS,   NULL,       NULL,       	    0,            0,		0,           1,         0,        -1 },
-	{ NULL,       NULL,       "Event Tester",   0,            0,		0,           0,         1,        -1 },
-	{ NULL,      "spterm",    NULL,       	    SPTAG(0),     0,		1,           1,         0,        -1 },
-	{ NULL,      "spcalc",    NULL,       	    SPTAG(1),     1,		1,           1,         0,        -1 },
-	{ "Brave-browser",   NULL,       NULL,      1 << 1, 	  0,		0,           0,         0,        -1 },
-	{ NULL,		"mydropdown",    NULL,      0,  	  0,		1,           1,         0,        -1 },
+	/* class    instance      title        	 tags mask    iscentered	isfloating   float x,y,w,h 		floatborderpx	isterminal  noswallow  monitor */
+	{ "Gimp",     NULL,       NULL,       	    1 << 3,       0,		0,           0,0,0,0,			5,		0,         1,        -1 },
+	{ "Darktable", NULL,       NULL,       	    1 << 4,       0,		0,           0,0,0,0,			5,		0,         1,        -1 },
+	{ "krita",     NULL,       NULL,       	    1 << 3,       0,		0,           0,0,0,0,			5,		0,         1,        -1 },
+	{ "dolphin",   NULL,       NULL,       	    1 << 2,       0,		0,           0,0,0,0,			5,		0,         1,        -1 },
+	{ "Blender",     NULL,     NULL,       	    1 << 4,       0,		0,           0,0,0,0,			5,		0,         1,        -1 },
+	{ "Blueman-manager", NULL, NULL,       	    0, 		  1,		1,           0,0,0,0,			5,		0,         1,        -1 },
+	{ TERMCLASS,   NULL,       NULL,       	    0,            0,		0,           0,0,0,0,			5,		1,         0,        -1 },
+	{ NULL,       NULL,       "Event Tester",   0,            0,		0,           0,0,0,0,			5,		0,         1,        -1 },
+	{ NULL,      "spterm",    NULL,       	    SPTAG(0),     0,		1,           10,10,800,800,		5,		1,         0,        -1 },
+	{ NULL,      "spcalc",    NULL,       	    SPTAG(1),     1,		1,           10,10,500,400,		5,		1,         0,        -1 },
+	{ "Brave-browser",   NULL,       NULL,      1 << 1, 	  0,		0,           0,0,0,0,			5,		0,         0,        -1 },
+	{ NULL,		"mydropdown",    NULL,      0,  	  0,		1,           0,0,0,0,			5,		1,         0,        -1 },
 };
 
 /* layout(s) */
