@@ -6,7 +6,8 @@ static const Block blocks[] = {
 	/* {"",	"music",	0,	11}, */
 	{"",	"pacpackages",	18000,	8},
 	/* {"",	"mybluetooth",		10,	24}, */
-	{"",	"news",		0,	6},
+	{"",	"mailbox",	3600,	12},
+	{"",	"news",		3600,	6},
 	/* {"",	"crypto",	0,	13}, */
 	/* {"",	"price lbc \"LBRY Token\" 📚",			9000,	22}, */
 	/* {"",	"price bat \"Basic Attention Token\" 🦁",	9000,	20}, */
@@ -21,12 +22,11 @@ static const Block blocks[] = {
 	/* {"",	"moonphase",	18000,	17}, */
 	/* {"",	"forecast",	18000,	5}, */
 	{"",	"openweathermap",	3600,	5},
-	{"",	"mailbox",	180,	12},
 	{"",	"nettraf",	1,	16},
+	{"",	"internet",	5,	4},
 	{"",	"volume",	0,	10},
 	{"",	"battery",	30,	3},
 	{"",	"clock",	60,	1},
-	{"",	"internet",	5,	4},
 	{"",	"help-icon",	0,	15},
 	{"", "wallpaperwidget",0,25},
 };
