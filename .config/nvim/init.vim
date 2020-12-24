@@ -22,13 +22,13 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'machakann/vim-sandwich'
 Plug 'easymotion/vim-easymotion'
-Plug 'norcalli/nvim-colorizer.lua'
+" Plug 'norcalli/nvim-colorizer.lua'
 Plug 'vimwiki/vimwiki'
 "Plug 'tpope/vim-sensible'
 call plug#end()
 
-set termguicolors
-lua require'colorizer'.setup()
+" set termguicolors
+" lua require'colorizer'.setup()
 
 " set leader key
 "let g:mapleader = "\<Space>"
