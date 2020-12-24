@@ -2842,7 +2842,7 @@ updatewindowtype(Client *c)
 	if (state == netatom[NetWMFullscreen])
 		setfullscreen(c, 1);
 	if (wtype == netatom[NetWMWindowTypeDialog]) {
-		/* c->iscentered = 1; */
+		c->iscentered = 1;
 		c->isfloating = 1;
 	}
 }

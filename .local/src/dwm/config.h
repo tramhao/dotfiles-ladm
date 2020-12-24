@@ -5,7 +5,7 @@
 #define TERMCLASS "St"
 
 /* appearance */
-static unsigned int borderpx  = 3;        /* border pixel of windows */
+static unsigned int borderpx  = 2;        /* border pixel of windows */
 static unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
@@ -28,7 +28,7 @@ static char normbgcolor[]           = "#222222";
 static char normbordercolor[]       = "#444444";
 static char normfgcolor[]           = "#bbbbbb";
 static char selfgcolor[]            = "#eeeeee";
-static char selbordercolor[]        = "#770000";
+static char selbordercolor[]        = "#cc00cc";
 static char selbgcolor[]            = "#005577";
 static char *colors[][3] = {
        /*               fg           bg           border   */
@@ -69,7 +69,7 @@ static const Rule rules[] = {
 	{ TERMCLASS,   NULL,       NULL,       	    0,            0,		0,          NULL,	 1,         0,        -1 },
 	{ NULL,       NULL,       "Event Tester",   0,            0,		0,          NULL,	 0,         1,        -1 },
 	{ NULL,      "spterm",    NULL,       	    SPTAG(0),     0,		1,          "75% 60% 50% 80%",	 1,         0,        -1 },
-	{ NULL,      "spcalc",    NULL,       	    SPTAG(1),     1,		1,          NULL,	 1,         0,        -1 },
+	{ NULL,      "spcalc",    NULL,       	    SPTAG(1),     0,		1,          "10% 80% 20% 40%",	 1,         0,        -1 },
 	{ "Brave-browser",   NULL,       NULL,      1 << 1, 	  0,		0,          NULL,	 0,         0,        -1 },
 	{ "Lutris",   NULL,       NULL,             1 << 5, 	  0,		0,          NULL,	 0,         1,        -1 },
 	{ NULL,		"mydropdown",    NULL,      0,  	  0,		1,          NULL,	 1,         0,        -1 },
