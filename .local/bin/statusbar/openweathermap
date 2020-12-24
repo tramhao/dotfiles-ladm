@@ -1,10 +1,16 @@
 #!/bin/sh
 
+case $BLOCK_BUTTON in
+	1) openweathermap ;;
+	3) notify-send "🌈 Weather module" "\- Left click to update forecast." ;;
+	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
+esac
+
 get_icon() {
     case $1 in
         # Icons for weather-icons
-        01d) icon="☀️";;
-        01n) icon="☀️";;
+        01d) icon="🌞";;
+        01n) icon="🌞";;
         02d) icon="🌤";;
         02n) icon="🌤";;
         03*) icon="🌥";;
@@ -94,7 +100,7 @@ if [ -n "$weather" ]; then
     weather_temp=$(echo "$weather" | jq ".main.temp" | cut -d "." -f 1)
     weather_icon=$(echo "$weather" | jq -r ".weather[0].icon")
 
-    echo "$(get_icon "$weather_icon")" "$weather_temp$SYMBOL"
+    echo "$(get_icon "$weather_icon")""$weather_temp$SYMBOL"
 else
     echo "Service not available"
 fi
