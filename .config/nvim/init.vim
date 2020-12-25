@@ -74,6 +74,7 @@ set formatoptions-=cro                  " Stop newline continution of comments
 set clipboard=unnamedplus               " Copy paste between vim and everything else
 set complete+=kspell
 set completeopt=menuone,longest
+set scrolloff=10
 
 "set autochdir                           " Your working directory will always be the same as your working directory
 
