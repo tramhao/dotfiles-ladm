@@ -19,11 +19,15 @@ options:
 
 ${OBJ}: config.h config.mk
 
+config.h:
+	@echo creating $@ from config.def.h
+	@cp config.def.h $@
+
 dwm: ${OBJ}
 	${CC} -o $@ ${OBJ} ${LDFLAGS}
 
 clean:
-	rm -f dwm ${OBJ} dwm-${VERSION}.tar.gz *.orig *.rej
+	rm -f dwm ${OBJ} dwm-${VERSION}.tar.gz *.orig *.rej config.h
 
 dist: clean
 	mkdir -p dwm-${VERSION}
@@ -32,6 +36,7 @@ dist: clean
 	tar -cf dwm-${VERSION}.tar dwm-${VERSION}
 	gzip dwm-${VERSION}.tar
 	rm -rf dwm-${VERSION}
+	rm -rf config.h
 
 install: all
 	mkdir -p ${DESTDIR}${PREFIX}/bin
