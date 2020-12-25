@@ -259,7 +259,7 @@ nnoremap <Leader>O O<Esc>^Da
 
 """For dwm and dwmblocks"""
 autocmd BufWritePost ~/.local/src/dwmblocks/config.h !cd ~/.local/src/dwmblocks/; sudo make install && { killall -q dwmblocks;setsid dwmblocks & }
-autocmd BufWritePost ~/.local/src/dwm/config.h !cd ~/.local/src/dwm/; sudo make install && { kill -HUP $(pgrep -u $USER "\bdwm$") }
+autocmd BufWritePost ~/.local/src/dwm/config.def.h !cd ~/.local/src/dwm/; make clean && sudo make install && { kill -HUP $(pgrep -u $USER "\bdwm$") }
 
 
 
