@@ -1,34 +1,34 @@
 //Modify this file to change what commands output to your statusbar, and recompile using the make command.
 static const Block blocks[] = {
 	/*Icon*/	/*Command*/		/*Update Interval*/	/*Update Signal*/
-	/* {"⌨", "kbselect", 0, 30}, */
-	{"", "cat /tmp/recordingicon 2>/dev/null",	0,	9},
-	/* {"",	"music",	0,	11}, */
-	{"",	"pacpackages",	18000,	8},
-	/* {"",	"mybluetooth",		10,	24}, */
-	{"",	"mailbox",	3600,	12},
-	{"",	"news",		3600,	6},
-	/* {"",	"crypto",	0,	13}, */
-	/* {"",	"price lbc \"LBRY Token\" 📚",			9000,	22}, */
-	/* {"",	"price bat \"Basic Attention Token\" 🦁",	9000,	20}, */
-	/* {"",	"price link \"Chainlink\" 🔗",			300,	25}, */
-	/* {"",	"price xmr \"Monero\" 🔒",			9000,	24}, */
-	/* {"",	"price eth Ethereum 🍸",	9000,	23}, */
-	/* {"",	"price btc Bitcoin 💰",				9000,	21}, */
-	/* {"",	"torrent",	20,	7}, */
-	{"",  "cpubars", 1, 17},
-	{"",	"memory",	10,	14},
-	{"",	"cpu",		10,	18},
-	/* {"",	"moonphase",	18000,	17}, */
-	/* {"",	"forecast",	18000,	5}, */
-	{"",	"openweathermap",	3600,	5},
-	{"",	"nettraf",	1,	16},
-	{"",	"internet",	5,	4},
-	{"",	"volume",	0,	10},
-	{"",	"battery",	30,	3},
-	{"",	"clock",	60,	1},
-	{"",	"help-icon",	0,	15},
-	{"", "wallpaperwidget",0,25},
+	/* {"⌨", "sb-kbselect", 0, 30}, */
+	/* {"", "cat /tmp/recordingicon 2>/dev/null",	0,	9}, */
+	/* {"",	"sb-music",	0,	11}, */
+	{"",	"sb-pacpackages",	18000,	8},
+	/* {"",	"sb-mybluetooth",		10,	24}, */
+	{"",	"sb-mailbox",	3600,	12},
+	{"",	"sb-news",		3600,	6},
+	/* {"",	"sb-crypto",	0,	13}, */
+	/* {"",	"sb-price lbc \"LBRY Token\" 📚",			9000,	22}, */
+	/* {"",	"sb-price bat \"Basic Attention Token\" 🦁",	9000,	20}, */
+	/* {"",	"sb-price link \"Chainlink\" 🔗",			300,	25}, */
+	/* {"",	"sb-price xmr \"Monero\" 🔒",			9000,	24}, */
+	/* {"",	"sb-price eth Ethereum 🍸",	9000,	23}, */
+	/* {"",	"sb-price btc Bitcoin 💰",				9000,	21}, */
+	/* {"",	"sb-torrent",	20,	7}, */
+	{"",  "sb-cpubars", 1, 17},
+	{"",	"sb-memory",	10,	14},
+	{"",	"sb-cpu",		10,	18},
+	/* {"",	"sb-moonphase",	18000,	17}, */
+	/* {"",	"sb-forecast",	18000,	5}, */
+	{"",	"sb-openweathermap",	3600,	5},
+	{"",	"sb-nettraf",	1,	16},
+	{"",	"sb-internet",	5,	4},
+	{"",	"sb-volume",	0,	10},
+	{"",	"sb-battery",	30,	3},
+	{"",	"sb-clock",	60,	1},
+	{"",	"sb-help-icon",	0,	15},
+	{"", "sb-wallpaperwidget",0,25},
 };
 
 //Sets delimiter between status commands. NULL character ('\0') means no delimiter.
