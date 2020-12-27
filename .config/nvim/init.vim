@@ -24,6 +24,7 @@ Plug 'machakann/vim-sandwich'
 Plug 'easymotion/vim-easymotion'
 " Plug 'norcalli/nvim-colorizer.lua'
 Plug 'vimwiki/vimwiki'
+Plug 'ap/vim-css-color'
 "Plug 'tpope/vim-sensible'
 call plug#end()
 
@@ -35,7 +36,10 @@ call plug#end()
 
 
 syntax enable                           " Enables syntax highlighing
+set path+=**				" Search current directory recursively
 set hidden                              " Required to keep multiple buffers open multiple buffers
+set incsearch				"incremental search
+let g:rehash256 = 1
 "set nowrap                              " Display long lines as just one line
 set encoding=utf-8                      " The encoding displayed
 set pumheight=10                        " Makes popup menu smaller
@@ -77,6 +81,24 @@ set completeopt=menuone,longest
 set scrolloff=10
 
 "set autochdir                           " Your working directory will always be the same as your working directory
+
+highlight LineNr           ctermfg=8    ctermbg=none    cterm=none
+highlight CursorLineNr     ctermfg=7    ctermbg=8       cterm=none
+highlight VertSplit        ctermfg=0    ctermbg=8       cterm=none
+highlight Statement        ctermfg=2    ctermbg=none    cterm=none
+highlight Directory        ctermfg=4    ctermbg=none    cterm=none
+highlight StatusLine       ctermfg=7    ctermbg=8       cterm=none
+highlight StatusLineNC     ctermfg=7    ctermbg=8       cterm=none
+highlight NERDTreeClosable ctermfg=2
+highlight NERDTreeOpenable ctermfg=8
+highlight Comment          ctermfg=4    ctermbg=none    cterm=italic
+highlight Constant         ctermfg=12   ctermbg=none    cterm=none
+highlight Special          ctermfg=4    ctermbg=none    cterm=none
+highlight Identifier       ctermfg=6    ctermbg=none    cterm=none
+highlight PreProc          ctermfg=5    ctermbg=none    cterm=none
+highlight String           ctermfg=12   ctermbg=none    cterm=none
+highlight Number           ctermfg=1    ctermbg=none    cterm=none
+highlight Function         ctermfg=1    ctermbg=none    cterm=none
 
 au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
 
