@@ -1,0 +1,214 @@
+*** this is a *scratch* buffer which won't be automatically saved ***
+*** use it for notes or open a file buffer with the :edit command ***
++=--------------------------------=+ BASICS +=--------------------------------=+
+Tasks:
+1. Map escape key
+2. :set -add global autoinfo normal
+3. use system clipboard
++=-------------------------------=+ ADVANCED +=-------------------------------=+
+                    =[ SPLITTING
+
+                    The selection primitive (`s`) is a powerful tool to select
+                    chunks of data, but sometimes the format of said data isn't
+        .---,       uniform enough to allow creating clear cut selections. In
+        | S |       order to avoid having to write overly complicated regular
+        `---'       expressions that select precisely the wanted text, the
+                    splitting primitive (`S`) allows applying a delimiter to
+                    the current selection, splitting it into separate chunks.
+
+                    Example: selecting the items in a CSV-style list (e.g.
+                    "1,2,3,4") is as simple as selecting the line, then
+                    splitting it using the comma separator (`S,`). Note that
+                    more advanced splitting is possible, since the delimiter
+                    passed to this primitive is a regular expression.
+
+
+                    =[ ROTATING
+
+                    Often used in conjunction with the splitting primitive
+                    (`S`), the rotation primitive (`<a-)>`) shifts all the
+                    selections clock-wise. Note that a count (described after)
+                    allows the rotation to take place in sub-groups whose size
+     .---, .---,    is given by the count parameter.
+     |alt|+| ) |
+     `---' `---'    Example: in a numbered list where all the numbers are
+                    selected (e.g. `1 2 3 4 5 6 7 8 9 0`), a rotation using
+                    this primitive will shift all the numbers by one selection
+                    forward, while leaving the original multiple selection
+                    untouched (e.g. `0 1 2 3 4 5 6 7 8 9`).
+
+
+                    =[ COUNTS
+
+   .---,            In order to pass a count to a primitive, simply type the
+   |0-9|_.          number out before hitting the primitive key/combination.
+   `---' |`.---,    Counts allow primitives to specialize or extend their
+         | | g |    original functionality by using it as a parameter,
+         | `---'    acting on their side effect.
+         |`.---,
+         | | G |    Example: in order to respectively jump or select up to a
+         | `---'    particular line, pass the line number to the `g` or `G`
+         |`.---,    primitives (e.g. `42g` or `7G`).
+         | | o |
+         | `---'    Example: creating an arbitrary amount of new lines
+          `.---,    above or below the current line and spawning a new selection
+           | O |    for each of them is achieved by passing the amount of lines
+           `---'    as a count respectively to the `o` and `O` primitives.
+
+
+                    =[ REGISTERS
+
+                    Similarly to counts, registers influence the behavior of
+   .---,            certain primitives. They are storage structures identified
+   | " |_.          by a single character, and are populated by primitives as a
+   `---'  `.---,    result of a side effect. Although primitives populate a
+           |a-z|    specific register by default, it's possible to modify which
+           `---'    is going to be populated upon execution using the double
+                    quote (`"`) primitive, and subsequently hitting a key that
+        .---,       will serve as identifier.
+        | * |
+        `---'       Example: the smart search primitive (`*`) uses the current
+                    selection as a search pattern, which will be saved to the
+   .---,            `/` register. In order to use this primitive to execute a
+   | " |_. .---,    temporary search, one could make this primitive save the
+   `---'  `| _ |    pattern to a different register, to preserve the default one
+           `---'    e.g. `"m*` to save the pattern to the `m` register, or even
+                    `"_*` to save the pattern to a "null" register, which not
+                    store anything written to it.
+
+                    ==[ CAPTURE GROUPS
+
+                    Although registers can pass as mere buffer metadata,
+     .---, .---,    they are an integral part of an editing session. The
+     |ctl|+| r |    `<c-r>` key combination allows to insert into the buffer
+     `---' `---'    the value of a register, whose identifier is typed right
+                    after the combination.
+
+.---, .---,         Example: inserting the name of the current buffer in insert
+|ctl|+| r |_.       mode can be achieved using the `%` register, which holds
+`---' `---'  `.---, this information: `<c-r>%`.
+              | % |
+              `---' Another kind of registers that is set automatically are
+                    the numbered registers, which hold the values of the groups
+                    matched in the last search or select operation (`/` and
+.---, .---,         `s` primitives).
+|ctl|+| r |_.
+`---' `---'  `.---, Example: when using the search primitive (`/`) with a
+              |0-9| regular expression containing groups to match a list of
+              `---' first and last names (e.g. `(\w+) (\w+)` on `John Doe`),
+                    issuing `<c-r>1` would insert the first name (`John`),
+                    and `<c-r>2` the last name (`Doe`).
+
+
+                    =[ CUSTOM SELECTIONS
+
+                    Despite the ability to select bits of data using regular
+                    expressions, there are times when using them isn't enough,
+                    and additional manual editing of the selections is
+        .---,       needed. In order to loop through all the selections and
+        | ) |       remove the current one, two primitives are available:
+        `---'       respectively the parenthesis (`)`), and the alt/space
+                    key combination (`<a-space>`).
+     .---, .---,
+     |alt|+|spc|    Example: given a list of three numbers all selected
+     `---' `---'    individually, (e.g. `1 2 3`), deselecting the second
+                    selection would be done by hitting the parenthesis primitive
+                    (`)`) until the according selection is the current one,
+                    then hitting `<a-space>` to end up with only the first
+                    and third number selected.
+
+                    However, being able to trim out some selections out
+        .---,       of a bigger set isn't always convenient, as it doesn't
+        | ^ |       allow more advanced constructs such as combining sets of
+        `---'       multiple-selections that result from different regular
+        .---,       expressions. To allow that, the save mark (`Z`) and append
+        | Z |       mark (`<a-z>`) come in handy, as they respectively save
+        `---'       the current selection to the mark register (`^`), and
+                    show a menu that allows appending the current selection
+.---, .---,         to the mark register upon hitting the `a` key. That way,
+|alt|+| z |_.       it becomes possible to chain and save (append) several
+`---' `---'  `.---, selections made using completely different methods
+              | a | (select, split etc) without being forced to preserve
+              `---' them at all times.
+        .---,
+        | z |       Restoring a mark saved to the mark register using those
+        `---'       primitives can be achieved by using the restore mark
+                    primitive (`z`).
+
+
+                    =[ LEVERAGING SHELL COMMANDS
+
+                    UNIX systems provide with some tools whose purpose is
+                    to interact with raw data, and being a UNIX compliant
+        .---,       aspiring tool itself, Kakoune allows leveraging those
+        | | |       tools to modify a buffer's contents. Upon invoking the pipe
+        `---'       primitive (`|`), an input field pops up which prompts for
+                    a shell command, to which the selections will individually
+                    be sent through the command's standard input.
+
+                    Example: wrapping a selection can be achieved by invoking
+                    the `fold` utility, e.g. `|fold -w80`. You could also want
+                    to see a patch of all the modifications made to the buffer
+                    since it was last saved: `%|diff -u <c-r>% -`. Note that
+                    the `<c-r>%` has to be typed interactively, as it will
+                    insert the name name of the buffer into the command.
+
+                    Another equally useful primitive that doesn't depend on
+        .---,       the contents of the current selections is the exclamation
+        | ! |       mark primitive (`!`), which simply insert the output of
+        `---'       the given shell command before each selection.
+
+                    Example: in order to insert the date of the day at the
+                    beginning of the current buffer, one could use `gg`
+                    followed with `!date`.
+
+                    But not all shell-related primitives insert data into
+                    the current buffer, the `$` key is in fact a way to
+        .---,       apply a predicate to all selections, in order to filter
+        | $ |       them out. The command passed to this primitive will be
+        `---'       executed in a new shell using each individual selection for
+                    context, which will either be kept if the command returned
+                    a successful exit code (zero) or dropped otherwise (any
+                    non-zero value).
+
+                    Example: after selecting all the lines in a buffer and
+                    splitting them individually (`%`, `<a-s>`), keeping every
+                    odd numbered line can be achieved with the following
+                    sequence: `$` `[ $((kak_reg_hash)) -ne 0 ]`.
+
+
+                    =[ REPEATING ACTIONS
+
+                    ==[ PUNCTUAL INTERACTIONS
+
+                    In order to modify text efficiently or insert redundant
+                    bits of data, two primitives are available. The dot `.`
+        .---,       primitive repeats the last change that was made in insert
+        | . |       mode (e.g. writing down text after hitting the insert
+        `---'       primitive `i`). Similarly, repeating the last selection
+                    (make with e.g. the find primitive `f`) can be achieved
+                    using the `<a-.>` primitive.
+
+                    Example: to select a paragraph to append a newline
+     .---, .---,    character to it and cycle through the following paragraphs
+     |alt|+| . |    to repeat the same insertion an arbitrary amount of times,
+     `---' `---'    one would first select the paragraph with `]p`, append a
+                    newline to it `a<ret><esc>`, then repeat both operations
+                    as needed with `<a-.>` and `.` respectively.
+
+                    ==[ COMPLEX CHANGES
+
+                    Transforming successive chunks of formatted data can
+        .---,       be cumbersome when done manually, and lack hindsight
+        | q |       when writing a script for that particular purpose
+        `---'       non-interactively. The middle ground between the two
+        .---,       solutions is to record the modifications made to one
+        | Q |       chunk interactively, and replay the sequence of keys
+        `---'       at will. The sequence in question is a macro: the `Q`
+                    primitive will create a new one (i.e. record all the keys
+.---, .---,         hit henceforth until the escape key `<esc>` is hit), and
+|ctl|+| r |_.       the `q` primitive will replay the keys saved in the macro.
+`---' `---'  `.---,
+              | @ | Notes: macros can easily be translated into a proper
+              `---' script, as they are saved in the `@` register, which you
+                    can insert into a buffer using `<c-r>@`.
