@@ -58,7 +58,8 @@ static Sp scratchpads[] = {
 /* static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }; */
 /* static const char *tagsalt[] = { "", "", "", "", "", "➏", "➐", "➑", "➒" }; */
 static const char *tagsalt[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
-static const char *tags[] = { "🖥️", "🌏", "📂", "🎨", "🎦", "➏", "➐", "➑", "➒" };
+static const char *tags[] = { "💻", "🌏", "📂", "🎨", "🎦", "➏", "➐", "➑", "➒" };
+
 
 static const Rule rules[] = {
 	/* xprop(1):
