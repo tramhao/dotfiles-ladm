@@ -23,7 +23,6 @@ vcs_info_wrapper() {
 }
 RPROMPT=$'$(vcs_info_wrapper)'
 
-
 setopt autocd		# Automatically cd into typed directory.
 # stty stop undef		# Disable ctrl-s to freeze terminal.
 setopt interactive_comments
@@ -32,6 +31,8 @@ setopt interactive_comments
 HISTSIZE=10000000
 SAVEHIST=10000000
 HISTFILE=~/.cache/zsh/history
+setopt HIST_FIND_NO_DUPS
+setopt INC_APPEND_HISTORY
 
 # Load aliases and shortcuts if existent.
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc"
@@ -55,6 +56,7 @@ bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
+bindkey '^R' history-incremental-search-backward
 
 # Change cursor shape for different vi modes.
 function zle-keymap-select () {
