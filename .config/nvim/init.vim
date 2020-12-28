@@ -88,9 +88,9 @@ endif
 " The configuration options should be placed before `colorscheme sonokai`.
 let g:sonokai_style = 'maia'
 let g:sonokai_enable_italic = 1
-let g:sonokai_disable_italic_comment = 1
+let g:sonokai_disable_italic_comment = 0
+let g:sonokai_transparent_background = 1
 colorscheme sonokai
-hi Normal guibg=NONE ctermbg=NONE
 
 "set autochdir                           " Your working directory will always be the same as your working directory
 
