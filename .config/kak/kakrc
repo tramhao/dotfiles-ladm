@@ -1,4 +1,3 @@
-#     __ __
 #    / //_/     __
 #   / ,<  ___ _/ /_____  __ _____  ___
 #  / /| |/ _ `/  '_/ _ \/ // / _ \/ -_)
@@ -21,6 +20,7 @@ evaluate-commands %sh{
 	[ ! -f "$XDG_DATA_HOME/kak/plug/rc/plug.kak" ] && git clone --quiet https://github.com/robertmeta/plug.kak.git "$XDG_DATA_HOME/kak/plug"
 	echo "source $XDG_DATA_HOME/kak/plug/rc/plug.kak"
 }
+# source "%val{config}/plugins/plug.kak/rc/plug.kak"
 set-option global plug_always_ensure 'true'
 
 ## Visual ---------------------------------------------------------------------
@@ -33,6 +33,13 @@ plug 'NNBnh/bui.kak' theme config %{
 
 plug 'eraserhd/kak-ansi'
 
+plug "alexherbo2/kakoune-dracula-theme" theme  config %{
+#	colorscheme dracula
+}
+
+plug "andreyorst/base16-gruvbox.kak" theme #config %{
+#    colorscheme base16-gruvbox-dark-soft
+#}
 ## Interactive ----------------------------------------------------------------
 
 # plug 'NNBnh/bmap.kak' config %{
@@ -42,36 +49,65 @@ plug 'eraserhd/kak-ansi'
 
 # plug 'Screwtapello/kakoune-inc-dec' domain "gitlab.com"
 plug 'h-youhei/kakoune-surround'
-
+plug 'alexherbo2/prelude.kak'
 plug 'alexherbo2/auto-pairs.kak'
-
+require-module prelude
+require-module auto-pairs
+auto-pairs-enable
 ## Environment ----------------------------------------------------------------
 
-# plug 'lePerdu/kakboard' config %{
-# 	declare-option str-list kakboard_paste_keys ''
-# 	declare-option str-list kakboard_copy_keys  ''
+plug 'lePerdu/kakboard' config %{
+	declare-option str-list kakboard_paste_keys ''
+	declare-option str-list kakboard_copy_keys  ''
 
-# 	hook global WinCreate        .* %{ kakboard-enable }
-# 	hook global WinCreate        .* %{ kakboard-pull-clipboard }
-# 	hook global FocusIn          .* %{ kakboard-pull-clipboard }
-# 	hook global RegisterModified \" %{ kakboard-push-clipboard }
-# }
+	hook global WinCreate        .* %{ kakboard-enable }
+	hook global WinCreate        .* %{ kakboard-pull-clipboard }
+	hook global FocusIn          .* %{ kakboard-pull-clipboard }
+	hook global RegisterModified \" %{ kakboard-push-clipboard }
+}
 
 # plug 'kak-lsp/kak-lsp' config %{
 # 	cargo install --locked --force --path .
 # 	evaluate-commands %sh{kak-lsp --kakoune -s $kak_session}
 # 	lsp-enable
 # }
+plug 'TeddyDD/kakoune-wiki' 
+#wiki-setup `/home/tramhao/wiki/`
+wiki-setup %sh{ echo $HOME/wiki }
 
+plug 'ul/kak-tree'
 
 # =============================================================================
 # 2. Options
 # =============================================================================
+set -add global autoinfo normal
+#map global user y '<a-|>xsel -i -b<ret>'
 
+define-command -docstring "map-sequence <scope> <sequence> <command>: map <sequence> of keys to <command> in insert mode." \
+map-sequence -params 3 %{ evaluate-commands %sh{
+    keys=$(printf "%s" "$2" | sed "s/\([&|]\)/\1\1/g")
+    cmd=$(printf "%s" "$3" | sed "s/\([@&|]\)/\1\1/g")
+    printf "%s\n" "hook -group $2-seq $1 InsertChar ${2##${2%%?}} %|
+        try %&
+            execute-keys -draft h<a-B> <a-k>$keys<ret> s$keys\z<ret> d
+            evaluate-commands %@$cmd@
+        &
+    |"
+}}
+
+define-command -docstring "unmap-sequence <scope> <sequence>: unmap <sequence> of keys in insert mode." \
+unmap-sequence -params 2 %{
+    remove-hooks "%arg{1}" "%arg{2}-seq"
+}
+
+map-sequence global jk %{exec <esc>}
+map-sequence global kj %{exec <esc>}
+map-sequence global ii %{exec <esc>}
+map-sequence global time %{echo %sh{date}}
 set-option global scrolloff '3,7'
 set-option global tabstop 4
 set-option global indentwidth 0
-set-option global modelinefmt '{{context_info}} {{mode_info}} %val{cursor_line}:%val{cursor_char_column} / %val{buf_line_count} '
+set-option global modelinefmt '{{context_info}}p {{mode_info}} %val{cursor_line}:%val{cursor_char_column} / %val{buf_line_count} '
 
 add-highlighter global/ number-lines -relative -hlcursor -separator ' ' -min-digits '3'
 add-highlighter global/ show-whitespaces -tab '▏' -tabpad ' ' -lf ' ' -spc ' ' -nbsp '·'
