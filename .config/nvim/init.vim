@@ -32,7 +32,7 @@ call plug#end()
 " lua require'colorizer'.setup()
 
 " set leader key
-"let g:mapleader = "\<Space>"
+" let g:mapleader = "\<Space>"
 
 
 syntax enable                           " Enables syntax highlighing
@@ -79,6 +79,17 @@ set clipboard=unnamedplus               " Copy paste between vim and everything 
 set complete+=kspell
 set completeopt=menuone,longest
 set scrolloff=10
+
+" Important!!
+if has('termguicolors')
+  set termguicolors
+endif
+" The configuration options should be placed before `colorscheme sonokai`.
+let g:sonokai_style = 'maia'
+let g:sonokai_enable_italic = 1
+let g:sonokai_disable_italic_comment = 1
+colorscheme sonokai
+hi Normal guibg=NONE ctermbg=NONE
 
 "set autochdir                           " Your working directory will always be the same as your working directory
 
