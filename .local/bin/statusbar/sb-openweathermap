@@ -8,7 +8,7 @@ esac
 
 get_icon() {
     case $1 in
-        # Icons for weather-icons
+        # Icons for emoji
         01d) icon="🌞";;
         01n) icon="🌞";;
         02d) icon="🌤";;
@@ -26,6 +26,8 @@ get_icon() {
         50d) icon="🌫";;
         50n) icon="🌫";;
         *) icon="🐱";
+
+        # Icons for weather-icons
 
         # 01d) icon="";;
         # 01n) icon="";;
