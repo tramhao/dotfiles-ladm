@@ -133,7 +133,7 @@ cmap w!! w !sudo tee %
 
 "lightline configuration
 let g:lightline = {
-    \ 'colorscheme': 'jellybeans',
+    \ 'colorscheme': 'ayu_dark',
     \ 'active': {
     \     'left': [['mode', 'paste'],
     \              ['readonly','filename','modified','vim-sleuth']]
