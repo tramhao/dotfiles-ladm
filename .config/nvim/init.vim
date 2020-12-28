@@ -24,6 +24,7 @@ Plug 'machakann/vim-sandwich'
 Plug 'easymotion/vim-easymotion'
 " Plug 'norcalli/nvim-colorizer.lua'
 Plug 'vimwiki/vimwiki'
+Plug 'sainnhe/sonokai'
 Plug 'ap/vim-css-color'
 "Plug 'tpope/vim-sensible'
 call plug#end()
