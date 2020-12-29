@@ -1,5 +1,8 @@
+set nocompatible              " be iMproved, required
+" filetype off                  " required
+
 inoremap ii <ESC>
-let g:mapleader =","
+let g:mapleader =";"
 if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim"'))
 	echo "Downloading junegunn/vim-plug to manage plugins..."
 	silent !mkdir -p ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/
@@ -11,22 +14,27 @@ endif
 "         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 "     autocmd VimEnter * PlugInstall --sync | source ~/.config/nvim/init.vim
 " endif
+
 call plug#begin('~/.config/nvim/plugged')
-Plug 'tpope/vim-surround'
-Plug 'scrooloose/nerdtree'
-Plug 'junegunn/goyo.vim'
-Plug 'tpope/vim-commentary'
-Plug 'itchyny/lightline.vim'
-Plug 'tpope/vim-sleuth'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'jiangmiao/auto-pairs'
-Plug 'machakann/vim-sandwich'
-Plug 'easymotion/vim-easymotion'
-" Plug 'norcalli/nvim-colorizer.lua'
-Plug 'vimwiki/vimwiki'
-Plug 'sainnhe/sonokai'
-Plug 'ap/vim-css-color'
-"Plug 'tpope/vim-sensible'
+    Plug 'suan/vim-instant-markdown', {'rtp': 'after'} " Markdown Preview
+    Plug 'tpope/vim-surround'
+    Plug 'jreybert/vimagit'
+    Plug 'scrooloose/nerdtree'
+    Plug 'junegunn/goyo.vim'
+    Plug 'tpope/vim-commentary'
+    Plug 'itchyny/lightline.vim'
+    Plug 'tpope/vim-sleuth'
+    Plug 'editorconfig/editorconfig-vim'
+    Plug 'vim-python/python-syntax'                    " Python highlighting
+    Plug 'jiangmiao/auto-pairs'
+    Plug 'machakann/vim-sandwich'
+    Plug 'easymotion/vim-easymotion'
+    " Plug 'norcalli/nvim-colorizer.lua'
+    Plug 'vimwiki/vimwiki'
+    Plug 'sainnhe/sonokai'
+    Plug 'luochen1990/rainbow'
+    Plug 'ap/vim-css-color'
+    "Plug 'tpope/vim-sensible'
 call plug#end()
 
 " set termguicolors
@@ -92,6 +100,18 @@ let g:sonokai_disable_italic_comment = 0
 let g:sonokai_transparent_background = 1
 colorscheme sonokai
 
+let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Vim-Instant-Markdown
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:instant_markdown_autostart = 0         " Turns off auto preview
+let g:instant_markdown_browser = "brave"      " Uses surf for preview
+map <Leader>md :InstantMarkdownPreview<CR>   " Previews .md file
+map <Leader>ms :InstantMarkdownStop<CR>      " Kills the preview
+
+let g:python_highlight_all = 1
+
 "set autochdir                           " Your working directory will always be the same as your working directory
 
 " highlight LineNr           ctermfg=8    ctermbg=none    cterm=none
@@ -120,7 +140,8 @@ cmap w!! w !sudo tee %
 "set nohlsearch
 " Some basics:
 	filetype plugin on
-"	syntax on
+  " filetype plugin indent on    " required
+	syntax on
 " Enable autocompletion:
 	set wildmode=longest,list,full
 " Disables automatic commenting on newline:
@@ -131,6 +152,10 @@ cmap w!! w !sudo tee %
 
 " Spell-check set to <leader>o, 'o' for 'orthography':
 	map <leader>o :setlocal spell! spelllang=en_us<CR>
+
+" Vim Wiki
+let g:vimwiki_list = [{'path': '~/Sync/wiki/', 'syntax': 'markdown', 'ext': '.md'}]
+
 
 "lightline configuration
 let g:lightline = {
@@ -192,8 +217,8 @@ map <Leader>k <Plug>(easymotion-k)
 	autocmd VimLeave *.tex !texclear %
 
 " Ensure files are read as what I want:
-	let g:vimwiki_ext2syntax = {'.Rmd': 'markdown', '.rmd': 'markdown','.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
-	let g:vimwiki_list = [{'path': '~/vimwiki', 'syntax': 'markdown', 'ext': '.md'}]
+	" let g:vimwiki_ext2syntax = {'.Rmd': 'markdown', '.rmd': 'markdown','.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
+	" let g:vimwiki_list = [{'path': '~/vimwiki', 'syntax': 'markdown', 'ext': '.md'}]
 	autocmd BufRead,BufNewFile /tmp/calcurse*,~/.calcurse/notes/* set filetype=markdown
 	autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
 	autocmd BufRead,BufNewFile *.tex set filetype=tex
@@ -294,6 +319,14 @@ nnoremap <Leader>O O<Esc>^Da
 """For dwm and dwmblocks"""
 autocmd BufWritePost ~/.local/src/dwmblocks/config.h !cd ~/.local/src/dwmblocks/; sudo make install && { killall -q dwmblocks;setsid dwmblocks & }
 autocmd BufWritePost ~/.local/src/dwm/config.def.h !cd ~/.local/src/dwm/; make clean && sudo make install && { kill -HUP $(pgrep -u $USER "\bdwm$") }
+
+au! BufRead,BufWrite,BufWritePost,BufNewFile *.org
+au BufEnter *.org            call org#SetOrgFileType()
+
+set guioptions-=m  "remove menu bar
+set guioptions-=T  "remove toolbar
+set guioptions-=r  "remove right-hand scroll bar
+set guioptions-=L  "remove left-hand scroll bar
 
 
 
