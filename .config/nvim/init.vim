@@ -26,7 +26,8 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'jiangmiao/auto-pairs'
     Plug 'machakann/vim-sandwich'
     Plug 'easymotion/vim-easymotion'
-    Plug 'vimwiki/vimwiki'
+    Plug 'lervag/wiki.vim'
+    " Plug 'vimwiki/vimwiki'
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
     Plug 'sainnhe/sonokai'
     Plug 'luochen1990/rainbow'
@@ -292,8 +293,13 @@ nnoremap <Leader>O O<Esc>^Da
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Vim Wiki
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:vimwiki_list = [{'path': '~/Sync/wiki/', 'syntax': 'markdown', 'ext': '.md'}]
+" let g:vimwiki_list = [{'path': '~/Sync/wiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Wiki.vim
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:wiki_root = '~/Sync/wiki'
+let g:wiki_filetypes = ['md']
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => lightline configuration
