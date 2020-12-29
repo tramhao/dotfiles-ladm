@@ -4,8 +4,7 @@ This is my dotfiles managed by yadm.
 
 1. dwm
 2. nvim
-3. kakoune
-4. polybar
+3. polybar
 5. dwmblocks
 6. bspwm
 7. qtile
