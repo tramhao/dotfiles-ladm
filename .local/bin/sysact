@@ -12,10 +12,11 @@ cmds="\
 🔒 lock		slock
 🚪 leave dwm	kill -TERM $(pgrep -u $USER "\bdwm$")
 ♻ renew dwm	kill -HUP $(pgrep -u $USER "\bdwm$")
-🐻 standbay	slock ${hib:-systemctl suspend -i}
+🐻 standbay	slock ${hib:-systemctl suspend}
 🔃 reboot	${reb:-sudo -A reboot}
 🖥 shutdown	${shut:-sudo -A shutdown -h now}"
 
+# 🐻 standbay	slock ${hib:-systemctl suspend -i}
 choice="$(echo "$cmds" | cut -d'	' -f 1 | dmenu)" || exit 1
 
 `echo "$cmds" | grep "^$choice	" | cut -d '	' -f2-`
