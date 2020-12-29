@@ -300,6 +300,11 @@ nnoremap <Leader>O O<Esc>^Da
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:wiki_root = '~/Sync/wiki'
 let g:wiki_filetypes = ['md']
+let g:wiki_write_on_nav = 1
+" let g:wiki_mappings_local = {
+"           \ '<plug>(wiki-list-toggle)' : '<c-w>',
+"           \ 'i_<plug>(wiki-list-toggle)' : '<c-w>',
+"           \}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => lightline configuration
