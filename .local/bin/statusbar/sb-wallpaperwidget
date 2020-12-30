@@ -3,7 +3,7 @@
 # Prints the current volume or 🔇 if muted.
 
 case $BLOCK_BUTTON in
-	1) wallpaper.sh ;;
+	1) setbg ~/Pictures/wallpapers ;;
 	3) notify-send "📢 Wallpaper module" "\- Click to change another wallpaper." ;;
 	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
