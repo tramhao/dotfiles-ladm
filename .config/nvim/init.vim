@@ -32,6 +32,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'luochen1990/rainbow'
     Plug 'ap/vim-css-color'
     Plug 'sheerun/vim-polyglot'   " Better Syntax Support"
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 syntax enable                           " Enables syntax highlighing
@@ -79,6 +80,19 @@ set complete+=kspell
 set completeopt=menuone,longest
 set scrolloff=10                        "Not to scroll to top or bottom
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => coc.vim
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Color Scheme Sonokai
@@ -229,15 +243,15 @@ set nohlsearch
 " Automatically deletes all trailing whitespace on save.
 	autocmd BufWritePre * %s/\s\+$//e
 
-" Better nav for omnicomplete
-inoremap <expr> <c-j> ("\<C-n>")
-inoremap <expr> <c-k> ("\<C-p>")
+" " Better nav for omnicomplete
+" inoremap <expr> <c-j> ("\<C-n>")
+" inoremap <expr> <c-k> ("\<C-p>")
 
 " Use alt + hjkl to resize windows
-nnoremap <c-M-k>    :resize -2<CR>
-nnoremap <c-M-j>    :resize +2<CR>
-nnoremap <c-M-l>    :vertical resize -2<CR>
-nnoremap <c-M-h>    :vertical resize +2<CR>
+nnoremap <c-M-j>    :resize -2<CR>
+nnoremap <c-M-k>    :resize +2<CR>
+nnoremap <c-M-h>    :vertical resize -2<CR>
+nnoremap <c-M-l>    :vertical resize +2<CR>
 
 " I hate escape more than anything else
 inoremap jk <Esc>
@@ -260,7 +274,7 @@ nnoremap <C-Q> :wq!<CR>
 " Use control-c instead of escape
 nnoremap <C-c> <Esc>
 " <TAB>: completion.
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+" inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " Better tabbing
 vnoremap < <gv
