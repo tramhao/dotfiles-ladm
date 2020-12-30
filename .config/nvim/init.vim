@@ -27,7 +27,6 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'easymotion/vim-easymotion'
     Plug 'unblevable/quick-scope'
     Plug 'lervag/wiki.vim'
-    Plug 'lervag/wiki-ft.vim'
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
     Plug 'sainnhe/sonokai'
     Plug 'luochen1990/rainbow'
@@ -115,7 +114,7 @@ let g:mkdp_auto_close = 1
 " leave from insert mode, default 0 is auto refresh markdown as you edit or
 " move the cursor
 " default: 0
-let g:mkdp_refresh_slow = 1
+let g:mkdp_refresh_slow = 0
 
 " set to 1, the MarkdownPreview command can be use for all files,
 " by default it can be use in markdown file
@@ -294,10 +293,6 @@ nnoremap <silent> <C-l> :call WinMove('l')<CR>
 nnoremap <Leader>o o<Esc>^Da
 nnoremap <Leader>O O<Esc>^Da
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Vim Wiki
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" let g:vimwiki_list = [{'path': '~/Sync/wiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Wiki.vim
