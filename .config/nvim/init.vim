@@ -20,18 +20,18 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'junegunn/goyo.vim'
     Plug 'tpope/vim-commentary'
     Plug 'itchyny/lightline.vim'
-    Plug 'tpope/vim-sleuth'
     Plug 'editorconfig/editorconfig-vim'
     Plug 'vim-python/python-syntax'                    " Python highlighting
     Plug 'jiangmiao/auto-pairs'
     Plug 'machakann/vim-sandwich'
     Plug 'easymotion/vim-easymotion'
+    Plug 'unblevable/quick-scope'
     Plug 'lervag/wiki.vim'
-    " Plug 'vimwiki/vimwiki'
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
     Plug 'sainnhe/sonokai'
     Plug 'luochen1990/rainbow'
     Plug 'ap/vim-css-color'
+    Plug 'sheerun/vim-polyglot'   " Better Syntax Support"
 call plug#end()
 
 syntax enable                           " Enables syntax highlighing
@@ -72,7 +72,7 @@ set noswapfile
 "set list
 set nowritebackup                       " This is recommended by coc
 set updatetime=300                      " Faster completion
-set timeoutlen=500                      " By default timeoutlen is 1000 ms
+" set timeoutlen=500                      " By default timeoutlen is 1000 ms
 set formatoptions-=cro                  " Stop newline continution of comments
 set clipboard=unnamedplus               " Copy paste between vim and everything else
 set complete+=kspell
@@ -234,10 +234,10 @@ inoremap <expr> <c-j> ("\<C-n>")
 inoremap <expr> <c-k> ("\<C-p>")
 
 " Use alt + hjkl to resize windows
-nnoremap <M-j>    :resize -2<CR>
-nnoremap <M-k>    :resize +2<CR>
-nnoremap <M-h>    :vertical resize -2<CR>
-nnoremap <M-l>    :vertical resize +2<CR>
+nnoremap <c-M-k>    :resize -2<CR>
+nnoremap <c-M-j>    :resize +2<CR>
+nnoremap <c-M-l>    :vertical resize -2<CR>
+nnoremap <c-M-h>    :vertical resize +2<CR>
 
 " I hate escape more than anything else
 inoremap jk <Esc>
@@ -253,8 +253,8 @@ nnoremap <TAB> :bnext<CR>
 " SHIFT-TAB will go back
 nnoremap <S-TAB> :bprevious<CR>
 
-" Alternate way to save
-nnoremap <C-s> :w<CR>
+" " Alternate way to save
+" nnoremap <C-s> :w<CR>
 " Alternate way to quit
 nnoremap <C-Q> :wq!<CR>
 " Use control-c instead of escape
@@ -327,7 +327,7 @@ let g:lightline = {
     \ 	'vim-sleuth': 'SleuthIndicator'
     \	},
     \ }
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Easy Motion
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
@@ -347,6 +347,15 @@ let g:EasyMotion_smartcase = 1
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => quick scope
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
+highlight QuickScopePrimary guifg='#00C7DF' gui=underline ctermfg=155 cterm=underline
+highlight QuickScopeSecondary guifg='#afff5f' gui=underline ctermfg=81 cterm=underline
+
+let g:qs_max_chars=150
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Nerd tree
