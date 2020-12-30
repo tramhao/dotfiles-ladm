@@ -27,6 +27,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'easymotion/vim-easymotion'
     Plug 'unblevable/quick-scope'
     Plug 'lervag/wiki.vim'
+    Plug 'lervag/wiki-ft.vim'
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
     Plug 'sainnhe/sonokai'
     Plug 'luochen1990/rainbow'
