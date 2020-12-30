@@ -93,6 +93,9 @@ let g:sonokai_disable_italic_comment = 0
 let g:sonokai_transparent_background = 1
 colorscheme sonokai
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Rainbow
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
