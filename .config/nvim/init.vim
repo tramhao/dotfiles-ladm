@@ -305,6 +305,11 @@ let g:wiki_write_on_nav = 1
 "           \ '<plug>(wiki-list-toggle)' : '<c-w>',
 "           \ 'i_<plug>(wiki-list-toggle)' : '<c-w>',
 "           \}
+let g:wiki_map_link_create = 'MyFunction'
+function MyFunction(text) abort
+  return substitute(tolower(a:text), '\s\+', '-', 'g')
+endfunction
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => lightline configuration
