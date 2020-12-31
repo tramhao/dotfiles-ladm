@@ -33,7 +33,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'sainnhe/sonokai'
     Plug 'luochen1990/rainbow'
     Plug 'ap/vim-css-color'
-    Plug 'sheerun/vim-polyglot'   " Better Syntax Support"
+    " Plug 'sheerun/vim-polyglot'   " Better Syntax Support"
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
@@ -124,7 +124,7 @@ let g:mkdp_auto_start = 0
 " set to 1, the nvim will auto close current preview window when change
 " from markdown buffer to another buffer
 " default: 1
-let g:mkdp_auto_close = 1
+let g:mkdp_auto_close = 0
 
 " set to 1, the vim will refresh markdown when save the buffer or
 " leave from insert mode, default 0 is auto refresh markdown as you edit or
