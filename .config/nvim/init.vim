@@ -28,18 +28,21 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'unblevable/quick-scope'
     Plug 'lervag/wiki.vim'
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+    Plug 'godlygeek/tabular'
     Plug 'plasticboy/vim-markdown'
     Plug 'vim-pandoc/vim-pandoc-syntax'
     Plug 'sainnhe/sonokai'
     Plug 'luochen1990/rainbow'
     Plug 'ap/vim-css-color'
-    " Plug 'sheerun/vim-polyglot'   " Better Syntax Support"
+    Plug 'sheerun/vim-polyglot'   " Better Syntax Support"
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 syntax enable                           " Enables syntax highlighing
 set path+=**				" Search current directory recursively
 set hidden                              " Required to keep multiple buffers open multiple buffers
+set ignorecase
+set smartcase
 set incsearch				"incremental search
 let g:rehash256 = 1
 "set nowrap                              " Display long lines as just one line
@@ -56,7 +59,7 @@ set mouse=a                             " Enable your mouse
 set splitbelow                          " Horizontal splits will automatically be below
 set splitright                          " Vertical splits will automatically be to the right
 set t_Co=256                            " Support 256 colors
-set conceallevel=0                      " So that I can see `` in markdown files
+set conceallevel=2                      " So that I can see `` in markdown files
 set tabstop=2                           " Insert 2 spaces for a tab
 set shiftwidth=2                        " Change the number of space characters inserted for indentation
 set smarttab                            " Makes tabbing smarter will realize you have 2 vs 4
@@ -95,6 +98,19 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
+nmap <leader>g <C-o>
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gt <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+nmap <leader>rn <Plug>(coc-rename)
+
+"show all diagnostics.
+nnoremap <silent> <space>d :<C-u>CocList diagnostics<cr>
+"manage extensions.
+nnoremap <silent> <space>e :<C-u>CocList extensions<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Color Scheme Sonokai
@@ -332,7 +348,7 @@ endfunction
 let g:vim_markdown_folding_disabled = 1
 
 " do not use conceal feature, the implementation is not so good
-let g:vim_markdown_conceal = 0
+let g:vim_markdown_conceal = 2
 
 " disable math tex conceal feature
 let g:tex_conceal = ""
@@ -346,6 +362,8 @@ let g:vim_markdown_json_frontmatter = 1  " for JSON format
 augroup pandoc_syntax
     au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
 augroup END
+
+let g:coc_filetype_map = {'markdown.pandoc': 'markdown'}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => lightline configuration
