@@ -5,7 +5,7 @@
 
 case $BLOCK_BUTTON in
 	1) setsid -f "$TERMINAL" -e neomutt ;;
-	2) setsid -f mw sync >/dev/null ;;
+	2) setsid -f mailup >/dev/null exit;;
 	3) notify-send "📬 Mail module" "\- Shows unread mail
 - Shows 🔃 if syncing mail
 - Left click opens neomutt
@@ -13,10 +13,13 @@ case $BLOCK_BUTTON in
 	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
 
+cat /tmp/mailupdate 2>/dev/null
+
 unread="$(find "${XDG_DATA_HOME:-$HOME/.local/share}"/mail/*/*/new/* -type f 2>/dev/null | wc -l 2>/dev/null)"
 # unread="$(find "${XDG_DATA_HOME:-$HOME/.local/share}"/mail/*/[Ii][Nn][Bb][Oo][Xx]/new/* -type f | wc -l 2>/dev/null)"
 
-pidof mbsync >/dev/null 2>&1 && icon="🔃"
+# pidof mbsync >/dev/null 2>&1 && icon="🔃"
+
 
 [ "$unread" = "0" ] && [ "$icon" = "" ] || echo "📬$unread$icon"
 # echo "📬 $unread$icon"
