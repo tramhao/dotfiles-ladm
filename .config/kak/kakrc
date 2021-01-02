@@ -71,7 +71,7 @@ plug 'lePerdu/kakboard' config %{
 # 	evaluate-commands %sh{kak-lsp --kakoune -s $kak_session}
 # 	lsp-enable
 # }
-plug 'TeddyDD/kakoune-wiki' 
+plug 'TeddyDD/kakoune-wiki'
 #wiki-setup `/home/tramhao/wiki/`
 wiki-setup %sh{ echo $HOME/wiki }
 
@@ -81,7 +81,7 @@ plug 'ul/kak-tree'
 # 2. Options
 # =============================================================================
 set -add global autoinfo normal
-#map global user y '<a-|>xsel -i -b<ret>'
+map global user y '<a-|>xsel -i -b<ret>'
 
 define-command -docstring "map-sequence <scope> <sequence> <command>: map <sequence> of keys to <command> in insert mode." \
 map-sequence -params 3 %{ evaluate-commands %sh{
