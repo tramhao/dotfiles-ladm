@@ -2,7 +2,7 @@
 -- vim.g.yui_visual = 'dark'
 
 require 'plugins'
---require 'conf'
+require 'myconf'
 
 -- vim.cmd([[
 -- augroup Color
