@@ -66,7 +66,14 @@ return require('packer').startup(
         }
     use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
     use 'godlygeek/tabular'
-    use 'plasticboy/vim-markdown'
+    use {'plasticboy/vim-markdown',
+      config = function ()
+        vim.g.vim_markdown_folding_disabled = 1
+        vim.g.vim_markdown_conceal = 2
+        vim.g.tex_conceal = ""
+        vim.g.vim_markdown_math = 1
+      end
+    }
     use 'vim-pandoc/vim-pandoc-syntax'
     use {'sainnhe/sonokai',
       config = function ()
