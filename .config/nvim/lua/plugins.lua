@@ -24,7 +24,6 @@ return require('packer').startup(
 
     -- use 'tpope/vim-commentary'
     -- use 'machakann/vim-sandwich'
-    -- use '9mm/vim-closer'
     -- use 'romainl/vim-cool'
     -- use 'justinmk/vim-sneak'
 
@@ -53,7 +52,8 @@ return require('packer').startup(
     -- use 'tpope/vim-surround'
     use 'tpope/vim-commentary'
     use 'jiangmiao/auto-pairs'
-    use 'machakann/vim-sandwich'
+    -- use '9mm/vim-closer'
+    -- use 'machakann/vim-sandwich'
     use 'easymotion/vim-easymotion'
     -- use 'unblevable/quick-scope'
     use {'lervag/wiki.vim', 
@@ -65,7 +65,7 @@ return require('packer').startup(
            end
         }
     use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
-    use 'godlygeek/tabular'
+    -- use 'godlygeek/tabular'
     use {'plasticboy/vim-markdown',
       config = function ()
         vim.g.vim_markdown_folding_disabled = 1
@@ -75,15 +75,15 @@ return require('packer').startup(
       end
     }
     use 'vim-pandoc/vim-pandoc-syntax'
-    use {'sainnhe/sonokai',
-      config = function ()
-        vim.g.sonokai_style = 'maia'
-        vim.g.sonokai_enable_italic = 1
-        vim.g.sonokai_disable_italic_comment = 0
-        vim.g.sonokai_transparent_background = 1
-        vim.cmd('colo sonokai')
-      end
-    }
+    -- use {'sainnhe/sonokai',
+    --   config = function ()
+    --     vim.g.sonokai_style = 'maia'
+    --     vim.g.sonokai_enable_italic = 1
+    --     vim.g.sonokai_disable_italic_comment = 0
+    --     vim.g.sonokai_transparent_background = 1
+    --     vim.cmd('colo sonokai')
+    --   end
+    -- }
     use {'luochen1990/rainbow',
       config = function ()
         vim.g.rainbow_active = 1
@@ -92,7 +92,7 @@ return require('packer').startup(
     }
 
     use 'ap/vim-css-color'
-    use 'sheerun/vim-polyglot'
+    -- use 'sheerun/vim-polyglot'
     use {
       'hoob3rt/lualine.nvim',
      requires = {'kyazdani42/nvim-web-devicons', opt = true},
