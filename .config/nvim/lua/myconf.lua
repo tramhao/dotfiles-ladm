@@ -1,6 +1,7 @@
 vim.g.mapleader = ';'
 vim.b.mapleader = ' '
 vim.cmd("syntax enable")
+vim.cmd("filetype plugin on")
 vim.cmd("set path+=**")
 vim.o.ignorecase = true
 vim.o.smartcase = true
@@ -58,3 +59,4 @@ vim.g.backup = false
 vim.o.swapfile = false
 vim.g.writebackup = false
 vim.cmd('set clipboard=unnamedplus')
+-- set wildmode=longest,list,full

@@ -3,6 +3,7 @@
 
 require 'plugins'
 require 'myconf'
+require 'keys'
 
 -- vim.cmd([[
 -- augroup Color
