@@ -62,7 +62,8 @@ return require('packer').startup(
             vim.g.wiki_filetypes = {"md"}
             vim.g.wiki_write_on_nav = 1
             -- vim.g.wiki_map_link_create = wikilink
-           end
+           end,
+    -- ft = 'markdown',
         }
     use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
     -- use 'godlygeek/tabular'
