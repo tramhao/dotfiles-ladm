@@ -60,5 +60,5 @@ vim.g.backup = false
 vim.bo.swapfile = false
 vim.g.writebackup = false
 -- vim.cmd('set clipboard=unnamedplus')
-vim.g.clipboard = 'unnamedplus'
+vim.o.clipboard = 'unnamedplus'
 vim.g.wildmode='longest,list,full'
