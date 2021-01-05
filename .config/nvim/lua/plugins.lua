@@ -138,5 +138,6 @@ return require('packer').startup(
      --      darkgrey = "#404247",
      --   }
      --  end}
+     use 'tweekmonster/startuptime.vim'
   end
 )
