@@ -2,7 +2,7 @@ local install_path = vim.fn.stdpath('data')..'/site/pack/packer/start/packer.nvi
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   vim.api.nvim_command('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
 end
-
+vim.cmd [[ autocmd BufWritePost plugins.lua PackerCompile ]]
 -- function wikilink(text)
 --   text1 = string.lower(text)
 --   text2 = string.gsub(text1," ","-")
@@ -11,7 +11,7 @@ end
 
 return require('packer').startup(
   function()
-    use 'wbthomason/packer.nvim'
+    use { 'wbthomason/packer.nvim' }
 
     -- use {'cideM/yui', branch = 'v2'} -- dark visual selection
     -- use 'junegunn/seoul256.vim'
@@ -120,5 +120,23 @@ return require('packer').startup(
       -- lualine.extensions = { 'fzf' }
       lualine.status()
     end   }
+   -- use { 'datwaft/bubbly.nvim', branch = 'development' }
+    -- use {'datwaft/bubbly.nvim', config = function()
+     --   -- Here you can add the configuration for the plugin
+     --   vim.g.bubbly_palette = {
+     --      background = "#34343c",
+     --      foreground = "#c5cdd9",
+     --      black = "#3e4249",
+     --      red = "#ec7279",
+     --      green = "#a0c980",
+     --      yellow = "#deb974",
+     --      blue = "#6cb6eb",
+     --      purple = "#d38aea",
+     --      cyan = "#5dbbc1",
+     --      white = "#c5cdd9",
+     --      lightgrey = "#57595e",
+     --      darkgrey = "#404247",
+     --   }
+     --  end}
   end
 )
