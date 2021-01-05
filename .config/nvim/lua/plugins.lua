@@ -3,11 +3,6 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   vim.api.nvim_command('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
 end
 vim.cmd [[ autocmd BufWritePost plugins.lua PackerCompile ]]
-function wikilink(text)
-  text1 = string.lower(text)
-  text2 = string.gsub(text1," ","-")
-  return text2
-end
 
 return require('packer').startup(
   function()
@@ -61,16 +56,17 @@ return require('packer').startup(
             vim.g.wiki_root = "~/Sync/wiki"
             vim.g.wiki_filetypes = {"md"}
             vim.g.wiki_write_on_nav = 1
-            vim.g.wiki_map_link_create = wikilink('text')
-            -- vim.api.nvim_exec(
-            -- [[
-            -- let g:wiki_map_link_create = 'MyFunction'
-            
-            -- function MyFunction(text) abort
-            --    return substitute(tolower(a:text), '\s\+', '-', 'g')
-            -- endfunction
-            -- ]],
-            -- false)
+            vim.g.wiki_link_target_type = 'md'
+            -- vim.g.wiki_map_link_create = wikilink('text')
+            vim.api.nvim_exec(
+            [[
+            function MyFunction(text) abort
+               return substitute(tolower(a:text), '\s\+', '-', 'g')
+            endfunction
+
+            let g:wiki_map_link_create = 'MyFunction'
+            ]],
+            false)
            end,
     -- ft = 'markdown',
         }

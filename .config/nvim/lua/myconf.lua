@@ -25,7 +25,7 @@ vim.o.splitbelow = true
 vim.o.background = 'dark'
 vim.o.termguicolors = true
 vim.g.rehash256 = 1
-vim.cmd('colo sonokai')
+-- vim.cmd('colo sonokai')
 vim.wo.conceallevel = 0
 vim.o.hidden = true
 vim.o.updatetime = 300
