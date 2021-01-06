@@ -6,7 +6,7 @@ if [ $(hostname) == "XMLaptop" ]; then
 #	echo "ok"
 	source ~/.xrandr
 	nextcloud &
-  blueman-applet &
+  # blueman-applet &
 fi
 #mpd &			# music player daemon-you might prefer it as a service though
 remaps &		# run the remaps script, switching caps/esc and more; check it for more info
