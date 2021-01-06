@@ -110,6 +110,7 @@ return require('packer').startup(
         vim.g.vim_markdown_math = 1
       end
     }
+    use 'vim-pandoc/vim-pandoc'
     use {'vim-pandoc/vim-pandoc-syntax',
       config = function()
         vim.cmd('autocmd BufNewFile, BufFilePre, BufRead *.md set filetype=markdown.pandoc')
