@@ -22,7 +22,7 @@ vim.g.showtabline = 1
 vim.g.mouse = 'a'
 vim.o.splitright = true
 vim.o.splitbelow = true
-vim.o.background = 'dark'
+-- vim.o.background = 'dark'
 vim.o.termguicolors = true
 vim.g.rehash256 = 1
 -- vim.cmd('colo sonokai')

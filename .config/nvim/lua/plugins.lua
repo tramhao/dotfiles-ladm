@@ -36,7 +36,7 @@ return require('packer').startup(
     -- use 'SirVer/ultisnips'
     -- use 'honza/vim-snippets'
 
-    -- use 'editorconfig/editorconfig-vim'
+    -- use 'edorconfig/editorconfig-vim'
     -- use 'mhinz/vim-signify'
     -- use 'tpope/vim-fugitive'
 
@@ -49,7 +49,30 @@ return require('packer').startup(
     use 'jiangmiao/auto-pairs'
     -- use '9mm/vim-closer'
     -- use 'machakann/vim-sandwich'
-    use 'easymotion/vim-easymotion'
+    use {'easymotion/vim-easymotion',
+    config = function ()
+            vim.g.EasyMotion_do_mapping = 0 -- Disable default mappings
+
+--  Jump to anywhere you want with minimal keystrokes, with just one key binding.
+--  `s{char}{label}`
+            -- vim.api.nvim_set_keymap('n', 's','<Plug>(easymotion-overwin-f)', {noremap = true, silent = true })
+            -- vim.cmd [[nmap s <Plug>(easymotion-overwin-f)]]
+-- or
+-- `s{char}{char}{label}`
+-- Need one more keystroke, but on average, it may be more comfortable.
+            -- vim.api.nvim_set_keymap('n', 's','<Plug>(easymotion-overwin-f2)', {noremap = true, silent = true })
+            vim.cmd [[nmap s <Plug>(easymotion-overwin-f2)]]
+-- Turn on case-insensitive feature
+            vim.g.EasyMotion_smartcase = 1
+
+-- JK motions: Line motions
+            vim.cmd [[map <Leader>j <Plug>(easymotion-j)]]
+            vim.cmd [[map <Leader>k <Plug>(easymotion-k)]]
+            -- vim.api.nvim_set_keymap('', '<Leader>j','<Plug>(easymotion-j)', {noremap = true, silent = true })
+            -- vim.api.nvim_set_keymap('', '<Leader>k','<Plug>(easymotion-k)', {noremap = true, silent = true })
+    end
+  }
+  
     -- use 'unblevable/quick-scope'
     use {'lervag/wiki.vim', 
     config = function ()
@@ -68,9 +91,16 @@ return require('packer').startup(
             ]],
             false)
            end,
-    -- ft = 'markdown',
+    -- ft = 'arkdown',
         }
-    use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
+        use {
+          'npxbr/glow.nvim',
+          run = ':GlowInstall',
+          config = function()
+            vim.api.nvim_set_keymap('n', '<Leader>p',':Glow<CR>', {noremap = true, silent = true })
+          end
+        }
+    -- use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
     -- use 'godlygeek/tabular'
     use {'plasticboy/vim-markdown',
       config = function ()
@@ -94,6 +124,20 @@ return require('packer').startup(
     --     vim.cmd('colo sonokai')
     --   end
     -- }
+    use {"tjdevries/gruvbuddy.nvim", 
+    requires = {"tjdevries/colorbuddy.vim"},
+    config = function ()
+      -- vim.cmd('colo darkblue')
+      require('colorbuddy').colorscheme('gruvbuddy')
+      -- vim.cmd('colo gruvbuddy')
+    end
+  }
+   -- use {"npxbr/gruvbox.nvim", 
+   --  requires = {"tjdevries/colorbuddy.vim"},
+   --  config = function ()
+   --    vim.cmd('colo gruvbox')
+   --  end
+  -- }
     use {'luochen1990/rainbow',
       config = function ()
         vim.g.rainbow_active = 1
@@ -101,8 +145,13 @@ return require('packer').startup(
       end
     }
 
-    use 'ap/vim-css-color'
+    -- use 'ap/vim-css-color'
     -- use 'sheerun/vim-polyglot'
+    use {'norcalli/nvim-colorizer.lua',
+      config = function ()
+        require 'colorizer'.setup()
+	end
+  }
     use {
       'hoob3rt/lualine.nvim',
      requires = {'kyazdani42/nvim-web-devicons', opt = true},
