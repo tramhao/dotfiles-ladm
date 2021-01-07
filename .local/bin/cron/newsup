@@ -9,9 +9,12 @@ ping -q -c 1 example.org > /dev/null || exit
 
 pgrep -f newsboat$ && /usr/bin/xdotool key --window "$(/usr/bin/xdotool search --name newsboat)" R && exit
 
-echo "News🔃" > /tmp/newsupdate
+echo "News🔃" > /tmp/newsupdate.tmp
 pkill -RTMIN+6 "${STATUSBAR:-dwmblocks}"
 /usr/bin/newsboat -x reload
-rm -f /tmp/newsupdate
+echo "$(newsboat -x print-unread | awk '{ if($1>0) 
+                                              print "📰" $1 
+                                          else 
+                                              print ""}')"  > /tmp/newsupdate.tmp
 pkill -RTMIN+6 "${STATUSBAR:-dwmblocks}"
 /usr/bin/notify-send "📰 RSS feed update complete."

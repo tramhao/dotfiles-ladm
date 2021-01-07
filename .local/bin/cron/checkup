@@ -2,23 +2,22 @@
 
 # Syncs repositories and downloads updates, meant to be run as a cronjob.
 
-# ping -q -c 1 example.org > /dev/null || exit
+ping -q -c 1 example.org > /dev/null || exit
 
 notify-send "📦 Repository Sync" "Checking for package updates..."
 
 #yay -Syyuw --noconfirm 2>&1 > /dev/null || notify-send "Error downloading updates.
 
 # Check your internet connection, if pacman is already running, or run update manually to see errors."
-pkill -RTMIN+8 "${STATUSBAR:-dwmblocks}"
 
-# if ! updates_arch=$(checkupdates 2> /dev/null | wc -l ); then
-#     updates_arch=0
-# fi
+if ! updates_arch=$(checkupdates 2> /dev/null | wc -l ); then
+    updates_arch=0
+fi
 
-# # if ! updates_aur=$(cower -u 2> /dev/null | wc -l); then
-# if ! updates_aur=$(trizen -Su --aur --quiet | wc -l); then
-#     updates_aur=0
-# fi
+# if ! updates_aur=$(cower -u 2> /dev/null | wc -l); then
+if ! updates_aur=$(trizen -Su --aur --quiet | wc -l); then
+    updates_aur=0
+fi
 
 # if ! updates_aur=$(cower -u 2> /dev/null | wc -l); then
 # if ! updates_aur=$(trizen -Su --aur --quiet | wc -l); then
@@ -26,17 +25,20 @@ pkill -RTMIN+8 "${STATUSBAR:-dwmblocks}"
 # fi
 
 
-# updates=$(("$updates_arch" + "$updates_aur"))
+updates=$(("$updates_arch" + "$updates_aur"))
 
-if ! updates=$(yay -Qu | wc -l); then
-  updates = 0
-fi
+# if ! updates=$(yay -Qu | wc -l); then
+#   updates = 0
+# fi
 
 if [ "$updates" -gt 0 ]; then
-    echo "❗ $updates"
-# else
+    echo "❗ $updates_arch+$updates_aur" > /tmp/checkup.tmp
+else
+    echo "" > /tmp/checkup.tmp
 #     echo "🎁 0"
 fi
+
+pkill -RTMIN+8 "${STATUSBAR:-dwmblocks}"
 
 if [ "$updates" -gt 0 ]
 # if pacman -Qu | grep -v "\[ignored\]"

@@ -9,9 +9,18 @@ ping -q -c 1 example.org > /dev/null || exit
 
 # pgrep -f neomutt$ && /usr/bin/xdotool key --window "$(/usr/bin/xdotool search --name neomutt)" R && exit
 
-echo "Mail🔃" > /tmp/mailupdate
+echo "Mail🔃" > /tmp/mailupdate.tmp
 pkill -RTMIN+12 "${STATUSBAR:-dwmblocks}"
-mw -Y >/dev/null
-rm -f /tmp/mailupdate
+mw -Y >/dev/null 2>&1
+unread="$(find "${XDG_DATA_HOME:-$HOME/.local/share}"/mail/*/*/new/* -type f 2>/dev/null | wc -l 2>/dev/null)"
+
+# [ "$unread" = "0" ] && [ "$icon" = "" ] || echo "📬$unread$icon" > /tmp/mailupdate
+if [ "$unread" -gt 0 ]; then
+  echo "📬$unread" > /tmp/mailupdate.tmp
+else
+  echo "" > /tmp/mailupdate.tmp
+fi
+
+
 pkill -RTMIN+12 "${STATUSBAR:-dwmblocks}"
 /usr/bin/notify-send "📬 Mail update complete."
