@@ -66,6 +66,7 @@ return require('packer').startup(
             vim.g.EasyMotion_smartcase = 1
 
 -- JK motions: Line motions
+            -- vim.api.nvim_set_keymap('', '<Leader>j','<Plug>(easymotion-j)', {noremap = true})
             vim.cmd [[map <Leader>j <Plug>(easymotion-j)]]
             vim.cmd [[map <Leader>k <Plug>(easymotion-k)]]
             -- vim.api.nvim_set_keymap('', '<Leader>j','<Plug>(easymotion-j)', {noremap = true, silent = true })
@@ -100,8 +101,6 @@ return require('packer').startup(
             vim.api.nvim_set_keymap('n', '<Leader>p',':Glow<CR>', {noremap = true, silent = true })
           end
         }
-    -- use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
-    -- use 'godlygeek/tabular'
     use {'plasticboy/vim-markdown',
       config = function ()
         vim.g.vim_markdown_folding_disabled = 1
@@ -110,21 +109,6 @@ return require('packer').startup(
         vim.g.vim_markdown_math = 1
       end
     }
-    use 'vim-pandoc/vim-pandoc'
-    use {'vim-pandoc/vim-pandoc-syntax',
-      config = function()
-        vim.cmd('autocmd BufNewFile, BufFilePre, BufRead *.md set filetype=markdown.pandoc')
-      end
-  }
-    -- use {'sainnhe/sonokai',
-    --   config = function ()
-    --     vim.g.sonokai_style = 'maia'
-    --     vim.g.sonokai_enable_italic = 1
-    --     vim.g.sonokai_disable_italic_comment = 0
-    --     vim.g.sonokai_transparent_background = 1
-    --     vim.cmd('colo sonokai')
-    --   end
-    -- }
     use {"tjdevries/gruvbuddy.nvim", 
     requires = {"tjdevries/colorbuddy.vim"},
     config = function ()
@@ -133,25 +117,16 @@ return require('packer').startup(
       -- vim.cmd('colo gruvbuddy')
     end
   }
-   -- use {"npxbr/gruvbox.nvim", 
-   --  requires = {"tjdevries/colorbuddy.vim"},
-   --  config = function ()
-   --    vim.cmd('colo gruvbox')
-   --  end
-  -- }
     use {'luochen1990/rainbow',
       config = function ()
         vim.g.rainbow_active = 1
         vim.cmd('syntax on')
       end
     }
-
-    -- use 'ap/vim-css-color'
-    -- use 'sheerun/vim-polyglot'
     use {'norcalli/nvim-colorizer.lua',
       config = function ()
         require 'colorizer'.setup()
-	end
+	    end
   }
     use {
       'hoob3rt/lualine.nvim',
