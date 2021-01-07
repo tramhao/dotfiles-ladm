@@ -18,12 +18,28 @@
 # Exec = /usr/bin/pkill -RTMIN+8 dwmblocks # Or i3blocks if using i3.
 
 case $BLOCK_BUTTON in
-	1) setsid -f "$TERMINAL" -e popupgrade ;;
-	2) notify-send "$(/usr/bin/pacman -Qu)" ;;
+	1) setsid -f "$TERMINAL" -e sb-popupgrade ;;
+	2) notify-send "$(/usr/bin/yay -Qu)" ;;
 	3) notify-send "🎁 Upgrade module" "📦: number of upgradable packages
 - Left click to upgrade packages
 - Middle click to show upgradable packages" ;;
 	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
 
-pacman -Qu | grep -Fcv "[ignored]" | sed "s/^/📦/;s/^📦0$//g"
+if ! updates_arch=$(checkupdates 2> /dev/null | wc -l ); then
+    updates_arch=0
+fi
+
+# if ! updates_aur=$(cower -u 2> /dev/null | wc -l); then
+if ! updates_aur=$(trizen -Su --aur --quiet | wc -l); then
+    updates_aur=0
+fi
+
+updates=$(("$updates_arch" + "$updates_aur"))
+
+if [ "$updates" -gt 0 ]; then
+    echo "❗ $updates"
+# else
+#     echo "🎁 0"
+fi
+# pacman -Qu | grep -Fcv "[ignored]" | sed "s/^/📦/;s/^📦0$//g"
