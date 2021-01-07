@@ -1,4 +1,4 @@
-# Important Note
+[#](#) Important Note
 
 These cronjobs have components that require information about your current display to display notifications correctly.
 
