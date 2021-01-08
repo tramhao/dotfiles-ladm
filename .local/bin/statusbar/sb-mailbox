@@ -5,7 +5,7 @@
 
 case $BLOCK_BUTTON in
 	1) setsid -w -f "$TERMINAL" -e neomutt && setsid -f mailup ;;
-	2) setsid -f mailup >/dev/null exit;;
+	2) setsid -f mailup update >/dev/null exit;;
 	3) notify-send "📬 Mail module" "\- Shows unread mail
 - Shows 🔃 if syncing mail
 - Left click opens neomutt
