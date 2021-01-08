@@ -4,6 +4,7 @@
 # If newsboat is open, sends it an "R" key to refresh.
 
 #ping -q -c 1 example.org > /dev/null || exit
+wget -q --spider example.org || exit
 
 /usr/bin/notify-send "📬 Updating Mails..."
 

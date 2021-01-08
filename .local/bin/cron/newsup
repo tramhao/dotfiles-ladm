@@ -5,6 +5,8 @@
 
 #ping -q -c 1 example.org > /dev/null || exit
 
+wget -q --spider example.org || exit
+
 /usr/bin/notify-send "📰 Updating RSS feeds..."
 
 pgrep -f newsboat$ && /usr/bin/xdotool key --window "$(/usr/bin/xdotool search --name newsboat)" R && exit

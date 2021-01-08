@@ -3,6 +3,7 @@
 # Syncs repositories and downloads updates, meant to be run as a cronjob.
 
 #ping -q -c 1 example.org > /dev/null || exit
+wget -q --spider example.org || exit
 
 notify-send "📦 Repository Sync" "Checking for package updates..."
 
