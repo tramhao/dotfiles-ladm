@@ -5,15 +5,20 @@
 
 #ping -q -c 1 example.org > /dev/null || exit
 
-wget -q --spider example.org || exit
+if [ -n "$1" ]; then
+  if [ "$1" = "update" ]; then
+      wget -q --spider example.org || exit
 
-/usr/bin/notify-send "📰 Updating RSS feeds..."
+      /usr/bin/notify-send "📰 Updating RSS feeds..."
 
-pgrep -f newsboat$ && /usr/bin/xdotool key --window "$(/usr/bin/xdotool search --name newsboat)" R && exit
+      pgrep -f newsboat$ && /usr/bin/xdotool key --window "$(/usr/bin/xdotool search --name newsboat)" R && exit
 
-echo "News🔃" > /tmp/newsupdate.tmp
-pkill -RTMIN+6 "${STATUSBAR:-dwmblocks}"
-/usr/bin/newsboat -x reload
+      echo "News🔃" > /tmp/newsupdate.tmp
+      pkill -RTMIN+6 "${STATUSBAR:-dwmblocks}"
+      /usr/bin/newsboat -x reload
+  fi
+fi
+
 echo "$(newsboat -x print-unread | awk '{ if($1>0) 
                                               print "📰" $1 
                                           else 
