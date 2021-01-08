@@ -23,9 +23,9 @@ static const Block blocks[] = {
 	/* {"",	"sb-forecast",	18000,	5}, */
 	{"",	"sb-openweathermap",	0,	5},
 	{"",	"sb-nettraf",	2,	16},
-	{"",	"sb-internet",	30,	4},
+	{"",	"sb-internet",	60,	4},
 	{"",	"sb-volume",	0,	10},
-	{"",	"sb-battery",	30,	3},
+	{"",	"sb-battery",	60,	3},
 	{"",	"sb-clock",	60,	1},
 	{"",	"sb-help-icon",	0,	15},
 	{"", "sb-wallpaperwidget",0,25},
