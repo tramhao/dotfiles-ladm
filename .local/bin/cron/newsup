@@ -22,6 +22,6 @@ fi
 echo "$(newsboat -x print-unread | awk '{ if($1>0) 
                                               print "📰" $1 
                                           else 
-                                              print ""}')"  > /tmp/newsupdate.tmp
+                                              print ""}')"  > "${XDG_DATA_HOME:-$HOME/.local/share}/newsupdate.tmp"
 pkill -RTMIN+6 "${STATUSBAR:-dwmblocks}"
 /usr/bin/notify-send "📰 RSS feed update complete."

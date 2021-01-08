@@ -14,7 +14,7 @@ if [ -n "$1" ]; then
 
           # pgrep -f neomutt$ && /usr/bin/xdotool key --window "$(/usr/bin/xdotool search --name neomutt)" R && exit
 
-          echo "Mail🔃" > /tmp/mailupdate.tmp
+          echo "Mail🔃" > "${XDG_DATA_HOME:-$HOME/.local/share}/mailupdate.tmp"
           pkill -RTMIN+12 "${STATUSBAR:-dwmblocks}"
           mw -Y >/dev/null 2>&1
       fi
@@ -24,9 +24,9 @@ unread="$(find "${XDG_DATA_HOME:-$HOME/.local/share}"/mail/*/*/new/* -type f 2>/
 
 # [ "$unread" = "0" ] && [ "$icon" = "" ] || echo "📬$unread$icon" > /tmp/mailupdate
 if [ "$unread" -gt 0 ]; then
-  echo "📬$unread" > /tmp/mailupdate.tmp
+  echo "📬$unread" > "${XDG_DATA_HOME:-$HOME/.local/share}/mailupdate.tmp"
 else
-  echo "" > /tmp/mailupdate.tmp
+  echo "" > "${XDG_DATA_HOME:-$HOME/.local/share}/mailupdate.tmp"
 fi
 
 

@@ -96,9 +96,9 @@ if [ -n "$weather" ]; then
     weather_temp=$(echo "$weather" | jq ".main.temp" | cut -d "." -f 1)
     weather_icon=$(echo "$weather" | jq -r ".weather[0].icon")
 
-    echo "$(get_icon "$weather_icon")""$weather_temp$SYMBOL" > /tmp/weatherup.tmp
+    echo "$(get_icon "$weather_icon")""$weather_temp$SYMBOL" > "${XDG_DATA_HOME:-$HOME/.local/share}/weatherup.tmp"
 else
-    echo "Service not available" > /tmp/weatherup.tmp
+    echo "Service not available" > "${XDG_DATA_HOME:-$HOME/.local/share}/weatherup.tmp"
 fi
 
 pkill -RTMIN+5 "${STATUSBAR:-dwmblocks}"

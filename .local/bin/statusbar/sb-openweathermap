@@ -6,4 +6,4 @@ case $BLOCK_BUTTON in
 	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
 
-cat /tmp/weatherup.tmp 2>/dev/null
+cat "${XDG_DATA_HOME:-$HOME/.local/share}/weatherup.tmp" 2>/dev/null

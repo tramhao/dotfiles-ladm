@@ -18,7 +18,7 @@
 # Exec = /usr/bin/pkill -RTMIN+8 dwmblocks # Or i3blocks if using i3.
 
 case $BLOCK_BUTTON in
-	1) setsid -f "$TERMINAL" -e sb-popupgrade ; setsid -f checkup ;;
+	1) setsid -f "$TERMINAL" -e sb-popupgrade ;;
 	2) notify-send "$(/usr/bin/yay -Qu)" ;;
 	3) notify-send "🎁 Upgrade module" "📦: number of upgradable packages
 - Left click to upgrade packages
@@ -38,7 +38,7 @@ esac
 
 # updates=$(("$updates_arch" + "$updates_aur"))
 
-cat /tmp/checkup.tmp 2>/dev/null
+cat "${XDG_DATA_HOME:-$HOME/.local/share}/checkup.tmp" 2>/dev/null
 # if ! updates=$(yay -Qu | wc -l); then
 #   updates = 0
 # fi

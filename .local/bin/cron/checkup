@@ -33,9 +33,9 @@ updates=$(("$updates_arch" + "$updates_aur"))
 # fi
 
 if [ "$updates" -gt 0 ]; then
-    echo "❗ $updates_arch+$updates_aur" > /tmp/checkup.tmp
+    echo "❗ $updates_arch+$updates_aur" > "${XDG_DATA_HOME:-$HOME/.local/share}/checkup.tmp"
 else
-    echo "" > /tmp/checkup.tmp
+    echo "" > "${XDG_DATA_HOME:-$HOME/.local/share}/checkup.tmp"
 #     echo "🎁 0"
 fi
 
