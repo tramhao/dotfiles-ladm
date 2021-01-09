@@ -1,12 +1,15 @@
-local install_path = vim.fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local install_path = vim.fn.stdpath('data')..'/site/pack/packer/opt/packer.nvim'
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   vim.api.nvim_command('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
 end
+-- Only required if you have packer in your `opt` pack
+vim.cmd [[packadd packer.nvim]]
+
 vim.cmd [[ autocmd BufWritePost plugins.lua PackerCompile ]]
 
 return require('packer').startup(
   function()
-    use { 'wbthomason/packer.nvim' }
+    use { 'wbthomason/packer.nvim', opt = true }
 
     -- use {'cideM/yui', branch = 'v2'} -- dark visual selection
     -- use 'junegunn/seoul256.vim'
@@ -27,8 +30,8 @@ return require('packer').startup(
     -- use 'MaxMEllon/vim-jsx-pretty'
     -- use {'prettier/vim-prettier', run = 'yarn install'}
 
-    use 'nvim-treesitter/nvim-treesitter-textobjects'
-    use {'nvim-treesitter/nvim-treesitter', config=require'plugins.nvim-treesitter' }
+    use {'nvim-treesitter/nvim-treesitter-textobjects', opt = true }
+    use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', config=require'plugins.nvim-treesitter' }
 
     -- use 'neovim/nvim-lspconfig'
     -- use 'nvim-lua/completion-nvim'
@@ -45,7 +48,7 @@ return require('packer').startup(
 
 
     -- use 'tpope/vim-surround'
-    use 'tpope/vim-commentary'
+    use { 'tpope/vim-commentary'; opt = true; keys = {{'n'; 'gcc'}; {'x'; 'gc'}; {'o'; 'gc'}; {'n'; 'gc'}}; };   
     use 'jiangmiao/auto-pairs'
     -- use '9mm/vim-closer'
     -- use 'machakann/vim-sandwich'
@@ -55,33 +58,19 @@ return require('packer').startup(
           vim.cmd('let g:sneak#s_next = 1')
         end
   }
-    use {'lervag/wiki.vim', 
-    config = function ()
-            vim.g.wiki_root = "~/Sync/wiki"
-            vim.g.wiki_filetypes = {"md"}
-            vim.g.wiki_write_on_nav = 1
-            vim.g.wiki_link_target_type = 'md'
-            -- vim.g.wiki_map_link_create = wikilink('text')
-            vim.api.nvim_exec(
-            [[
-            function MyFunction(text) abort
-               return substitute(tolower(a:text), '\s\+', '-', 'g')
-            endfunction
-
-            let g:wiki_map_link_create = 'MyFunction'
-            ]],
-            false)
-           end,
-    -- ft = 'arkdown',
-        }
-        use {
-          'npxbr/glow.nvim',
-          run = ':GlowInstall',
-          config = function()
-            vim.api.nvim_set_keymap('n', '<Leader>p',':Glow<CR>', {noremap = true, silent = true })
-          end
-        }
+    -- use {'lervag/wiki.vim', config = require'plugins.wiki' }
+    use {'lervag/wiki.vim', opt = true, setup = require'plugins.wiki', cmd = {'WikiIndex'} }
+    use {
+      'npxbr/glow.nvim',
+      run = ':GlowInstall',
+      ft = {'markdown','md'},
+      -- keys = '<Leader>p',
+      setup = function()
+        vim.api.nvim_set_keymap('n', '<Leader>p',':Glow<CR>', {noremap = true, silent = true })
+      end
+    }
     use {'plasticboy/vim-markdown',
+      ft = {'markdown','md'},
       config = function ()
         vim.g.vim_markdown_folding_disabled = 1
         vim.g.vim_markdown_conceal = 2
