@@ -99,6 +99,7 @@ return require('packer').startup(
   }
     use { 'hoob3rt/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true},
      config = require'plugins.lualine' }
-    use 'tweekmonster/startuptime.vim'
+    -- use {'tweekmonster/startuptime.vim'}
+    use {'tweekmonster/startuptime.vim', opt = true, cmd = 'StartupTime'}
   end
 )
