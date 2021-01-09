@@ -49,32 +49,12 @@ return require('packer').startup(
     use 'jiangmiao/auto-pairs'
     -- use '9mm/vim-closer'
     -- use 'machakann/vim-sandwich'
-    use {'easymotion/vim-easymotion',
-    config = function ()
-            vim.g.EasyMotion_do_mapping = 0 -- Disable default mappings
-
---  Jump to anywhere you want with minimal keystrokes, with just one key binding.
---  `s{char}{label}`
-            -- vim.api.nvim_set_keymap('n', 's','<Plug>(easymotion-overwin-f)', {noremap = true, silent = true })
-            -- vim.cmd [[nmap s <Plug>(easymotion-overwin-f)]]
--- or
--- `s{char}{char}{label}`
--- Need one more keystroke, but on average, it may be more comfortable.
-            -- vim.api.nvim_set_keymap('n', 's','<Plug>(easymotion-overwin-f2)', {noremap = true, silent = true })
-            vim.cmd [[nmap s <Plug>(easymotion-overwin-f2)]]
--- Turn on case-insensitive feature
-            vim.g.EasyMotion_smartcase = 1
-
--- JK motions: Line motions
-            -- vim.api.nvim_set_keymap('', '<Leader>j','<Plug>(easymotion-j)', {noremap = true})
-            vim.cmd [[map <Leader>j <Plug>(easymotion-j)]]
-            vim.cmd [[map <Leader>k <Plug>(easymotion-k)]]
-            -- vim.api.nvim_set_keymap('', '<Leader>j','<Plug>(easymotion-j)', {noremap = true, silent = true })
-            -- vim.api.nvim_set_keymap('', '<Leader>k','<Plug>(easymotion-k)', {noremap = true, silent = true })
-    end
+    use {'justinmk/vim-sneak',
+        config = function()
+          vim.cmd('let g:sneak#label = 1')
+          vim.cmd('let g:sneak#s_next = 1')
+        end
   }
-  
-    -- use 'unblevable/quick-scope'
     use {'lervag/wiki.vim', 
     config = function ()
             vim.g.wiki_root = "~/Sync/wiki"
@@ -128,50 +108,8 @@ return require('packer').startup(
         require 'colorizer'.setup()
 	    end
   }
-    use {
-      'hoob3rt/lualine.nvim',
-     requires = {'kyazdani42/nvim-web-devicons', opt = true},
-     config = function()
-      local lualine = require('lualine')
-      lualine.theme = 'dracula'
-      lualine.separator = '|'
-      lualine.sections = {
-        lualine_a = { 'mode' },
-        lualine_b = { 'branch' },
-        lualine_c = { 'filename' },
-        lualine_x = { 'encoding', 'fileformat', 'filetype' },
-        lualine_y = { 'progress' },
-        lualine_z = { 'location'  },
-      }
-      lualine.inactive_sections = {
-        lualine_a = {  },
-        lualine_b = {  },
-        lualine_c = { 'filename' },
-        lualine_x = { 'location' },
-        lualine_y = {  },
-        lualine_z = {   }
-      }
-      -- lualine.extensions = { 'fzf' }
-      lualine.status()
-    end   }
-   -- use { 'datwaft/bubbly.nvim', branch = 'development' }
-    -- use {'datwaft/bubbly.nvim', config = function()
-     --   -- Here you can add the configuration for the plugin
-     --   vim.g.bubbly_palette = {
-     --      background = "#34343c",
-     --      foreground = "#c5cdd9",
-     --      black = "#3e4249",
-     --      red = "#ec7279",
-     --      green = "#a0c980",
-     --      yellow = "#deb974",
-     --      blue = "#6cb6eb",
-     --      purple = "#d38aea",
-     --      cyan = "#5dbbc1",
-     --      white = "#c5cdd9",
-     --      lightgrey = "#57595e",
-     --      darkgrey = "#404247",
-     --   }
-     --  end}
-     use 'tweekmonster/startuptime.vim'
+    use { 'hoob3rt/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true},
+     config = require'plugins.lualine' }
+    use 'tweekmonster/startuptime.vim'
   end
 )
