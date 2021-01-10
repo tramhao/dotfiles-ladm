@@ -53,6 +53,7 @@ source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/vi-mode.zsh"
 RPROMPT=$'$(vi_mode_status)''$(vcs_info_wrapper)'
 
 
+
 # # vi mode
 # bindkey -v
 # export KEYTIMEOUT=1
