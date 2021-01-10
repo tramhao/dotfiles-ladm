@@ -1,6 +1,7 @@
 # vim: filetype=sh
 alias cac="cd /home/tramhao/.cache && ls -a" \
 cf="cd /home/tramhao/.config && ls -a" \
+nf="cd /home/tramhao/.config/nvim/lua && ls -a" \
 D="cd /home/tramhao/Downloads && ls -a" \
 d="cd /home/tramhao/Documents && ls -a" \
 dt="cd /home/tramhao/.local/share && ls -a" \
