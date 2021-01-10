@@ -50,9 +50,9 @@ packer.startup(
     use {'nvim-treesitter/nvim-treesitter-textobjects', opt = true, after = {"nvim-treesitter"} }
     use {
             "nvim-treesitter/nvim-treesitter",
-            -- cmd = {"TSInstall", "TSBufEnable", "TSEnableAll", "TSModuleInfo"},
-            -- ft = {"cpp", "c", "python", "java", "lua", "json", "markdown", "typescript", "bash", "zsh"},
-            -- config = require'configplugin.treesitter',
+            cmd = {"TSInstall", "TSBufEnable", "TSEnableAll", "TSModuleInfo"},
+            ft = {"cpp", "c", "python", "java", "lua", "json", "markdown", "typescript", "bash", "zsh"},
+            config = require'configplugin.treesitter',
         }   
 
     -- use 'neovim/nvim-lspconfig'
@@ -88,7 +88,6 @@ packer.startup(
           vim.cmd('let g:sneak#s_next = 1')
         end
   }
-    -- use {'lervag/wiki.vim', config = require'plugins.wiki' }
     use {'lervag/wiki.vim', opt = true, setup = require'configplugin.wiki', cmd = {'WikiIndex'} }
     use {
       'npxbr/glow.nvim',
