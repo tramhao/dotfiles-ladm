@@ -49,7 +49,7 @@ compinit
 _comp_options+=(globdots)		# Include hidden files.
 
 
-source ~/.config/zsh/vi-mode.zsh
+source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/vi-mode.zsh"
 RPROMPT=$'$(vi_mode_status)''$(vcs_info_wrapper)'
 
 
@@ -125,11 +125,12 @@ bindkey '^e' edit-command-line
 # 	fi
 # 	return 127
 # }
-# source /usr/share/doc/pkgfile/command-not-found.zsh
+source /usr/share/doc/pkgfile/command-not-found.zsh
 
 # Load syntax highlighting; should be last.
 # source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
 
+#install by yay -S zsh-syntax-highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 pfetch
