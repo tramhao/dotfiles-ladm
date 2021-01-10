@@ -5,7 +5,7 @@
 #ping -q -c 1 example.org > /dev/null || exit
 wget -q --spider example.org || exit
 
-notify-send "📦 Repository Sync" "Checking for package updates..."
+# notify-send "📦 Repository Sync" "Checking for package updates..."
 
 #yay -Syyuw --noconfirm 2>&1 > /dev/null || notify-send "Error downloading updates.
 
@@ -41,10 +41,10 @@ fi
 
 pkill -RTMIN+8 "${STATUSBAR:-dwmblocks}"
 
-if [ "$updates" -gt 0 ]
-# if pacman -Qu | grep -v "\[ignored\]"
-then
-	notify-send "🎁 Repository Sync" "Updates available. Click statusbar icon (📦) for update."
-else
-	notify-send "📦 Repository Sync"  "Sync complete. No new packages for update."
-fi
+# if [ "$updates" -gt 0 ]
+# # if pacman -Qu | grep -v "\[ignored\]"
+# then
+# 	notify-send "🎁 Repository Sync" "Updates available. Click statusbar icon (📦) for update."
+# else
+# 	notify-send "📦 Repository Sync"  "Sync complete. No new packages for update."
+# fi
