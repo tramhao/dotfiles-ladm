@@ -115,12 +115,12 @@ packer.startup(
       -- vim.cmd('colo gruvbuddy')
     end
   }
-    use {'luochen1990/rainbow',
-      config = function ()
-        vim.g.rainbow_active = 1
-        -- vim.cmd('syntax on')
-      end
-    }
+    -- use {'luochen1990/rainbow',
+    --   config = function ()
+    --     vim.g.rainbow_active = 1
+    --     vim.cmd('syntax on')
+    --   end
+    -- }
     use {'norcalli/nvim-colorizer.lua',
       cmd = {
                 "ColorizerDetachFromBuffer",
