@@ -48,7 +48,12 @@ zmodload zsh/complist
 compinit
 _comp_options+=(globdots)		# Include hidden files.
 
-# vi mode
+
+source ~/.config/zsh/vi-mode.zsh
+RPROMPT=$'$(vi_mode_status)''$(vcs_info_wrapper)'
+
+
+# # vi mode
 # bindkey -v
 # export KEYTIMEOUT=1
 
@@ -60,8 +65,6 @@ _comp_options+=(globdots)		# Include hidden files.
 # bindkey -v '^?' backward-delete-char
 # bindkey '^R' history-incremental-search-backward
 
-source ~/.config/zsh/vi-mode.zsh
-RPROMPT=$'$(vi_mode_status)''$(vcs_info_wrapper)'
 # # Change cursor shape for different vi modes.
 # function zle-keymap-select () {
 #     case $KEYMAP in
@@ -102,29 +105,31 @@ bindkey '^[[P' delete-char
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
-command_not_found_handler() {
-	local pkgs cmd="$1" files=()
-	printf 'zsh: command not found: %s' "$cmd" # print command not found asap, then search for packages
-	files=(${(f)"$(pacman -F --machinereadable -- "/usr/bin/${cmd}")"})
-	if (( ${#files[@]} )); then
-		printf '\r%s may be found in the following packages:\n' "$cmd"
-		local res=() repo package version file
-		for file in "$files[@]"; do
-			res=("${(0)file}")
-			repo="$res[1]"
-			package="$res[2]"
-			version="$res[3]"
-			file="$res[4]"
-			printf '  %s/%s %s: /%s\n' "$repo" "$package" "$version" "$file"
-		done
-	else
-		printf '\n'
-	fi
-	return 127
-}
+# command_not_found_handler() {
+# 	local pkgs cmd="$1" files=()
+# 	printf 'zsh: command not found: %s' "$cmd" # print command not found asap, then search for packages
+# 	files=(${(f)"$(pacman -F --machinereadable -- "/usr/bin/${cmd}")"})
+# 	if (( ${#files[@]} )); then
+# 		printf '\r%s may be found in the following packages:\n' "$cmd"
+# 		local res=() repo package version file
+# 		for file in "$files[@]"; do
+# 			res=("${(0)file}")
+# 			repo="$res[1]"
+# 			package="$res[2]"
+# 			version="$res[3]"
+# 			file="$res[4]"
+# 			printf '  %s/%s %s: /%s\n' "$repo" "$package" "$version" "$file"
+# 		done
+# 	else
+# 		printf '\n'
+# 	fi
+# 	return 127
+# }
 # source /usr/share/doc/pkgfile/command-not-found.zsh
 
 # Load syntax highlighting; should be last.
-source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
+# source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
+
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 pfetch
