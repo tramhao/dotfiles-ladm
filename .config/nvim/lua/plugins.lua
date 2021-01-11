@@ -80,14 +80,23 @@ packer.startup(
     -- use 'tpope/vim-surround'
     use { 'tpope/vim-commentary'; opt = true; keys = {{'n'; 'gcc'}; {'x'; 'gc'}; {'o'; 'gc'}; {'n'; 'gc'}}; };   
     -- use 'jiangmiao/auto-pairs'
+    --use {
+    --        "jiangmiao/auto-pairs",
+    --        --TODO: Fix double quote autoloading
+    --        keys = {{"i", "("}, {"i", "["}, {"i", "<"}, {"i", "'"}, {"i", "{"}},
+    --        config = function()
+    --            vim.call("AutoPairsTryInit")
+    --        end
+    --    }
     use {
-            "jiangmiao/auto-pairs",
-            --TODO: Fix double quote autoloading
-            keys = {{"i", "("}, {"i", "["}, {"i", "<"}, {"i", "'"}, {"i", "{"}},
-            config = function()
-                vim.call("AutoPairsTryInit")
-            end
-        }
+                "windwp/nvim-autopairs",
+                --TODO: Fix double quote autoloading
+                keys = {{"i", "("}, {"i", "["}, {"i", "<"}, {"i", "'"}, {"i", "{"},{"i", '"'}},
+                config = function()
+                  require('nvim-autopairs').setup()
+                end
+            }
+
     -- use '9mm/vim-closer'
     -- use 'machakann/vim-sandwich'
     use {'justinmk/vim-sneak',
