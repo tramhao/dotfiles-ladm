@@ -57,7 +57,8 @@ packer.startup(
             ft = {"cpp", "c", "python", "java", "lua", "json", "markdown", "typescript", "bash", "zsh"},
             config = require'configplugin.treesitter',
         }   
-
+    -- use 'prabirshrestha/vim-lsp'
+    -- use 'mattn/vim-lsp-settings'
     use {'neovim/nvim-lspconfig', config = require('configplugin.lsp')}
     
     use {'nvim-lua/completion-nvim', config=require('configplugin.completion-nvim')}

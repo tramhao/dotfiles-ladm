@@ -60,3 +60,4 @@ vim.o.swapfile = false
 vim.g.writebackup = false
 vim.o.clipboard = 'unnamedplus'
 vim.g.wildmode='longest,list,full'
+vim.lsp.set_log_level("debug")
