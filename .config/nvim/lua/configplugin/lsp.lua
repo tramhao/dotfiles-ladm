@@ -20,38 +20,56 @@ local sumneko_binary = "/usr/bin/lua-language-server"
     vim.fn.nvim_buf_set_keymap(0,type,key,value,{noremap = true, silent = true});
   end
   local on_attach = function(client, bufnr)
+
+local function t(str)
+    return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
+
+function _G.smart_tab()
+    return vim.fn.pumvisible() == 1 and t'<C-n>' or t'<Tab>'
+end
+function _G.smart_stab()
+    return vim.fn.pumvisible() == 1 and t'<C-p>' or t'<S-Tab>'
+end
+
+
+
     completion.on_attach(client, bufnr)
     -- Keybindings for LSPs
-    -- vim.fn.nvim_set_keymap("n", "<leader>gd", "<cmd>lua vim.lsp.buf.definition()<CR>", {noremap = true, silent = true})
-    -- vim.fn.nvim_set_keymap("n", "<leader>ge", "<cmd>lua vim.lsp.buf.declaration()<CR>", {noremap = true, silent = true})
-    -- vim.fn.nvim_set_keymap("n", "<leader>gh", "<cmd>lua vim.lsp.buf.hover()<CR>", {noremap = true, silent = true})
-    -- vim.fn.nvim_set_keymap("n", "<leader>gf", "<cmd>lua vim.lsp.buf.formatting()<CR>", {noremap = true, silent = true})
-    -- vim.fn.nvim_set_keymap("n", "<leader>gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", {noremap = true, silent = true})
-    -- vim.fn.nvim_set_keymap("n", "<c-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", {noremap = true, silent = true})
-    -- vim.fn.nvim_set_keymap("n", "<leader>gy", "<cmd>lua vim.lsp.buf.type_definition()<CR>", {noremap = true, silent = true})
-    -- vim.fn.nvim_set_keymap("n", "<leader>gr", "<cmd>lua vim.lsp.buf.references()<CR>", {noremap = true, silent = true})
-    -- vim.fn.nvim_set_keymap("n", "<leader>gt", "<cmd>lua vim.lsp.buf.document_symbol()<CR>", {noremap = true, silent = true})
-    -- vim.fn.nvim_set_keymap("n", "<leader>gw", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>", {noremap = true, silent = true})
-    -- vim.fn.nvim_set_keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", {noremap = true, silent = true})
-    -- vim.fn.nvim_set_keymap("n", "<a-.>", "<cmd>lua vim.lsp.buf.code_action()<CR>", {noremap = true, silent = true})
-    -- vim.api.nvim_command('setlocal omnifunc=v:lua.vim.lsp.omnifunc')
+    -- vim.cmd('inoremap <expr> <Tab>   pumvisible() ? "<C-n>" : "<Tab>"')
+    -- vim.cmd('inoremap <expr> <S-Tab> pumvisible() ? "<C-p>" : "<S-Tab>"')
+    vim.api.nvim_set_keymap('i', '<Tab>', 'v:lua.smart_tab()', {expr = true, noremap = true})
+    vim.api.nvim_set_keymap('i', '<S-Tab>', 'v:lua.smart_stab()', {expr = true, noremap = true})
+    vim.fn.nvim_set_keymap("n", "<leader>gd", "<cmd>lua vim.lsp.buf.definition()<CR>", {noremap = true, silent = true})
+    vim.fn.nvim_set_keymap("n", "<leader>ge", "<cmd>lua vim.lsp.buf.declaration()<CR>", {noremap = true, silent = true})
+    vim.fn.nvim_set_keymap("n", "<leader>gh", "<cmd>lua vim.lsp.buf.hover()<CR>", {noremap = true, silent = true})
+    vim.fn.nvim_set_keymap("n", "<leader>gf", "<cmd>lua vim.lsp.buf.formatting()<CR>", {noremap = true, silent = true})
+    vim.fn.nvim_set_keymap("n", "<leader>gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", {noremap = true, silent = true})
+    vim.fn.nvim_set_keymap("n", "<c-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", {noremap = true, silent = true})
+    vim.fn.nvim_set_keymap("n", "<leader>gy", "<cmd>lua vim.lsp.buf.type_definition()<CR>", {noremap = true, silent = true})
+    vim.fn.nvim_set_keymap("n", "<leader>gr", "<cmd>lua vim.lsp.buf.references()<CR>", {noremap = true, silent = true})
+    vim.fn.nvim_set_keymap("n", "<leader>gt", "<cmd>lua vim.lsp.buf.document_symbol()<CR>", {noremap = true, silent = true})
+    vim.fn.nvim_set_keymap("n", "<leader>gw", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>", {noremap = true, silent = true})
+    vim.fn.nvim_set_keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", {noremap = true, silent = true})
+    vim.fn.nvim_set_keymap("n", "<a-.>", "<cmd>lua vim.lsp.buf.code_action()<CR>", {noremap = true, silent = true})
+    vim.api.nvim_command('setlocal omnifunc=v:lua.vim.lsp.omnifunc')
     print("LSP started.");
-    map('n','gD','<cmd>lua vim.lsp.buf.declaration()<CR>')
-    map('n','gd','<cmd>lua vim.lsp.buf.definition()<CR>')
-    map('n','K','<cmd>lua vim.lsp.buf.hover()<CR>')
-    map('n','gr','<cmd>lua vim.lsp.buf.references()<CR>')
-    map('n','gs','<cmd>lua vim.lsp.buf.signature_help()<CR>')
-    map('n','gi','<cmd>lua vim.lsp.buf.implementation()<CR>')
-    map('n','gt','<cmd>lua vim.lsp.buf.type_definition()<CR>')
-    map('n','<leader>gw','<cmd>lua vim.lsp.buf.document_symbol()<CR>')
-    map('n','<leader>gW','<cmd>lua vim.lsp.buf.workspace_symbol()<CR>')
-    map('n','<leader>ah','<cmd>lua vim.lsp.buf.hover()<CR>')
-    map('n','<leader>af','<cmd>lua vim.lsp.buf.code_action()<CR>')
-    map('n','<leader>ee','<cmd>lua vim.lsp.util.show_line_diagnostics()<CR>')
-    map('n','<leader>ar','<cmd>lua vim.lsp.buf.rename()<CR>')
-    map('n','<leader>=', '<cmd>lua vim.lsp.buf.formatting()<CR>')
-    map('n','<leader>ai','<cmd>lua vim.lsp.buf.incoming_calls()<CR>')
-    map('n','<leader>ao','<cmd>lua vim.lsp.buf.outgoing_calls()<CR>')
+    -- map('n','gD','<cmd>lua vim.lsp.buf.declaration()<CR>')
+    -- map('n','gd','<cmd>lua vim.lsp.buf.definition()<CR>')
+    -- map('n','K','<cmd>lua vim.lsp.buf.hover()<CR>')
+    -- map('n','gr','<cmd>lua vim.lsp.buf.references()<CR>')
+    -- map('n','gs','<cmd>lua vim.lsp.buf.signature_help()<CR>')
+    -- map('n','gi','<cmd>lua vim.lsp.buf.implementation()<CR>')
+    -- map('n','gt','<cmd>lua vim.lsp.buf.type_definition()<CR>')
+    -- map('n','<leader>gw','<cmd>lua vim.lsp.buf.document_symbol()<CR>')
+    -- map('n','<leader>gW','<cmd>lua vim.lsp.buf.workspace_symbol()<CR>')
+    -- map('n','<leader>ah','<cmd>lua vim.lsp.buf.hover()<CR>')
+    -- map('n','<leader>af','<cmd>lua vim.lsp.buf.code_action()<CR>')
+    -- map('n','<leader>ee','<cmd>lua vim.lsp.util.show_line_diagnostics()<CR>')
+    -- map('n','<leader>ar','<cmd>lua vim.lsp.buf.rename()<CR>')
+    -- map('n','<leader>=', '<cmd>lua vim.lsp.buf.formatting()<CR>')
+    -- map('n','<leader>ai','<cmd>lua vim.lsp.buf.incoming_calls()<CR>')
+    -- map('n','<leader>ao','<cmd>lua vim.lsp.buf.outgoing_calls()<CR>')
   end
 
    nvim_lsp.clangd.setup{
