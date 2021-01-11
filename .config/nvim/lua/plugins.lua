@@ -1,3 +1,4 @@
+
 local packer_exists = pcall(vim.cmd, [[packadd packer.nvim]])
 
 if not packer_exists then
@@ -57,9 +58,11 @@ packer.startup(
             config = require'configplugin.treesitter',
         }   
 
-    -- use 'neovim/nvim-lspconfig'
-    -- use 'nvim-lua/completion-nvim'
-
+    use {'neovim/nvim-lspconfig', config = require('configplugin.lsp')}
+    
+    use {'nvim-lua/completion-nvim', config=require('configplugin.completion-nvim')}
+    -- use {'weilbith/nvim-lsp-bacomp'; opt=true }
+    -- use {'weilbith/nvim-lsp-smag'; opt=true }
     -- use 'SirVer/ultisnips'
     -- use 'honza/vim-snippets'
 
@@ -93,7 +96,7 @@ packer.startup(
     use {'lervag/wiki.vim', opt = true, setup = require'configplugin.wiki', cmd = {'WikiIndex'} }
     use {
       'npxbr/glow.nvim',
-      run = ':GlowInstall',
+      -- run = ':GlowInstall',
       ft = {'markdown','md'},
       -- keys = '<Leader>p',
       setup = function()
