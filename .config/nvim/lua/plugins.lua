@@ -48,6 +48,7 @@ packer.startup(
     -- use {'prettier/vim-prettier', run = 'yarn install'}
 
     use {'nvim-treesitter/nvim-treesitter-textobjects', opt = true, after = {"nvim-treesitter"} }
+    use {'p00f/nvim-ts-rainbow', opt = true, after = {"nvim-treesitter"} }
     use {
             "nvim-treesitter/nvim-treesitter",
             cmd = {"TSInstall", "TSBufEnable", "TSEnableAll", "TSModuleInfo"},
