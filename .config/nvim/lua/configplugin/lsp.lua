@@ -71,7 +71,12 @@ end
     -- map('n','<leader>ai','<cmd>lua vim.lsp.buf.incoming_calls()<CR>')
     -- map('n','<leader>ao','<cmd>lua vim.lsp.buf.outgoing_calls()<CR>')
   end
-
+   nvim_lsp.bashls.setup{
+       cmd = {"/usr/bin/bash-language-server", "start"},
+       filetype = {"sh"},
+       root_dir = nvim_lsp.util.root_pattern('.git'); 
+       on_attach = on_attach,
+   }
    nvim_lsp.clangd.setup{
        on_attach = on_attach,
        capabilities = {

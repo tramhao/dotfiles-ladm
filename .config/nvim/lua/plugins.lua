@@ -54,17 +54,17 @@ packer.startup(
     use {
             "nvim-treesitter/nvim-treesitter",
             cmd = {"TSInstall", "TSBufEnable", "TSEnableAll", "TSModuleInfo"},
-            ft = {"cpp", "c", "python", "java", "lua", "json", "markdown", "typescript", "bash", "zsh"},
+            ft = {"cpp", "c", "python", "java", "lua", "json", "markdown", "typescript", "bash", "zsh","sh"},
             config = require'configplugin.treesitter',
         }   
     -- use 'prabirshrestha/vim-lsp'
     -- use 'mattn/vim-lsp-settings'
     -- use {'neovim/nvim-lspconfig', opt = true, after = {"nvim-treesitter"}, requires={'nvim-lua/completion-nvim',opt = true},config = require('configplugin.lsp'), }
-    use {'neovim/nvim-lspconfig', opt = true, after = {"nvim-treesitter"}, config = require('configplugin.lsp'), }
+    -- use {'neovim/nvim-lspconfig', opt = true, after = {"nvim-treesitter"}, config = require('configplugin.lsp'), }
     
-    use {'nvim-lua/completion-nvim', config=require('configplugin.completion-nvim'),
-      ft = {'lua','md','zsh'},
-  }
+    -- use {'nvim-lua/completion-nvim', config=require('configplugin.completion-nvim'),
+    --   ft = {'lua','md','zsh', 'sh'},
+  -- }
     -- use {'weilbith/nvim-lsp-bacomp'; opt=true }
     -- use {'weilbith/nvim-lsp-smag'; opt=true }
     -- use 'SirVer/ultisnips'
