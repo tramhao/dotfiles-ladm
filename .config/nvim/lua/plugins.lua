@@ -59,10 +59,11 @@ packer.startup(
         }   
     -- use 'prabirshrestha/vim-lsp'
     -- use 'mattn/vim-lsp-settings'
-    use {'neovim/nvim-lspconfig', opt = true, after = {"nvim-treesitter"}, config = require('configplugin.lsp')}
+    -- use {'neovim/nvim-lspconfig', opt = true, after = {"nvim-treesitter"}, requires={'nvim-lua/completion-nvim',opt = true},config = require('configplugin.lsp'), }
+    use {'neovim/nvim-lspconfig', opt = true, after = {"nvim-treesitter"}, config = require('configplugin.lsp'), }
     
     use {'nvim-lua/completion-nvim', config=require('configplugin.completion-nvim'),
-      ft = {'lua','md'},
+      ft = {'lua','md','zsh'},
   }
     -- use {'weilbith/nvim-lsp-bacomp'; opt=true }
     -- use {'weilbith/nvim-lsp-smag'; opt=true }
