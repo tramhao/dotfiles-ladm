@@ -64,8 +64,8 @@ zle -N zle-keymap-select
 
 # Reset the cursor to block style before running applications
 function _vi_mode_reset_cursor() {
-    [[ -n "$VI_MODE_KEEP_CURSOR" ]] || print -n '\e[1 '
-    # [[ -n "$VI_MODE_KEEP_CURSOR" ]] || print -n '\e[1 q'
+    # [[ -n "$VI_MODE_KEEP_CURSOR" ]] || print -n '\e[1 '
+    [[ -n "$VI_MODE_KEEP_CURSOR" ]] || print -n '\e[1 q'
 }
 autoload -U add-zsh-hook
 add-zsh-hook preexec _vi_mode_reset_cursor
