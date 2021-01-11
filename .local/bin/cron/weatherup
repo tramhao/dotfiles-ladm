@@ -61,7 +61,8 @@ get_icon() {
 }
 
 KEY="d3bbbac74bc0d5aba7e664387bf7fb55"
-CITY="1812896"
+CITY="1795565"
+# CITY="1812896"
 UNITS="metric"
 SYMBOL="°"
 weather=$'\0'
