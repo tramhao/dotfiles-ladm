@@ -3,7 +3,7 @@ return function ()
 
 vim.g.completion_chain_complete_list = {
     {
-        complete_items = {"lsp", "snippet", "buffers"}
+        complete_items = {"lsp", "snippet", "buffers", "path"}
     },
     {
         mode = "<c-p>"
@@ -15,6 +15,7 @@ vim.g.completion_chain_complete_list = {
 
 vim.g.completion_enable_snippet = "vim-vsnip"
 vim.g.completion_matching_ignore_case = true
+vim.g.completion_auto_change_source = 1 
 vim.cmd([[let g:completion_confirm_key = "\<C-y>"]])
 
 vim.g.completion_items_priority = {

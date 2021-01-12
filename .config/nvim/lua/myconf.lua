@@ -10,7 +10,7 @@ local function opt(scope, key, value)
 end
 
 g.mapleader = ';'
--- vim.b.mapleader = ' '
+vim.b.mapleader = ';'
 cmd("syntax enable")
 cmd("filetype plugin on")
 cmd("set path+=**")
