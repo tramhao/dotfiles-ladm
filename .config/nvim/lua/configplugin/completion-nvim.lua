@@ -1,5 +1,5 @@
 return function ()
-vim.cmd[["autocmd BufEnter * lua require'completion'.on_attach()"]]
+-- vim.cmd[["autocmd BufEnter * lua require'completion'.on_attach()"]]
 
 vim.g.completion_chain_complete_list = {
     {
@@ -33,5 +33,19 @@ vim.g.completion_items_priority = {
     TabNine = 0,
     File = 0
 }
+-- local function t(str)
+--     return vim.api.nvim_replace_termcodes(str, true, true, true)
+-- end
+
+-- function _G.smart_tab()
+--     return vim.fn.pumvisible() == 1 and t'<C-n>' or t'<Tab>'
+-- end
+-- function _G.smart_stab()
+--     return vim.fn.pumvisible() == 1 and t'<C-p>' or t'<S-Tab>'
+-- end
+
+-- vim.api.nvim_set_keymap('i', '<Tab>', 'v:lua.smart_tab()', {expr = true, noremap = true})
+-- vim.api.nvim_set_keymap('i', '<S-Tab>', 'v:lua.smart_stab()', {expr = true, noremap = true})
+
 end
 

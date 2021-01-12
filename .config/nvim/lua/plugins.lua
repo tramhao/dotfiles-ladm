@@ -24,9 +24,9 @@ end
 vim.cmd [[packadd packer.nvim]]
 
 vim.cmd [[ autocmd BufWritePost plugins.lua PackerCompile ]]
-local packer = require("packer")
-packer.startup(
-  function(use)
+
+return require("packer").startup(
+  function()
     use { 'wbthomason/packer.nvim', opt = true }
 
     -- use {'cideM/yui', branch = 'v2'} -- dark visual selection
@@ -49,24 +49,27 @@ packer.startup(
     -- use {'prettier/vim-prettier', run = 'yarn install'}
 
     use {'nvim-treesitter/nvim-treesitter-textobjects', opt = true, after = {"nvim-treesitter"} }
-    -- use {'p00f/nvim-ts-rainbow', opt = true, after = {"nvim-treesitter"} }
+    use {'p00f/nvim-ts-rainbow', opt = true, after = {"nvim-treesitter"} }
     -- use {'p00f/nvim-ts-rainbow', after = {"nvim-treesitter"} }
     use {
             "nvim-treesitter/nvim-treesitter",
             cmd = {"TSInstall", "TSBufEnable", "TSEnableAll", "TSModuleInfo"},
             ft = {"cpp", "c", "python", "java", "lua", "json", "markdown", "typescript", "bash", "zsh","sh"},
             config = require'configplugin.treesitter',
-        }   
+        }
     -- use 'prabirshrestha/vim-lsp'
     -- use 'mattn/vim-lsp-settings'
     -- use 'prabirshrestha/asyncomplete.vim'
     -- use 'prabirshrestha/asyncomplete-lsp.vim'
     -- use {'neovim/nvim-lspconfig', opt = true, after = {"nvim-treesitter"}, requires={'nvim-lua/completion-nvim',opt = true},config = require('configplugin.lsp'), }
     -- use {'neovim/nvim-lspconfig', opt = true, after = {"nvim-treesitter"}, config = require('configplugin.lsp'), }
-    
-    use {'nvim-lua/completion-nvim', config=require('configplugin.completion-nvim'),
-      ft = {'lua','md','zsh', 'sh'},
+    use {'neovim/nvim-lspconfig', opt = true, after = {"completion-nvim"}, config = require('configplugin.lsp'), }
+    use {'nvim-lua/completion-nvim', opt = true,
+    -- requires = {{'hrsh7th/vim-vsnip', opt = true}, {'hrsh7th/vim-vsnip-integ', opt = true}},
+    config=require('configplugin.completion-nvim'),
+    ft = {'lua','md','zsh', 'sh'},
   }
+    -- use {'nvim-treesitter/completion-treesitter', after = {'nvim-treesitter'}}
     -- use {'weilbith/nvim-lsp-bacomp'; opt=true }
     -- use {'weilbith/nvim-lsp-smag'; opt=true }
     -- use 'SirVer/ultisnips'
@@ -81,7 +84,7 @@ packer.startup(
 
 
     -- use 'tpope/vim-surround'
-    use { 'tpope/vim-commentary'; opt = true; keys = {{'n'; 'gcc'}; {'x'; 'gc'}; {'o'; 'gc'}; {'n'; 'gc'}}; };   
+    use { 'tpope/vim-commentary'; opt = true; keys = {{'n'; 'gcc'}; {'x'; 'gc'}; {'o'; 'gc'}; {'n'; 'gc'}}; };
     -- use 'jiangmiao/auto-pairs'
     --use {
     --        "jiangmiao/auto-pairs",
@@ -126,7 +129,7 @@ packer.startup(
         vim.g.vim_markdown_math = 1
       end
     }
-    use {"tjdevries/gruvbuddy.nvim", 
+    use {"tjdevries/gruvbuddy.nvim",
     requires = {"tjdevries/colorbuddy.vim"},
     config = function ()
       -- vim.cmd('colo darkblue')
@@ -146,7 +149,7 @@ packer.startup(
                 "ColorizerReloadAllBuffers",
                 "ColorizerToggle",
                 "ColorizerAttachToBuffer"
-            },     
+            },
       config = function ()
         require 'colorizer'.setup()
 	    end

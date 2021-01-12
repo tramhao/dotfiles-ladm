@@ -35,6 +35,7 @@ SAVEHIST=10000000
 HISTFILE=~/.cache/zsh/history
 setopt HIST_FIND_NO_DUPS
 setopt INC_APPEND_HISTORY
+bindkey '^R' history-incremental-search-backward
 
 # Load aliases and shortcuts if existent.
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc"
@@ -64,7 +65,6 @@ RPROMPT=$'$(vi_mode_status)''$(vcs_info_wrapper)'
 # bindkey -M menuselect 'l' vi-forward-char
 # bindkey -M menuselect 'j' vi-down-line-or-history
 # bindkey -v '^?' backward-delete-char
-# bindkey '^R' history-incremental-search-backward
 
 # # Change cursor shape for different vi modes.
 # function zle-keymap-select () {

@@ -1,9 +1,9 @@
 return function()
 require "nvim-treesitter.configs".setup {
-                -- rainbow = {
-                --     enable = true,
-                --     disable = {'bash'} -- please disable bash until I figure #1 out
-                -- },
+                rainbow = {
+                    enable = true,
+                    disable = {'bash'} -- please disable bash until I figure #1 out
+                },
                 highlight = {
                     enable = true -- false will disable the whole extension
                 },
@@ -100,6 +100,7 @@ require "nvim-treesitter.configs".setup {
                         }
                     }
                 },
-                ensure_installed = {"lua", "c", "cpp", "json", "java", "python", "bash", "typescript"} -- one of 'all', 'language', or a list of languages
+                ensure_installed = 'maintained' -- one of 'all', 'language', or a list of languages
+                -- ensure_installed = {"lua", "c", "cpp", "json", "java", "python", "bash", "typescript"} -- one of 'all', 'language', or a list of languages
             }
 end
