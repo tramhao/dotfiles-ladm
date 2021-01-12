@@ -9,10 +9,10 @@ autoload -Uz vcs_info
 zstyle ':vcs_info:*' actionformats \
     '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f '
 zstyle ':vcs_info:*' formats       \
-    '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{5}]%f '
+    '%F{5}(%F{2}%b%F{5})%F{3}-%F{5}[%F{2}%r%F{5}]%f '
 zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
 
-zstyle ':vcs_info:*' enable git cvs svn
+zstyle ':vcs_info:*' enable git
 
 # or use pre_cmd, see man zshcontrib
 vcs_info_wrapper() {
@@ -21,12 +21,13 @@ vcs_info_wrapper() {
     echo "%{$fg[grey]%}${vcs_info_msg_0_}%{$reset_color%}$del"
   fi
 }
-RPROMPT=$'$(vcs_info_wrapper)'
+RPROMPT='$(vcs_info_wrapper)'
+
 
 
 
 setopt autocd		# Automatically cd into typed directory.
-# stty stop undef		# Disable ctrl-s to freeze terminal.
+stty stop undef		# Disable ctrl-s to freeze terminal.
 setopt interactive_comments
 
 # History in cache directory:
@@ -49,39 +50,38 @@ zmodload zsh/complist
 compinit
 _comp_options+=(globdots)		# Include hidden files.
 
+# vi mode
+bindkey -v
+export KEYTIMEOUT=1
 
-source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/vi-mode.zsh"
-RPROMPT=$'$(vi_mode_status)''$(vcs_info_wrapper)'
+# Use vim keys in tab complete menu:
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -v '^?' backward-delete-char
 
+# Change cursor shape for different vi modes.
+function zle-keymap-select () {
+    case $KEYMAP in
+        vicmd) echo -ne '\e[1 q';;      # block
+        viins|main) echo -ne '\e[5 q';; # beam
+    esac
+}
+zle -N zle-keymap-select
 
+zle-line-init() {
+    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
+    echo -ne '\e[5 q'
+}
+zle -N zle-line-init
+echo -ne '\e[5 q' # Use beam shape cursor on startup.
+#preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
+_fix_cursor() {
+   echo -ne '\e[5 q'
+}
+precmd_functions+=(_fix_cursor)
 
-# # vi mode
-# bindkey -v
-# export KEYTIMEOUT=1
-
-# # Use vim keys in tab complete menu:
-# bindkey -M menuselect 'h' vi-backward-char
-# bindkey -M menuselect 'k' vi-up-line-or-history
-# bindkey -M menuselect 'l' vi-forward-char
-# bindkey -M menuselect 'j' vi-down-line-or-history
-# bindkey -v '^?' backward-delete-char
-
-# # Change cursor shape for different vi modes.
-# function zle-keymap-select () {
-#     case $KEYMAP in
-#         vicmd) echo -ne '\e[1 q';;      # block
-#         viins|main) echo -ne '\e[5 q';; # beam
-#     esac
-# }
-# zle -N zle-keymap-select
-
-# zle-line-init() {
-#     zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
-#     echo -ne '\e[5 q'
-# }
-# zle -N zle-line-init
-# echo -ne '\e[5 q' # Use beam shape cursor on startup.
-# preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 # Updates editor information when the keymap changes.
 
 # Use lf to switch directories and bind it to ctrl-o
@@ -106,26 +106,6 @@ bindkey '^[[P' delete-char
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
-# command_not_found_handler() {
-# 	local pkgs cmd="$1" files=()
-# 	printf 'zsh: command not found: %s' "$cmd" # print command not found asap, then search for packages
-# 	files=(${(f)"$(pacman -F --machinereadable -- "/usr/bin/${cmd}")"})
-# 	if (( ${#files[@]} )); then
-# 		printf '\r%s may be found in the following packages:\n' "$cmd"
-# 		local res=() repo package version file
-# 		for file in "$files[@]"; do
-# 			res=("${(0)file}")
-# 			repo="$res[1]"
-# 			package="$res[2]"
-# 			version="$res[3]"
-# 			file="$res[4]"
-# 			printf '  %s/%s %s: /%s\n' "$repo" "$package" "$version" "$file"
-# 		done
-# 	else
-# 		printf '\n'
-# 	fi
-# 	return 127
-# }
 source /usr/share/doc/pkgfile/command-not-found.zsh
 
 # Load syntax highlighting; should be last.
@@ -133,5 +113,8 @@ source /usr/share/doc/pkgfile/command-not-found.zsh
 
 #install by yay -S zsh-syntax-highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/zsh-vim-mode.plugin.zsh"
+# MODE_CURSOR_VIINS="#00ff00 blinking bar"
 
 pfetch
