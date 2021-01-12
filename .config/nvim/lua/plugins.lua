@@ -65,7 +65,7 @@ return require("packer").startup(
     -- use {'neovim/nvim-lspconfig', opt = true, after = {"nvim-treesitter"}, config = require('configplugin.lsp'), }
     use {'neovim/nvim-lspconfig', opt = true, after = {"completion-nvim"}, config = require('configplugin.lsp'), }
     use {'nvim-lua/completion-nvim', opt = true,
-    -- requires = {{'hrsh7th/vim-vsnip', opt = true}, {'hrsh7th/vim-vsnip-integ', opt = true}},
+    requires = {{'hrsh7th/vim-vsnip', opt = true}, {'hrsh7th/vim-vsnip-integ', opt = true}},
     config=require('configplugin.completion-nvim'),
     ft = {'lua','md','zsh', 'sh'},
   }
