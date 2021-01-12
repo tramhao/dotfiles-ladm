@@ -1,8 +1,8 @@
 return function ()
--- vim.cmd[["autocmd BufEnter * lua require'completion'.on_attach()"]]
 
 vim.g.completion_chain_complete_list = {
     {
+        -- complete_items = { "snippet", "buffers", "path"}
         complete_items = {"lsp", "snippet", "buffers", "path"}
     },
     {
@@ -15,7 +15,7 @@ vim.g.completion_chain_complete_list = {
 
 vim.g.completion_enable_snippet = "vim-vsnip"
 vim.g.completion_matching_ignore_case = true
-vim.g.completion_auto_change_source = 1 
+-- vim.g.completion_auto_change_source = 1
 vim.cmd([[let g:completion_confirm_key = "\<C-y>"]])
 
 vim.g.completion_items_priority = {
@@ -48,5 +48,6 @@ vim.g.completion_items_priority = {
 -- vim.api.nvim_set_keymap('i', '<Tab>', 'v:lua.smart_tab()', {expr = true, noremap = true})
 -- vim.api.nvim_set_keymap('i', '<S-Tab>', 'v:lua.smart_stab()', {expr = true, noremap = true})
 
+-- vim.cmd("autocmd BufEnter * lua require'completion'.on_attach()")
 end
 

@@ -50,7 +50,6 @@ return require("packer").startup(
 
     use {'nvim-treesitter/nvim-treesitter-textobjects', opt = true, after = {"nvim-treesitter"} }
     use {'p00f/nvim-ts-rainbow', opt = true, after = {"nvim-treesitter"} }
-    -- use {'p00f/nvim-ts-rainbow', after = {"nvim-treesitter"} }
     use {
             "nvim-treesitter/nvim-treesitter",
             cmd = {"TSInstall", "TSBufEnable", "TSEnableAll", "TSModuleInfo"},
@@ -63,6 +62,8 @@ return require("packer").startup(
     -- use 'prabirshrestha/asyncomplete-lsp.vim'
     -- use {'neovim/nvim-lspconfig', opt = true, after = {"nvim-treesitter"}, requires={'nvim-lua/completion-nvim',opt = true},config = require('configplugin.lsp'), }
     -- use {'neovim/nvim-lspconfig', opt = true, after = {"nvim-treesitter"}, config = require('configplugin.lsp'), }
+    -- use {'neovim/nvim-lspconfig', opt = true, after = {"completion-nvim"}, config = require('configplugin.lsp'), }
+    -- use {'neovim/nvim-lspconfig', opt = true, after = {"treesitter"}, config = require('configplugin.lsp'), }
     use {'neovim/nvim-lspconfig', opt = true, after = {"completion-nvim"}, config = require('configplugin.lsp'), }
     use {'nvim-lua/completion-nvim', opt = true,
     requires = {{'hrsh7th/vim-vsnip', opt = true}, {'hrsh7th/vim-vsnip-integ', opt = true}},
@@ -73,11 +74,7 @@ return require("packer").startup(
     -- use {'weilbith/nvim-lsp-bacomp'; opt=true }
     -- use {'weilbith/nvim-lsp-smag'; opt=true }
     -- use 'SirVer/ultisnips'
-    -- use 'honza/vim-snippets'
 
-    -- use 'edorconfig/editorconfig-vim'
-    -- use 'mhinz/vim-signify'
-    -- use 'tpope/vim-fugitive'
 
     -- use {'RRethy/vim-hexokinase', run = 'make hexokinase'}
     -- use 'lifepillar/vim-colortemplate'

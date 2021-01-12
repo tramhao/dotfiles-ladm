@@ -45,6 +45,7 @@ vim.o.updatetime = 300
 vim.o.scrolloff = 5
 vim.o.sidescrolloff = 5
 vim.o.completeopt = 'menuone,noinsert,noselect'
+cmd("set omnifunc=syntaxcomplete#Complete")
 -- opt('o', 'completeopt', 'menuone,noinsert,noselect')
 vim.o.shortmess = vim.o.shortmess .. 'c'
 vim.o.showmode = false
