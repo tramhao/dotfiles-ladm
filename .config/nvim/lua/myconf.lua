@@ -91,4 +91,3 @@ vim.g.wildmode='longest,list,full'
 -- vim.lsp.set_log_level("debug")
 -- cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}'  -- disabled in visual mode
 cmd 'au TextYankPost * lua vim.highlight.on_yank {}'  -- disabled in visual mode
-
