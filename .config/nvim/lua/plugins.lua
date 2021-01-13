@@ -48,8 +48,8 @@ return require("packer").startup(
     -- use 'MaxMEllon/vim-jsx-pretty'
     -- use {'prettier/vim-prettier', run = 'yarn install'}
 
-    -- use {'nvim-treesitter/nvim-treesitter-textobjects', opt = true, after = {"nvim-treesitter"} }
-    -- use {'p00f/nvim-ts-rainbow', opt = true, after = {"nvim-treesitter"} }
+    use {'nvim-treesitter/nvim-treesitter-textobjects', opt = true, after = {"nvim-treesitter"} }
+    use {'p00f/nvim-ts-rainbow', opt = true, after = {"nvim-treesitter"} }
     use {
             "nvim-treesitter/nvim-treesitter",
             cmd = {"TSInstall", "TSBufEnable", "TSEnableAll", "TSModuleInfo"},
@@ -142,12 +142,12 @@ return require("packer").startup(
       -- vim.cmd('colo gruvbuddy')
     end
   }
-    use {'luochen1990/rainbow',
-      config = function ()
-        vim.g.rainbow_active = 1
-        vim.cmd('syntax on')
-      end
-    }
+    -- use {'luochen1990/rainbow',
+    --   config = function ()
+    --     vim.g.rainbow_active = 1
+    --     vim.cmd('syntax on')
+    --   end
+    -- }
     use {'norcalli/nvim-colorizer.lua',
       cmd = {
                 "ColorizerDetachFromBuffer",

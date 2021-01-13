@@ -1,9 +1,9 @@
 return function()
 require "nvim-treesitter.configs".setup {
-                -- rainbow = {
-                --     enable = true,
-                --     disable = {'bash'} -- please disable bash until I figure #1 out
-                -- },
+                rainbow = {
+                    enable = true,
+                    disable = {'bash'} -- please disable bash until I figure #1 out
+                },
                 highlight = {
                     enable = true -- false will disable the whole extension
                 },
