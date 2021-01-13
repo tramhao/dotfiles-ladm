@@ -4,28 +4,6 @@
 autoload -U colors && colors	# Load colors
 PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 
-# setopt prompt_subst
-autoload -Uz vcs_info
-zstyle ':vcs_info:*' actionformats \
-    '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f '
-zstyle ':vcs_info:*' formats       \
-    '%F{5}(%F{2}%b%F{5})%F{3}-%F{5}[%F{2}%r%F{5}]%f '
-zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
-
-zstyle ':vcs_info:*' enable git
-
-# or use pre_cmd, see man zshcontrib
-vcs_info_wrapper() {
-  vcs_info
-  if [ -n "$vcs_info_msg_0_" ]; then
-    echo "%{$fg[grey]%}${vcs_info_msg_0_}%{$reset_color%}$del"
-  fi
-}
-VI_MODE_KEEP_CURSOR=1
-source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/vi-mode.zsh"
-
-RPROMPT='$(vi_mode_status)$(vcs_info_wrapper)'
-
 
 
 setopt autocd		# Automatically cd into typed directory.
@@ -51,6 +29,32 @@ zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit
 _comp_options+=(globdots)		# Include hidden files.
+setopt prompt_subst
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' actionformats \
+    '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f '
+zstyle ':vcs_info:*' formats       \
+    '%F{5}(%F{2}%b%F{5})%F{3}-%F{5}[%F{2}%r%F{5}]%f '
+zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
+
+zstyle ':vcs_info:*' enable git
+
+# or use pre_cmd, see man zshcontrib
+vcs_info_wrapper() {
+  vcs_info
+  if [ -n "$vcs_info_msg_0_" ]; then
+    echo "%{$fg[grey]%}${vcs_info_msg_0_}%{$reset_color%}$del"
+  fi
+}
+
+VI_MODE_KEEP_CURSOR=1
+
+[[ $(hostname) == "XMLaptop" ]] && unset VI_MODE_KEEP_CURSOR
+
+source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/vi-mode.zsh"
+
+RPROMPT='$(vi_mode_status)$(vcs_info_wrapper)'
+
 
 # # vi mode
 # bindkey -v
