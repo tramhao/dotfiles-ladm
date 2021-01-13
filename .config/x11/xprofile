@@ -1,5 +1,11 @@
 #!/bin/sh
 
+function run {
+  if (command -v $1 && ! pgrep $1); then
+    $@&
+  fi
+}
+
 # This file runs when a DM logs you into a graphical session.
 # If you use startx/xinit like a Chad, this file will also be sourced.
 if [ $(hostname) == "XMLaptop" ]; then
@@ -12,6 +18,8 @@ fi
 remaps &		# run the remaps script, switching caps/esc and more; check it for more info
 setbg ~/Pictures/wallpaper &			# set the background with the `setbg` script
 xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources &	# Uncomment to use Xresources colors/settings on startup
+# run /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+# run eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)
 #xcompmgr &		# xcompmgr for transparency
 picom -f -b --experimental-backends
 # picom -f -b
