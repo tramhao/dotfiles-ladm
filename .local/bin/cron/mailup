@@ -16,7 +16,8 @@ if [ -n "$1" ]; then
 
           echo "Mail🔃" > "${XDG_DATA_HOME:-$HOME/.local/share}/mailupdate.tmp"
           pkill -RTMIN+12 "${STATUSBAR:-dwmblocks}"
-          mw -Y >/dev/null 2>&1
+          # mw -Y >/dev/null 2>&1
+          mailsync >/dev/null 2>&1
       fi
 fi
 
