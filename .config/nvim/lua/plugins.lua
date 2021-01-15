@@ -47,7 +47,6 @@ return require("packer").startup(
 
     -- use 'MaxMEllon/vim-jsx-pretty'
     -- use {'prettier/vim-prettier', run = 'yarn install'}
-
     use {'nvim-treesitter/nvim-treesitter-textobjects', opt = true, after = {"nvim-treesitter"} }
     -- use {'p00f/nvim-ts-rainbow', opt = true, after = {"nvim-treesitter"} }
     use {
@@ -56,7 +55,8 @@ return require("packer").startup(
             ft = {"cpp", "c", "python", "java", "lua", "json", "markdown", "typescript", "bash", "zsh","sh"},
             config = require'configplugin.treesitter',
         }
-    -- use 'prabirshrestha/vim-lsp'
+    -- use {'luochen1990/rainbow', config=require('configplugin.rainbow')}
+   -- use 'prabirshrestha/vim-lsp'
     -- use 'mattn/vim-lsp-settings'
     -- use 'prabirshrestha/asyncomplete.vim'
     -- use 'prabirshrestha/asyncomplete-lsp.vim'
@@ -142,13 +142,7 @@ return require("packer").startup(
       -- vim.cmd('colo gruvbuddy')
     end
   }
-    -- use {'luochen1990/rainbow',
-    --   config = function ()
-    --     vim.g.rainbow_active = 1
-    --     vim.cmd('syntax on')
-    --   end
-    -- }
-    use {'norcalli/nvim-colorizer.lua',
+   use {'norcalli/nvim-colorizer.lua',
       cmd = {
                 "ColorizerDetachFromBuffer",
                 "ColorizerReloadAllBuffers",
