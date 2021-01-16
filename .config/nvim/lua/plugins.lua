@@ -55,7 +55,7 @@ return require("packer").startup(
             ft = {"cpp", "c", "python", "java", "lua", "json", "markdown", "typescript", "bash", "zsh","sh"},
             config = require'configplugin.treesitter',
         }
-    -- use {'luochen1990/rainbow', config=require('configplugin.rainbow')}
+    use {'luochen1990/rainbow', config=require('configplugin.rainbow')}
    -- use 'prabirshrestha/vim-lsp'
     -- use 'mattn/vim-lsp-settings'
     -- use 'prabirshrestha/asyncomplete.vim'
