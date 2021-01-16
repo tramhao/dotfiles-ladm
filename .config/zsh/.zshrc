@@ -52,7 +52,9 @@ vcs_info_wrapper() {
 VI_MODE_KEEP_CURSOR=1
 
 [[ $(hostname) == "XMLaptop" ]] && unset VI_MODE_KEEP_CURSOR
-
+if [ "$TERM" != "linux" ]; then 
+  unset VI_MODE_KEEP_CURSOR
+fi
 source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/vi-mode.zsh"
 
 RPROMPT='$(vi_mode_status)$(vcs_info_wrapper)'
