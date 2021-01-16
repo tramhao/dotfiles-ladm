@@ -50,6 +50,8 @@ vcs_info_wrapper() {
 }
 
 VI_MODE_KEEP_CURSOR=1
+# VI_NORMAL_MODE_INDICATOR=' %F{blue}-- NORMAL --%f'
+# VI_INSERT_MODE_INDICATOR=' %F{green}-- INSERT --%f'
 
 [[ $(hostname) == "XMLaptop" ]] && unset VI_MODE_KEEP_CURSOR
 if [ "$TERM" != "linux" ]; then 
