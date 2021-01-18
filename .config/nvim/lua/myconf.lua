@@ -14,6 +14,7 @@ vim.b.mapleader = ';'
 cmd("syntax enable")
 cmd("filetype plugin on")
 cmd("set path+=**")
+cmd("set undofile")
 vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.hlsearch = true
