@@ -64,7 +64,7 @@ local completion = require('completion')
    nvim_lsp.bashls.setup{
        cmd = {"/usr/bin/bash-language-server", "start"},
        filetype = {"sh"},
-       root_dir = nvim_lsp.util.root_pattern('.git'); 
+       root_dir = nvim_lsp.util.root_pattern('.git');
        on_attach = on_attach,
    }
    nvim_lsp.clangd.setup{
