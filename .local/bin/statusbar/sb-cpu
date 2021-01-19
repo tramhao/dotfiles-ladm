@@ -9,4 +9,7 @@ case $BLOCK_BUTTON in
 	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
 
-sensors | awk '/Core 0/ {print "🌡" $3}'
+#sensors | awk '/Core 0/ {print "🌡" $3}'
+VAR=$(sensors | sed -rn 's/.*Core 0:\s+.([0-9]+).*/\1/p'|tr '\n' ' ')
+VAR1=$(echo $VAR|awk '{print $1}')
+echo "🌡"$VAR1"°C"
