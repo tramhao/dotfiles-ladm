@@ -55,7 +55,7 @@ local completion = require('completion')
     map('n','<leader>gW','<cmd>lua vim.lsp.buf.workspace_symbol()<CR>')
     map('n','<leader>ah','<cmd>lua vim.lsp.buf.hover()<CR>')
     map('n','<leader>af','<cmd>lua vim.lsp.buf.code_action()<CR>')
-    map('n','<leader>ee','<cmd>lua vim.lsp.util.show_line_diagnostics()<CR>')
+    map('n','<leader>ee','<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
     map('n','<leader>ar','<cmd>lua vim.lsp.buf.rename()<CR>')
     map('n','<leader>=', '<cmd>lua vim.lsp.buf.formatting()<CR>')
     map('n','<leader>ai','<cmd>lua vim.lsp.buf.incoming_calls()<CR>')
@@ -194,6 +194,21 @@ local completion = require('completion')
       filetypes = {"gd", "gdscript"},
       port = 6008
     }
+  }
+
+  nvim_lsp.gopls.setup{
+    on_attach=on_attach,
+    cmd = { "gopls", "serve" },
+    filetypes = { "go", "gomod" },
+    settings = {
+      gopls = {
+        analyses = {
+          unusedparams = true,
+        },
+        staticcheck = true,
+      }
+    },
+    root_dir = nvim_lsp.util.root_pattern("go.mod", ".git")
   }
 
   -- stolen from https://github.com/fsouza/vimfiles

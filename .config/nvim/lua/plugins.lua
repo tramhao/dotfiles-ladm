@@ -52,7 +52,7 @@ return require("packer").startup(
     use {
             "nvim-treesitter/nvim-treesitter",
             cmd = {"TSInstall", "TSBufEnable", "TSEnableAll", "TSModuleInfo"},
-            ft = {"cpp", "c", "python", "java", "lua", "json", "markdown", "typescript", "bash", "zsh","sh"},
+            ft = {"cpp", "c", "python", "java", "lua", "json", "markdown", "typescript", "bash", "zsh","sh","go"},
             config = require'configplugin.treesitter',
         }
     use {'luochen1990/rainbow', config=require('configplugin.rainbow')}
@@ -68,7 +68,7 @@ return require("packer").startup(
     use {'nvim-lua/completion-nvim', opt = true,
     requires = {{'hrsh7th/vim-vsnip', opt = true}, {'hrsh7th/vim-vsnip-integ', opt = true}},
     config=require('configplugin.completion-nvim'),
-    ft = {'lua','md','zsh', 'sh'},
+    ft = {'lua','md','zsh', 'sh','go'},
   }
     -- use {'nvim-treesitter/completion-treesitter', after = {'nvim-treesitter'}}
     -- use {'weilbith/nvim-lsp-bacomp'; opt=true }
