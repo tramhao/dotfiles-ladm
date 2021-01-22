@@ -8,10 +8,12 @@ function run {
 
 # This file runs when a DM logs you into a graphical session.
 # If you use startx/xinit like a Chad, this file will also be sourced.
-if [ $(hostname) == "XMLaptop" ]; then
-#	echo "ok"
-	source ~/.xrandr
-	run nextcloud --background
+if [ $(hostname) = "XMLaptop" ]; then
+  if [ `ifconfig wlp2s0 | awk '/inet /{ print $6;}'` = "192.168.186.255" ]; then
+      # echo "ok"
+      source ~/.xrandr
+      run nextcloud --background
+  fi
 	# nextcloud &
   # blueman-applet &
 fi
