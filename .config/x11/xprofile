@@ -11,7 +11,8 @@ function run {
 if [ $(hostname) == "XMLaptop" ]; then
 #	echo "ok"
 	source ~/.xrandr
-	nextcloud &
+	run nextcloud --background
+	# nextcloud &
   # blueman-applet &
 fi
 #mpd &			# music player daemon-you might prefer it as a service though

@@ -52,7 +52,7 @@ F12
 #            || xdotool search --classname scratchpad windowmap \
 #            || st -c scratchpad -g 93x31+960+250
 
-super + x
+super + BackSpace
 	oblogout -c $HOME/.config/bspwm/oblogout.conf
 super + f
 	dolphin

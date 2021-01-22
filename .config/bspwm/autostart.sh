@@ -46,7 +46,7 @@ run fcitx5
 #if [ $(hostname) = "tramhao-pc" ]; then
 if [ $(hostname) = "XMLaptop" ]; then
 	run nextcloud --background
-	run blueman-applet
+	# run blueman-applet
 fi
 
 
