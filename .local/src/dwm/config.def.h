@@ -394,6 +394,6 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 	{ ClkTagBar,		0,		Button4,	shiftview,	{.i = -1} },
 	{ ClkTagBar,		0,		Button5,	shiftview,	{.i = 1} },
-	{ ClkRootWin,		0,		Button2,	togglebar,	{0} },
+	{ ClkRootWin,		MODKEY,		Button2,	togglebar,	{0} },
 	{ ClkRootWin,		0,		Button3,	spawn,		SHCMD("setbg ~/Pictures/wallpapers") },
 };
