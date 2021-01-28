@@ -6,7 +6,7 @@ color:
   # none is transparent
   # only background has none attribute
   background:        none
-  foreground:        "#FFFFFF"
+  foreground:        "#fbf1c7"
   now_playing_title: "#017702"
   playlist:          "#008B8B"
   popup:             "#0A0F14"
