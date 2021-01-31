@@ -16,6 +16,7 @@ general:
   confirm_bulk_add:  true
   confirm_on_exit:   true
   load_prev_queue:   true
+  queue_loop:        true
   # change this to point to your music directory
   music_dir:         ~/Music
   # music_dir:         ~/Music/mp3

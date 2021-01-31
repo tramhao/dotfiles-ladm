@@ -9,7 +9,10 @@ local indent = 2
 --   if scope ~= 'o' then scopes['o'][key] = value end
 -- end
 
+-- vim.cmd("au BufWritePost ~/.config/nvim/*.{vim,lua} luafile ~/.config/nvim/init.lua")
+
 -- TODO: Remove when https://github.com/neovim/neovim/pull/13479 lands
+
 
 local opts_info = vim.api.nvim_get_all_options_info()
 local opt = setmetatable({}, {
@@ -24,8 +27,6 @@ local opt = setmetatable({}, {
     end
   end,
 })
-
-
 
 g.mapleader = ';'
 vim.b.mapleader = ';'
