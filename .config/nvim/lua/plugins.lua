@@ -158,5 +158,6 @@ return require("packer").startup(
      config =  require'configplugin.lualine',
   }
     use {'tweekmonster/startuptime.vim', opt = true, cmd = 'StartupTime'}
+    use {'fatih/vim-go'}
   end
 )
