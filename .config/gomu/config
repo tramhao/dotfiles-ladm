@@ -35,5 +35,8 @@ general:
 emoji:
   playlist:          
   file:              
+  loop:              ﯩ
+  noloop:            
+  
 
 # vi:ft=yaml

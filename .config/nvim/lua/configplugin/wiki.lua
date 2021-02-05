@@ -6,11 +6,11 @@ return function ()
       -- vim.g.wiki_map_link_create = wikilink('text')
       vim.api.nvim_exec(
       [[
-      function MyFunction2(text) abort
+      function! MyFunction(text) abort
          return substitute(tolower(a:text), '\s\+', '-', 'g')
       endfunction
 
-      let g:wiki_map_link_create = 'MyFunction2'
+      let g:wiki_map_link_create = 'MyFunction'
       ]],
       false)
 end
