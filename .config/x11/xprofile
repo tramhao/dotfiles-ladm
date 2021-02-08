@@ -27,7 +27,7 @@ xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources &	# Uncomment to use Xreso
 picom -f -b --experimental-backends
 # picom -f -b
 dunst &			# dunst for notifications
-#xset r rate 400 50 &	# Speed xrate up
+xset r rate 400 50 # Speed xrate up
 unclutter &		# Remove mouse when idle
 fcitx5 &
 # This line autostarts an instance of Pulseaudio that does not exit on idle.
