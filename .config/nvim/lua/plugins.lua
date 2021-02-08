@@ -23,7 +23,7 @@ end
 -- Only required if you have packer in your `opt` pack
 vim.cmd [[packadd packer.nvim]]
 
-vim.cmd [[ autocmd BufWritePost plugins.lua PackerCompile ]]
+-- vim.cmd [[ autocmd BufWritePost plugins.lua PackerCompile ]]
 
 return require("packer").startup(
   function()
@@ -64,12 +64,19 @@ return require("packer").startup(
     -- use {'neovim/nvim-lspconfig', opt = true, after = {"nvim-treesitter"}, config = require('configplugin.lsp'), }
     -- use {'neovim/nvim-lspconfig', opt = true, after = {"completion-nvim"}, config = require('configplugin.lsp'), }
     -- use {'neovim/nvim-lspconfig', opt = true, after = {"treesitter"}, config = require('configplugin.lsp'), }
+    -- use {'neovim/nvim-lspconfig', opt = true, after = {"nvim-compe"}, config = require('configplugin.lsp'), }
     use {'neovim/nvim-lspconfig', opt = true, after = {"completion-nvim"}, config = require('configplugin.lsp'), }
+    -- use {'hrsh7th/nvim-compe'}
+    -- use {'hrsh7th/nvim-compe', opt = true,
+    --   requires = {{'hrsh7th/vim-vsnip', opt = true}, {'hrsh7th/vim-vsnip-integ', opt = true}},
+    --   config=require('configplugin.compe'),
+    --   ft = {'lua','md','zsh', 'sh','go'},
+    -- }
     use {'nvim-lua/completion-nvim', opt = true,
-    requires = {{'hrsh7th/vim-vsnip', opt = true}, {'hrsh7th/vim-vsnip-integ', opt = true}},
-    config=require('configplugin.completion-nvim'),
-    ft = {'lua','md','zsh', 'sh','go'},
-  }
+	    requires = {{'hrsh7th/vim-vsnip', opt = true}, {'hrsh7th/vim-vsnip-integ', opt = true}},
+	    config=require('configplugin.completion-nvim'),
+	    ft = {'lua','md','zsh', 'sh','go'},
+    }
     -- use {'nvim-treesitter/completion-treesitter', after = {'nvim-treesitter'}}
     -- use {'weilbith/nvim-lsp-bacomp'; opt=true }
     -- use {'weilbith/nvim-lsp-smag'; opt=true }

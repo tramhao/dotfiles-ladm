@@ -13,6 +13,7 @@ end
 -- set the path to the sumneko installation; if you previously installed via the now deprecated :LspInstall, use
 local sumneko_root_path = '/usr/share/lua-language-server'
 local sumneko_binary = "/usr/bin/lua-language-server"
+-- local completion = require('compe')
 local completion = require('completion')
 
   local nvim_lsp = require('lspconfig')
