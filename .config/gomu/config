@@ -27,10 +27,6 @@ general:
   # some of the terminal supports unicode character
   # you can set this to false to disable emojis
   emoji:             true
-  # you may use fzf as your finder inside gomu
-  # but it is recommended to use built-in finder
-  # as it integrates well with gomu
-  fzf:               false
 
 emoji:
   playlist:          

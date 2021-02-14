@@ -23,7 +23,7 @@ end
 -- Only required if you have packer in your `opt` pack
 vim.cmd [[packadd packer.nvim]]
 
--- vim.cmd [[ autocmd BufWritePost plugins.lua PackerCompile ]]
+vim.cmd [[ autocmd BufWritePost plugins.lua PackerCompile ]]
 
 return require("packer").startup(
   function()
@@ -38,7 +38,6 @@ return require("packer").startup(
     -- use 'junegunn/fzf'
     -- use 'junegunn/fzf.vim'
 
-    -- use 'tpope/vim-commentary'
     -- use 'machakann/vim-sandwich'
     -- use 'romainl/vim-cool'
     -- use 'justinmk/vim-sneak'
@@ -88,9 +87,8 @@ return require("packer").startup(
 
 
     -- use 'tpope/vim-surround'
-    use { 'tpope/vim-commentary'; opt = true; keys = {{'n'; 'gcc'}; {'x'; 'gc'}; {'o'; 'gc'}; {'n'; 'gc'}}; };
-    -- use 'jiangmiao/auto-pairs'
-    --use {
+    -- use { 'b3nj5m1n/kommentary'; opt = true; keys = {{'n'; 'gcc'}; {'x'; 'gc'}; {'o'; 'gc'}; {'n'; 'gc'}}; };
+    use 'b3nj5m1n/kommentary'
     --        "jiangmiao/auto-pairs",
     --        --TODO: Fix double quote autoloading
     --        keys = {{"i", "("}, {"i", "["}, {"i", "<"}, {"i", "'"}, {"i", "{"}},
