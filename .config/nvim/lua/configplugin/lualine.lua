@@ -1,7 +1,10 @@
 return function ()
       local lualine = require('lualine')
-      lualine.theme = 'dracula'
-      lualine.separator = '|'
+      lualine.options = {
+        theme = 'dracula',
+        separator = '|',
+        icons_enabled = true,
+      }
       lualine.sections = {
         lualine_a = { 'mode' },
         lualine_b = { 'branch' },
@@ -9,7 +12,7 @@ return function ()
         lualine_x = { 'encoding', 'fileformat', 'filetype' },
         lualine_y = { 'progress' },
         lualine_z = { 'location'  },
-        lualine_diagnostics = {  }
+        -- lualine_diagnostics = {  }
       }
       lualine.inactive_sections = {
         lualine_a = {  },
