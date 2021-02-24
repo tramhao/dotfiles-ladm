@@ -88,7 +88,15 @@ return require("packer").startup(
 
     -- use 'tpope/vim-surround'
     -- use { 'b3nj5m1n/kommentary'; opt = true; keys = {{'n'; 'gcc'}; {'x'; 'gc'}; {'o'; 'gc'}; {'n'; 'gc'}}; };
-    use 'b3nj5m1n/kommentary'
+    use {'b3nj5m1n/kommentary';
+    config=function()
+      require('kommentary.config').configure_language("default", {
+        prefer_single_line_comments = true,
+        use_consistent_indentation = true,
+        ignore_whitespace = true,
+      })
+    end
+    }
     --        "jiangmiao/auto-pairs",
     --        --TODO: Fix double quote autoloading
     --        keys = {{"i", "("}, {"i", "["}, {"i", "<"}, {"i", "'"}, {"i", "{"}},
