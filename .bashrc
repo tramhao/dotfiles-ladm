@@ -167,9 +167,9 @@ ex ()
 #alias psref="gpg-connect-agent RELOADAGENT /bye" # Refresh gpg
 
 ## Some aliases
-#alias e="$EDITOR"
+alias e="$EDITOR"
 #alias sv="systemctl"
-#alias n="nvim"
+alias n="nvim"
 #[ -x "$(command -v nvim)" ] && alias vim="nvim" vimdiff="nvim -d"
 #alias r="ranger"
 #alias ka="killall"
