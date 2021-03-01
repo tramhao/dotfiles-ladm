@@ -3,9 +3,9 @@
 
 !! Set a default font and font size as below:
 /* *.font: Inconsolata Nerd Font Mono Regular:size=16 */
-*.font: monospace:size=16
+*.font: monospace:size=14
 
-/* st.font:	UbuntuMono Nerd Font:pixelsize=24:antialias=true:autohint=true; */
+st.font:	SF Mono:size=15:antialias=true:autohint=true;
 
 /* st.font: Microsoft YaHei:pixelsize=24:antialias=true:autohint=true; */
 

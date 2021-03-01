@@ -29,7 +29,7 @@ font:
   normal:
     family: UbuntuMono Nerd Font
     style: Regular
-  size: 12
+  size: 20
 window:
   padding:
     x: 2

@@ -5,9 +5,11 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "mono:pixelsize=14:antialias=true:autohint=true";
-static char *font2[] = { "UbuntuMono Nerd Font Mono:pixelsize=25:antialias=true:autohint=false" };
-/* static char *font2[] = { "JoyPixels:pixelsize=10:antialias=true:autohint=true" }; */
+static char *font = "mono:pixelsize=14:antialias=false:autohint=false";
+// static char *font = "SF Mono:pixelsize=20:antialias=false:autohint=false";
+static char *font2[] = { "Noto Sans Mono:pixelsize=25:antialias=true:autohint=true" };
+// static char *font2[] = { "UbuntuMono Nerd Font Mono:pixelsize=25:antialias=true:autohint=false" };
+// static char *font2[] = { "JoyPixels:pixelsize=10:antialias=true:autohint=true" };
 static int borderpx = 2;
 
 /*
