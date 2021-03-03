@@ -148,5 +148,5 @@ ex=🎯:\
 
 if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
   # exec startx
-  startx
+  startx -- -nolisten tcp >/dev/null 2>&1
 fi

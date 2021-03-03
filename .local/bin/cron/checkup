@@ -11,7 +11,7 @@ wget -q --spider example.org || exit
 
 # Check your internet connection, if pacman is already running, or run update manually to see errors."
 
-if ! updates_arch=$(pacman -QU | grep -Fcv "[ignored]" 2> /dev/null); then
+if ! updates_arch=$(pacman -Qu | grep -Fcv "[ignored]" 2> /dev/null); then
     updates_arch=0
 fi
 
