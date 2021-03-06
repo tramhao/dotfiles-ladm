@@ -11,12 +11,12 @@ wget -q --spider example.org || exit
 
 # Check your internet connection, if pacman is already running, or run update manually to see errors."
 
-if ! updates_arch=$(pacman -Qu | grep -v "\[ignored\]" 2> /dev/null | wc -l); then
+if ! updates_arch=$(checkupdates 2> /dev/null | wc -l ); then
     updates_arch=0
 fi
 
 # if ! updates_aur=$(cower -u 2> /dev/null | wc -l); then
-if ! updates_aur=$(trizen -Su --aur --quiet | wc -l); then
+if ! updates_aur=$(paru -Qua | grep -v "\[ignored\]" 2> /dev/null | wc -l); then
     updates_aur=0
 fi
 
