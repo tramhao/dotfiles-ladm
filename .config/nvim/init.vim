@@ -88,6 +88,17 @@ set complete+=kspell
 set completeopt=menuone,longest
 set scrolloff=10                        "Not to scroll to top or bottom
 
+" Let's save undo info!
+if !isdirectory($HOME."/.local/share/nvim")
+    call mkdir($HOME."/.local/share/nvim", "", 0770)
+endif
+if !isdirectory($HOME."/.local/share/nvim/undo-dir")
+    call mkdir($HOME."/.local/share/nvim/undo-dir", "", 0700)
+endif
+set undodir=~/.local/share/nvim/undo-dir
+set undofile
+
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => coc.vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
