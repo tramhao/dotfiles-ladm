@@ -1,0 +1,13 @@
+[Unit]
+Description=pkgfile database update timer
+
+[Timer]
+OnBootSec=15min
+OnUnitActiveSec=1d
+Persistent=no
+; OnCalendar=daily
+; AccuracySec=6h
+; Persistent=yes
+
+[Install]
+WantedBy=multi-user.target
