@@ -7,6 +7,7 @@ module General {
 	queue_loop          = true
 	load_prev_queue     = true
 	popup_timeout       = "5s"
+  sort_by_ctime       = true
 	# change this to directory that contains mp3 files
 	music_dir           = "~/Music"
 	# url history of downloaded audio will be saved here
@@ -21,7 +22,7 @@ module General {
 	# https://github.com/iv-org/documentation/blob/master/Invidious-Instances.md
 	invidious_instance  = "https://vid.puffyan.us"
 	# Prefered language for lyrics to be embeded, if not available, english version will be embeded.
-	# Available tags: en,el,ko,es,th,vi,zh-Hans,zh-Hant but only set 1 tag is working 
+	# Available tags: en,el,ko,es,th,vi,zh-Hans,zh-Hant but only set 1 tag is working
 	# find more tags: youtube-dl --skip-download --list-subs "url"
 	lang_lyric          = "zh-Hans zh-CN"
 	# lang_lyric          = "zh-Hans"
