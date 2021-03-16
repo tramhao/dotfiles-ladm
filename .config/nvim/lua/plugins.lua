@@ -104,13 +104,13 @@ return require("packer").startup(
     --            vim.call("AutoPairsTryInit")
     --        end
     --    }
-    use {
-                "windwp/nvim-autopairs",
-                keys = {{"i", "("}, {"i", "["}, {"i", "<"}, {"i", "'"}, {"i", "{"},{"i", '"'}},
-                config = function()
-                  require('nvim-autopairs').setup()
-                end
-            }
+    -- use {
+    --             "windwp/nvim-autopairs",
+    --             keys = {{"i", "("}, {"i", "["}, {"i", "<"}, {"i", "'"}, {"i", "{"},{"i", '"'}},
+    --             config = function()
+    --               require('nvim-autopairs').setup()
+    --             end
+    --         }
 
     -- use '9mm/vim-closer'
     -- use 'machakann/vim-sandwich'
@@ -147,14 +147,19 @@ return require("packer").startup(
     --   -- vim.cmd('colo gruvbuddy')
     -- end
   -- }
-    use {"tjdevries/gruvbuddy.nvim",
-    requires = {"tjdevries/colorbuddy.vim"},
-    config = function ()
-      -- vim.cmd('colo darkblue')
-      require('colorbuddy').colorscheme('gruvbuddy')
-      -- vim.cmd('colo gruvbuddy')
+  --   use {"tjdevries/gruvbuddy.nvim",
+  --   requires = {"tjdevries/colorbuddy.vim"},
+  --   config = function ()
+  --     -- vim.cmd('colo darkblue')
+  --     require('colorbuddy').colorscheme('gruvbuddy')
+  --     -- vim.cmd('colo gruvbuddy')
+  --   end
+  -- }
+   use {"tanvirtin/nvim-monokai",
+    config = function()
+      vim.cmd('colo monokai')
     end
-  }
+   }
    use {'norcalli/nvim-colorizer.lua',
       cmd = {
                 "ColorizerDetachFromBuffer",
