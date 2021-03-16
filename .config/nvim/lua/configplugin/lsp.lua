@@ -1,40 +1,24 @@
 return function()
---   local system_name
--- if vim.fn.has("mac") == 1 then
---   system_name = "macOS"
--- elseif vim.fn.has("unix") == 1 then
---   system_name = "Linux"
--- elseif vim.fn.has('win32') == 1 then
---   system_name = "Windows"
--- else
---   print("Unsupported system for sumneko")
--- end
 
 -- set the path to the sumneko installation; if you previously installed via the now deprecated :LspInstall, use
 local sumneko_root_path = '/usr/share/lua-language-server'
 local sumneko_binary = "/usr/bin/lua-language-server"
--- local completion = require('compe-config')
+-- local completion = require('compe')
 local completion = require('completion')
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true;
 
-  local nvim_lsp = require('lspconfig')
-  local map = function(type, key, value)
+local nvim_lsp = require('lspconfig')
+local map = function(type, key, value)
     vim.api.nvim_buf_set_keymap(0,type,key,value,{noremap = true, silent = true});
-  end
-  local custom_init = function (client)
+end
+local custom_init = function (client)
     if client.config.flags then
       client.config.flags.allow_incremental_sync = true
     end
-    end
-  local on_attach = function(client, bufnr)
-
-    -- if client.config.flags then
-    --   client.config.flags.allow_incremental_sync = true
-    -- end
-
-
+end
+local on_attach = function(client, bufnr)
     completion.on_attach(client, bufnr)
-
-
     -- Keybindings for LSPs
     -- vim.fn.nvim_set_keymap("n", "<leader>gd", "<cmd>lua vim.lsp.buf.definition()<CR>", {noremap = true, silent = true})
     -- vim.fn.nvim_set_keymap("n", "<leader>ge", "<cmd>lua vim.lsp.buf.declaration()<CR>", {noremap = true, silent = true})

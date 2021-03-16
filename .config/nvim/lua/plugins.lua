@@ -68,7 +68,7 @@ return require("packer").startup(
     -- use {'hrsh7th/nvim-compe'}
     -- use {'hrsh7th/nvim-compe', opt = true,
     --   requires = {{'hrsh7th/vim-vsnip', opt = true}, {'hrsh7th/vim-vsnip-integ', opt = true}},
-    --   config=require('configplugin.compe-config'),
+    --   config=require('configplugin.compe'),
     --   ft = {'lua','md','zsh', 'sh','go'},
     -- }
     use {'nvim-lua/completion-nvim', opt = true,
