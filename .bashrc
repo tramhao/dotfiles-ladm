@@ -238,3 +238,4 @@ alias n="nvim"
 ##neofetch
 #PF_INFO="ascii title os host kernel uptime pkgs memory"
 
+export PATH=/home/$USER/.config/nvcode/utils/bin:$PATH

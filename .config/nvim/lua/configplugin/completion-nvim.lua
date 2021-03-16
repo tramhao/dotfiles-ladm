@@ -5,7 +5,8 @@ vim.g.completion_chain_complete_list = {
     {
         -- complete_items = { "snippet", "buffers", "path"}
         -- complete_items = {"lsp", "snippet", "buffers", "path"}
-        complete_items = {"lsp", "snippet", "buffers" }
+        complete_items = {"lsp", "snippet" }
+        -- complete_items = {"lsp", "snippet", "buffers" }
     },
     {
         mode = "<c-p>"

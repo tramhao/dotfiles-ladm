@@ -13,18 +13,23 @@ return function()
 -- set the path to the sumneko installation; if you previously installed via the now deprecated :LspInstall, use
 local sumneko_root_path = '/usr/share/lua-language-server'
 local sumneko_binary = "/usr/bin/lua-language-server"
--- local completion = require('compe')
+-- local completion = require('compe-config')
 local completion = require('completion')
 
   local nvim_lsp = require('lspconfig')
   local map = function(type, key, value)
     vim.api.nvim_buf_set_keymap(0,type,key,value,{noremap = true, silent = true});
   end
-  local on_attach = function(client, bufnr)
-
+  local custom_init = function (client)
     if client.config.flags then
       client.config.flags.allow_incremental_sync = true
     end
+    end
+  local on_attach = function(client, bufnr)
+
+    -- if client.config.flags then
+    --   client.config.flags.allow_incremental_sync = true
+    -- end
 
 
     completion.on_attach(client, bufnr)
@@ -61,6 +66,8 @@ local completion = require('completion')
     map('n','<leader>=', '<cmd>lua vim.lsp.buf.formatting()<CR>')
     map('n','<leader>ai','<cmd>lua vim.lsp.buf.incoming_calls()<CR>')
     map('n','<leader>ao','<cmd>lua vim.lsp.buf.outgoing_calls()<CR>')
+    map('n','<C-n>','<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
+    map('n','<C-p>','<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
   end
    nvim_lsp.bashls.setup{
        cmd = {"/usr/bin/bash-language-server", "start"},
@@ -198,6 +205,7 @@ local completion = require('completion')
   }
 
   nvim_lsp.gopls.setup{
+    on_init = custom_init,
     on_attach=on_attach,
     cmd = { "gopls", "serve" },
     filetypes = { "go", "gomod" },
