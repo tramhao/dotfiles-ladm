@@ -28,24 +28,6 @@ vim.cmd [[ autocmd BufWritePost plugins.lua PackerCompile ]]
 return require("packer").startup(
   function()
     use { 'wbthomason/packer.nvim', opt = true }
-
-    -- use {'cideM/yui', branch = 'v2'} -- dark visual selection
-    -- use 'junegunn/seoul256.vim'
-    -- use 'jnurmine/Zenburn'
-    -- use 'co1ncidence/sunset.vim'
-
-    -- use 'liuchengxu/vim-clap'
-    -- use 'junegunn/fzf'
-    -- use 'junegunn/fzf.vim'
-
-    -- use 'machakann/vim-sandwich'
-    -- use 'romainl/vim-cool'
-    -- use 'justinmk/vim-sneak'
-
-    -- use 'axvr/org.vim'
-
-    -- use 'MaxMEllon/vim-jsx-pretty'
-    -- use {'prettier/vim-prettier', run = 'yarn install'}
     use {'nvim-treesitter/nvim-treesitter-textobjects', opt = true, after = {"nvim-treesitter"} }
    -- use {'p00f/nvim-ts-rainbow', opt = true, after = {"nvim-treesitter"} }
     use {
@@ -55,17 +37,8 @@ return require("packer").startup(
             config = require'configplugin.treesitter',
         }
     use {'luochen1990/rainbow', config=require('configplugin.rainbow')}
-   -- use 'prabirshrestha/vim-lsp'
-    -- use 'mattn/vim-lsp-settings'
-    -- use 'prabirshrestha/asyncomplete.vim'
-    -- use 'prabirshrestha/asyncomplete-lsp.vim'
-    -- use {'neovim/nvim-lspconfig', opt = true, after = {"nvim-treesitter"}, requires={'nvim-lua/completion-nvim',opt = true},config = require('configplugin.lsp'), }
-    -- use {'neovim/nvim-lspconfig', opt = true, after = {"nvim-treesitter"}, config = require('configplugin.lsp'), }
-    -- use {'neovim/nvim-lspconfig', opt = true, after = {"completion-nvim"}, config = require('configplugin.lsp'), }
-    -- use {'neovim/nvim-lspconfig', opt = true, after = {"treesitter"}, config = require('configplugin.lsp'), }
     -- use {'neovim/nvim-lspconfig', opt = true, after = {"nvim-compe"}, config = require('configplugin.lsp'), }
     use {'neovim/nvim-lspconfig', opt = true, after = {"completion-nvim"}, config = require('configplugin.lsp'), }
-    -- use {'hrsh7th/nvim-compe'}
     -- use {'hrsh7th/nvim-compe', opt = true,
     --   requires = {{'hrsh7th/vim-vsnip', opt = true}, {'hrsh7th/vim-vsnip-integ', opt = true}},
     --   config=require('configplugin.compe'),
@@ -76,18 +49,6 @@ return require("packer").startup(
 	    config=require('configplugin.completion-nvim'),
 	    ft = {'lua','md','zsh', 'sh','go'},
     }
-    -- use {'nvim-treesitter/completion-treesitter', after = {'nvim-treesitter'}}
-    -- use {'weilbith/nvim-lsp-bacomp'; opt=true }
-    -- use {'weilbith/nvim-lsp-smag'; opt=true }
-    -- use 'SirVer/ultisnips'
-
-
-    -- use {'RRethy/vim-hexokinase', run = 'make hexokinase'}
-    -- use 'lifepillar/vim-colortemplate'
-
-
-    -- use 'tpope/vim-surround'
-    -- use { 'b3nj5m1n/kommentary'; opt = true; keys = {{'n'; 'gcc'}; {'x'; 'gc'}; {'o'; 'gc'}; {'n'; 'gc'}}; };
     use {'b3nj5m1n/kommentary';
     config=function()
       require('kommentary.config').configure_language("default", {
@@ -97,23 +58,6 @@ return require("packer").startup(
       })
     end
     }
-    --        "jiangmiao/auto-pairs",
-    --        --TODO: Fix double quote autoloading
-    --        keys = {{"i", "("}, {"i", "["}, {"i", "<"}, {"i", "'"}, {"i", "{"}},
-    --        config = function()
-    --            vim.call("AutoPairsTryInit")
-    --        end
-    --    }
-    -- use {
-    --             "windwp/nvim-autopairs",
-    --             keys = {{"i", "("}, {"i", "["}, {"i", "<"}, {"i", "'"}, {"i", "{"},{"i", '"'}},
-    --             config = function()
-    --               require('nvim-autopairs').setup()
-    --             end
-    --         }
-
-    -- use '9mm/vim-closer'
-    -- use 'machakann/vim-sandwich'
     use {'justinmk/vim-sneak',
         config = function()
           vim.cmd('let g:sneak#label = 1')
@@ -139,22 +83,6 @@ return require("packer").startup(
         vim.g.vim_markdown_math = 1
       end
     }
-    -- use {"Th3Whit3Wolf/onebuddy",
-    -- requires = {"tjdevries/colorbuddy.vim"},
-    -- config = function ()
-    --   -- vim.cmd('colo darkblue')
-    --   require('colorbuddy').colorscheme('onebuddy')
-    --   -- vim.cmd('colo gruvbuddy')
-    -- end
-  -- }
-  --   use {"tjdevries/gruvbuddy.nvim",
-  --   requires = {"tjdevries/colorbuddy.vim"},
-  --   config = function ()
-  --     -- vim.cmd('colo darkblue')
-  --     require('colorbuddy').colorscheme('gruvbuddy')
-  --     -- vim.cmd('colo gruvbuddy')
-  --   end
-  -- }
    use {"tanvirtin/nvim-monokai",
     config = function()
       vim.cmd('colo monokai')
@@ -172,7 +100,6 @@ return require("packer").startup(
 	    end
   }
     use { 'hoob3rt/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true},
-     -- event = {"FocusLost *", "CursorHold *"},
      config =  require'configplugin.lualine',
   }
     use {'tweekmonster/startuptime.vim', opt = true, cmd = 'StartupTime'}

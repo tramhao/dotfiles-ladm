@@ -1,11 +1,11 @@
 return function ()
-      local lualine = require('lualine')
-      lualine.options = {
+require "lualine".setup{
+      options = {
         theme = 'dracula',
         separator = '|',
         icons_enabled = true,
-      }
-      lualine.sections = {
+      },
+      sections = {
         lualine_a = { 'mode' },
         lualine_b = { 'branch' },
         lualine_c = { 'filename' },
@@ -13,8 +13,8 @@ return function ()
         lualine_y = { 'progress' },
         lualine_z = { 'location'  },
         -- lualine_diagnostics = {  }
-      }
-      lualine.inactive_sections = {
+      },
+      inactive_sections = {
         lualine_a = {  },
         lualine_b = {  },
         lualine_c = { 'filename' },
@@ -23,5 +23,6 @@ return function ()
         lualine_z = {   }
       }
       -- lualine.extensions = { 'fzf' }
-      lualine.status()
+     }
+      -- lualine.setup()
 end
