@@ -37,17 +37,11 @@ return require("packer").startup(
             config = require'configplugin.treesitter',
         }
     use {'luochen1990/rainbow', config=require('configplugin.rainbow')}
-    -- use {'neovim/nvim-lspconfig', opt = true, after = {"nvim-compe"}, config = require('configplugin.lsp'), }
-    use {'neovim/nvim-lspconfig', opt = true, after = {"completion-nvim"}, config = require('configplugin.lsp'), }
-    -- use {'hrsh7th/nvim-compe', opt = true,
-    --   requires = {{'hrsh7th/vim-vsnip', opt = true}, {'hrsh7th/vim-vsnip-integ', opt = true}},
-    --   config=require('configplugin.compe'),
-    --   ft = {'lua','md','zsh', 'sh','go'},
-    -- }
-    use {'nvim-lua/completion-nvim', opt = true,
-	    requires = {{'hrsh7th/vim-vsnip', opt = true}, {'hrsh7th/vim-vsnip-integ', opt = true}},
-	    config=require('configplugin.completion-nvim'),
-	    ft = {'lua','md','zsh', 'sh','go'},
+    use {'neovim/nvim-lspconfig', opt = true, after = {"nvim-compe"}, config = require('configplugin.lsp'), }
+    use {'hrsh7th/nvim-compe', opt = true,
+      requires = {{'hrsh7th/vim-vsnip', opt = true}, {'hrsh7th/vim-vsnip-integ', opt = true}},
+      config=require('configplugin.compe'),
+      ft = {'lua','md','zsh', 'sh','go'},
     }
     use {'b3nj5m1n/kommentary';
     config=function()
@@ -67,9 +61,8 @@ return require("packer").startup(
     use {'lervag/wiki.vim', opt = true, setup = require'configplugin.wiki', cmd = {'WikiIndex'} }
     use {
       'npxbr/glow.nvim',
-      -- run = ':GlowInstall',
+      run = ':GlowInstall',
       ft = {'markdown','md'},
-      -- keys = '<Leader>p',
       setup = function()
         vim.api.nvim_set_keymap('n', '<Leader>p',':Glow<CR>', {noremap = true, silent = true })
       end

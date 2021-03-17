@@ -3,8 +3,8 @@ return function()
 -- set the path to the sumneko installation; if you previously installed via the now deprecated :LspInstall, use
 local sumneko_root_path = '/usr/share/lua-language-server'
 local sumneko_binary = "/usr/bin/lua-language-server"
--- local completion = require('compe')
-local completion = require('completion')
+-- local compe = require('compe')
+-- local completion = require('completion')
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true;
 
@@ -17,8 +17,10 @@ local custom_init = function (client)
       client.config.flags.allow_incremental_sync = true
     end
 end
-local on_attach = function(client, bufnr)
-    completion.on_attach(client, bufnr)
+local custom_attach = function()
+-- local custom_attach = function(client, bufnr)
+    -- compe.on_attach(client, bufnr)
+    -- completion.on_attach(client, bufnr)
     -- Keybindings for LSPs
     -- vim.fn.nvim_set_keymap("n", "<leader>gd", "<cmd>lua vim.lsp.buf.definition()<CR>", {noremap = true, silent = true})
     -- vim.fn.nvim_set_keymap("n", "<leader>ge", "<cmd>lua vim.lsp.buf.declaration()<CR>", {noremap = true, silent = true})
@@ -57,10 +59,10 @@ local on_attach = function(client, bufnr)
        cmd = {"/usr/bin/bash-language-server", "start"},
        filetype = {"sh"},
        root_dir = nvim_lsp.util.root_pattern('.git');
-       on_attach = on_attach,
+       on_attach = custom_attach,
    }
    nvim_lsp.clangd.setup{
-       on_attach = on_attach,
+       on_attach = custom_attach,
        capabilities = {
           textDocument = {
             completion = {
@@ -79,7 +81,7 @@ local on_attach = function(client, bufnr)
 
 
   nvim_lsp.jedi_language_server.setup{
-    on_attach=on_attach,
+    on_attach=custom_attach,
     init_options = {
       disableSnippets = false,
     },
@@ -96,16 +98,7 @@ local on_attach = function(client, bufnr)
 
   nvim_lsp.sumneko_lua.setup{
         cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"},
-        on_attach = on_attach,
-        capabilities = {
-          textDocument = {
-            completion = {
-              completionItem = {
-                snippetSupport=true
-              }
-            }
-          }
-        },
+        on_attach = custom_attach,
         settings = {
           Lua = {
             completion= {
@@ -116,7 +109,7 @@ local on_attach = function(client, bufnr)
               -- Tell the language server which version of Lua you're using (LuaJIT in the case of Neovim)
               version = 'LuaJIT',
               -- Setup your lua path
-              -- path = vim.split(package.path, ';'),
+              path = vim.split(package.path, ';'),
             },
             diagnostics = {
               -- Get the language server to recognize the `vim` global
@@ -134,15 +127,15 @@ local on_attach = function(client, bufnr)
   }
 
   nvim_lsp.vimls.setup{
-    on_attach = on_attach,
+    on_attach = custom_attach,
   }
   nvim_lsp.tsserver.setup{
-    on_attach = on_attach,
+    on_attach = custom_attach,
   }
 
   nvim_lsp.html.setup{
     cmd = {"vscode-html-language-server", "--stdio"},
-    on_attach = on_attach,
+    on_attach = custom_attach,
     capabilities = {
          textDocument = {
              completion = {
@@ -156,7 +149,7 @@ local on_attach = function(client, bufnr)
 
   nvim_lsp.cssls.setup{
     cmd = {"vscode-css-language-server", "--stdio"},
-    on_attach = on_attach,
+    on_attach = custom_attach,
     settings = {
       css = {
         validate = false
@@ -180,7 +173,7 @@ local on_attach = function(client, bufnr)
   }
 
   nvim_lsp.gdscript.setup{
-    on_attach=on_attach,
+    on_attach=custom_attach,
     godot = {
       host = "127.0.0.1",
       filetypes = {"gd", "gdscript"},
@@ -190,7 +183,7 @@ local on_attach = function(client, bufnr)
 
   nvim_lsp.gopls.setup{
     on_init = custom_init,
-    on_attach=on_attach,
+    on_attach=custom_attach,
     cmd = { "gopls", "serve" },
     filetypes = { "go", "gomod" },
     settings = {
@@ -299,6 +292,6 @@ local on_attach = function(client, bufnr)
 
   -- doesn't work, somehow
   nvim_lsp.angularls.setup{
-    on_attach = on_attach
+    on_attach = custom_attach
   }
 end
