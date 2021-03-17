@@ -29,14 +29,13 @@ return require("packer").startup(
   function()
     use { 'wbthomason/packer.nvim', opt = true }
     use {'nvim-treesitter/nvim-treesitter-textobjects', opt = true, after = {"nvim-treesitter"} }
-   -- use {'p00f/nvim-ts-rainbow', opt = true, after = {"nvim-treesitter"} }
+    use {'p00f/nvim-ts-rainbow', opt = true, after = {"nvim-treesitter"}}
     use {
             "nvim-treesitter/nvim-treesitter",
             cmd = {"TSInstall", "TSBufEnable", "TSEnableAll", "TSModuleInfo"},
             ft = {"cpp", "c", "python", "java", "lua", "json", "markdown", "typescript", "bash", "zsh","sh","go"},
             config = require'configplugin.treesitter',
         }
-    use {'luochen1990/rainbow', config=require('configplugin.rainbow')}
     use {'neovim/nvim-lspconfig', opt = true, after = {"nvim-compe"}, config = require('configplugin.lsp'), }
     use {'hrsh7th/nvim-compe', opt = true,
       requires = {{'hrsh7th/vim-vsnip', opt = true}, {'hrsh7th/vim-vsnip-integ', opt = true}},
