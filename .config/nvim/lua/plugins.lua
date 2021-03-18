@@ -91,7 +91,11 @@ return require("packer").startup(
         require 'colorizer'.setup()
 	    end
   }
-    use { 'hoob3rt/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true},
+    use { 'hoob3rt/lualine.nvim',
+     requires = {
+       {'kyazdani42/nvim-web-devicons', opt = true},
+       {'nvim-lua/lsp-status.nvim',opt = true},
+     },
      config =  require'configplugin.lualine',
   }
     use {'tweekmonster/startuptime.vim', opt = true, cmd = 'StartupTime'}
