@@ -45,10 +45,10 @@ module Color {
 	foreground        = "white"
 	popup             = "black"
 
-  playlist_directory = "darkcyan"
+  playlist_directory = "maroon"
   playlist_highlight = "darkcyan"
 
-  queue_highlight = "darkcyan"
+  queue_highlight = "mediumvioletred"
 
 	now_playing_title = "darkgreen"
 	subtitle = "darkgoldenrod"
