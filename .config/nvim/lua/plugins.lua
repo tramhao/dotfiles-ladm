@@ -21,20 +21,20 @@ if not packer_exists then
     return
 end
 -- Only required if you have packer in your `opt` pack
-vim.cmd [[packadd packer.nvim]]
+vim.cmd ('packadd packer.nvim')
 
-vim.cmd [[ autocmd BufWritePost plugins.lua PackerCompile ]]
+vim.cmd ('autocmd BufWritePost plugins.lua PackerCompile')
 
 return require("packer").startup(
   function()
-    use { 'wbthomason/packer.nvim', opt = true }
+    use {'wbthomason/packer.nvim', opt = true }
     use {'nvim-treesitter/nvim-treesitter-textobjects', opt = true, after = {"nvim-treesitter"} }
     use {'p00f/nvim-ts-rainbow', opt = true, after = {"nvim-treesitter"}}
     use {
-            "nvim-treesitter/nvim-treesitter",
-            cmd = {"TSInstall", "TSBufEnable", "TSEnableAll", "TSModuleInfo"},
-            ft = {"cpp", "c", "python", "java", "lua", "json", "markdown", "typescript", "bash", "zsh","sh","go"},
-            config = require'configplugin.treesitter',
+          "nvim-treesitter/nvim-treesitter",
+          cmd = {"TSInstall", "TSBufEnable", "TSEnableAll", "TSModuleInfo"},
+          ft = {"cpp", "c", "python", "java", "lua", "json", "markdown", "typescript", "bash", "zsh","sh","go"},
+          config = require'configplugin.treesitter',
         }
     use {'neovim/nvim-lspconfig', opt = true, after = {"nvim-compe"}, config = require('configplugin.lsp'), }
     use {'hrsh7th/nvim-compe', opt = true,
@@ -101,6 +101,11 @@ return require("packer").startup(
     use {'tweekmonster/startuptime.vim', opt = true, cmd = 'StartupTime'}
     use {'fatih/vim-go',
       ft = {'lua','md','zsh', 'sh','go'},
+    }
+    use {
+      'nvim-telescope/telescope.nvim',
+      requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
+      config = require 'configplugin.telescope',
     }
   end
 )

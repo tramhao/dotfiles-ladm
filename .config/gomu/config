@@ -45,7 +45,7 @@ module Color {
 	foreground        = "white"
 	popup             = "black"
 
-  playlist_directory = "maroon"
+  playlist_directory = "orangered"
   playlist_highlight = "darkcyan"
 
   queue_highlight = "mediumvioletred"
