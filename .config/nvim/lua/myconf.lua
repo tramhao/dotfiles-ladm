@@ -1,3 +1,5 @@
+local utils = require('utils')
+
 local cmd = vim.cmd  -- to execute Vim commands e.g. cmd('pwd')
 -- local fn = vim.fn    -- to call Vim functions e.g. fn.bufnr()
 local g = vim.g      -- a table to access global variables
@@ -13,20 +15,6 @@ local indent = 2
 
 -- TODO: Remove when https://github.com/neovim/neovim/pull/13479 lands
 
-
-local opts_info = vim.api.nvim_get_all_options_info()
-local opt = setmetatable({}, {
-  __index = vim.o,
-  __newindex = function(_, key, value)
-    vim.o[key] = value
-    local scope = opts_info[key].scope
-    if scope == "win" then
-      vim.wo[key] = value
-    elseif scope == "buf" then
-      vim.bo[key] = value
-    end
-  end,
-})
 
 g.mapleader = ';'
 vim.b.mapleader = ';'
@@ -49,7 +37,7 @@ vim.g.ruler = true
 vim.g.pumheight = 10
 vim.g.cmdheight = 1
 vim.g.laststatus = 2
-opt.cursorline = true
+utils.opt('w','cursorline',true)
 -- opt('w', 'cursorline', true)
 -- vim.wo.cursorline = true
 vim.g.showtabline = 1
@@ -60,7 +48,7 @@ vim.o.background = 'dark'
 vim.o.termguicolors = true
 vim.g.rehash256 = 1
 -- opt('w', 'conceallevel', 0)
-opt.conceallevel = 0
+utils.opt('o','conceallevel',0)
 -- vim.wo.conceallevel = 0
 vim.o.hidden = true
 vim.o.updatetime = 300
@@ -72,16 +60,16 @@ cmd("set omnifunc=syntaxcomplete#Complete")
 -- opt('o', 'completeopt', 'menuone,noinsert,noselect')
 vim.o.shortmess = vim.o.shortmess .. 'c'
 vim.o.showmode = false
-opt.number = true
-opt.relativenumber = true
+utils.opt('w','number',true)
+utils.opt('w','relativenumber',true)
 -- opt('w', 'number', true)
 -- opt('w', 'relativenumber', true)
 -- vim.wo.number = true
 -- vim.wo.relativenumber = true
 -- opt('w', 'signcolumn', 'number')
 -- vim.wo.signcolumn = 'number'
-opt.signcolumn = 'number'
-opt.wrap = true
+utils.opt('w','signcolumn','number')
+utils.opt('w','wrap',true)
 -- opt('w', 'wrap', true)
 -- vim.wo.wrap = true
 -- vim.o.tabstop = 2
@@ -92,24 +80,24 @@ opt.wrap = true
 -- opt('b', 'shiftwidth', indent)
 -- opt('b', 'smartindent', true)
 -- opt('b', 'tabstop', indent)
-opt.expandtab = true
-opt.shiftwidth = indent
-opt.smartindent = true
-opt.tabstop = indent
+utils.opt('b','expandtab',true)
+utils.opt('b','shiftwidth', indent)
+utils.opt('b','smartindent',true)
+utils.opt('b','tabstop',indent)
 -- opt('b', 'softtabstop', indent)
 -- vim.o.shiftwidth = 2
 -- vim.bo.shiftwidth = 2
 vim.g.smarttab = true
 -- vim.o.autoindent = true
 -- vim.bo.autoindent = true
-opt.autoindent = true
+utils.opt('b','autoindent',true)
 -- opt('b', 'autoindent', true)
 -- vim.o.smartindent = true
 -- vim.bo.smartindent = true
 -- vim.o.expandtab = true
 -- vim.bo.expandtab = true
 cmd('language en_US.utf-8')
-opt.list = true
+utils.opt('w','list',true)
 -- opt('w', 'list', true)
 -- vim.wo.list = true
 vim.o.listchars = 'tab:┆·,trail:·,precedes:,extends:'
@@ -118,7 +106,7 @@ vim.g.termbufm_direction_cmd = 'new'
 vim.g.backup = false
 -- vim.o.swapfile = false
 -- opt('b', 'swapfile', false)
-opt.swapfile = false
+utils.opt('b','swapfile',false)
 vim.g.writebackup = false
 vim.o.clipboard = 'unnamedplus'
 vim.g.wildmode='longest,list,full'

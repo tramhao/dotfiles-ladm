@@ -1,5 +1,6 @@
 return function()
-
+-- lua format
+-- vim.cmd("autocmd BufWritePre *.lua lua vim.lsp.buf.formatting()")
 -- set the path to the sumneko installation; if you previously installed via the now deprecated :LspInstall, use
 local sumneko_root_path = '/usr/share/lua-language-server'
 local sumneko_binary = "/usr/bin/lua-language-server"
