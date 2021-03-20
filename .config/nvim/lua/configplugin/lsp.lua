@@ -1,46 +1,39 @@
 return function()
--- lua format
--- vim.cmd("autocmd BufWritePre *.lua lua vim.lsp.buf.formatting()")
+local utils = require ('utils')
 -- set the path to the sumneko installation; if you previously installed via the now deprecated :LspInstall, use
 local sumneko_root_path = '/usr/share/lua-language-server'
 local sumneko_binary = "/usr/bin/lua-language-server"
--- local completion = require('completion')
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true;
 
 local nvim_lsp = require('lspconfig')
-local map = function(type, key, value)
-    vim.api.nvim_buf_set_keymap(0,type,key,value,{noremap = true, silent = true});
-end
 local custom_init = function (client)
     if client.config.flags then
       client.config.flags.allow_incremental_sync = true
     end
 end
 local custom_attach = function()
--- local custom_attach = function(client, bufnr)
-    -- completion.on_attach(client, bufnr)
-    -- vim.api.nvim_command('setlocal omnifunc=v:lua.vim.lsp.omnifunc')
     -- Keybindings for LSPs
     print("LSP started.");
-    map('n','gD','<cmd>lua vim.lsp.buf.declaration()<CR>')
-    map('n','gd','<cmd>lua vim.lsp.buf.definition()<CR>')
-    map('n','K','<cmd>lua vim.lsp.buf.hover()<CR>')
-    map('n','gr','<cmd>lua vim.lsp.buf.references()<CR>')
-    map('n','gs','<cmd>lua vim.lsp.buf.signature_help()<CR>')
-    map('n','gi','<cmd>lua vim.lsp.buf.implementation()<CR>')
-    map('n','gt','<cmd>lua vim.lsp.buf.type_definition()<CR>')
-    map('n','<leader>gw','<cmd>lua vim.lsp.buf.document_symbol()<CR>')
-    map('n','<leader>gW','<cmd>lua vim.lsp.buf.workspace_symbol()<CR>')
-    map('n','<leader>ah','<cmd>lua vim.lsp.buf.hover()<CR>')
-    map('n','<leader>af','<cmd>lua vim.lsp.buf.code_action()<CR>')
-    map('n','<leader>ee','<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
-    map('n','<leader>ar','<cmd>lua vim.lsp.buf.rename()<CR>')
-    map('n','<leader>=', '<cmd>lua vim.lsp.buf.formatting()<CR>')
-    map('n','<leader>ai','<cmd>lua vim.lsp.buf.incoming_calls()<CR>')
-    map('n','<leader>ao','<cmd>lua vim.lsp.buf.outgoing_calls()<CR>')
-    map('n','<C-n>','<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
-    map('n','<C-p>','<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
+    require 'configplugin.gopls'
+    utils.map('n','gD','<cmd>lua vim.lsp.buf.declaration()<CR>')
+    utils.map('n','gd','<cmd>lua vim.lsp.buf.definition()<CR>')
+    utils.map('n','K','<cmd>lua vim.lsp.buf.hover()<CR>')
+    utils.map('n','gr','<cmd>lua vim.lsp.buf.references()<CR>')
+    utils.map('n','gs','<cmd>lua vim.lsp.buf.signature_help()<CR>')
+    utils.map('n','gi','<cmd>lua vim.lsp.buf.implementation()<CR>')
+    utils.map('n','gt','<cmd>lua vim.lsp.buf.type_definition()<CR>')
+    utils.map('n','<leader>gw','<cmd>lua vim.lsp.buf.document_symbol()<CR>')
+    utils.map('n','<leader>gW','<cmd>lua vim.lsp.buf.workspace_symbol()<CR>')
+    utils.map('n','<leader>ah','<cmd>lua vim.lsp.buf.hover()<CR>')
+    utils.map('n','<leader>af','<cmd>lua vim.lsp.buf.code_action()<CR>')
+    utils.map('n','<leader>ee','<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
+    utils.map('n','<leader>ar','<cmd>lua vim.lsp.buf.rename()<CR>')
+    utils.map('n','<leader>=', '<cmd>lua vim.lsp.buf.formatting()<CR>')
+    utils.map('n','<leader>ai','<cmd>lua vim.lsp.buf.incoming_calls()<CR>')
+    utils.map('n','<leader>ao','<cmd>lua vim.lsp.buf.outgoing_calls()<CR>')
+    utils.map('n','<C-n>','<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
+    utils.map('n','<C-p>','<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
 end
    nvim_lsp.bashls.setup{
        cmd = {"/usr/bin/bash-language-server", "start"},
@@ -65,7 +58,6 @@ end
            clangdFileStatus = true
        }
      }
-
 
   nvim_lsp.jedi_language_server.setup{
     on_attach=custom_attach,

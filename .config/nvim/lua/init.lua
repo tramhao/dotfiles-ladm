@@ -1,5 +1,4 @@
 require 'disable'
-require 'plugins'
-require 'myconf'
+require 'settings'
 require 'keys'
-require 'configplugin.gopls'
+require 'plugins'
