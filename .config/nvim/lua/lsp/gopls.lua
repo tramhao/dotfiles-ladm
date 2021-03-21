@@ -1,4 +1,3 @@
--- set the path to the sumneko installation; if you previously installed via the now deprecated :LspInstall, use
 function Goimports(timeout_ms)
     local context = {source = {organizeImports = true}}
     vim.validate {context = {context, "t", true}}
@@ -8,8 +7,7 @@ function Goimports(timeout_ms)
 
     -- See the implementation of the textDocument/codeAction callback
     -- (lua/vim/lsp/handler.lua) for how to do this properly.
-    local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction",
-                                            params, timeout_ms)
+    local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, timeout_ms)
     if not result or next(result) == nil then return end
     local actions = result[1].result
     if not actions then return end
@@ -19,12 +17,8 @@ function Goimports(timeout_ms)
     -- is a CodeAction, it can have either an edit, a command or both. Edits
     -- should be executed first.
     if action.edit or type(action.command) == "table" then
-        if action.edit then
-            vim.lsp.util.apply_workspace_edit(action.edit)
-        end
-        if type(action.command) == "table" then
-            vim.lsp.buf.execute_command(action.command)
-        end
+        if action.edit then vim.lsp.util.apply_workspace_edit(action.edit) end
+        if type(action.command) == "table" then vim.lsp.buf.execute_command(action.command) end
     else
         vim.lsp.buf.execute_command(action)
     end
