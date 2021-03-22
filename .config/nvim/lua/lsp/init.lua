@@ -11,8 +11,8 @@ vim.fn.sign_define("LspDiagnosticsSignHint",
 vim.cmd('nnoremap <silent> ca :Lspsaga code_action<CR>')
 vim.cmd('nnoremap <silent> K :Lspsaga hover_doc<CR>')
 -- vim.cmd('nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>')
--- vim.cmd('nnoremap <silent> <C-p> :Lspsaga diagnostic_jump_prev<CR>')
--- vim.cmd('nnoremap <silent> <C-n> :Lspsaga diagnostic_jump_next<CR>')
+vim.cmd('nnoremap <silent> <C-p> :Lspsaga diagnostic_jump_prev<CR>')
+vim.cmd('nnoremap <silent> <C-n> :Lspsaga diagnostic_jump_next<CR>')
 -- scroll down hover doc or scroll in definition preview
 vim.cmd('nnoremap <silent> <C-f> <cmd>lua require(\'lspsaga.action\').smart_scroll_with_saga(1)<CR>')
 -- scroll up hover doc
@@ -36,8 +36,8 @@ utils.map('n', '<leader>ar', '<cmd>lua vim.lsp.buf.rename()<CR>')
 utils.map('n', '<leader>=', '<cmd>lua vim.lsp.buf.formatting()<CR>')
 utils.map('n', '<leader>ai', '<cmd>lua vim.lsp.buf.incoming_calls()<CR>')
 utils.map('n', '<leader>ao', '<cmd>lua vim.lsp.buf.outgoing_calls()<CR>')
-utils.map('n', '<C-n>', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
-utils.map('n', '<C-p>', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
+-- utils.map('n', '<C-n>', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
+-- utils.map('n', '<C-p>', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
 --[[ " autoformat
 autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 100)
 autocmd BufWritePre *.jsx lua vim.lsp.buf.formatting_sync(nil, 100)
