@@ -26,6 +26,7 @@ module General {
 	# find more tags: youtube-dl --skip-download --list-subs "url"
 	lang_lyric          = "zh-Hans zh-CN"
 	# lang_lyric          = "zh-Hans"
+    rename_bytag          = true
 }
 
 module Emoji {
