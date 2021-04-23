@@ -31,11 +31,11 @@ font:
     style: Regular
   size: 10
   offset:
-    x: -1
-    y: -1
+    x: 0 
+    y: 0 
 window:
   padding:
-    x: 2
+    x: 0
 key_bindings:
   - { key: Return,   mods: Super|Shift, action: SpawnNewInstance }
   - { key: C, mods: Alt, action: Copy }

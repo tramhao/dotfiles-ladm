@@ -26,13 +26,13 @@ return require("packer").startup(function()
     use {
         "nvim-treesitter/nvim-treesitter",
         cmd = {"TSInstall", "TSBufEnable", "TSEnableAll", "TSModuleInfo"},
-        ft = {"cpp", "c", "python", "java", "lua", "json", "markdown", "typescript", "bash", "zsh", "sh", "go"},
+        ft = {"cpp", "c", "python", "java", "lua", "json", "markdown", "typescript", "bash", "zsh", "sh", "go", "kotlin"},
         config = require 'configplugin.treesitter'
     }
     use {
         'neovim/nvim-lspconfig',
         opt = true,
-        ft = {"cpp", "c", "python", "java", "lua", "json", "markdown", "typescript", "bash", "zsh", "sh", "go"},
+        ft = {"cpp", "c", "python", "java", "lua", "json", "markdown", "typescript", "bash", "zsh", "sh", "go","kotlin"},
         config = function()
             require 'lsp'
             require 'lsp.lua-ls'
@@ -46,7 +46,7 @@ return require("packer").startup(function()
         opt = true,
         requires = {{'hrsh7th/vim-vsnip', opt = true}, {'hrsh7th/vim-vsnip-integ', opt = true}},
         config = require('configplugin.compe'),
-        ft = {'lua', 'md', 'zsh', 'sh', 'go'}
+        ft = {'lua', 'md', 'zsh', 'sh', 'go','java'}
     }
     use {
         'b3nj5m1n/kommentary',
@@ -110,4 +110,23 @@ return require("packer").startup(function()
         config = require 'configplugin.telescope'
     }
     use 'bfredl/nvim-miniyank'
+    use 'Yggdroot/indentLine'
+    use { 'lukas-reineke/indent-blankline.nvim',
+        -- config = function ()
+        --     vim.g.indent_blankline_buftype_exclude = {'terminal'}
+        --     vim.g.indent_blankline_filetype_exclude =
+        --         {'help', 'startify', 'dashboard', 'packer', 'neogitstatus'}
+        --     vim.g.indent_blankline_char = '▏'
+        --     vim.g.indent_blankline_show_trailing_blankline_indent = false
+        --     vim.g.indent_blankline_show_current_context = true
+        --     vim.g.indent_blankline_context_patterns =
+        --         {
+        --             'class', 'return', 'function', 'method', '^if', '^while',
+        --             'jsx_element', '^for', '^object', '^table', 'block', 'arguments',
+        --             'if_statement', 'else_clause', 'jsx_element',
+        --             'jsx_self_closing_element', 'try_statement', 'catch_clause',
+        --             'import_statement', 'operation_type'
+        --         }
+        -- end
+    }
 end)
