@@ -38,6 +38,7 @@ return require("packer").startup(function()
             require 'lsp.lua-ls'
             require 'lsp.gopls'
             require 'lsp.efm-ls'
+            require 'lsp.pyls'
         end
     }
     use {'glepnir/lspsaga.nvim'}
@@ -46,7 +47,7 @@ return require("packer").startup(function()
         opt = true,
         requires = {{'hrsh7th/vim-vsnip', opt = true}, {'hrsh7th/vim-vsnip-integ', opt = true}},
         config = require('configplugin.compe'),
-        ft = {'lua', 'md', 'zsh', 'sh', 'go','java'}
+        ft = {'lua', 'md', 'zsh', 'sh', 'go','java','python'}
     }
     use {
         'b3nj5m1n/kommentary',
