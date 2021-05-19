@@ -126,5 +126,6 @@ source /usr/share/doc/pkgfile/command-not-found.zsh
 #install by yay -S zsh-syntax-highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+export MESA_LOADER_DRIVER_OVERRIDE=i965 
 
 pfetch
