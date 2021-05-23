@@ -1,12 +1,25 @@
 -- Example configuations here: https://github.com/mattn/efm-langserver
 -- python
--- local flake8 = {
---     LintCommand = "flake8 --ignore=E501 --stdin-display-name ${INPUT} -",
---     lintStdin = true,
---     lintFormats = {"%f:%l:%c: %m"}
--- }
+
+local flake8 = {
+    LintCommand = "flake8 --ignore=E501 --stdin-display-name ${INPUT} -",
+    lintStdin = true,
+    lintFormats = {"%f:%l:%c: %m"}
+}
 local isort = {formatCommand = "isort --quiet -", formatStdin = true}
 local yapf = {formatCommand = "yapf --quiet", formatStdin = true}
+local black = {formatCommand = "black --quiet - ", formatStdin = true}
+
+-- if O.python.linter == 'flake8' then table.insert(python_arguments, flake8) end
+
+-- if O.python.isort then table.insert(python_arguments, isort) end
+
+-- if O.python.formatter == 'yapf' then
+--     table.insert(python_arguments, yapf)
+-- elseif O.python.formatter == 'black' then
+--     table.insert(python_arguments, black)
+-- end
+
 -- lua
 local luaFormat = {
     -- formatCommand = "lua-format -i",
@@ -44,7 +57,7 @@ require"lspconfig".efm.setup {
         rootMarkers = {".git/"},
         languages = {
             lua = {luaFormat},
-            python = {isort, yapf},
+            python = {flake8, isort, yapf, black},
             javascriptreact = {prettier, eslint},
             javascript = {prettier, eslint},
             sh = {shellcheck, shfmt},
