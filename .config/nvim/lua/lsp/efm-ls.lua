@@ -1,6 +1,5 @@
 -- Example configuations here: https://github.com/mattn/efm-langserver
 -- python
-
 local flake8 = {
     LintCommand = "flake8 --ignore=E501 --stdin-display-name ${INPUT} -",
     lintStdin = true,
@@ -52,6 +51,7 @@ require"lspconfig".efm.setup {
     -- init_options = {initializationOptions},
     -- on_attach = require'lsp'.common_on_attach,
     init_options = {documentFormatting = true, codeAction = false},
+    -- filetypes = {"lua", "javascriptreact", "javascript", "sh", "html", "css", "json", "yaml"},
     filetypes = {"lua", "python", "javascriptreact", "javascript", "sh", "html", "css", "json", "yaml"},
     settings = {
         rootMarkers = {".git/"},

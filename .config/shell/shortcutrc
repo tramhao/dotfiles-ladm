@@ -3,6 +3,7 @@ alias cac="cd /home/tramhao/.cache && ls -A" \
 cf="cd /home/tramhao/.config && ls -A" \
 nf="cd /home/tramhao/.config/nvim/lua && ls -A" \
 gf="cd /home/tramhao/.local/src/gomu && ls -A" \
+pf="cd /home/tramhao/.local/src/py && ls -A" \
 D="cd /home/tramhao/Downloads && ls -A" \
 d="cd /home/tramhao/Documents && ls -A" \
 dt="cd /home/tramhao/.local/share && ls -A" \
