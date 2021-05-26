@@ -25,20 +25,17 @@ return require("packer").startup(function()
     use {'p00f/nvim-ts-rainbow', opt = true, after = {"nvim-treesitter"}}
     use {
         "nvim-treesitter/nvim-treesitter",
-        cmd = {"TSInstall", "TSBufEnable", "TSEnableAll", "TSModuleInfo"},
-        ft = {"cpp", "c", "python", "java", "lua", "json", "markdown", "typescript", "bash", "zsh", "sh", "go", "kotlin"},
         config = require 'configplugin.treesitter'
     }
     use {
         'neovim/nvim-lspconfig',
-        opt = true,
-        ft = {"cpp", "c", "python", "java", "lua", "json", "markdown", "typescript", "bash", "zsh", "sh", "go","kotlin"},
         config = function()
             require 'lsp'
             require 'lsp.lua-ls'
             require 'lsp.gopls'
             require 'lsp.efm-ls'
             require 'lsp.pyls'
+            require 'lsp.rust-ls'
         end
     }
     use {'glepnir/lspsaga.nvim'}
@@ -47,7 +44,6 @@ return require("packer").startup(function()
         opt = true,
         requires = {{'hrsh7th/vim-vsnip', opt = true}, {'hrsh7th/vim-vsnip-integ', opt = true}},
         config = require('configplugin.compe'),
-        ft = {'lua', 'md', 'zsh', 'sh', 'go','java','python'}
     }
     use {
         'b3nj5m1n/kommentary',
