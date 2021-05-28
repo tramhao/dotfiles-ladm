@@ -28,7 +28,7 @@ module General {
 	# lang_lyric          = "zh-Hans"
     rename_bytag          = true
     # Backend music playing server, default is beep, mpd is optional
-	backend_server	= "mpc"
+	backend_server	= "mpd"
 	# mpd connect string
 	mpd_port	= "localhost:6600"
 

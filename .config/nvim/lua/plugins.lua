@@ -41,7 +41,6 @@ return require("packer").startup(function()
     use {'glepnir/lspsaga.nvim'}
     use {
         'hrsh7th/nvim-compe',
-        opt = true,
         requires = {{'hrsh7th/vim-vsnip', opt = true}, {'hrsh7th/vim-vsnip-integ', opt = true}},
         config = require('configplugin.compe'),
     }
