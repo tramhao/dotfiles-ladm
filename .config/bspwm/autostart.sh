@@ -45,14 +45,17 @@ run fcitx5
 #run "nextcloud"
 #if [ $(hostname) = "tramhao-pc" ]; then
 if [ $(hostname) = "XMLaptop" ]; then
-	run nextcloud --background
-	# run blueman-applet
+  if [ `ifconfig wlp2s0 | awk '/inet /{ print $6;}'` = "192.168.186.255" ]; then
+      # echo "ok"
+      source ~/.xrandr
+      run nextcloud --background
+  fi
 fi
 
 
-run nm-applet
+# run nm-applet
 #run variety
-if [ $(hostname) = "XMLaptop" ]; then
-	run $HOME/sources/verysync-linux-amd64-v1.3.1/verysync
-fi
+# if [ $(hostname) = "XMLaptop" ]; then
+# 	run $HOME/sources/verysync-linux-amd64-v1.3.1/verysync
+# fi
 run picom -b -f

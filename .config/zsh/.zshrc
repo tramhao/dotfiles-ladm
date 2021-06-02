@@ -1,8 +1,16 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # Luke's config for the Zoomer Shell
 
+
 # Enable colors and change prompt:
-autoload -U colors && colors	# Load colors
-PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+# autoload -U colors && colors	# Load colors
+# PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 
 
 
@@ -32,69 +40,37 @@ _comp_options+=(globdots)		# Include hidden files.
 
 
 # setopt prompt_subst
-autoload -Uz vcs_info
-zstyle ':vcs_info:*' actionformats \
-    '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f '
-zstyle ':vcs_info:*' formats       \
-    '%F{5}(%F{2}%b%F{5})%F{3}-%F{5}[%F{2}%r%F{5}]%f '
-zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
+# autoload -Uz vcs_info
+# zstyle ':vcs_info:*' actionformats \
+#     '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f '
+# zstyle ':vcs_info:*' formats       \
+#     '%F{5}(%F{2}%b%F{5})%F{3}-%F{5}[%F{2}%r%F{5}]%f '
+# zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
 
-zstyle ':vcs_info:*' enable git
+# zstyle ':vcs_info:*' enable git
 
-# or use pre_cmd, see man zshcontrib
-vcs_info_wrapper() {
-  vcs_info
-  if [ -n "$vcs_info_msg_0_" ]; then
-    echo "%{$fg[grey]%}${vcs_info_msg_0_}%{$reset_color%}$del"
-  fi
-}
-
-VI_MODE_KEEP_CURSOR=1
-# VI_NORMAL_MODE_INDICATOR=' %F{blue}-- NORMAL --%f'
-# VI_INSERT_MODE_INDICATOR=' %F{green}-- INSERT --%f'
-
-[[ $(hostname) == "XMLaptop" ]] && unset VI_MODE_KEEP_CURSOR
-if [ "$TERM" != "linux" ]; then 
-  unset VI_MODE_KEEP_CURSOR
-fi
-source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/vi-mode.zsh"
-
-RPROMPT='$(vi_mode_status)$(vcs_info_wrapper)'
-
-
-# # vi mode
-# bindkey -v
-# export KEYTIMEOUT=1
-
-# # Use vim keys in tab complete menu:
-# bindkey -M menuselect 'h' vi-backward-char
-# bindkey -M menuselect 'k' vi-up-line-or-history
-# bindkey -M menuselect 'l' vi-forward-char
-# bindkey -M menuselect 'j' vi-down-line-or-history
-# bindkey -v '^?' backward-delete-char
-
-# # Change cursor shape for different vi modes.
-# function zle-keymap-select () {
-#     case $KEYMAP in
-#         vicmd) echo -ne '\e[1 q';;      # block
-#         viins|main) echo -ne '\e[5 q';; # beam
-#     esac
+# # or use pre_cmd, see man zshcontrib
+# vcs_info_wrapper() {
+#   vcs_info
+#   if [ -n "$vcs_info_msg_0_" ]; then
+#     echo "%{$fg[grey]%}${vcs_info_msg_0_}%{$reset_color%}$del"
+#   fi
 # }
-# zle -N zle-keymap-select
 
-# zle-line-init() {
-#     zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
-#     echo -ne '\e[5 q'
-# }
-# zle -N zle-line-init
-# echo -ne '\e[5 q' # Use beam shape cursor on startup.
-# #preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
-# _fix_cursor() {
-#    echo -ne '\e[5 q'
-# }
-# precmd_functions+=(_fix_cursor)
+# source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/two-line-prompt.zsh"
+# VI_MODE_KEEP_CURSOR=1
+# # VI_NORMAL_MODE_INDICATOR=' %F{blue}-- NORMAL --%f'
+# # VI_INSERT_MODE_INDICATOR=' %F{green}-- INSERT --%f'
 
-# Updates editor information when the keymap changes.
+# [[ $(hostname) == "XMLaptop" ]] && unset VI_MODE_KEEP_CURSOR
+# if [ "$TERM" != "linux" ]; then 
+#   unset VI_MODE_KEEP_CURSOR
+# fi
+# source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/vi-mode.zsh"
+
+# RPROMPT='$(vi_mode_status)'
+
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 # Use lf to switch directories and bind it to ctrl-o
 lfcd () {
@@ -129,3 +105,6 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 export MESA_LOADER_DRIVER_OVERRIDE=i965 
 
 pfetch
+
+# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
+[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh

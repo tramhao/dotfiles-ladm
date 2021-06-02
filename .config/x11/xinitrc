@@ -15,3 +15,5 @@ else
 fi
 
 ssh-agent dwm
+# exec dbus-launch leftwm
+# exec dbus-launch bspwm
