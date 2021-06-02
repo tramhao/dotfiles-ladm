@@ -29,6 +29,7 @@ return require("packer").startup(function()
     }
     use {
         'neovim/nvim-lspconfig',
+        requires = {'nvim-lua/lsp_extensions.nvim'},
         config = function()
             require 'lsp'
             require 'lsp.lua-ls'
