@@ -5,6 +5,8 @@ require'lspconfig'.rust_analyzer.setup {
     capabilities = require'lsp'.capabilities
 }
 
+-- vim.cmd("autocmd BufWritePre *.rs lua RustFmt")
+-- vim.cmd("let g:rustfmt_autosave = 1")
 -- vim.cmd("autocmd BufEnter,BufWinEnter,TabEnter *.rs :lua require'lsp_extensions'.inlay_hints{}")
 -- Enable type inlay hints
 vim.cmd(
