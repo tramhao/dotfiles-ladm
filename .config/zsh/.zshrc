@@ -55,6 +55,7 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 export MESA_LOADER_DRIVER_OVERRIDE=i965 
 
-pfetch
+macchina
+# pfetch
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 eval "$(starship init zsh)"
