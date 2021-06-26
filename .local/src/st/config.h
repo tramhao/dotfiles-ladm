@@ -8,9 +8,8 @@
 static char *font = "mono:pixelsize=18:antialias=false:autohint=false";
 // static char *font = "SF Mono:pixelsize=20:antialias=false:autohint=false";
 // static char *font2[] = { "SF Mono:pixelsize=18:antialias=true:autohint=true","Microsoft YaHei:pixelsize=18:antialias=true:autohint=true" };
-static char *font2[] = { "WenQuanYi Zen Hei Mono:style=Regular:pixelsize=18:antialias=true:autohint=true" };
 // static char *font2[] = { "UbuntuMono Nerd Font Mono:pixelsize=25:antialias=true:autohint=false" };
-// static char *font2[] = { "JoyPixels:pixelsize=10:antialias=true:autohint=true" };
+static char *font2[] = { "JoyPixels:pixelsize=10:antialias=true:autohint=true" };
 static int borderpx = 2;
 
 /*
