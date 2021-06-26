@@ -23,10 +23,10 @@ return require("packer").startup(function()
     use {'wbthomason/packer.nvim', opt = true}
     use {'nvim-treesitter/nvim-treesitter-textobjects', opt = true, after = {"nvim-treesitter"}}
     use {'p00f/nvim-ts-rainbow', opt = true, after = {"nvim-treesitter"}}
-    use {"windwp/nvim-autopairs",
-        -- config = require('configplugin.autop'),
-        config = require('configplugin.autopairs'),
-    }
+    -- use {"windwp/nvim-autopairs",
+    --     -- config = require('configplugin.autop'),
+    --     config = require('configplugin.autopairs'),
+    -- }
     -- use {"steelsojka/pears.nvim"}
     use {
         "nvim-treesitter/nvim-treesitter",
