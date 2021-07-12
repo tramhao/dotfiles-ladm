@@ -17,7 +17,7 @@ end
 -- Only required if you have packer in your `opt` pack
 vim.cmd('packadd packer.nvim')
 
-vim.cmd('autocmd BufWritePost plugins.lua PackerCompile')
+vim.cmd('autocmd BufWritePost plugins.lua source <afile> | PackerCompile')
 
 return require("packer").startup(function()
     use {'wbthomason/packer.nvim', opt = true}
@@ -112,7 +112,7 @@ return require("packer").startup(function()
         config = require 'configplugin.telescope'
     }
     use 'bfredl/nvim-miniyank'
-    use 'Yggdroot/indentLine'
+    -- use 'Yggdroot/indentLine'
     use { 'lukas-reineke/indent-blankline.nvim',
         -- config = function ()
         --     vim.g.indent_blankline_buftype_exclude = {'terminal'}
