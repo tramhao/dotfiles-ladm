@@ -58,3 +58,6 @@ export MESA_LOADER_DRIVER_OVERRIDE=i965
 macchina
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 eval "$(starship init zsh)"
+if [ $TERM = linux ]; then 
+    setfont ter-p32b
+fi

@@ -20,7 +20,7 @@ module General {
 	# if you experiencing error using this invidious instance, you can change it
 	# to another instance from this list:
 	# https://github.com/iv-org/documentation/blob/master/Invidious-Instances.md
-	invidious_instance  = "https://vid.puffyan.us"
+	invidious_instance  = "https://invidious.silkky.cloud"
 	# Prefered language for lyrics to be embeded, if not available, english version will be embeded.
 	# Available tags: en,el,ko,es,th,vi,zh-Hans,zh-Hant but only set 1 tag is working
 	# find more tags: youtube-dl --skip-download --list-subs "url"

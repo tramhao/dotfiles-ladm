@@ -1,8 +1,4 @@
 [Default Applications]
-
-# xdg-open will use these settings to determine how to open filetypes.
-# These .desktop entries can also be seen and changed in ~/.local/share/applications/
-
 text/x-shellscript=text.desktop;
 x-scheme-handler/magnet=torrent.desktop;
 application/x-bittorrent=torrent.desktop;
@@ -20,3 +16,7 @@ inode/directory=file.desktop
 x-scheme-handler/https=brave-browser.desktop
 x-scheme-handler/http=brave-browser.desktop
 x-scheme-handler/kite=kite-copilot.desktop
+audio/mp4=org.kde.kid3.desktop
+
+[Added Associations]
+audio/mp4=netease-cloud-music-gtk.desktop;org.kde.kid3.desktop;

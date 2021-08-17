@@ -22,7 +22,8 @@ vim.cmd('autocmd BufWritePost plugins.lua source <afile> | PackerCompile')
 return require("packer").startup(function()
     use {'wbthomason/packer.nvim', opt = true}
     use {'nvim-treesitter/nvim-treesitter-textobjects', opt = true, after = {"nvim-treesitter"}}
-    use {'p00f/nvim-ts-rainbow', opt = true, after = {"nvim-treesitter"}}
+    use {'p00f/nvim-ts-rainbow'}
+    -- use {'p00f/nvim-ts-rainbow', opt = true, after = {"nvim-treesitter"}}
     use {"windwp/nvim-autopairs",
         -- config = require('configplugin.autop'),
         config = require('configplugin.autopairs'),
@@ -105,7 +106,7 @@ return require("packer").startup(function()
         config = require 'configplugin.lualine'
     }
     use {'tweekmonster/startuptime.vim', opt = true, cmd = 'StartupTime'}
-    use {'fatih/vim-go', ft = {'lua', 'md', 'zsh', 'sh', 'go'}}
+    use {'fatih/vim-go', ft = {'md', 'zsh', 'sh', 'go'}}
     use {
         'nvim-telescope/telescope.nvim',
         requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
