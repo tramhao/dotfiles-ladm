@@ -31,6 +31,7 @@ alias \
 	e="$EDITOR" \
 	v="$EDITOR" \
 	n="$EDITOR" \
+	l="lvim" \
 	p="sudo pacman" \
 	xi="sudo xbps-install" \
 	xr="sudo xbps-remove -R" \

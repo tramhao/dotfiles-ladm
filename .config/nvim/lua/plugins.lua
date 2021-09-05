@@ -114,6 +114,7 @@ return require("packer").startup(function()
     }
     use 'bfredl/nvim-miniyank'
     -- use 'Yggdroot/indentLine'
+    use 'simrat39/rust-tools.nvim'
     use { 'lukas-reineke/indent-blankline.nvim',
         -- config = function ()
         --     vim.g.indent_blankline_buftype_exclude = {'terminal'}
