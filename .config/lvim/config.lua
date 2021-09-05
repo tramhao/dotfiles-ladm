@@ -7,9 +7,8 @@ a global executable or a path to
 an executable
 ]]
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
-
 -- general
-local CACHE_PATH = "~/.cache/nvim"
+local CACHE_PATH = "/home/tramhao/.cache/nvim"
 local indent = 4
 lvim.log.level = "warn"
 lvim.format_on_save = true
@@ -40,9 +39,9 @@ vim.opt.encoding = "utf-8"
 vim.opt.fileencodings = "utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1"
 -- vim.opt.foldmethod = "manual" -- folding set to "expr" for treesitter based folding
 -- vim.opt.foldexpr = "" -- set to "nvim_treesitter#foldexpr()" for treesitter based folding
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-vim.opt.foldlevel = 5
+-- vim.opt.foldmethod = "expr"
+-- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+-- vim.opt.foldlevel = 5
 -- vim.opt.guifont = "monospace:h17" -- the font used in graphical neovim applications
 vim.opt.guifont = "FiraCode Nerd Font:h13"
 vim.opt.hidden = true -- required to keep multiple buffers and open multiple buffers
@@ -86,7 +85,7 @@ vim.g.dashboard_disable_statusline = 0
 vim.opt.pumblend = 10
 vim.opt.joinspaces = false
 vim.opt.list = true
-
+--
 lvim.line_wrap_cursor_movement = false
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 vim.api.nvim_set_keymap("c", "w!!", "w !sudo tee %", { silent = false })
@@ -155,9 +154,10 @@ lvim.builtin.treesitter.highlight.enabled = true
 
 lvim.lang.lua.formatters = { { exe = "stylua" } }
 lvim.lang.lua.linters = { { exe = "selene" } }
-lvim.lsp.override = { "rust" }
--- lvim.lang.rust.formatters = {{exe = "rustfmt"}}
-lvim.lsp.diagnostics.virtual_text = false
+-- lvim.lsp.override = { "rust" }
+lvim.lang.rust.formatters = { { exe = "rustfmt" } }
+lvim.lsp.diagnostics.virtual_text = true
+-- lvim.lsp.diagnostics.virtual_text = false
 lvim.builtin.telescope.on_config_done = function()
 	local actions = require("telescope.actions")
 	lvim.builtin.telescope.defaults.mappings.i["<C-j>"] = actions.move_selection_next
@@ -215,10 +215,7 @@ end
 
 lvim.plugins = {
 	{ "tanvirtin/nvim-monokai" },
-	{
-		"folke/trouble.nvim",
-		cmd = "TroubleToggle",
-	},
+	{ "folke/trouble.nvim", cmd = "TroubleToggle" },
 	{
 		"simrat39/rust-tools.nvim",
 		config = function()

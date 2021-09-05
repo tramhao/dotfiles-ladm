@@ -119,7 +119,7 @@ _G.packer_plugins = {
     path = "/home/tramhao/.local/share/lunarvim/site/pack/packer/opt/nvim-autopairs"
   },
   ["nvim-comment"] = {
-    config = { "\27LJ\1\2:\0\0\2\0\3\0\0064\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\1G\0\1\0\nsetup\17nvim_comment\frequire\0" },
+    config = { "\27LJ\1\2:\0\0\2\0\3\0\0064\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\1G\0\1\0\nsetup\17core.comment\frequire\0" },
     loaded = false,
     needs_bufread = false,
     path = "/home/tramhao/.local/share/lunarvim/site/pack/packer/opt/nvim-comment"
