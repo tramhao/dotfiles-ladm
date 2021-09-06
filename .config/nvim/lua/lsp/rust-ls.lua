@@ -26,8 +26,11 @@ local opts = {
 }
 
 require('rust-tools').setup(opts)
--- vim.cmd("autocmd BufWritePre *.rs lua RustFmt")
+vim.cmd("autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync()")
+-- vim.cmd("autocmd BufWrite *.rs :Autoformat")
 -- vim.cmd("let g:rustfmt_autosave = 1")
+vim.g.rustfmt_autosave = 1
+vim.g.rustfmt_options = "overwrite"
 -- vim.cmd("autocmd BufEnter,BufWinEnter,TabEnter *.rs :lua require'lsp_extensions'.inlay_hints{}")
 -- Enable type inlay hints
 

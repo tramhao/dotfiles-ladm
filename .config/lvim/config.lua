@@ -13,7 +13,7 @@ local indent = 4
 lvim.log.level = "warn"
 lvim.format_on_save = true
 lvim.colorscheme = "monokai"
-
+vim.cmd("set path+=**")
 lvim.transparent_window = true
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
@@ -39,9 +39,9 @@ vim.opt.encoding = "utf-8"
 vim.opt.fileencodings = "utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1"
 -- vim.opt.foldmethod = "manual" -- folding set to "expr" for treesitter based folding
 -- vim.opt.foldexpr = "" -- set to "nvim_treesitter#foldexpr()" for treesitter based folding
--- vim.opt.foldmethod = "expr"
--- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
--- vim.opt.foldlevel = 5
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldlevel = 5
 -- vim.opt.guifont = "monospace:h17" -- the font used in graphical neovim applications
 vim.opt.guifont = "FiraCode Nerd Font:h13"
 vim.opt.hidden = true -- required to keep multiple buffers and open multiple buffers
@@ -52,7 +52,7 @@ vim.opt.laststatus = 2
 vim.opt.mouse = "a" -- allow the mouse to be used in neovim
 vim.opt.pumheight = 10 -- pop up menu height
 vim.opt.ruler = true
-vim.opt.showmode = false -- we don't need to see things like -- INSERT -- anymore
+vim.opt.showmode = true -- we don't need to see things like -- INSERT -- anymore
 vim.opt.showtabline = 2 -- always show tabs
 vim.opt.smartcase = true -- smart case
 vim.opt.smartindent = true -- make indenting smarter again
@@ -151,6 +151,7 @@ lvim.builtin.nvimtree.show_icons.git = 0
 lvim.builtin.treesitter.ensure_installed = "maintained"
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
+lvim.builtin.treesitter.autotag.enable = true
 
 lvim.lang.lua.formatters = { { exe = "stylua" } }
 lvim.lang.lua.linters = { { exe = "selene" } }
@@ -158,6 +159,7 @@ lvim.lang.lua.linters = { { exe = "selene" } }
 lvim.lang.rust.formatters = { { exe = "rustfmt" } }
 lvim.lsp.diagnostics.virtual_text = true
 -- lvim.lsp.diagnostics.virtual_text = false
+require("user.json_schemas").setup()
 lvim.builtin.telescope.on_config_done = function()
 	local actions = require("telescope.actions")
 	lvim.builtin.telescope.defaults.mappings.i["<C-j>"] = actions.move_selection_next
