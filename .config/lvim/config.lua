@@ -155,18 +155,18 @@ lvim.builtin.treesitter.autotag.enable = true
 
 lvim.lang.lua.formatters = { { exe = "stylua" } }
 lvim.lang.lua.linters = { { exe = "selene" } }
--- lvim.lsp.override = { "rust" }
+lvim.lsp.override = { "rust" }
 lvim.lang.rust.formatters = { { exe = "rustfmt" } }
 lvim.lsp.diagnostics.virtual_text = true
 -- lvim.lsp.diagnostics.virtual_text = false
 require("user.json_schemas").setup()
-lvim.builtin.telescope.on_config_done = function()
-	local actions = require("telescope.actions")
-	lvim.builtin.telescope.defaults.mappings.i["<C-j>"] = actions.move_selection_next
-	lvim.builtin.telescope.defaults.mappings.i["<C-k>"] = actions.move_selection_previous
-	lvim.builtin.telescope.defaults.mappings.i["<C-n>"] = actions.cycle_history_next
-	lvim.builtin.telescope.defaults.mappings.i["<C-p>"] = actions.cycle_history_prev
-end
+-- lvim.builtin.telescope.on_config_done = function()
+-- 	local actions = require("telescope.actions")
+-- 	lvim.builtin.telescope.defaults.mappings.i["<C-j>"] = actions.move_selection_next
+-- 	lvim.builtin.telescope.defaults.mappings.i["<C-k>"] = actions.move_selection_previous
+-- 	lvim.builtin.telescope.defaults.mappings.i["<C-n>"] = actions.cycle_history_next
+-- 	lvim.builtin.telescope.defaults.mappings.i["<C-p>"] = actions.cycle_history_prev
+-- end
 -- generic LSP settings
 -- you can set a custom on_attach function that will be used for all the language servers
 -- See <https://github.com/neovim/nvim-lspconfig#keybindings-and-completion>
