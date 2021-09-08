@@ -156,7 +156,7 @@ lvim.builtin.treesitter.autotag.enable = true
 lvim.lang.lua.formatters = { { exe = "stylua" } }
 lvim.lang.lua.linters = { { exe = "selene" } }
 lvim.lsp.override = { "rust" }
-lvim.lang.rust.formatters = { { exe = "rustfmt" } }
+-- lvim.lang.rust.formatters = { { exe = "rustfmt" } }
 lvim.lsp.diagnostics.virtual_text = true
 -- lvim.lsp.diagnostics.virtual_text = false
 require("user.json_schemas").setup()
