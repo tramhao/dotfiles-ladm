@@ -51,12 +51,14 @@ local opts = {
 		capabilities = require("lsp").capabilities,
 		root_dir = require("lspconfig").util.root_pattern("Cargo.toml", "Cargo.lock"),
 		assist = { importGranularity = "module", importPrefix = "by_self" },
-		cargo = { loadOutputiDirs = true, loadOutDirsFromCheck = true },
+		cargo = { loadOutputiDirs = false, loadOutDirsFromCheck = true },
 		settings = {
 			["rust-analyzer"] = {
 				checkOnSave = {
 					command = "clippy",
 				},
+				cargo = { loadOutputiDirs = false, loadOutDirsFromCheck = true },
+				procMacro = { enable = true },
 			},
 		},
 	}, -- rust-analyer options

@@ -20,3 +20,4 @@ audio/mp4=org.kde.kid3.desktop
 
 [Added Associations]
 audio/mp4=netease-cloud-music-gtk.desktop;org.kde.kid3.desktop;
+audio/x-ape=netease-cloud-music-gtk.desktop;

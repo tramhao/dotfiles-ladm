@@ -50,11 +50,36 @@ return require("packer").startup(function()
 		end,
 	})
 	use({ "jasonrhansen/lspsaga.nvim", branch = "finder-preview-fixes" })
+	-- use({
+	-- 	"ms-jpq/coq_nvim",
+	-- 	branch = "coq",
+	-- 	config = function()
+	-- 		vim.cmd("let g:coq_settings = { 'auto_start': v:true }")
+	-- 		require("coq")
+	-- 	end,
+	-- })
+	-- use({ "ms-jpq/coq.artifacts", branch = "artifacts" })
+	-- use({ "ms-jpq/coq.thirdparty", branch = "3p" })
+	-- use({
+	-- 	"hrsh7th/nvim-compe",
+	-- 	requires = { { "hrsh7th/vim-vsnip", opt = true }, { "hrsh7th/vim-vsnip-integ", opt = true } },
+	-- 	config = require("configplugin.compe"),
+	-- })
 	use({
-		"hrsh7th/nvim-compe",
-		requires = { { "hrsh7th/vim-vsnip", opt = true }, { "hrsh7th/vim-vsnip-integ", opt = true } },
-		config = require("configplugin.compe"),
+		"hrsh7th/nvim-cmp",
+		requires = {
+			"L3MON4D3/LuaSnip",
+			"saadparwaiz1/cmp_luasnip",
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-nvim-lua",
+		},
+		config = require("configplugin.cmp"),
 	})
+	-- use("hrsh7th/cmp-nvim-lsp")
+	-- use("saadparwaiz1/cmp_luasnip")
+	-- use("L3MON4D3/LuaSnip") -- Snippets plugin
 	use({
 		"b3nj5m1n/kommentary",
 		config = function()
@@ -106,7 +131,7 @@ return require("packer").startup(function()
 	})
 	use({
 		"hoob3rt/lualine.nvim",
-		requires = { { "kyazdani42/nvim-web-devicons", opt = true }, { "nvim-lua/lsp-status.nvim", opt = true } },
+		requires = { { "kyazdani42/nvim-web-devicons" }, { "nvim-lua/lsp-status.nvim" } },
 		config = require("configplugin.lualine"),
 	})
 	use({ "tweekmonster/startuptime.vim", opt = true, cmd = "StartupTime" })
@@ -117,25 +142,13 @@ return require("packer").startup(function()
 		config = require("configplugin.telescope"),
 	})
 	use("bfredl/nvim-miniyank")
-	-- use 'Yggdroot/indentLine'
+	use("Yggdroot/indentLine")
 	use("simrat39/rust-tools.nvim")
 	use({
 		"lukas-reineke/indent-blankline.nvim",
-		-- config = function ()
-		--     vim.g.indent_blankline_buftype_exclude = {'terminal'}
-		--     vim.g.indent_blankline_filetype_exclude =
-		--         {'help', 'startify', 'dashboard', 'packer', 'neogitstatus'}
-		--     vim.g.indent_blankline_char = '▏'
-		--     vim.g.indent_blankline_show_trailing_blankline_indent = false
-		--     vim.g.indent_blankline_show_current_context = true
-		--     vim.g.indent_blankline_context_patterns =
-		--         {
-		--             'class', 'return', 'function', 'method', '^if', '^while',
-		--             'jsx_element', '^for', '^object', '^table', 'block', 'arguments',
-		--             'if_statement', 'else_clause', 'jsx_element',
-		--             'jsx_self_closing_element', 'try_statement', 'catch_clause',
-		--             'import_statement', 'operation_type'
-		--         }
-		-- end
+	})
+	use({
+		"romgrk/barbar.nvim",
+		requires = { "kyazdani42/nvim-web-devicons" },
 	})
 end)
