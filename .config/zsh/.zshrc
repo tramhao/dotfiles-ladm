@@ -54,10 +54,16 @@ source /usr/share/doc/pkgfile/command-not-found.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 export MESA_LOADER_DRIVER_OVERRIDE=i965 
-
+# export INPUT_METHOD=fcitx
+# export GTK_IM_MODULE=fcitx
+# export QT_IM_MODULE=fcitx
+# export XMODIFIERS=\@im=fcitx
+# export SDL_IM_MODULE=fcitx
 macchina
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 eval "$(starship init zsh)"
 if [ $TERM = linux ]; then 
     setfont ter-p32b
 fi
+
+# dbus-update-activation-environment --systemd --all

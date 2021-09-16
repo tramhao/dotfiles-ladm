@@ -20,6 +20,27 @@ key = "d"
 
 [[keybind]]
 command = "Execute"
+value = "pamixer --allow-boost -d 5"
+modifier = ["modkey"]
+key = "minus"
+
+[[keybind]]
+command = "Execute"
+value = "pamixer --allow-boost -i 5"
+modifier = ["modkey"]
+key = "equal"
+
+
+
+[[keybind]]
+command = "Execute"
+# value = "alacritty"
+value = "setbg /home/tramhao/Pictures/wallpapers"
+modifier = ["modkey","Control"]
+key = "w"
+
+[[keybind]]
+command = "Execute"
 value = "kitty"
 modifier = ["modkey"]
 key = "Return"
@@ -31,7 +52,7 @@ key = "q"
 
 [[keybind]]
 command = "Execute"
-value = "brave"
+value = "xdotool key Super_L+2 && brave"
 modifier = ["modkey"]
 key = "w"
 
@@ -52,6 +73,14 @@ key = "Insert"
 command = "SoftReload"
 modifier = ["modkey", "Shift"]
 key = "r"
+
+[[keybind]]
+command = "Execute"
+value = "~/.config/leftwm/themes/current/polybar/scripts/powermenu.sh &"
+# value = "/home/tramhao/.config/leftwm/themes/current/polybar/scripts/powermenu.sh &"
+modifier = ["modkey"]
+key = "BackSpace"
+
 
 [[keybind]]
 command = "Execute"
@@ -96,9 +125,21 @@ modifier = ["modkey"]
 key = "Up"
 
 [[keybind]]
+command = "FocusWindowUp"
+modifier = ["modkey"]
+key = "k"
+
+
+[[keybind]]
 command = "FocusWindowDown"
 modifier = ["modkey"]
 key = "Down"
+
+[[keybind]]
+command = "FocusWindowDown"
+modifier = ["modkey"]
+key = "j"
+
 
 [[keybind]]
 command = "NextLayout"

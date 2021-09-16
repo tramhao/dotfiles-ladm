@@ -1,0 +1,28 @@
+#!/bin/sh
+
+# Set as a cron job to check for new RSS entries for newsboat.
+# If newsboat is open, sends it an "R" key to refresh.
+
+#ping -q -c 1 example.org > /dev/null || exit
+
+# if [ -n "$1" ]; then
+#   if [ "$1" = "update" ]; then
+#       wget -q --spider example.org || exit
+
+#       # /usr/bin/notify-send "📰 Updating RSS feeds..."
+
+#       pgrep -f newsboat$ && /usr/bin/xdotool key --window "$(/usr/bin/xdotool search --name newsboat)" R && exit
+
+#       echo "News🔃" > "${XDG_DATA_HOME:-$HOME/.local/share}/newsupdate.tmp"
+#       pkill -RTMIN+6 "${STATUSBAR:-dwmblocks}"
+#       /usr/bin/newsboat -x reload
+#   fi
+# fi
+
+# pgrep -f newsboat$ && /usr/bin/xdotool key --window "$(/usr/bin/xdotool search --name newsboat)" R && exit
+# echo "$(newsboat -x print-unread | awk '{ if($1>0) 
+#                                               print "" $1 " " 
+#                                           else 
+#                                               print ""}')" 
+cat "${XDG_DATA_HOME:-$HOME/.local/share}/newsupdate.tmp"
+# /usr/bin/notify-send "📰 RSS feed update complete."

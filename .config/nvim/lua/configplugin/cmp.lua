@@ -1,15 +1,11 @@
 return function()
-	-- local compe = require('compe')
-	-- local api = vim.api
-	-- local protocol = require('vim.lsp.protocol')
-
 	-- INIT
 	local cmp = require("cmp")
 	local luasnip = require("luasnip")
-	require("cmp").setup({
+	cmp.setup({
 		snippet = {
 			expand = function(args)
-				require("luasnip").lsp_expand(args.body)
+				luasnip.lsp_expand(args.body)
 			end,
 		},
 		mapping = {
@@ -23,7 +19,7 @@ return function()
 				behavior = cmp.ConfirmBehavior.Replace,
 				select = true,
 			}),
-			["<Tab>"] = function(fallback)
+			["<Tab>"] = cmp.mapping(function(fallback)
 				if vim.fn.pumvisible() == 1 then
 					vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<C-n>", true, true, true), "n")
 				elseif luasnip.expand_or_jumpable() then
@@ -34,8 +30,11 @@ return function()
 				else
 					fallback()
 				end
-			end,
-			["<S-Tab>"] = function(fallback)
+			end, {
+				"i",
+				"s",
+			}),
+			["<S-Tab>"] = cmp.mapping(function(fallback)
 				if vim.fn.pumvisible() == 1 then
 					vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<C-p>", true, true, true), "n")
 				elseif luasnip.jumpable(-1) then
@@ -43,7 +42,10 @@ return function()
 				else
 					fallback()
 				end
-			end,
+			end, {
+				"i",
+				"s",
+			}),
 		},
 		sources = {
 			{ name = "nvim_lsp" },
@@ -85,11 +87,11 @@ return function()
 	})
 
 	-- SET SNIPPETS PATH
-	vim.g.vsnip_snippet_dir = vim.fn.stdpath("config") .. "/snippets"
-	vim.g.vsnip_filetypes = {
-		javascriptreact = { "javascript", "html" },
-		typescriptreact = { "typescript", "html" },
-	}
+	-- vim.g.vsnip_snippet_dir = vim.fn.stdpath("config") .. "/snippets"
+	-- vim.g.vsnip_filetypes = {
+	-- 	javascriptreact = { "javascript", "html" },
+	-- 	typescriptreact = { "typescript", "html" },
+	-- }
 
 	-- Set completeopt to have a better completion experience
 	vim.o.completeopt = "menu,menuone,noselect"

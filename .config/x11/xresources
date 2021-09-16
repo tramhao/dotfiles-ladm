@@ -10,7 +10,7 @@
 /* st.font:	UbuntuMono NF:size=18:antialias=true:autohint=true; */
 
 /* st.font: monospace:size=18 */
-st.font: SF Mono:size=18
+st.font: SF Mono:size=14
 
 /* name		dark	light */
 /* black	0	8 */

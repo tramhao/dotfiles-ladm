@@ -19,7 +19,6 @@ if not packer_exists then
 end
 -- Only required if you have packer in your `opt` pack
 vim.cmd("packadd packer.nvim")
-
 vim.cmd("autocmd BufWritePost plugins.lua source <afile> | PackerCompile")
 
 return require("packer").startup(function()
