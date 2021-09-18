@@ -59,23 +59,23 @@ return require("packer").startup(function()
 	-- })
 	-- use({ "ms-jpq/coq.artifacts", branch = "artifacts" })
 	-- use({ "ms-jpq/coq.thirdparty", branch = "3p" })
-	-- use({
-	-- 	"hrsh7th/nvim-compe",
-	-- 	requires = { { "hrsh7th/vim-vsnip", opt = true }, { "hrsh7th/vim-vsnip-integ", opt = true } },
-	-- 	config = require("configplugin.compe"),
-	-- })
 	use({
-		"hrsh7th/nvim-cmp",
-		requires = {
-			"L3MON4D3/LuaSnip",
-			"saadparwaiz1/cmp_luasnip",
-			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-nvim-lsp",
-			"hrsh7th/cmp-path",
-			"hrsh7th/cmp-nvim-lua",
-		},
-		config = require("configplugin.cmp"),
+		"hrsh7th/nvim-compe",
+		requires = { { "hrsh7th/vim-vsnip", opt = true }, { "hrsh7th/vim-vsnip-integ", opt = true } },
+		config = require("configplugin.compe"),
 	})
+	-- use({
+	-- 	"hrsh7th/nvim-cmp",
+	-- 	requires = {
+	-- 		"L3MON4D3/LuaSnip",
+	-- 		"saadparwaiz1/cmp_luasnip",
+	-- 		"hrsh7th/cmp-buffer",
+	-- 		"hrsh7th/cmp-nvim-lsp",
+	-- 		"hrsh7th/cmp-path",
+	-- 		"hrsh7th/cmp-nvim-lua",
+	-- 	},
+	-- 	config = require("configplugin.cmp"),
+	-- })
 	-- use("hrsh7th/cmp-nvim-lsp")
 	-- use("saadparwaiz1/cmp_luasnip")
 	-- use("L3MON4D3/LuaSnip") -- Snippets plugin
