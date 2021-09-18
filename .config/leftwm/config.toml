@@ -1,14 +1,13 @@
 modkey = "Mod4"
 mousekey = "Mod4"
 workspaces = []
-# tags = ["", "", "", "", "", "", "", ""]
-tags = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+tags = ["1", "2", "3", "4", "5", "6", "7"]
 layouts = ["MainAndVertStack", "MainAndHorizontalStack", "MainAndDeck", "GridHorizontal", "EvenHorizontal", "EvenVertical", "Fibonacci", "CenterMain", "CenterMainBalanced", "Monocle", "RightWiderLeftStack", "LeftWiderRightStack"]
 [[scratchpad]]
 name = "st"
 value = "st"
 
-disable_current_tag_swap = false
+disable_current_tag_swap = true 
 focus_behaviour = "Sloppy"
 focus_new_windows = true
 

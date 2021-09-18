@@ -22,10 +22,10 @@ echo "LoadTheme $SCRIPTPATH/theme.toml" > $XDG_RUNTIME_DIR/leftwm/commands.pipe
 
 
 #set background
-if [ -x "$(command -v feh)" ]; then
-  feh --bg-scale "${SCRIPTPATH}/background.jpg"
-fi
-
+# if [ -x "$(command -v feh)" ]; then
+#   feh --bg-scale "${SCRIPTPATH}/background.jpg"
+# fi
+export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u $USER)/bus; export DISPLAY=:0; . $HOME/.zprofile; setbg $HOME/Pictures/wallpapers
 #make sure all fonts needed are installed
 ${SCRIPTPATH}/fonts/install_fonts
 
@@ -39,6 +39,7 @@ cd ${SCRIPTPATH}/polybar
 polybar -m | sed s/:.*// | tac | while read -r monitor
 do 
   # monitor=$monitor polybar -c config.ini main &> /dev/null &
-  monitor=$monitor polybar -c config.ini main &> /tmp/polybar_leftwm.log &
+  # monitor=$monitor polybar -c config.ini main &> /tmp/polybar_leftwm.log &
+  monitor=$monitor polybar -c config.ini main 2> /tmp/polybar_leftwm.log &
 done
 

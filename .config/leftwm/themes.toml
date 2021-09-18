@@ -28,6 +28,7 @@ commit = "*"
 version = "0.0.1"
 leftwm_versions = "*"
 current = false
+relative_directory = "theme/"
 
 [[repos.themes]]
 name = "TNG"
@@ -200,6 +201,27 @@ version = "0.0.3"
 leftwm_versions = "*"
 current = false
 
+[[repos.themes]]
+name = "Bumblebee"
+repository = "https://github.com/mfdorst/leftwm-bumblebee/"
+commit = "*"
+version = "0.0.1"
+leftwm_versions = "^0.2.8"
+
+[[repos.themes]]
+name = "Changed Sunset"
+repository = "https://github.com/Syudagye/changed-sunset"
+commit = "*"
+version = "0.0.1"
+leftwm_versions = "*"
+
+[[repos.themes]]
+name = "Garden"
+repository = "https://github.com/taylor85345/leftwm-theme-garden"
+commit = "*"
+version = "0.0.3"
+leftwm_versions = "*"
+
 [[repos]]
 url = "localhost"
 name = "LOCAL"
@@ -210,3 +232,10 @@ directory = "/home/tramhao/.config/leftwm/themes/basic_polybar"
 version = "0.0.0"
 leftwm_versions = "*"
 current = false
+
+[[repos.themes]]
+name = "forest.tram"
+directory = "/home/tramhao/.config/leftwm/themes/forest.tram"
+version = "0.0.0"
+leftwm_versions = "*"
+current = true

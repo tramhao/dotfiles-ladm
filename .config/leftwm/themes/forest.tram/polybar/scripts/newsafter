@@ -33,7 +33,7 @@ setsid -w -f "$TERMINAL" -e newsboat &&
 # fi
 
 echo "$(newsboat -x print-unread | awk '{ if($1>0) 
-                                              print " " $1  
+                                              print $1  
                                           else 
                                               print ""}')"  > "${XDG_DATA_HOME:-$HOME/.local/share}/newsupdate.tmp"
 
