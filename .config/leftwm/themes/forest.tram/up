@@ -34,6 +34,7 @@ if [ -x "$(command -v dunst)" ]; then
   dunst &
 fi
 
+export DEFAULT_NETWORK_INTERFACE=$(ip route | grep '^default' | awk '{print $5}' | head -n1)
 #boot a polybar for each monitor
 cd ${SCRIPTPATH}/polybar
 polybar -m | sed s/:.*// | tac | while read -r monitor

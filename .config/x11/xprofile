@@ -16,7 +16,7 @@ if [ $(hostname) = "XMLaptop" ]; then
 fi
 remaps &		# run the remaps script, switching caps/esc and more; check it for more info
 # setbg ~/Pictures/wallpaper &			# set the background with the `setbg` script
-wal -i ~/Pictures/wallpaper -q &			# set the background with the `setbg` script
+# wal -i ~/Pictures/wallpaper -q &			# set the background with the `setbg` script
 xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources &	# Uncomment to use Xresources colors/settings on startup
 # run /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # run eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)

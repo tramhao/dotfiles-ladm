@@ -69,7 +69,8 @@ weather=$'\0'
 
 API="https://api.openweathermap.org/data/2.5"
 
-wget -q --spider example.org || exit
+# wget -q --spider example.org || exit
+echo ""
 if [ -n "$CITY" ]; then
     if [ "$CITY" -eq "$CITY" ] 2>/dev/null; then
         CITY_PARAM="id=$CITY"
@@ -101,5 +102,4 @@ if [ -n "$weather" ]; then
 else
     echo "Service not available" > "${XDG_DATA_HOME:-$HOME/.local/share}/weatherup.tmp"
 fi
-echo ""
 polybar-msg hook weather 1 2>&1 > /dev/null
