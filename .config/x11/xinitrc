@@ -16,5 +16,6 @@ fi
 
 # ssh-agent dwm
 # exec dbus-launch leftwm
-exec dbus-launch `ssh-agent leftwm`
+ssh-agent leftwm
+# exec dbus-launch `ssh-agent leftwm`
 # exec dbus-launch bspwm

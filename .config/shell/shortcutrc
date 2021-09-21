@@ -1,6 +1,7 @@
 # vim: filetype=sh
 alias cac="cd /home/tramhao/.cache && ls -A" \
 cf="cd /home/tramhao/.config/leftwm/themes/current && ls -A" \
+sf="cd /home/tramhao/.config/leftwm/themes/current/polybar/scripts && ls -A" \
 nf="cd /home/tramhao/.config/nvim/lua && ls -A" \
 gf="cd /home/tramhao/.local/src/gomu && ls -A" \
 rf="cd /home/tramhao/.local/src/rs/termusic && ls -A" \
