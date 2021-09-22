@@ -13,6 +13,13 @@ focus_new_windows = true
 
 [[keybind]]
 command = "Execute"
+value = "kitty -e nvim -c WikiIndex"
+modifier = ["modkey"]
+key = "n"
+
+
+[[keybind]]
+command = "Execute"
 value = "dmenu_run"
 modifier = ["modkey"]
 key = "d"
