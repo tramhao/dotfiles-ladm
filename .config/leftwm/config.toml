@@ -40,9 +40,8 @@ key = "equal"
 
 [[keybind]]
 command = "Execute"
-# value = "alacritty"
 value = "setbg /home/tramhao/Pictures/wallpapers"
-modifier = ["modkey","Control"]
+modifier = ["modkey","Shift"]
 key = "w"
 
 [[keybind]]
@@ -100,10 +99,10 @@ value = "slock"
 modifier = ["modkey", "Control"]
 key = "l"
 
-[[keybind]]
-command = "MoveToLastWorkspace"
-modifier = ["modkey", "Shift"]
-key = "w"
+# [[keybind]]
+# command = "MoveToLastWorkspace"
+# modifier = ["modkey", "Shift"]
+# key = "w"
 
 # [[keybind]]
 # command = "SwapTags"

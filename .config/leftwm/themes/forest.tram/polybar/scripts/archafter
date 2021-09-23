@@ -1,8 +1,9 @@
 #!/bin/sh
 
 # Syncs repositories and downloads updates, meant to be run as a cronjob.
-paru
 
+# setsid -w -f kitty -e paru &&
+paru
 
 wget -q --spider example.org || exit
 if ! updates_arch=$(checkupdates 2> /dev/null | wc -l ); then
