@@ -38,13 +38,9 @@ export DEFAULT_NETWORK_INTERFACE=$(ip route | grep '^default' | awk '{print $5}'
 #boot a polybar for each monitor
 cd ${SCRIPTPATH}/polybar
 # polybar -m | sed s/:.*// | tac | while read -r monitor
-if type "xrandr"; then
-  for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-    MONITOR=$m polybar -c config.ini main &> /tmp/polybar_leftwm.log &
+  for m in $(polybar --list-monitors | cut -d":" -f1); do
+    monitor=$m polybar -c config.ini main --reload > /dev/null 2> /tmp/polybar_leftwm$m.log &
   done
-else
-  polybar -c config.ini main &> /tmp/polybar_leftwm.log &
-fi
 # do 
 #   # monitor=$monitor polybar -c config.ini main &> /dev/null &
 #   monitor=$monitor polybar -c config.ini main &> /tmp/polybar_leftwm.log &
