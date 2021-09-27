@@ -10,10 +10,10 @@ focus_new_windows = true
 [[scratchpad]]
 name = "st"
 value = "st"
-width = 51
-height = 80
 x = 49
 y = 20
+height = 80
+width = 51
 
 
 [[keybind]]
@@ -86,6 +86,7 @@ key = "r"
 
 [[keybind]]
 command = "Execute"
+# value = "oblogout"
 value = "~/.config/leftwm/themes/current/polybar/scripts/powermenu.sh &"
 # value = "/home/tramhao/.config/leftwm/themes/current/polybar/scripts/powermenu.sh &"
 modifier = ["modkey"]
