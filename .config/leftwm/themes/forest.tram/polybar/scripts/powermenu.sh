@@ -1,6 +1,6 @@
 #!/bin/bash
 
-chosen=$(echo -e "[Cancel]\nLogout\nShutdown\nReboot\nSuspend\nLock\n" | rofi -dmenu -i -font "hack 30" -icon-theme "Papirus" -show-icons)
+chosen=$(echo -e "[Cancel]\nLogout\nShutdown\nReboot\nSuspend\nLock\n" | rofi -dmenu -i -font "hack 30")
 # chosen=$(echo -e "[Cancel]\nLogout\nShutdown\nReboot\nSuspend\nHibernate\nHybrid-sleep\nSuspend-then-hibernate" | rofi -dmenu -i)
 
 if [[ $chosen = "Logout" ]]; then

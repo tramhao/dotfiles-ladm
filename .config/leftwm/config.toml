@@ -10,10 +10,10 @@ focus_new_windows = true
 [[scratchpad]]
 name = "st"
 value = "st"
-x = 49
-y = 20
-height = 80
-width = 51
+x = 0.49
+y = 0.20
+height = 0.80
+width =  0.51
 
 
 [[keybind]]

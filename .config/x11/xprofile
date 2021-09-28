@@ -11,22 +11,22 @@ function run {
 if [ $(hostname) = "XMLaptop" ]; then
   if [ `ifconfig wlp2s0 | awk '/inet /{ print $6;}'` = "192.168.186.255" ]; then
       source ~/.xrandr
-      run nextcloud --background
+      # run nextcloud --background
   fi
 fi
 remaps &		# run the remaps script, switching caps/esc and more; check it for more info
 # setbg ~/Pictures/wallpaper &			# set the background with the `setbg` script
 # wal -i ~/Pictures/wallpaper -q &			# set the background with the `setbg` script
 xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources &	# Uncomment to use Xresources colors/settings on startup
-# run /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-# run eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)
+run /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+run eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)
 #xcompmgr &		# xcompmgr for transparency
-picom -f -b --experimental-backends
+# picom -f -b --experimental-backends
 # picom -f -b
-dunst &			# dunst for notifications
+# dunst &			# dunst for notifications
 xset r rate 400 50 # Speed xrate up
 unclutter &		# Remove mouse when idle
-fcitx5 &
+# fcitx5 &
 # This line autostarts an instance of Pulseaudio that does not exit on idle.
 # This is "necessary" on Artix due to a current bug between PA and
 
