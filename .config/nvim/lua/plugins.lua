@@ -150,4 +150,5 @@ return require("packer").startup(function()
 		"romgrk/barbar.nvim",
 		requires = { "kyazdani42/nvim-web-devicons" },
 	})
+    use("elkowar/yuck.vim")
 end)

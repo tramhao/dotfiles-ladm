@@ -1,0 +1,35 @@
+#!/bin/sh
+
+# Set as a cron job to check for new RSS entries for newsboat.
+# If newsboat is open, sends it an "R" key to refresh.
+
+#ping -q -c 1 example.org > /dev/null || exit
+
+# if [ -n "$1" ]; then
+      # if [ $1 == "update" ]; then
+# wget -q --spider example.org || exit
+
+
+# /usr/bin/notify-send "📬 Updating Mails..."
+
+# pgrep -f neomutt$ && /usr/bin/xdotool key --window "$(/usr/bin/xdotool search --name neomutt)" R && exit
+
+# echo "Mail updating" # > "${XDG_DATA_HOME:-$HOME/.local/share}/mailupdate.tmp"
+# pkill -RTMIN+12 "${STATUSBAR:-dwmblocks}"
+# mw -Y >/dev/null 2>&1
+echo ""
+mailsync >/dev/null 2>&1
+      # fi
+# fi
+
+unread="$(find "${XDG_DATA_HOME:-$HOME/.local/share}"/mail/*/*/new/* -type f 2>/dev/null | wc -l 2>/dev/null)"
+
+# # [ "$unread" = "0" ] && [ "$icon" = "" ] || echo "📬$unread$icon" > /tmp/mailupdate
+if [ "$unread" -gt 0 ]; then
+  echo "$unread" > "${XDG_DATA_HOME:-$HOME/.local/share}/mailupdate.tmp"
+else
+  echo "" > "${XDG_DATA_HOME:-$HOME/.local/share}/mailupdate.tmp"
+fi
+
+polybar-msg hook mail 1
+# /usr/bin/notify-send "📬 Mail update complete."

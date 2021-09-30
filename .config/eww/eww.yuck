@@ -1,0 +1,169 @@
+(defwidget bar []
+  (centerbox :orientation "h"
+    (workspaces)
+    (music)
+    (sidestuff)))
+
+(defwidget sidestuff []
+  (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
+    ; (metric1 :label ""
+    ;          :value "${EWW_NET["wlp2s0"].NET_DOWN} KB"
+    ;          :onchange "")
+    (mailupdatewidget)
+    (newsupdatewidget)
+    (archupdatewidget :text ""
+                      :onclick "setsid -w -f kitty -e ./scripts/archafter")
+    weather
+    (metric :label "🖥️"
+            :value {EWW_CPU.avg}
+            :onchange "")
+    (metric :label "🧠"
+            :value {EWW_RAM.used_mem_perc}
+            :onchange "")
+    (metric2  :label "🔊"
+              :value volume
+              :onchange "pamixer --set-volume {} --allow-boost && pamixer --get-volume > ~/.local/share/eww_volume.tmp")
+    ; (metric :label "💾"
+    ;         :value {round((1 - (EWW_DISK["/"].free / EWW_DISK["/"].total)) * 100, 0)}
+    ;         :onchange "")
+    battery
+    time
+    (powerbutton)))
+;
+; (defwidget workspaces []
+    ; (box :class "workspaces"
+         ; :orientation "h"
+         ; :space-evenly true
+         ; :halign "start"
+         ; :spacing 10
+            ; (button :class "ws-button-mine" :onclick "wmctrl -s 0" `1`)
+            ; (button :class "ws-button-busy" :onclick "wmctrl -s 1" `2`)
+            ; (button :class "ws-button-busy" :onclick "wmctrl -s 2" `3`)
+            ; (button :class "ws-button" :onclick "wmctrl -s 3" `·`)
+            ; (button :class "ws-button" :onclick "wmctrl -s 4" `·`)
+            ; (button :class "ws-button" :onclick "wmctrl -s 5" `·`)
+            ; (button :class "ws-button" :onclick "wmctrl -s 6" `·`)
+            ; (button :class "ws-button" :onclick "wmctrl -s 7" `·`)
+            ; (button :class "ws-button" :onclick "wmctrl -s 8" `·`)))
+
+(defwidget workspaces []
+  (box :class "workspaces"
+       :orientation "h"
+       :space-evenly true
+       :halign "start"
+       :spacing 10
+    (literal :content {wm-tags})))
+
+(defwidget music []
+  (box :class "music"
+       :orientation "h"
+       :space-evenly false
+       :halign "center"
+    (button :onclick "scripts/player-mpris.py play-pause"
+            :onrightclick "scripts/player-mpris.py next"
+            :onmiddleclick "scripts/player-mpris.py previous"
+      {music != "" ? "🎵${music}" : ""})
+    ))
+
+(defwidget metric [label value onchange]
+  (box :orientation "h"
+       :class "metric"
+       :space-evenly false
+    (box :class "label" label)
+    (scale :min 0
+           :max 101
+           :active {onchange != ""}
+           :value value
+           :onchange onchange)))
+
+(defwidget metric2 [label value onchange]
+  (box :orientation "h"
+       :class "metric"
+       :space-evenly false
+    (box :class "label" label)
+    (scale :min 0
+           :max 151
+           :active {onchange != ""}
+           :value value
+           :onchange onchange)))
+
+(deflisten music :initial ""
+  "scripts/player-mpris.py --format '{icon} {artist} - {:t20:{title}:}' || true")
+
+; (deflisten music :initial ""
+;   "playerctl --follow metadata --format '{{ artist }} - {{ title }}' || true")
+
+(deflisten volume :initial ""
+  "tail -F ~/.local/share/eww_volume.tmp")
+
+(defpoll time :interval "60s"
+  "date '+%a %d,%H:%M'")
+
+(defwidget archupdatewidget [?text onclick]
+  (box :orientation "horizontal"
+       :halign "center"
+    arch 
+    (button :onclick onclick 
+      arch)))
+
+(defpoll archupdate :interval "3600s"
+  "scripts/archup")
+
+(deflisten arch :initial ""
+  "tail -F ~/.local/share/checkup.tmp")
+
+(defwidget mailupdatewidget []
+  (box :orientation "horizontal"
+       :halign "center"
+    (button :onclick "scripts/mailafter" 
+      mail)))
+
+(defpoll mailupdatecmd :interval "2h"
+  "scripts/mailup")
+
+(deflisten mail :initial ""
+  "tail -F ~/.local/share/mailupdate.tmp")
+
+(defwidget newsupdatewidget []
+  (box :orientation "horizontal"
+       :halign "center"
+    (button :onclick "scripts/newsafter" 
+      news)))
+
+(defpoll newsupdate :interval "2h"
+  "scripts/newsup")
+
+(deflisten news :initial ""
+  "tail -F ~/.local/share/newsupdate.tmp")
+
+(defpoll weatherup :interval "2h"
+  "scripts/weatherup")
+
+(deflisten weather :initial ""
+  "tail -F ~/.local/share/weatherup.tmp")
+
+(defpoll battery :interval "60s"
+  "scripts/sb-battery")
+
+(defwidget powerbutton[]
+  (box :orientation "horizontal"
+       :halign "center"
+    (button :onclick "scripts/powermenu.sh" 
+      " 🔘 ")))
+
+
+
+
+(deflisten wm-tags
+  "leftwm-state -w 0 -t ~/.config/leftwm/themes/current/template.liquid")
+
+(defwindow bar0
+  :monitor 0
+  :windowtype "dock"
+  :geometry (geometry :x "0%"
+                      :y "0%"
+                      :width "90%"
+                      :height "20px"
+                      :anchor "top center")
+  :reserve (struts :side "top" :distance "4%")
+  (bar))

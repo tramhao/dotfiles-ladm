@@ -1,0 +1,51 @@
+#!/bin/sh
+
+# Syncs repositories and downloads updates, meant to be run as a cronjob.
+
+#ping -q -c 1 example.org > /dev/null || exit
+# wget -q --spider example.org || exit
+
+# notify-send "📦 Repository Sync" "Checking for package updates..."
+
+#yay -Syyuw --noconfirm 2>&1 > /dev/null || notify-send "Error downloading updates.
+
+# Check your internet connection, if pacman is already running, or run update manually to see errors."
+
+echo ""
+if ! updates_arch=$(checkupdates 2> /dev/null | wc -l ); then
+    updates_arch=0
+fi
+
+# if ! updates_aur=$(cower -u 2> /dev/null | wc -l); then
+if ! updates_aur=$(paru -Qua | grep -v "\[ignored\]" 2> /dev/null | wc -l); then
+    updates_aur=0
+fi
+
+# if ! updates_aur=$(cower -u 2> /dev/null | wc -l); then
+# if ! updates_aur=$(trizen -Su --aur --quiet | wc -l); then
+#     updates_aur=0
+# fi
+
+
+updates=$(("$updates_arch" + "$updates_aur"))
+
+# if ! updates=$(yay -Qu | wc -l); then
+#   updates = 0
+# fi
+
+if [ "$updates" -gt 0 ]; then
+    echo "$updates_arch+$updates_aur" > "${XDG_DATA_HOME:-$HOME/.local/share}/checkup.tmp"
+else
+    echo "" > "${XDG_DATA_HOME:-$HOME/.local/share}/checkup.tmp"
+#     echo "🎁 0"
+fi
+
+polybar-msg hook arch 1
+
+# if [ "$updates" -gt 0 ]
+# # if pacman -Qu | grep -v "\[ignored\]"
+# then
+# 	notify-send "🎁 Repository Sync" "Updates available. Click statusbar icon (📦) for update."
+# else
+# 	notify-send "📦 Repository Sync"  "Sync complete. No new packages for update."
+# fi

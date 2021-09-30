@@ -31,13 +31,13 @@ key = "d"
 
 [[keybind]]
 command = "Execute"
-value = "pamixer --allow-boost -d 5"
+value = "pamixer --allow-boost -d 5 && pamixer --get-volume > ~/.local/share/eww_volume.tmp"
 modifier = ["modkey"]
 key = "minus"
 
 [[keybind]]
 command = "Execute"
-value = "pamixer --allow-boost -i 5"
+value = "pamixer --allow-boost -i 5 && pamixer --get-volume > ~/.local/share/eww_volume.tmp"
 modifier = ["modkey"]
 key = "equal"
 
@@ -87,7 +87,8 @@ key = "r"
 [[keybind]]
 command = "Execute"
 # value = "oblogout"
-value = "~/.config/leftwm/themes/current/polybar/scripts/powermenu.sh &"
+value = "~/.config/leftwm/themes/current/scripts/powermenu.sh &"
+# value = "~/.config/leftwm/themes/current/polybar/scripts/powermenu.sh &"
 # value = "/home/tramhao/.config/leftwm/themes/current/polybar/scripts/powermenu.sh &"
 modifier = ["modkey"]
 key = "BackSpace"
