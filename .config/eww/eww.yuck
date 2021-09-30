@@ -88,7 +88,8 @@
            :onchange onchange)))
 
 (deflisten music :initial ""
-  "scripts/player-mpris.py --format '{icon} {artist} - {:t20:{title}:}' || true")
+  "scripts/player-mpris.py --format '{icon} {:t20:{artist}:} - {:t20:{title}:}'")
+  ; "scripts/player-mpris.py --format '{icon} {:t20:{artist}:} - {:t20:{title}:}' || true")
 
 ; (deflisten music :initial ""
 ;   "playerctl --follow metadata --format '{{ artist }} - {{ title }}' || true")
@@ -97,7 +98,7 @@
   "tail -F ~/.local/share/eww_volume.tmp")
 
 (defpoll time :interval "60s"
-  "date '+%a %d,%H:%M'")
+  "date '+%d(%a),%H:%M'")
 
 (defwidget archupdatewidget [?text onclick]
   (box :orientation "horizontal"
