@@ -7,7 +7,7 @@
 
 # if [ -n "$1" ]; then
 #   if [ "$1" = "update" ]; then
-wget -q --spider example.org || exit
+# wget -q --spider example.org || exit
 
 #       # /usr/bin/notify-send "📰 Updating RSS feeds..."
 
@@ -26,8 +26,9 @@ wget -q --spider example.org || exit
 #                                               print ""}')" 
 # cat "${XDG_DATA_HOME:-$HOME/.local/share}/newsupdate.tmp"
 # /usr/bin/notify-send "📰 RSS feed update complete."
-export TERMINAL="kitty"
-setsid -w -f "$TERMINAL" -e newsboat &&
+# export TERMINAL="kitty"
+# setsid -w -f "$TERMINAL" -e newsboat &&
+newsboat
 
 /usr/bin/newsboat -x reload
 #   fi

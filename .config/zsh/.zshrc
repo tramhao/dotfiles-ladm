@@ -61,6 +61,7 @@ export MESA_LOADER_DRIVER_OVERRIDE=i965
 # export SDL_IM_MODULE=fcitx
 macchina
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 if [ $TERM = linux ]; then 
     setfont ter-p32b

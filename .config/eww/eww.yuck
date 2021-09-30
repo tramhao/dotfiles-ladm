@@ -1,18 +1,14 @@
 (defwidget bar []
   (centerbox :orientation "h"
     (workspaces)
-    (music)
+    (music_widget)
     (sidestuff)))
 
 (defwidget sidestuff []
   (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
-    ; (metric1 :label ""
-    ;          :value "${EWW_NET["wlp2s0"].NET_DOWN} KB"
-    ;          :onchange "")
     (mailupdatewidget)
     (newsupdatewidget)
-    (archupdatewidget :text ""
-                      :onclick "setsid -w -f kitty -e ./scripts/archafter")
+    (archupdatewidget)
     weather
     (metric :label "🖥️"
             :value {EWW_CPU.avg}
@@ -54,7 +50,7 @@
        :spacing 10
     (literal :content {wm-tags})))
 
-(defwidget music []
+(defwidget music_widget []
   (box :class "music"
        :orientation "h"
        :space-evenly false
@@ -100,18 +96,18 @@
 (defpoll time :interval "60s"
   "date '+%d(%a),%H:%M'")
 
-(defwidget archupdatewidget [?text onclick]
+(defwidget archupdatewidget []
   (box :orientation "horizontal"
        :halign "center"
-    arch 
-    (button :onclick onclick 
+    ; archupdate 
+    (button :onclick "setsid -w -f kitty -e scripts/archafter"
       arch)))
 
-(defpoll archupdate :interval "3600s"
+(defpoll archupdate :interval "1h"
   "scripts/archup")
 
 (deflisten arch :initial ""
-  "tail -F ~/.local/share/checkup.tmp")
+  `tail -F ~/.local/share/checkup.tmp`)
 
 (defwidget mailupdatewidget []
   (box :orientation "horizontal"
@@ -123,25 +119,27 @@
   "scripts/mailup")
 
 (deflisten mail :initial ""
-  "tail -F ~/.local/share/mailupdate.tmp")
+  `tail -F ~/.local/share/mailupdate.tmp`)
 
 (defwidget newsupdatewidget []
   (box :orientation "horizontal"
        :halign "center"
-    (button :onclick "scripts/newsafter" 
+    (button :onclick "setsid -w -f kitty -e 'scripts/newsafter'" 
       news)))
 
 (defpoll newsupdate :interval "2h"
+                    :initial ""
+                    :run-while "wget -q --spider example.org"
   "scripts/newsup")
 
 (deflisten news :initial ""
-  "tail -F ~/.local/share/newsupdate.tmp")
+  `tail -F ~/.local/share/newsupdate.tmp`)
 
 (defpoll weatherup :interval "2h"
   "scripts/weatherup")
 
 (deflisten weather :initial ""
-  "tail -F ~/.local/share/weatherup.tmp")
+  `tail -F ~/.local/share/weatherup.tmp`)
 
 (defpoll battery :interval "60s"
   "scripts/sb-battery")
@@ -164,7 +162,7 @@
   :geometry (geometry :x "0%"
                       :y "0%"
                       :width "90%"
-                      :height "20px"
+                      :height "30px"
                       :anchor "top center")
-  :reserve (struts :side "top" :distance "4%")
+  :reserve (struts :side "top" :distance "40px")
   (bar))
