@@ -6,6 +6,9 @@
 
 (defwidget sidestuff []
   (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
+    mailupdatecmd
+    newsupdatecmd
+    archupdatecmd
     (mailupdatewidget)
     (newsupdatewidget)
     (archupdatewidget)
@@ -103,7 +106,8 @@
     (button :onclick "setsid -w -f kitty -e scripts/archafter"
       arch)))
 
-(defpoll archupdate :interval "1h"
+(defpoll archupdatecmd :interval "1h"
+                       :initial ""
   "scripts/archup")
 
 (deflisten arch :initial ""
@@ -112,10 +116,11 @@
 (defwidget mailupdatewidget []
   (box :orientation "horizontal"
        :halign "center"
-    (button :onclick "scripts/mailafter" 
+    (button :onclick "setsid -w -f kitty -e scripts/mailafter" 
       mail)))
 
 (defpoll mailupdatecmd :interval "2h"
+                       :initial ""
   "scripts/mailup")
 
 (deflisten mail :initial ""
@@ -127,7 +132,7 @@
     (button :onclick "setsid -w -f kitty -e 'scripts/newsafter'" 
       news)))
 
-(defpoll newsupdate :interval "2h"
+(defpoll newsupdatecmd :interval "2h"
                     :initial ""
                     :run-while "wget -q --spider example.org"
   "scripts/newsup")

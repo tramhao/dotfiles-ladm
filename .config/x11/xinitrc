@@ -16,6 +16,7 @@ fi
 
 # ssh-agent dwm
 # exec dbus-launch leftwm
+# exec dbus-launch bspwm
 # ssh-agent leftwm
 exec dbus-launch `ssh-agent leftwm`
-# exec dbus-launch bspwm
+# exec /usr/bin/startplasma-x11
