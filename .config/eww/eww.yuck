@@ -6,9 +6,9 @@
 
 (defwidget sidestuff []
   (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
-    mailupdatecmd
-    newsupdatecmd
-    archupdatecmd
+    ; mailupdatecmd
+    ; newsupdatecmd
+    ; archupdatecmd
     (mailupdatewidget)
     (newsupdatewidget)
     (archupdatewidget)
@@ -20,8 +20,8 @@
             :value {EWW_RAM.used_mem_perc}
             :onchange "")
     (metric2  :label "🔊"
-              :value volume
-              :onchange "pamixer --set-volume {} --allow-boost && pamixer --get-volume > ~/.local/share/eww_volume.tmp")
+              :value eww_volume
+              :onchange "pamixer --set-volume {} --allow-boost")
     ; (metric :label "💾"
     ;         :value {round((1 - (EWW_DISK["/"].free / EWW_DISK["/"].total)) * 100, 0)}
     ;         :onchange "")
@@ -93,8 +93,12 @@
 ; (deflisten music :initial ""
 ;   "playerctl --follow metadata --format '{{ artist }} - {{ title }}' || true")
 
-(deflisten volume :initial ""
-  "tail -F ~/.local/share/eww_volume.tmp")
+; (deflisten volume :initial ""
+;   "tail -F ~/.local/share/eww_volume.tmp")
+
+(defpoll eww_volume :interval "2s"
+                    :initial "80"
+  "pamixer --get-volume")
 
 (defpoll time :interval "60s"
   "date '+%d(%a),%H:%M'")
@@ -166,8 +170,8 @@
   :windowtype "dock"
   :geometry (geometry :x "0%"
                       :y "0%"
-                      :width "90%"
-                      :height "30px"
+                      :width "100%"
+                      :height "20px"
                       :anchor "top center")
   :reserve (struts :side "top" :distance "40px")
   (bar))
