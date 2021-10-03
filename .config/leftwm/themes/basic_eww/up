@@ -42,5 +42,3 @@ do
     eww open bar$index
   let index=index+1
 done
-sleep 1
-eww reload
