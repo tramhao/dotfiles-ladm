@@ -31,13 +31,15 @@ key = "d"
 
 [[keybind]]
 command = "Execute"
-value = "pamixer --allow-boost -d 5 && pamixer --get-volume > ~/.local/share/eww_volume.tmp"
+value = "pamixer --allow-boost -d 5" 
+# && pamixer --get-volume > ~/.local/share/eww_volume.tmp"
 modifier = ["modkey"]
 key = "minus"
 
 [[keybind]]
 command = "Execute"
-value = "pamixer --allow-boost -i 5 && pamixer --get-volume > ~/.local/share/eww_volume.tmp"
+value = "pamixer --allow-boost -i 5"
+# && pamixer --get-volume > ~/.local/share/eww_volume.tmp"
 modifier = ["modkey"]
 key = "equal"
 

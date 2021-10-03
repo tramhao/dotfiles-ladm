@@ -70,7 +70,7 @@ weather=$'\0'
 API="https://api.openweathermap.org/data/2.5"
 
 # wget -q --spider example.org || exit
-echo ""
+# echo ""
 if [ -n "$CITY" ]; then
     if [ "$CITY" -eq "$CITY" ] 2>/dev/null; then
         CITY_PARAM="id=$CITY"
@@ -99,7 +99,9 @@ if [ -n "$weather" ]; then
     weather_icon=$(echo "$weather" | jq -r ".weather[0].icon")
 
     echo "$(get_icon "$weather_icon")"" $weather_temp$SYMBOL " > "${XDG_DATA_HOME:-$HOME/.local/share}/weatherup.tmp"
+    # eww update eww_weather="$(get_icon "$weather_icon")"" $weather_temp$SYMBOL "
 else
+    # eww update eww_weather="Service not available"
     echo "Service not available" > "${XDG_DATA_HOME:-$HOME/.local/share}/weatherup.tmp"
 fi
 # polybar-msg hook weather 1 2>&1 > /dev/null

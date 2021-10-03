@@ -6,13 +6,14 @@
 
 (defwidget sidestuff []
   (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
-    ; mailupdatecmd
-    ; newsupdatecmd
-    ; archupdatecmd
+    mailupdatecmd
+    newsupdatecmd
+    archupdatecmd
+    eww_weatherupdatecmd
     (mailupdatewidget)
     (newsupdatewidget)
     (archupdatewidget)
-    weather
+    (eww_weather_widget)
     (metric :label "🖥️"
             :value {EWW_CPU.avg}
             :onchange "")
@@ -61,7 +62,8 @@
     (button :onclick "scripts/player-mpris.py play-pause"
             :onrightclick "scripts/player-mpris.py next"
             :onmiddleclick "scripts/player-mpris.py previous"
-      {music != "" ? "🎵${music}" : ""})
+            :timeout "5s"
+      {music != "" ? "🎵 ${music}" : ""})
     ))
 
 (defwidget metric [label value onchange]
@@ -98,7 +100,9 @@
 
 (defpoll eww_volume :interval "2s"
                     :initial "80"
-  "pamixer --get-volume")
+  "pamixer --get-volume || true")
+
+; (defvar eww_volume "85")
 
 (defpoll time :interval "60s"
   "date '+%d(%a),%H:%M'")
@@ -115,7 +119,7 @@
   "scripts/archup")
 
 (deflisten arch :initial ""
-  `tail -F ~/.local/share/checkup.tmp`)
+  `tail -F ~/.local/share/checkup.tmp 2>/dev/null`)
 
 (defwidget mailupdatewidget []
   (box :orientation "horizontal"
@@ -128,7 +132,7 @@
   "scripts/mailup")
 
 (deflisten mail :initial ""
-  `tail -F ~/.local/share/mailupdate.tmp`)
+  `tail -F ~/.local/share/mailupdate.tmp 2>/dev/null`)
 
 (defwidget newsupdatewidget []
   (box :orientation "horizontal"
@@ -139,16 +143,25 @@
 (defpoll newsupdatecmd :interval "2h"
                     :initial ""
                     :run-while "wget -q --spider example.org"
+                    :timeout "30s"
   "scripts/newsup")
 
 (deflisten news :initial ""
-  `tail -F ~/.local/share/newsupdate.tmp`)
+  `tail -F ~/.local/share/newsupdate.tmp 2>/dev/null`)
 
-(defpoll weatherup :interval "2h"
+(defpoll eww_weatherupdatecmd :interval "2h"
+                              :initial ""
   "scripts/weatherup")
 
-(deflisten weather :initial ""
-  `tail -F ~/.local/share/weatherup.tmp`)
+; (defvar eww_weather "")
+(defwidget eww_weather_widget []
+  (box :orientation "horizontal"
+       :halign "center"
+    (button :onclick "scripts/weatherup"
+      weather)))
+
+(deflisten weather 
+  `tail -F ~/.local/share/weatherup.tmp 2>/dev/null`)
 
 (defpoll battery :interval "60s"
   "scripts/sb-battery")
@@ -171,7 +184,7 @@
   :geometry (geometry :x "0%"
                       :y "0%"
                       :width "100%"
-                      :height "20px"
+                      :height "10px"
                       :anchor "top center")
-  :reserve (struts :side "top" :distance "40px")
+  :reserve (struts :side "top" :distance "45px")
   (bar))
