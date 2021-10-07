@@ -7,12 +7,12 @@
 (defwidget sidestuff []
   (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
     mailupdatecmd
-    newsupdatecmd
-    archupdatecmd
-    eww_weatherupdatecmd
     (mailupdatewidget)
+    newsupdatecmd
     (newsupdatewidget)
+    archupdatecmd
     (archupdatewidget)
+    eww_weatherupdatecmd
     (eww_weather_widget)
     (metric :label "🖥️"
             :value {EWW_CPU.avg}
@@ -29,6 +29,7 @@
     battery
     time
     (powerbutton)))
+    ; ))
 ;
 ; (defwidget workspaces []
     ; (box :class "workspaces"
@@ -116,6 +117,7 @@
 
 (defpoll archupdatecmd :interval "1h"
                        :initial ""
+                       :visible false
   "scripts/archup")
 
 (deflisten arch :initial ""
@@ -129,6 +131,7 @@
 
 (defpoll mailupdatecmd :interval "2h"
                        :initial ""
+                       :visible false
   "scripts/mailup")
 
 (deflisten mail :initial ""
@@ -144,6 +147,7 @@
                     :initial ""
                     :run-while "wget -q --spider example.org"
                     :timeout "30s"
+                    :visible false
   "scripts/newsup")
 
 (deflisten news :initial ""
@@ -151,16 +155,16 @@
 
 (defpoll eww_weatherupdatecmd :interval "2h"
                               :initial ""
+                              :visible false
   "scripts/weatherup")
 
-; (defvar eww_weather "")
 (defwidget eww_weather_widget []
   (box :orientation "horizontal"
        :halign "center"
     (button :onclick "scripts/weatherup"
-      weather)))
+      eww_weather)))
 
-(deflisten weather 
+(deflisten eww_weather 
   `tail -F ~/.local/share/weatherup.tmp 2>/dev/null`)
 
 (defpoll battery :interval "60s"
