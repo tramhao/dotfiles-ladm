@@ -22,7 +22,7 @@
             :onchange "")
     (metric2  :label "🔊"
               :value eww_volume
-              :onchange "pamixer --set-volume {} --allow-boost")
+              :onchange "pamixer --set-volume {} --allow-boost && pamixer --get-volume > ~/.local/share/eww_volume.tmp")
     ; (metric :label "💾"
     ;         :value {round((1 - (EWW_DISK["/"].free / EWW_DISK["/"].total)) * 100, 0)}
     ;         :onchange "")
@@ -102,8 +102,6 @@
 (defpoll eww_volume :interval "2s"
                     :initial "80"
   "pamixer --get-volume || true")
-
-; (defvar eww_volume "85")
 
 (defpoll time :interval "60s"
   "date '+%d(%a),%H:%M'")
