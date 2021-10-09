@@ -22,11 +22,11 @@
             :onchange "")
     (metric2  :label "🔊"
               :value eww_volume
-              :onchange "pamixer --set-volume {} --allow-boost && pamixer --get-volume > ~/.local/share/eww_volume.tmp")
+              :onchange "pamixer --set-volume {} --allow-boost")
     ; (metric :label "💾"
     ;         :value {round((1 - (EWW_DISK["/"].free / EWW_DISK["/"].total)) * 100, 0)}
     ;         :onchange "")
-    battery
+    ; battery
     time
     (powerbutton)))
     ; ))
@@ -171,7 +171,8 @@
 (defwidget powerbutton[]
   (box :orientation "horizontal"
        :halign "center"
-    (button :onclick "scripts/powermenu.sh" 
+    (button :onclick "sysact-leftwm" 
+    ; (button :onclick "scripts/powermenu.sh" 
       " 🔘 ")))
 
 
@@ -186,7 +187,7 @@
   :geometry (geometry :x "0%"
                       :y "0%"
                       :width "100%"
-                      :height "10px"
+                      :height "20px"
                       :anchor "top center")
   :reserve (struts :side "top" :distance "45px")
   (bar))

@@ -86,7 +86,8 @@ key = "r"
 
 [[keybind]]
 command = "Execute"
-value = "~/.config/eww/scripts/powermenu.sh"
+value = "sysact-leftwm"
+# value = "~/.config/eww/scripts/powermenu.sh"
 modifier = ["modkey"]
 key = "BackSpace"
 
