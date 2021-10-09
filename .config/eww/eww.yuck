@@ -26,7 +26,7 @@
     ; (metric :label "💾"
     ;         :value {round((1 - (EWW_DISK["/"].free / EWW_DISK["/"].total)) * 100, 0)}
     ;         :onchange "")
-    ; battery
+    battery
     time
     (powerbutton)))
     ; ))
@@ -171,7 +171,7 @@
 (defwidget powerbutton[]
   (box :orientation "horizontal"
        :halign "center"
-    (button :onclick "sysact-leftwm" 
+    (button :onclick "scripts/sysact-leftwm" 
     ; (button :onclick "scripts/powermenu.sh" 
       " 🔘 ")))
 
