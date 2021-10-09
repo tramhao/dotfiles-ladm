@@ -1,7 +1,7 @@
 #!/bin/bash
 rofi -show p -modi p:rofi-power-menu \
-  -theme Paper \
-  -font "JetBrains Mono NF 30" \
+  -theme Arc-Dark \
+  -font "JetBrains Mono Nerd Font 30" \
   -width 20 \
   -lines 6
 # chosen=$(echo -e "[Cancel]\nLogout\nShutdown\nReboot\nSuspend\nLock\n" | rofi -dmenu -i -font "hack 30")
