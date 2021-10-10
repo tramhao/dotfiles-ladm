@@ -156,10 +156,10 @@ lvim.builtin.treesitter.autotag.enable = true
 lvim.lang.lua.formatters = { { exe = "stylua" } }
 lvim.lang.lua.linters = { { exe = "selene" } }
 lvim.lsp.override = { "rust" }
--- lvim.lang.rust.formatters = { { exe = "rustfmt" } }
+lvim.lang.rust.formatters = { { exe = "rustfmt" } }
 lvim.lsp.diagnostics.virtual_text = true
 -- lvim.lsp.diagnostics.virtual_text = false
-require("user.json_schemas").setup()
+-- require("user.json_schemas").setup()
 -- lvim.builtin.telescope.on_config_done = function()
 -- 	local actions = require("telescope.actions")
 -- 	lvim.builtin.telescope.defaults.mappings.i["<C-j>"] = actions.move_selection_next
@@ -215,17 +215,17 @@ require("user.json_schemas").setup()
 --     },
 -- }
 
-lvim.plugins = {
-	{ "tanvirtin/nvim-monokai" },
-	{ "folke/trouble.nvim", cmd = "TroubleToggle" },
-	{
-		"simrat39/rust-tools.nvim",
-		config = function()
-			require("user.rust_tools").config()
-		end,
-		ft = { "rust", "rs" },
-	},
-}
+-- lvim.plugins = {
+-- 	{ "tanvirtin/nvim-monokai" },
+-- 	{ "folke/trouble.nvim", cmd = "TroubleToggle" },
+-- 	{
+-- 		"simrat39/rust-tools.nvim",
+-- 		config = function()
+-- 			require("user.rust_tools").config()
+-- 		end,
+-- 		ft = { "rust", "rs" },
+-- 	},
+-- }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- lvim.autocommands.custom_groups = {

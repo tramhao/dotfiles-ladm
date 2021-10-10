@@ -63,7 +63,7 @@
     (button :onclick "scripts/player-mpris.py play-pause"
             :onrightclick "scripts/player-mpris.py next"
             :onmiddleclick "scripts/player-mpris.py previous"
-            :timeout "5s"
+;            :timeout "5s"
       {music != "" ? "🎵 ${music}" : ""})
     ))
 

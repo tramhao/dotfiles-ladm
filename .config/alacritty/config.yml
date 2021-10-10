@@ -63,7 +63,7 @@ font:
     # family: Hack NF
     # family: SpaceMono NF
     style: Regular
-  size: 14
+  size: 12
 
 window:
   padding:
