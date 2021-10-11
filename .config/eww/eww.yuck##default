@@ -109,6 +109,7 @@
 (defwidget archupdatewidget []
   (box :orientation "horizontal"
        :halign "center"
+       :class "archupdate"
     ; archupdate 
     (button :onclick "setsid -w -f kitty -e scripts/archafter"
       arch)))
@@ -124,6 +125,7 @@
 (defwidget mailupdatewidget []
   (box :orientation "horizontal"
        :halign "center"
+       :class "mailupdate"
     (button :onclick "setsid -w -f kitty -e scripts/mailafter" 
       mail)))
 
@@ -138,6 +140,7 @@
 (defwidget newsupdatewidget []
   (box :orientation "horizontal"
        :halign "center"
+       :class "newsupdate"
     (button :onclick "setsid -w -f kitty -e 'scripts/newsafter'" 
       news)))
 
@@ -159,6 +162,7 @@
 (defwidget eww_weather_widget []
   (box :orientation "horizontal"
        :halign "center"
+       :class "weather"
     (button :onclick "scripts/weatherup"
       eww_weather)))
 
