@@ -64,7 +64,7 @@
             :onrightclick "scripts/player-mpris.py next"
             :onmiddleclick "scripts/player-mpris.py previous"
 ;            :timeout "5s"
-      {music != "" ? "🎵 ${music}" : ""})
+      {music != "" ? "💿 ${music}" : ""})
     ))
 
 (defwidget metric [label value onchange]
