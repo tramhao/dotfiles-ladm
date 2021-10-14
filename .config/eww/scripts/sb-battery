@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Prints all batteries, their percentage remaining and an emoji corresponding
 # to charge status (🔌 for plugged up, 🔋 for discharging on battery, etc.).
@@ -36,6 +36,7 @@ do
 	# Will make a warn variable if discharging and low
 	[ "$status" = "🔋" ] && [ "$capacity" -le 25 ] && warn="❗"
 	# Prints the info
-	printf "%s%s%d%% \n" "$status" "$warn" "$capacity"; unset warn
+	printf "%s%s%d%%  " "$status" "$warn" "$capacity"; unset warn
+	# printf "%s%s%d%% \n" "$status" "$warn" "$capacity"; unset warn
 done && exit 0
 # done && return 0

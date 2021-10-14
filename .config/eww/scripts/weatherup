@@ -81,6 +81,7 @@ if [ -n "$CITY" ]; then
     COUNTER=0
     while [ $COUNTER -lt 10 ] && [ -z "$weather" ];do
         weather=$(curl -sf "$API/weather?appid=$KEY&$CITY_PARAM&units=$UNITS")
+        sleep 10
         let COUNTER=COUNTER+1
     done
 else

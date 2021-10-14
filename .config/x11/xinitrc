@@ -14,6 +14,7 @@ else
 	. "$HOME/.xprofile"
 fi
 
+# source .xrandr
 # ssh-agent dwm
 # exec dbus-launch leftwm
 # exec dbus-launch bspwm

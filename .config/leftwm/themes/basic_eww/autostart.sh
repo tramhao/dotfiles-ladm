@@ -12,6 +12,14 @@ if [ $(hostname) = "XMLaptop" ]; then
       run nextcloud --background
   fi
 fi
+if [ $(uname -n) = "lenovo-t480" ]; then
+  if [ `ifconfig wlan0 | awk '/inet /{ print $6;}'` = "192.168.186.255" ]; then
+      # source ~/.xrandr
+      nextcloud --background &
+      run autorandr -l docked
+  fi
+fi
+
 
 # run remaps
 # run xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources # Uncomment to use Xresources colors/settings on startup
@@ -21,6 +29,6 @@ fi
 # run xset r rate 400 50 # Speed xrate up
 # run unclutter		# Rmove mouse when idle
 run fcitx5
-# run /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-# run eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)
+run /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+run eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)
 run setbg ~/Pictures/wallpapers
