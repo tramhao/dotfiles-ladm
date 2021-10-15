@@ -14,11 +14,23 @@ else
 	. "$HOME/.xprofile"
 fi
 
+if [ $(uname -n) = "lenovo-t480" ]; then
+  if [ `ifconfig wlan0 | awk '/inet /{ print $6;}'` = "192.168.186.255" ]; then
+      source ~/.xrandr &
+      # nextcloud --background &
+      # run autorandr -l docked
+  fi
+fi
+
+if [ -x /usr/bin/gpg-agent ]; then
+    eval "$(/usr/bin/gpg-agent --daemon)"
+fi
+
 # source .xrandr
 # ssh-agent dwm
-# exec dbus-launch leftwm
+exec dbus-launch leftwm
 # exec dbus-launch bspwm
 # ssh-agent leftwm
 # exec dbus-launch `ssh-agent leftwm`
-exec dbus-launch --exit-with-session `ssh-agent leftwm`
+# exec dbus-launch --exit-with-session `ssh-agent leftwm`
 # exec /usr/bin/startplasma-x11
