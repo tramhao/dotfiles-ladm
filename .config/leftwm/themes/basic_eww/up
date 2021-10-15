@@ -48,8 +48,8 @@ if [ $(hostname) = "XMLaptop" ]; then
     eww reload
 fi
 
-if [ $(uname -n) = "lenovo-t480" ]; then
-    sleep 10
-    eww reload
-fi
+# if [ $(uname -n) = "lenovo-t480" ]; then
+#     sleep 10
+#     eww reload
+# fi
 
