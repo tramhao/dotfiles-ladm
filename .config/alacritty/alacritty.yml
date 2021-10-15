@@ -1,38 +1,43 @@
-background_opacity: 0.7
+background_opacity: 0.9
 colors:
   # Default colors
   primary:
-    background: '#0A0E14'
-    foreground: '#B3B1AD'
+    background: '#1b2b34'
+    foreground: '#d8dee9'
+
+  # Colors the cursor will use if `custom_cursor_colors` is true
+  cursor:
+    text: '#1b2b34'
+    cursor: '#ffffff'
 
   # Normal colors
   normal:
-    black: '#01060E'
-    red: '#EA6C73'
-    green: '#91B362'
-    yellow: '#F9AF4F'
-    blue: '#53BDFA'
-    magenta: '#FAE994'
-    cyan: '#90E1C6'
-    white: '#C7C7C7'
+    black: '#343d46'
+    red: '#EC5f67'
+    green: '#99C794'
+    yellow: '#FAC863'
+    blue: '#6699cc'
+    magenta: '#c594c5'
+    cyan: '#5fb3b3'
+    white: '#d8dee9'
 
   # Bright colors
   bright:
-    black: '#686868'
-    red: '#F07178'
-    green: '#C2D94C'
-    yellow: '#FFB454'
-    blue: '#59C2FF'
-    magenta: '#FFEE99'
-    cyan: '#95E6CB'
-    white: '#FFFFFF'
+    black: '#343d46'
+    red: '#EC5f67'
+    green: '#99C794'
+    yellow: '#FAC863'
+    blue: '#6699cc'
+    magenta: '#c594c5'
+    cyan: '#5fb3b3'
+    white: '#d8dee9'
 font:
   bold:
-    family: UbuntuMono Nerd Font
+    family: SFMono 
   italic:
-    family: UbuntuMono Nerd Font
+    family: SFMono
   normal:
-    family: UbuntuMono Nerd Font
+    family: SFMono
     style: Regular
   size: 18
 window:
