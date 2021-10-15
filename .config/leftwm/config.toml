@@ -8,8 +8,8 @@ focus_behaviour = "Sloppy"
 focus_new_windows = true
 
 [[scratchpad]]
-name = "kitty"
-value = "kitty -o font_size=14"
+name = "alacritty"
+value = "alacritty -o font.size=16"
 x = 0.49
 y = 0.20
 height = 0.80
@@ -18,7 +18,7 @@ width =  0.51
 
 [[keybind]]
 command = "Execute"
-value = "kitty -e nvim -c WikiIndex"
+value = "alacritty -e nvim -c WikiIndex"
 modifier = ["modkey"]
 key = "n"
 
@@ -51,7 +51,7 @@ key = "w"
 
 [[keybind]]
 command = "Execute"
-value = "kitty"
+value = "alacritty"
 modifier = ["modkey"]
 key = "Return"
 
@@ -68,13 +68,13 @@ key = "w"
 
 [[keybind]]
 command = "ToggleScratchPad"
-value = "kitty" # Name set for the scratchpad
+value = "alacritty" # Name set for the scratchpad
 modifier = []
 key = "F12"
 
 [[keybind]]
 command = "ToggleScratchPad"
-value = "st" # Name set for the scratchpad
+value = "alacritty" # Name set for the scratchpad
 modifier = []
 key = "Insert"
 

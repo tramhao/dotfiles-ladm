@@ -6,6 +6,8 @@ if [ -z "$LD_LIBRARY_PATH" ]; then
   export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/lib"
 fi
 
+. $SCRIPTPATH/autostart.sh
+
 # Down the last running theme
 if [ -f "/tmp/leftwm-theme-down" ]; then
     /tmp/leftwm-theme-down
@@ -31,7 +33,6 @@ leftwm-command "LoadTheme $SCRIPTPATH/theme.toml"
 # if [ -x "$(command -v feh)" ]; then
 #   feh --bg-scale $SCRIPTPATH/background.jpg
 # fi
-. $SCRIPTPATH/autostart.sh
 #open eww 'bar' windows
 #this is a bit of an uggly hack, a more elegant way will hopefully be possible with a future `eww` version
 sleep 1
@@ -51,6 +52,4 @@ if [ $(uname -n) = "lenovo-t480" ]; then
     sleep 10
     eww reload
 fi
-
-
 

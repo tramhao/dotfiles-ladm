@@ -45,7 +45,7 @@ local opts = {
 	-- these override the defaults set by rust-tools.nvim
 	-- see https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#rust_analyzer
 	server = {
-		cmd = { "/home/tramhao/.local/share/nvim/lspinstall/rust/rust-analyzer" },
+		cmd = { "rust-analyzer" },
 		on_init = require("lsp").common_on_init,
 		on_attach = require("lsp").common_on_attach,
 		capabilities = require("lsp").capabilities,
