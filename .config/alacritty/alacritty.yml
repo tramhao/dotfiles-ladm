@@ -40,8 +40,10 @@ window:
     x: 0
 key_bindings:
   # (Windows, Linux, and BSD only)
-  - { key: V, mods: Control|Shift, action: Paste }
-  - { key: C, mods: Control|Shift, action: Copy }
+  # - { key: V, mods: Control|Shift, action: Paste }
+  - { key: V, mods: Alt, action: Paste }
+  - { key: C, mods: Alt, action: Copy }
+  # - { key: C, mods: Control|Shift, action: Copy }
   # - { key: Insert,   mods: Shift,         action: PasteSelection   }
   - { key: Paste,                    action: Paste                            }
   - { key: Copy,                     action: Copy                             }
@@ -49,27 +51,27 @@ key_bindings:
   # - { key: L,         mods: Control, chars: "\x0c"                            }
   - {
       key: Up,
-      mods: Shift,
+      mods: Alt,
       action: ScrollLineUp,
       mode: ~Alt
     }
   - {
       key: Left,
-      mods: Shift,
+      mods: Alt,
       action: ScrollPageUp,
       mode: ~Alt
     }
   - {
       key: Down,
-      mods: Shift,
+      mods: Alt,
       action: ScrollLineDown,
       mode: ~Alt
     }
   - {
       key: Right,
-      mods: Shift,
+      mods: Alt,
       action: ScrollPageDown,
       mode: ~Alt
     }
-  - { key: Home,      mods: Shift,   action: ScrollToTop,    mode: ~Alt       }
-  - { key: End,       mods: Shift,   action: ScrollToBottom, mode: ~Alt       }
+  - { key: Home,      mods: Alt,   action: ScrollToTop,    mode: ~Alt       }
+  - { key: End,       mods: Alt,   action: ScrollToBottom, mode: ~Alt       }
