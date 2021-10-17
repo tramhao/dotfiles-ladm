@@ -123,7 +123,12 @@ return require("packer").startup(function()
 	})
 	use({
 		"norcalli/nvim-colorizer.lua",
-		cmd = { "ColorizerDetachFromBuffer", "ColorizerReloadAllBuffers", "ColorizerToggle", "ColorizerAttachToBuffer" },
+		cmd = {
+			"ColorizerDetachFromBuffer",
+			"ColorizerReloadAllBuffers",
+			"ColorizerToggle",
+			"ColorizerAttachToBuffer",
+		},
 		config = function()
 			require("colorizer").setup()
 		end,
@@ -150,5 +155,12 @@ return require("packer").startup(function()
 		"romgrk/barbar.nvim",
 		requires = { "kyazdani42/nvim-web-devicons" },
 	})
-    use("elkowar/yuck.vim")
+	use("elkowar/yuck.vim")
+	use({ "soywod/himalaya", rtp = "vim" })
+	--
+	-- Add those lines after the `require('packer').startup(...)`
+	-- to manually source the packer compiled file
+
+	local packer_compiled = vim.fn.stdpath("config") .. "/plugin/packer_compiled.lua"
+	vim.cmd("luafile" .. packer_compiled)
 end)

@@ -3,6 +3,10 @@ local cmd = vim.cmd -- to execute Vim commands e.g. cmd('pwd')
 local indent = 4
 vim.cmd("au BufWritePost ~/.config/nvim/*.{vim,lua} luafile ~/.config/nvim/init.lua")
 
+-- Fix for alacritty -e
+vim.cmd("autocmd VimEnter * :sleep 20m")
+vim.cmd("autocmd VimEnter * :silent exec '!kill -s SIGWINCH $PPID'")
+
 -- TODO: Remove when https://github.com/neovim/neovim/pull/13479 lands
 
 vim.g.mapleader = ";"
