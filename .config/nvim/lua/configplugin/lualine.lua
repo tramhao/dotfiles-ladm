@@ -2,8 +2,10 @@ return function ()
 require "lualine".setup{
       options = {
         theme = 'dracula',
-        separator = '|',
         icons_enabled = true,
+        component_separators = {'', ''},
+        section_separators = {'', ''},
+        disabled_filetypes = {},
       },
       sections = {
         lualine_a = { 'mode' },

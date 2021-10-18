@@ -156,11 +156,11 @@ return require("packer").startup(function()
 		requires = { "kyazdani42/nvim-web-devicons" },
 	})
 	use("elkowar/yuck.vim")
-	use({ "soywod/himalaya", rtp = "vim" })
+	-- use({ "soywod/himalaya", rtp = "vim" })
 	--
 	-- Add those lines after the `require('packer').startup(...)`
 	-- to manually source the packer compiled file
 
-	local packer_compiled = vim.fn.stdpath("config") .. "/plugin/packer_compiled.lua"
-	vim.cmd("luafile" .. packer_compiled)
+	-- local packer_compiled = vim.fn.stdpath("config") .. "/plugin/packer_compiled.lua"
+	-- vim.cmd("luafile" .. packer_compiled)
 end)
