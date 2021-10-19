@@ -23,8 +23,8 @@ fi
 run fcitx5
 run /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 run eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)
-run /usr/lib/pam_kwallet_init
-# exec --no-startup-id /usr/lib/pam_kwallet_init &
+# run /usr/lib/pam_kwallet_init
+# exec /usr/lib/pam_kwallet_init &
 run setbg ~/Pictures/wallpapers
 
 if [ $(uname -n) = "lenovo-t480" ]; then
