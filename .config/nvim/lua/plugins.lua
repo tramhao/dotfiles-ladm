@@ -157,6 +157,7 @@ return require("packer").startup(function()
 		requires = { "kyazdani42/nvim-web-devicons" },
 	})
 	use("elkowar/yuck.vim")
+	use("alopatindev/cargo-limit")
 	-- use({ "soywod/himalaya", rtp = "vim" })
 	--
 	-- Add those lines after the `require('packer').startup(...)`
