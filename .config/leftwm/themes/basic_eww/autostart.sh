@@ -30,7 +30,7 @@ run setbg ~/Pictures/wallpapers
 if [ $(uname -n) = "lenovo-t480" ]; then
   if [ `ifconfig wlan0 | awk '/inet /{ print $6;}'` = "192.168.186.255" ]; then
       # source ~/.xrandr
-      nextcloud --background &
+      nextcloud --background --logfile ~/.cache/nextcloud.log --logdebug &
       # run autorandr -l docked
   fi
 fi

@@ -61,6 +61,9 @@ export MESA_LOADER_DRIVER_OVERRIDE=i965
 # export SDL_IM_MODULE=fcitx
 macchina
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+if [ "$USER" = "root" ]; then
+    export _ZO_DATA_DIR="/root/.local/share/zoxide"
+fi
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 if [ $TERM = linux ]; then 

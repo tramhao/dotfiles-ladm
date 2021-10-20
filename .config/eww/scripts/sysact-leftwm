@@ -10,8 +10,8 @@ esac
 
 cmds="\
  lock		slock
- leave leftwm 	loginctl kill-session $XDG_SESSION_ID 
- renew leftwm 	 leftwm-command SoftReload  
+ leave leftwm 	loginctl kill-session $XDG_SESSION_ID 2>&1 >/dev/null
+ renew leftwm 	 leftwm-command SoftReload
  standby	slock ${hib:-systemctl suspend}
  reboot	${reb:-sudo -A reboot}
  shutdown	${shut:-sudo -A shutdown -h now}"
