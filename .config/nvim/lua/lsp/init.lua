@@ -98,12 +98,19 @@ local function documentHighlight(client, _)
 		)
 	end
 end
+
+local lsp_status = require("lsp-status")
+lsp_status.register_progress()
+
 local lsp_config = {}
 
 lsp_config.capabilities = vim.lsp.protocol.make_client_capabilities()
 lsp_config.capabilities.textDocument.completion.completionItem.snippetSupport = true
+-- Set default client capabilities plus window/workDoneProgress
+-- lsp_config.capabilities = vim.tbl_extend("keep", lsp_config.capabilities or {}, lsp_status.capabilities)
 
 function lsp_config.common_on_attach(client, bufnr)
+	lsp_status.on_attach(client)
 	print("LSP started.")
 	documentHighlight(client, bufnr)
 end

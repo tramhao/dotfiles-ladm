@@ -13,6 +13,7 @@
 --     }
 -- }
 --
+
 local opts = {
 	tools = { -- rust-tools options
 		autoSetHints = true,
@@ -66,6 +67,7 @@ local opts = {
 
 require("rust-tools").setup(opts)
 vim.cmd("autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync()")
+
 -- Show diagnostic popup on cursor hold
 -- vim.cmd("autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()")
 
