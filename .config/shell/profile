@@ -151,6 +151,6 @@ ex=🎯:\
 # sudo -n loadkeys ${XDG_DATA_HOME:-$HOME/.local/share}/larbs/ttymaps.kmap 2>/dev/null
 
 if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
-  startx
-  # startx -- -nolisten tcp >/dev/null 2>&1
+  # startx
+  startx -- -nolisten tcp >/dev/null 2>&1
 fi
