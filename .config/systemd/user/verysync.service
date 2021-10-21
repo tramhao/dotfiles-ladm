@@ -3,7 +3,7 @@ Description=Verysync - Power Verysync File Synchronization
 Documentation=man:verysync(1)
 
 [Service]
-ExecStart=/usr/bin/verysync -no-browser -no-restart -logflags=0
+ExecStart=/home/tramhao/.local/bin/verysync -no-browser -no-restart -logflags=0
 Restart=on-failure
 SuccessExitStatus=3 4
 RestartForceExitStatus=3 4
