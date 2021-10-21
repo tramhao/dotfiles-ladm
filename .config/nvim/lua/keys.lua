@@ -8,7 +8,7 @@ local opts = { noremap = true, silent = true }
 
 -- vim.cmd('au FileType cpp ia <buffer> itn int')
 
-vim.api.nvim_set_keymap("c", "w!!", "w !sudo tee %", { silent = false })
+vim.api.nvim_set_keymap("c", "w!!", "w !doas tee %", { silent = false })
 vim.api.nvim_set_keymap("i", "jk", "<Esc>", opts)
 vim.api.nvim_set_keymap("i", "kj", "<Esc>", opts)
 vim.api.nvim_set_keymap("i", "ii", "<Esc>", opts)

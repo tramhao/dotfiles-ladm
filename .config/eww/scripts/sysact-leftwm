@@ -13,8 +13,8 @@ cmds="\
  leave leftwm 	loginctl terminate-session $XDG_SESSION_ID
  renew leftwm 	 leftwm-command SoftReload
  standby	slock ${hib:-systemctl suspend}
- reboot	${reb:-sudo -A reboot}
- shutdown	${shut:-sudo -A shutdown -h now}"
+ reboot	${reb:-doas reboot}
+ shutdown	${shut:-doas shutdown -h now}"
 
 # 🐻 standbay	slock ${hib:-systemctl suspend -i}
 choice="$(echo "$cmds" | cut -d'	' -f 1 | dmenu)" || exit 1
