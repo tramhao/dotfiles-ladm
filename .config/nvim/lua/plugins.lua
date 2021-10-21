@@ -135,10 +135,9 @@ return require("packer").startup(function()
 	})
 	use({
 		"hoob3rt/lualine.nvim",
-		requires = { { "kyazdani42/nvim-web-devicons" } },
+		requires = { { "kyazdani42/nvim-web-devicons" }, { "nvim-lua/lsp-status.nvim" } },
 		config = require("configplugin.lualine"),
 	})
-	use("nvim-lua/lsp-status.nvim")
 	use({ "tweekmonster/startuptime.vim", opt = true, cmd = "StartupTime" })
 	use({ "fatih/vim-go", ft = { "md", "zsh", "sh", "go" } })
 	use({
