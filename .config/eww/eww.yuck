@@ -112,7 +112,7 @@
        :halign "center"
        :class "archupdate"
     ; archupdate 
-    (button :onclick "setsid -w -f kitty -e scripts/archafter"
+    (button :onclick "setsid -w -f alacritty -e scripts/archafter"
       arch)))
 
 (defpoll archupdatecmd :interval "1h"
@@ -127,7 +127,7 @@
   (box :orientation "horizontal"
        :halign "center"
        :class "mailupdate"
-    (button :onclick "setsid -w -f kitty -e scripts/mailafter" 
+    (button :onclick "setsid -w -f alacritty -e scripts/mailafter"
       mail)))
 
 (defpoll mailupdatecmd :interval "2h"
@@ -142,7 +142,7 @@
   (box :orientation "horizontal"
        :halign "center"
        :class "newsupdate"
-    (button :onclick "setsid -w -f kitty -e 'scripts/newsafter'" 
+    (button :onclick "setsid -w -f alacritty -e 'scripts/newsafter'"
       news)))
 
 (defpoll newsupdatecmd :interval "2h"
