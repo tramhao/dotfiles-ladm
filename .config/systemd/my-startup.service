@@ -1,0 +1,8 @@
+# /etc/systemd/system/my-startup.service
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/home/tramhao/.config/systemd/wakeup_by_usb_keyboard.sh
+
+[Install]
+WantedBy=multi-user.target
