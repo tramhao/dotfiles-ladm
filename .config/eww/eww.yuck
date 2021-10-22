@@ -112,7 +112,7 @@
        :halign "center"
        :class "archupdate"
     ; archupdate 
-    (button :onclick "setsid -w -f alacritty -e scripts/archafter"
+    (button :onclick "WINIT_X11_SCALE_FACTOR=1 setsid -w -f alacritty -e scripts/archafter"
       arch)))
 
 (defpoll archupdatecmd :interval "1h"
@@ -127,7 +127,7 @@
   (box :orientation "horizontal"
        :halign "center"
        :class "mailupdate"
-    (button :onclick "setsid -w -f alacritty -e scripts/mailafter"
+    (button :onclick "WINIT_X11_SCALE_FACTOR=1 setsid -w -f alacritty -e scripts/mailafter"
       mail)))
 
 (defpoll mailupdatecmd :interval "2h"
@@ -142,12 +142,13 @@
   (box :orientation "horizontal"
        :halign "center"
        :class "newsupdate"
-    (button :onclick "setsid -w -f alacritty -e 'scripts/newsafter'"
+    (button :onclick "WINIT_X11_SCALE_FACTOR=1 setsid -w -f alacritty -e 'scripts/newsafter'"
       news)))
 
 (defpoll newsupdatecmd :interval "2h"
                     :initial ""
                     :run-while "wget -q --spider example.org"
+                    ; :run-while "!(pgrep newsboat)"
                     :timeout "30s"
                     :visible false
   "scripts/newsup")
