@@ -1,7 +1,7 @@
 (defwidget bar []
   (centerbox :orientation "h"
-    (workspaces)
     (music_widget)
+    (workspaces)
     (sidestuff)))
 
 (defwidget sidestuff []
@@ -60,7 +60,7 @@
   (box :class "music"
        :orientation "h"
        :space-evenly false
-       :halign "center"
+       :halign "start"
     (button :onclick "scripts/player-mpris.py play-pause"
             :onrightclick "scripts/player-mpris.py next"
             :onmiddleclick "scripts/player-mpris.py previous"
