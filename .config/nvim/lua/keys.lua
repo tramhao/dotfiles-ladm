@@ -8,7 +8,8 @@ local opts = { noremap = true, silent = true }
 
 -- vim.cmd('au FileType cpp ia <buffer> itn int')
 
-vim.api.nvim_set_keymap("c", "w!!", "w !doas tee %", { silent = false })
+vim.api.nvim_set_keymap("c", "W!", "silent! execute 'w !doas tee > /dev/null %' <bar> edit!", { silent = false })
+-- vim.api.nvim_set_keymap("c", "W!", "execute 'silent! w !doas tee > /dev/null %' <bar> edit!", { silent = false })
 vim.api.nvim_set_keymap("i", "jk", "<Esc>", opts)
 vim.api.nvim_set_keymap("i", "kj", "<Esc>", opts)
 vim.api.nvim_set_keymap("i", "ii", "<Esc>", opts)
@@ -23,8 +24,8 @@ utils.map("i", "<C-u>", "<C-g>u<C-u>") -- Make <C-u> undo-friendly
 utils.map("i", "<C-w>", "<C-g>u<C-w>") -- Make <C-w> undo-friendly
 
 -- <Tab> to navigate the completion menu
-utils.map("i", "<S-Tab>", 'pumvisible() ? "\\<C-p>" : "\\<Tab>"', { expr = true })
-utils.map("i", "<Tab>", 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', { expr = true })
+-- utils.map("i", "<S-Tab>", 'pumvisible() ? "\\<C-p>" : "\\<Tab>"', { expr = true })
+-- utils.map("i", "<Tab>", 'pumvisible() ? "\\<C-n>" : "\\<Tab>"', { expr = true })
 
 utils.map("n", "<C-l>", "<cmd>noh<CR>") -- Clear highlights
 utils.map("n", "<leader>o", "m`o<Esc>``") -- Insert a newline in normal mode

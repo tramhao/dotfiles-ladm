@@ -19,33 +19,50 @@ return function()
 				behavior = cmp.ConfirmBehavior.Replace,
 				select = true,
 			}),
-			["<Tab>"] = cmp.mapping(function(fallback)
-				if vim.fn.pumvisible() == 1 then
-					vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<C-n>", true, true, true), "n")
-				elseif luasnip.expand_or_jumpable() then
-					vim.fn.feedkeys(
-						vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true),
-						""
-					)
+			-- If you want tab completion :'(
+			--  First you have to just promise to read `:help ins-completion`.
+			--
+			["<Tab>"] = function(fallback)
+				if cmp.visible() then
+					cmp.select_next_item()
 				else
 					fallback()
 				end
-			end, {
-				"i",
-				"s",
-			}),
-			["<S-Tab>"] = cmp.mapping(function(fallback)
-				if vim.fn.pumvisible() == 1 then
-					vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<C-p>", true, true, true), "n")
-				elseif luasnip.jumpable(-1) then
-					vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-jump-prev", true, true, true), "")
+			end,
+			["<S-Tab>"] = function(fallback)
+				if cmp.visible() then
+					cmp.select_prev_item()
 				else
 					fallback()
 				end
-			end, {
-				"i",
-				"s",
-			}),
+			end,
+			-- ["<Tab>"] = cmp.mapping(function(fallback)
+			-- 	if vim.fn.pumvisible() == 1 then
+			-- 		vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<C-n>", true, true, true), "n")
+			-- 	elseif luasnip.expand_or_jumpable() then
+			-- 		vim.fn.feedkeys(
+			-- 			vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true),
+			-- 			""
+			-- 		)
+			-- 	else
+			-- 		fallback()
+			-- 	end
+			-- end, {
+			-- 	"i",
+			-- 	"s",
+			-- }),
+			-- ["<S-Tab>"] = cmp.mapping(function(fallback)
+			-- 	if vim.fn.pumvisible() == 1 then
+			-- 		vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<C-p>", true, true, true), "n")
+			-- 	elseif luasnip.jumpable(-1) then
+			-- 		vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-jump-prev", true, true, true), "")
+			-- 	else
+			-- 		fallback()
+			-- 	end
+			-- end, {
+			-- 	"i",
+			-- 	"s",
+			-- }),
 		},
 		sources = {
 			{ name = "nvim_lsp" },
