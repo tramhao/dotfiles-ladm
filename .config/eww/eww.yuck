@@ -1,13 +1,14 @@
 (defwidget bar []
   (centerbox :orientation "h"
     (workspaces)
-    (leftstuff)
+    ; (leftstuff)
+    (music_widget)
     (rightstuff)))
 
-(defwidget leftstuff []
-  (box :class "sidestuff" :orientation "h" :space-evenly false :halign "start" 
-    (music_widget)
-    ))
+; (defwidget leftstuff []
+;   (box :class "sidestuff" :orientation "h" :space-evenly false :halign "start" 
+;     (music_widget)
+;     ))
 
 (deflisten window_title 
   "leftwm-state -w 0 -s '{{ window_title }}'")
@@ -60,12 +61,15 @@
 (defwidget workspaces []
   (box :class "workspaces"
        :orientation "h"
-       :space-evenly true
+       :space-evenly false
        :halign "start"
        :spacing 10
+    empty_space
     (literal :content {wm-tags})
+    empty_space
     window_title
     ))
+(defvar empty_space " ")
 
 (defwidget music_widget []
   (box :class "music"
