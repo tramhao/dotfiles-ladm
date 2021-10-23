@@ -1,10 +1,19 @@
 (defwidget bar []
   (centerbox :orientation "h"
-    (music_widget)
     (workspaces)
-    (sidestuff)))
+    (leftstuff)
+    (rightstuff)))
 
-(defwidget sidestuff []
+(defwidget leftstuff []
+  (box :class "sidestuff" :orientation "h" :space-evenly false :halign "start" 
+    (music_widget)
+    ))
+
+(deflisten window_title 
+  "leftwm-state -w 0 -s '{{ window_title }}'")
+
+
+(defwidget rightstuff []
   (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
     mailupdatecmd
     (mailupdatewidget)
@@ -54,7 +63,9 @@
        :space-evenly true
        :halign "start"
        :spacing 10
-    (literal :content {wm-tags})))
+    (literal :content {wm-tags})
+    window_title
+    ))
 
 (defwidget music_widget []
   (box :class "music"
