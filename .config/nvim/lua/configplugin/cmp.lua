@@ -105,10 +105,10 @@ return function()
 	local g = require("colorbuddy.group").groups
 	local s = require("colorbuddy.style").styles
 
-	Group.new("CmpItemAbbr", g.Comment)
+	Group.new("CmpItemAbbr", g.Special)
 	Group.new("CmpItemAbbrDeprecated", g.Error)
 	Group.new("ComItemAbbrMatch", g.Special)
 	Group.new("CmpItemAbbrMatchFuzzy", g.CmpItemAbbr.fg:dark(), nil, s.italic)
-	Group.new("CmpItemKind", g.Error)
+	Group.new("CmpItemKind", g.Special)
 	Group.new("CmpItemMenu", g.NonText)
 end

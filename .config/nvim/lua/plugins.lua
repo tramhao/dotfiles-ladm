@@ -117,9 +117,9 @@ return require("packer").startup(function()
 	})
 	-- use({
 	-- 	"tanvirtin/nvim-monokai",
-	-- 	config = function()
-	-- 		vim.cmd("colo monokai")
-	-- 	end,
+	-- 	-- config = function()
+	-- 	-- 	vim.cmd("colo monokai")
+	-- 	-- end,
 	-- })
 	use({
 		"norcalli/nvim-colorizer.lua",
