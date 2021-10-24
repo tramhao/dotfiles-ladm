@@ -72,7 +72,7 @@ return require("packer").startup(function()
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-nvim-lua",
-            "onsails/lspkind-nvim"
+			"onsails/lspkind-nvim",
 		},
 		config = require("configplugin.cmp"),
 	})
@@ -115,12 +115,12 @@ return require("packer").startup(function()
 			vim.g.vim_markdown_math = 1
 		end,
 	})
-	use({
-		"tanvirtin/nvim-monokai",
-		config = function()
-			vim.cmd("colo monokai")
-		end,
-	})
+	-- use({
+	-- 	"tanvirtin/nvim-monokai",
+	-- 	config = function()
+	-- 		vim.cmd("colo monokai")
+	-- 	end,
+	-- })
 	use({
 		"norcalli/nvim-colorizer.lua",
 		cmd = {
@@ -157,7 +157,8 @@ return require("packer").startup(function()
 	})
 	use("elkowar/yuck.vim")
 	use("alopatindev/cargo-limit")
-	-- use("tjdevries/colorbuddy.vim")
+	use("tjdevries/colorbuddy.vim")
+	use("Th3Whit3Wolf/onebuddy")
 	-- use({ "soywod/himalaya", rtp = "vim" })
 	--
 	-- Add those lines after the `require('packer').startup(...)`

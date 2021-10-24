@@ -17,7 +17,8 @@ return function()
 			["<C-n>"] = cmp.mapping.select_next_item(),
 			["<C-d>"] = cmp.mapping.scroll_docs(-4),
 			["<C-f>"] = cmp.mapping.scroll_docs(4),
-			["<C-Space>"] = cmp.mapping.complete(),
+			-- ["<C-Space>"] = cmp.mapping.complete(),
+			["<C-CR>"] = cmp.mapping.complete(),
 			["<C-e>"] = cmp.mapping.close(),
 			["<CR>"] = cmp.mapping.confirm({
 				behavior = cmp.ConfirmBehavior.Replace,
@@ -75,22 +76,39 @@ return function()
 		-- 		return vim_item
 		-- 	end,
 		-- },
-        formatting = {
-          format = require("lspkind").cmp_format({with_text = true,maxwidth = 50, menu = ({
-              buffer = "(Buffer)",
-              nvim_lsp = "(LSP)",
-              luasnip = "(LuaSnip)",
-              nvim_lua = "(Lua)",
-              latex_symbols = "(Latex)",
-              emoji = "(Emoji)",
-              path = "(Path)",
-              calc = "(Calc)",
-              cmp_tabnine= "(Tabnine)",
-              vsnip = "(Snippet)",
-            })}),
-        },
+		formatting = {
+			format = require("lspkind").cmp_format({
+				with_text = true,
+				maxwidth = 50,
+				menu = {
+					buffer = "(Buffer)",
+					nvim_lsp = "(LSP)",
+					luasnip = "(LuaSnip)",
+					nvim_lua = "(Lua)",
+					latex_symbols = "(Latex)",
+					emoji = "(Emoji)",
+					path = "(Path)",
+					calc = "(Calc)",
+					cmp_tabnine = "(Tabnine)",
+					vsnip = "(Snippet)",
+				},
+			}),
+		},
 		documentation = {
 			border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
 		},
 	})
+
+	require("colorbuddy").setup()
+	require("colorbuddy").colorscheme("onebuddy")
+	local Group = require("colorbuddy.group").Group
+	local g = require("colorbuddy.group").groups
+	local s = require("colorbuddy.style").styles
+
+	Group.new("CmpItemAbbr", g.Comment)
+	Group.new("CmpItemAbbrDeprecated", g.Error)
+	Group.new("ComItemAbbrMatch", g.Special)
+	Group.new("CmpItemAbbrMatchFuzzy", g.CmpItemAbbr.fg:dark(), nil, s.italic)
+	Group.new("CmpItemKind", g.Error)
+	Group.new("CmpItemMenu", g.NonText)
 end
