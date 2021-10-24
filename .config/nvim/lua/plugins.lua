@@ -158,7 +158,8 @@ return require("packer").startup(function()
 	use("elkowar/yuck.vim")
 	use("alopatindev/cargo-limit")
 	use("tjdevries/colorbuddy.vim")
-	use("Th3Whit3Wolf/onebuddy")
+	-- use("Th3Whit3Wolf/onebuddy")
+	use("jzelinskie/monokai-soda.vim")
 	-- use({ "soywod/himalaya", rtp = "vim" })
 	--
 	-- Add those lines after the `require('packer').startup(...)`

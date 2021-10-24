@@ -100,7 +100,7 @@ return function()
 	})
 
 	require("colorbuddy").setup()
-	require("colorbuddy").colorscheme("onebuddy")
+	require("colorbuddy").colorscheme("monokai-soda")
 	local Group = require("colorbuddy.group").Group
 	local g = require("colorbuddy.group").groups
 	local s = require("colorbuddy.style").styles
