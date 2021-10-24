@@ -13,7 +13,7 @@ wget -q --spider example.org || exit
 
 pgrep -f newsboat$ && /usr/bin/xdotool key --window "$(/usr/bin/xdotool search --name newsboat)" R && exit
 
-echo "News updating" > "${XDG_DATA_HOME:-$HOME/.local/share}/newsupdate.tmp"
+# echo "News updating" > "${XDG_DATA_HOME:-$HOME/.local/share}/newsupdate.tmp"
 # pkill -RTMIN+6 "${STATUSBAR:-dwmblocks}"
 killall newsboat
 
