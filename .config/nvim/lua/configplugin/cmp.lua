@@ -100,13 +100,14 @@ return function()
 	})
 
 	require("colorbuddy").setup()
+	-- require("colorbuddy").colorscheme("onebuddy")
 	require("colorbuddy").colorscheme("monokai-soda")
 	local Group = require("colorbuddy.group").Group
 	local g = require("colorbuddy.group").groups
 	local s = require("colorbuddy.style").styles
 
-	Group.new("CmpItemAbbr", g.Special)
-	Group.new("CmpItemAbbrDeprecated", g.Error)
+	Group.new("CmpItemAbbr", g.Debug)
+	Group.new("CmpItemAbbrDeprecated", g.NonText)
 	Group.new("ComItemAbbrMatch", g.Special)
 	Group.new("CmpItemAbbrMatchFuzzy", g.CmpItemAbbr.fg:dark(), nil, s.italic)
 	Group.new("CmpItemKind", g.Special)

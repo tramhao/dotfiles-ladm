@@ -30,7 +30,6 @@ return require("packer").startup(function()
 		-- config = require('configplugin.autop'),
 		config = require("configplugin.autopairs"),
 	})
-	-- use {"steelsojka/pears.nvim"}
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		config = require("configplugin.treesitter"),
@@ -76,9 +75,6 @@ return require("packer").startup(function()
 		},
 		config = require("configplugin.cmp"),
 	})
-	-- use("hrsh7th/cmp-nvim-lsp")
-	-- use("saadparwaiz1/cmp_luasnip")
-	-- use("L3MON4D3/LuaSnip") -- Snippets plugin
 	use({
 		"b3nj5m1n/kommentary",
 		config = function()
@@ -146,10 +142,14 @@ return require("packer").startup(function()
 		config = require("configplugin.telescope"),
 	})
 	use("bfredl/nvim-miniyank")
-	use("Yggdroot/indentLine")
+	-- use("Yggdroot/indentLine")
 	use("simrat39/rust-tools.nvim")
 	use({
 		"lukas-reineke/indent-blankline.nvim",
+		config = require("indent_blankline").setup({
+			char = "┆",
+			buftype_exclude = { "terminal" },
+		}),
 	})
 	use({
 		"romgrk/barbar.nvim",
@@ -157,9 +157,19 @@ return require("packer").startup(function()
 	})
 	use("elkowar/yuck.vim")
 	use("alopatindev/cargo-limit")
-	use("tjdevries/colorbuddy.vim")
+	use({
+		"tjdevries/colorbuddy.vim",
+		config = function()
+			require("colorbuddy").setup()
+		end,
+	})
 	-- use("Th3Whit3Wolf/onebuddy")
-	use("jzelinskie/monokai-soda.vim")
+	use({
+		"jzelinskie/monokai-soda.vim",
+		-- 	config = function()
+		-- 		vim.cmd("colo monokai-soda")
+		-- 	end,
+	})
 	-- use({ "soywod/himalaya", rtp = "vim" })
 	--
 	-- Add those lines after the `require('packer').startup(...)`

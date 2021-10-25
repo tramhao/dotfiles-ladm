@@ -41,7 +41,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
 	virtual_text = { prefix = "", spacing = 0 },
 	signs = true,
 	underline = true,
-	update_in_insert = true,
+	update_in_insert = false,
 })
 
 -- symbols for autocomplete

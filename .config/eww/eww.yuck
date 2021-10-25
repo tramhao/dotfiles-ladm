@@ -67,7 +67,8 @@
     empty_space
     (literal :content {wm-tags})
     empty_space
-    window_title
+    (label :text window_title
+           :limit-width 50)
     ))
 (defvar empty_space " ")
 
