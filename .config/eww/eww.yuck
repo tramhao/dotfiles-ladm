@@ -10,7 +10,7 @@
 ;     (music_widget)
 ;     ))
 
-(deflisten window_title 
+(deflisten window_title
   "leftwm-state -w 0 -s '{{ window_title }}'")
 
 
@@ -67,8 +67,9 @@
     empty_space
     (literal :content {wm-tags})
     empty_space
-    (label :text window_title
-           :limit-width 50)
+    (box :class "window_title"
+      (label :text window_title
+           :limit-width 50))
     ))
 (defvar empty_space " ")
 
