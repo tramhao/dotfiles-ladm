@@ -119,14 +119,16 @@ return require("packer").startup(function()
 	-- })
 	use({
 		"norcalli/nvim-colorizer.lua",
-		cmd = {
-			"ColorizerDetachFromBuffer",
-			"ColorizerReloadAllBuffers",
-			"ColorizerToggle",
-			"ColorizerAttachToBuffer",
-		},
+		-- cmd = {
+		-- 	"ColorizerDetachFromBuffer",
+		-- 	"ColorizerReloadAllBuffers",
+		-- 	"ColorizerToggle",
+		-- 	"ColorizerAttachToBuffer",
+		-- },
 		config = function()
-			require("colorizer").setup()
+			require("colorizer").setup({
+				"*",
+			})
 		end,
 	})
 	use({
