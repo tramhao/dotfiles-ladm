@@ -69,7 +69,7 @@
     empty_space
     (box :class "window_title"
       (label :text window_title
-           :limit-width 50))
+           :limit-width 40))
     ))
 (defvar empty_space " ")
 
