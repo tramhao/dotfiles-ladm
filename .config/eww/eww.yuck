@@ -108,7 +108,7 @@
            :onchange onchange)))
 
 (deflisten music :initial ""
-  "scripts/player-mpris.py --format '{icon} {:t20:{artist}:} - {:t20:{title}:}'")
+  "scripts/player-mpris.py --format '{icon} {:t30:{artist}:} - {:t40:{title}:}'")
   ; "scripts/player-mpris.py --format '{icon} {:t20:{artist}:} - {:t20:{title}:}' || true")
 
 ; (deflisten music :initial ""
