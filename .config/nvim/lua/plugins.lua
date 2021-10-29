@@ -111,12 +111,6 @@ return require("packer").startup(function()
 			vim.g.vim_markdown_math = 1
 		end,
 	})
-	-- use({
-	-- 	"tanvirtin/nvim-monokai",
-	-- 	-- config = function()
-	-- 	-- 	vim.cmd("colo monokai")
-	-- 	-- end,
-	-- })
 	use({
 		"norcalli/nvim-colorizer.lua",
 		-- cmd = {
@@ -156,6 +150,9 @@ return require("packer").startup(function()
 	use({
 		"romgrk/barbar.nvim",
 		requires = { "kyazdani42/nvim-web-devicons" },
+		config = function()
+			require("configplugin.barbar")
+		end,
 	})
 	use("elkowar/yuck.vim")
 	use("alopatindev/cargo-limit")
