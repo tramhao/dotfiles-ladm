@@ -112,4 +112,7 @@ return function()
 	Group.new("CmpItemAbbrMatchFuzzy", g.CmpItemAbbr.fg:dark(), nil, s.italic)
 	Group.new("CmpItemKind", g.Special)
 	Group.new("CmpItemMenu", g.NonText)
+	-- Group.new("TabLineSel", g.NonText)
+	Group.new("TabLineFill", g.NonText)
+	-- Group.new("TabLine", g.NonText)
 end
