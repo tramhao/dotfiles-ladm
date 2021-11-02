@@ -38,7 +38,10 @@
     ;         :onchange "")
     battery
     time
-    (powerbutton)))
+    (powerbutton)
+    empty_space
+    empty_space
+    ))
     ; ))
 ;
 ; (defwidget workspaces []

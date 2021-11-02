@@ -162,7 +162,14 @@ return require("packer").startup(function()
 			require("colorbuddy").setup()
 		end,
 	})
+	-- use({
+	-- 	"romgrk/doom-one.vim",
+	-- 	config = function()
+	-- 		vim.cmd("colo doom-one")
+	-- 	end,
+	-- })
 	-- use("Th3Whit3Wolf/onebuddy")
+	-- use({ "tjdevries/gruvbuddy.nvim" })
 	use({
 		"jzelinskie/monokai-soda.vim",
 		-- 	config = function()

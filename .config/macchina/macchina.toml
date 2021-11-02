@@ -40,7 +40,7 @@ current_shell = true
 # Custom themes are also supported, they
 # need to be placed in $XDG_CONFIG_DIR for
 # macchina to find and parse them.
-theme = "Carbon"
+theme = "Hydrogen"
 
 # Displays only the specified readouts.
 # Conflicts with: hide

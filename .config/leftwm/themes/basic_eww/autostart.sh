@@ -31,6 +31,7 @@ if [ $(uname -n) = "lenovo-t480" ]; then
   if [ `ifconfig wlan0 | awk '/inet /{ print $6;}'` = "192.168.186.255" ]; then
       # source ~/.xrandr
       nextcloud --background --logfile ~/.cache/nextcloud.log --logdebug &
+      # nextcloudcmd /home/tramhao/Nextcloud https://larryhao:zswd2*NC@nas.antarestec.com/remote.php/webdav
       # run autorandr -l docked
   fi
 fi
