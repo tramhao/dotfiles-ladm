@@ -28,7 +28,7 @@ alias \
 	YT="youtube-viewer" \
 	sdn="sudo shutdown -h now" \
 	f="$FILE" \
-	e="$EDITOR" \
+	e="emacsclient -c -a 'emacs'" \
 	v="$EDITOR" \
 	n="$EDITOR" \
 	l="lvim" \

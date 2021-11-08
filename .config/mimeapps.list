@@ -17,7 +17,10 @@ x-scheme-handler/https=brave-browser.desktop
 x-scheme-handler/http=brave-browser.desktop
 x-scheme-handler/kite=kite-copilot.desktop
 audio/mp4=org.kde.kid3.desktop
+application/x-mobipocket-ebook=FBReader.desktop
 
 [Added Associations]
 audio/mp4=netease-cloud-music-gtk.desktop;org.kde.kid3.desktop;
 audio/x-ape=netease-cloud-music-gtk.desktop;
+application/x-mobipocket-ebook=FBReader.desktop;
+image/jpeg=sxiv.desktop;
