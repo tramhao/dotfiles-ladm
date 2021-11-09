@@ -16,13 +16,13 @@
 
 (defwidget rightstuff []
   (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
-    mailupdatecmd
+    ; mailupdatecmd
     (mailupdatewidget)
-    newsupdatecmd
+    ; newsupdatecmd
     (newsupdatewidget)
-    archupdatecmd
+    ; archupdatecmd
     (archupdatewidget)
-    eww_weatherupdatecmd
+    ; eww_weatherupdatecmd
     (eww_weather_widget)
     (metric :label "🖥️"
             :value {EWW_CPU.avg}
