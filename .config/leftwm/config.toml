@@ -31,6 +31,13 @@ key = "d"
 
 [[keybind]]
 command = "Execute"
+value = "maimpick"
+modifier = ["modkey"]
+key = "Print"
+
+
+[[keybind]]
+command = "Execute"
 value = "pamixer --allow-boost -d 5" 
 modifier = ["modkey"]
 key = "minus"

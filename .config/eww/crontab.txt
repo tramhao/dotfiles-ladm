@@ -2,3 +2,4 @@
 51 * * * * $HOME/.config/eww/scripts/weatherup
 53 */2 * * * $HOME/.config/eww/scripts/archup
 55 */2 * * * $HOME/.config/eww/scripts/newsup
+57 */2 * * * $HOME/.config/eww/scripts/mailup
