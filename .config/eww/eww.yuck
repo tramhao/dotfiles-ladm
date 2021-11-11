@@ -13,6 +13,10 @@
 ; (deflisten window_title
 ;   "leftwm-state -w 0 -s '{{ window_title }}'")
 
+ (defpoll window_title :interval "2s"
+                       :initial ""
+   "xdotool getactivewindow getwindowname")
+
 
 (defwidget rightstuff []
   (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
@@ -69,10 +73,10 @@
        :spacing 10
     empty_space
     (literal :content {wm-tags})
-    ; empty_space
-    ; (box :class "window_title"
-    ;   (label :text window_title
-    ;        :limit-width 40))
+    empty_space
+    (box :class "window_title"
+      (label :text window_title
+           :limit-width 40))
     )
 )
 
