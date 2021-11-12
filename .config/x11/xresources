@@ -3,7 +3,7 @@
 
 !! Set a default font and font size as below:
 /* *.font: Inconsolata Nerd Font Mono Regular:size=16 */
-*.font: monospace:size=18
+*.font: monospace:size=14
 
 /* st.font:	WenQuanYi Zen Hei Mono:size=18:antialias=true:autohint=true; */
 /* st.font:	WenQuanYi Micro Hei Mono:size=18:antialias=true:autohint=true; */

@@ -4,5 +4,5 @@ extern=DP-2
 if xrandr | grep "$extern disconnected"; then
     xrandr --output "$extern" --off --output "$intern" --auto
 else
-    xrandr --output "$intern" --off --output "$extern" --mode 1920x1200 --primary --pos 0x0 --rotate normal
+    xrandr --output "$intern" --off --output "$extern" --mode 1920x1200 --primary --pos 0x0 --rotate normal --dpi 96
 fi
