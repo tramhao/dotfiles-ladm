@@ -1,5 +1,6 @@
-59 * * * * export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u $USER)/bus; export DISPLAY=:0; . $HOME/.zprofile; setbg $HOME/Pictures/wallpapers
-57 */2 * * * export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u $USER)/bus; export DISPLAY=:0; . $HOME/.zprofile; $HOME/.config/eww/scripts/archup
-51 * * * * export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u $USER)/bus; export DISPLAY=:0; . $HOME/.zprofile; $HOME/.config/eww/scripts/weatherup
-53 */2 * * * export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u $USER)/bus; export DISPLAY=:0; . $HOME/.zprofile; $HOME/.config/eww/scripts/mailup
-55 */2 * * * export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u $USER)/bus; export DISPLAY=:0; . $HOME/.zprofile; $HOME/.config/eww/scripts/newsup
+# 22 * * * * export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u $USER)/bus; export DISPLAY=:0; export PATH="/bin:/usr/bin:$PATH";. $HOME/.zprofile; setbg $HOME/Pictures/wallpapers
+36 * * * * export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u $USER)/bus; export DISPLAY=:0; . $HOME/.zprofile; setbg $HOME/Pictures/wallpapers
+57 * * * * $HOME/.config/eww/scripts/archup
+51 * * * * $HOME/.config/eww/scripts/weatherup
+53 * * * * $HOME/.config/eww/scripts/mailup
+55 * * * * $HOME/.config/eww/scripts/newsup
