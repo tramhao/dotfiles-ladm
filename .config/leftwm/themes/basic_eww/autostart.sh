@@ -26,7 +26,7 @@ run eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)
 # run /usr/lib/pam_kwallet_init
 # exec /usr/lib/pam_kwallet_init &
 run setbg ~/Pictures/wallpapers
-run emacs --daemon
+# run emacs --daemon
 if [ $(uname -n) = "lenovo-t480" ]; then
   if [ `ifconfig wlan0 | awk '/inet /{ print $6;}'` = "192.168.186.255" ]; then
       # source ~/.xrandr
