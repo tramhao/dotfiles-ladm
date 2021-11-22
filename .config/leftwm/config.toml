@@ -8,7 +8,7 @@ mousekey = "Mod4"
 # height = 1200
 # width = 1920
 # id = 0
-workspace = [
+workspaces = [
 # only with internal screen
 #{ x = 0, y = 0, width = 1920, height = 1080, id = 0 },
 
