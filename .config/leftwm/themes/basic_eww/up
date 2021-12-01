@@ -44,8 +44,8 @@ do
   let index=index+1
 done
 # if [ $(hostname) = "XMLaptop" ]; then
-sleep 10
-eww reload
+#sleep 10
+#eww reload
 # fi
 
 # if [ $(uname -n) = "lenovo-t480" ]; then
