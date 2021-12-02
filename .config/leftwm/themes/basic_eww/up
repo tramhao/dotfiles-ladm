@@ -36,25 +36,26 @@ leftwm-command "LoadTheme $SCRIPTPATH/theme.toml"
 #open eww 'bar' windows
 #this is a bit of an uggly hack, a more elegant way will hopefully be possible with a future `eww` version
 # sleep 1
-while [[ -z "$(eww windows | grep '[*]')" ]]; do
-    index=0
-    sizes=( $(leftwm-state -q -n -t $SCRIPTPATH/sizes.liquid | sed -r '/^\s*$/d' ) )
-    for size in "${sizes[@]}"
-    do
-        eww open bar$index
-        let index=index+1
-    done
-  # eww open-many left tags right
-done
+# while [[ -z "$(eww windows | grep '[*]')" ]]; do
+#     index=0
+#     sizes=( $(leftwm-state -q -n -t $SCRIPTPATH/sizes.liquid | sed -r '/^\s*$/d' ) )
+#     for size in "${sizes[@]}"
+#     do
+#         eww open bar$index
+#         let index=index+1
+#     done
+#   # eww open-many left tags right
+# done
 # for size in "${sizes[@]}"
 # do
 #     eww open bar$index
 #   let index=index+1
 # done
-# if [ $(hostname) = "XMLaptop" ]; then
-#sleep 10
-#eww reload
-# fi
+if [ $(hostname) = "XMLaptop" ]; then
+    eww open bar0
+    sleep 10
+    eww reload
+fi
 
 # if [ $(uname -n) = "lenovo-t480" ]; then
 #     sleep 10

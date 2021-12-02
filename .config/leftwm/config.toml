@@ -10,11 +10,11 @@ mousekey = "Mod4"
 # id = 0
 workspaces = [
 # only with internal screen
-#{ x = 0, y = 0, width = 1920, height = 1080, id = 0 },
+{ x = 0, y = 0, width = 1920, height = 1080, id = 0 },
 
 # external screen as main internal
-{ x = 0, y = 0, width = 1080, height = 1920, id = 1},
-{ x = 1080, y = 0, width = 1920, height = 1200, id = 0},
+# { x = 0, y = 0, width = 1080, height = 1920, id = 1},
+# { x = 1080, y = 0, width = 1920, height = 1200, id = 0},
 # { x = 0, y = 0, width = 1920, height = 1200, id = 0 },
 # { x = 1920, y = 0, width = 1080, height = 1920, id = 1 },
 ]
