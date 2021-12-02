@@ -1,1 +1,1 @@
-cargo watch -c -d 5 --postpone --notify -- make full
+cargo watch -c -d 5 --notify -s 'make && make full'
