@@ -1,1 +1,1 @@
-cargo watch -x build -c -d 5 --postpone --notify
+cargo watch -c -d 5 --postpone --notify -- make full
