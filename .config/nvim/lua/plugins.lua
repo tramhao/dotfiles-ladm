@@ -46,7 +46,7 @@ return require("packer").startup(function()
 			require("lsp.rust-ls")
 		end,
 	})
-	use({ "tami5/lspsaga.nvim"})
+	use({ "tami5/lspsaga.nvim" })
 	-- use({ "jasonrhansen/lspsaga.nvim", branch = "finder-preview-fixes" })
 	-- use({
 	-- 	"ms-jpq/coq_nvim",
