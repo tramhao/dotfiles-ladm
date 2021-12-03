@@ -63,8 +63,8 @@ if [ $(uname -n) = "lenovo-t480" ]; then
 fi
 
 if [ $(uname -n) = "lenovo-pc" ]; then
-    eww close-all
-    sleep 10
     eww open bar0
+    sleep 10
+    eww reload
 fi
 
