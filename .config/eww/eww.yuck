@@ -130,8 +130,8 @@
                     :initial "80"
   "pamixer --get-volume || true")
 
-(defpoll time :interval "60s"
-  "date '+%d(%a),%H:%M'")
+(defpoll time :interval "1s"
+  "date '+%d(%a),%H:%M.%S'")
 
 (defwidget archupdatewidget []
   (box :orientation "horizontal"
