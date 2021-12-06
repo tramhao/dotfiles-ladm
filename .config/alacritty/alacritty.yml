@@ -1,31 +1,31 @@
 background_opacity: 0.9
 colors:
-  name: Isotope (dark)
-  author: Chris Kempson
+  name: Gnometerm
+  author: ""
   primary:
     background: "#000000"
-    foreground: "#d0d0d0"
+    foreground: "#ffffff"
   cursor:
     text: "#000000"
-    cursor: "#d0d0d0"
+    cursor: "#ffffff"
   normal:
     black: "#000000"
-    red: "#ff0000"
-    green: "#33ff00"
-    yellow: "#ff0099"
-    blue: "#0066ff"
-    magenta: "#cc00ff"
-    cyan: "#00ffff"
-    white: "#d0d0d0"
+    red: "#cc0000"
+    green: "#4e9a06"
+    yellow: "#c4a000"
+    blue: "#3465a4"
+    magenta: "#75507b"
+    cyan: "#06989a"
+    white: "#d3d7cf"
   bright:
-    black: "#808080"
-    red: "#ff0000"
-    green: "#33ff00"
-    yellow: "#ff0099"
-    blue: "#0066ff"
-    magenta: "#cc00ff"
-    cyan: "#00ffff"
-    white: "#ffffff"
+    black: "#555753"
+    red: "#ef2929"
+    green: "#8ae234"
+    yellow: "#fce94f"
+    blue: "#729fcf"
+    magenta: "#ad7fa8"
+    cyan: "#34e2e2"
+    white: "#eeeeec"
 font:
   bold:
     family: SFMono
@@ -45,16 +45,11 @@ key_bindings:
   - { key: C, mods: Alt, action: Copy }
   # - { key: C, mods: Control|Shift, action: Copy }
   # - { key: Insert,   mods: Shift,         action: PasteSelection   }
-  - { key: Paste,                    action: Paste                            }
-  - { key: Copy,                     action: Copy                             }
-  - { key: L,         mods: Control, action: ClearLogNotice                   }
+  - { key: Paste, action: Paste }
+  - { key: Copy, action: Copy }
+  - { key: L, mods: Control, action: ClearLogNotice }
   # - { key: L,         mods: Control, chars: "\x0c"                            }
-  - {
-      key: Up,
-      mods: Alt,
-      action: ScrollLineUp,
-      mode: ~Alt
-    }
+  - { key: Up, mods: Alt, action: ScrollLineUp, mode: ~Alt }
   - {
       key: Left,
       mods: Alt,
@@ -73,5 +68,11 @@ key_bindings:
       action: ScrollPageDown,
       mode: ~Alt
     }
-  - { key: Home,      mods: Alt,   action: ScrollToTop,    mode: ~Alt       }
-  - { key: End,       mods: Alt,   action: ScrollToBottom, mode: ~Alt       }
+  - { key: Home, mods: Alt, action: ScrollToTop, mode: ~Alt }
+  - {
+      key: End,
+      mods: Alt,
+      action: ScrollToBottom,
+      mode: ~Alt
+    }
+theme: Gnometerm

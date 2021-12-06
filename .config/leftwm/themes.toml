@@ -1,1 +1,241 @@
-themes.toml##default
+[[repos]]
+url = "https://raw.githubusercontent.com/leftwm/leftwm-community-themes/master/known.toml"
+name = "community"
+
+[[repos.themes]]
+name = "Orange Forest"
+directory = "/home/tramhao/.config/leftwm/themes/Orange Forest"
+repository = "https://github.com/PVautour/leftwm-theme-orange-forest/"
+commit = "*"
+version = "0.0.1"
+leftwm_versions = "*"
+current = false
+
+[[repos.themes]]
+name = "Coffee"
+directory = "/home/tramhao/.config/leftwm/themes/Coffee"
+repository = "https://github.com/lex148/leftwm-coffee/"
+commit = "*"
+version = "0.0.1"
+leftwm_versions = "*"
+current = false
+
+[[repos.themes]]
+name = "Soothe"
+directory = "/home/tramhao/.config/leftwm/themes/Soothe"
+repository = "https://github.com/b4skyx/leftwm-soothe/"
+commit = "*"
+version = "0.0.1"
+leftwm_versions = "*"
+current = false
+relative_directory = "theme/"
+
+[[repos.themes]]
+name = "TNG"
+directory = "/home/tramhao/.config/leftwm/themes/TNG"
+repository = "https://github.com/lex148/leftwm-tng/"
+commit = "*"
+version = "0.0.1"
+leftwm_versions = "*"
+current = false
+
+[[repos.themes]]
+name = "Windows XP"
+repository = "https://github.com/lex148/leftwm-windowsxp/"
+commit = "*"
+version = "0.0.1"
+leftwm_versions = "*"
+current = false
+
+[[repos.themes]]
+name = "Dracula Rounded"
+directory = "/home/tramhao/.config/leftwm/themes/Dracula Rounded"
+repository = "https://github.com/AethanFoot/leftwm-theme-dracula-rounded/"
+commit = "*"
+version = "0.0.2"
+leftwm_versions = "^0.2.7"
+current = false
+
+[[repos.themes]]
+name = "Forest"
+repository = "https://github.com/lex148/forest/"
+commit = "*"
+version = "0.0.1"
+leftwm_versions = "*"
+current = false
+
+[[repos.themes]]
+name = "Ground Zero"
+repository = "https://github.com/Qwart376/Ground-Zero/"
+commit = "*"
+version = "0.0.1"
+leftwm_versions = "*"
+current = false
+
+[[repos.themes]]
+name = "Red Moon"
+repository = "https://github.com/Qwart376/Red-Moon"
+commit = "*"
+version = "0.0.1"
+leftwm_versions = "*"
+current = false
+
+[[repos.themes]]
+name = "Blue Coffee"
+repository = "https://github.com/Qwart376/Blue-Coffee/"
+commit = "*"
+version = "0.0.1"
+leftwm_versions = "*"
+current = false
+
+[[repos.themes]]
+name = "sunflower"
+repository = "https://github.com/mautamu/leftwm-sunflower/"
+commit = "*"
+version = "0.1.0"
+leftwm_versions = ">0.2.6"
+current = false
+
+[[repos.themes]]
+name = "orange-forest"
+repository = "https://github.com/PVautour/leftwm-theme-orange-forest/"
+commit = "*"
+version = "0.0.1"
+leftwm_versions = "*"
+current = false
+
+[[repos.themes]]
+name = "coffee"
+repository = "https://github.com/lex148/leftwm-coffee/"
+commit = "*"
+version = "0.0.1"
+leftwm_versions = "*"
+current = false
+
+[[repos.themes]]
+name = "soothe"
+repository = "https://github.com/b4skyx/leftwm-soothe/"
+commit = "*"
+version = "0.0.1"
+leftwm_versions = "*"
+current = false
+
+[[repos.themes]]
+name = "tng"
+repository = "https://github.com/lex148/leftwm-tng/"
+commit = "*"
+version = "0.0.1"
+leftwm_versions = "*"
+current = false
+
+[[repos.themes]]
+name = "windows-xp"
+repository = "https://github.com/lex148/leftwm-windowsxp/"
+commit = "*"
+version = "0.0.1"
+leftwm_versions = "*"
+current = false
+
+[[repos.themes]]
+name = "dracula-rounded"
+repository = "https://github.com/AethanFoot/leftwm-theme-dracula-rounded/"
+commit = "*"
+version = "0.0.2"
+leftwm_versions = "^0.2.7"
+current = false
+
+[[repos.themes]]
+name = "forest"
+directory = "/home/tramhao/.config/leftwm/themes/forest"
+repository = "https://github.com/lex148/forest/"
+commit = "*"
+version = "0.0.1"
+leftwm_versions = "*"
+current = true
+
+[[repos.themes]]
+name = "ground-zero"
+repository = "https://github.com/Qwart376/Ground-Zero/"
+commit = "*"
+version = "0.0.1"
+leftwm_versions = "*"
+current = false
+
+[[repos.themes]]
+name = "red-moon"
+repository = "https://github.com/Qwart376/Red-Moon"
+commit = "*"
+version = "0.0.1"
+leftwm_versions = "*"
+current = false
+
+[[repos.themes]]
+name = "blue-coffee"
+repository = "https://github.com/Qwart376/Blue-Coffee/"
+commit = "*"
+version = "0.0.1"
+leftwm_versions = "*"
+current = false
+
+[[repos.themes]]
+name = "bumblebee"
+repository = "https://github.com/mfdorst/leftwm-bumblebee/"
+commit = "*"
+version = "0.0.1"
+leftwm_versions = "^0.2.8"
+current = false
+
+[[repos.themes]]
+name = "changed-sunset"
+repository = "https://github.com/Syudagye/changed-sunset"
+commit = "*"
+version = "0.0.1"
+leftwm_versions = "*"
+current = false
+
+[[repos.themes]]
+name = "garden"
+repository = "https://github.com/taylor85345/leftwm-theme-garden"
+commit = "*"
+version = "0.0.3"
+leftwm_versions = "*"
+current = false
+
+[[repos.themes]]
+name = "Bumblebee"
+repository = "https://github.com/mfdorst/leftwm-bumblebee/"
+commit = "*"
+version = "0.0.1"
+leftwm_versions = "^0.2.8"
+
+[[repos.themes]]
+name = "Changed Sunset"
+repository = "https://github.com/Syudagye/changed-sunset"
+commit = "*"
+version = "0.0.1"
+leftwm_versions = "*"
+
+[[repos.themes]]
+name = "Garden"
+repository = "https://github.com/taylor85345/leftwm-theme-garden"
+commit = "*"
+version = "0.0.3"
+leftwm_versions = "*"
+
+[[repos]]
+url = "localhost"
+name = "LOCAL"
+
+[[repos.themes]]
+name = "basic_polybar"
+directory = "/home/tramhao/.config/leftwm/themes/basic_polybar"
+version = "0.0.0"
+leftwm_versions = "*"
+current = false
+
+[[repos.themes]]
+name = "forest.tram"
+directory = "/home/tramhao/.config/leftwm/themes/forest.tram"
+version = "0.0.0"
+leftwm_versions = "*"
+current = true
