@@ -1,0 +1,3 @@
+cargo watch --postpone -c -d 5 --notify -s 'make && make full \
+&& notify-send "Build Successful" \
+|| notify-send "Failed to build" "please check code carefully."'
