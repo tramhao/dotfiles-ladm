@@ -2,33 +2,30 @@ background_opacity: 0.9
 colors:
   # Default colors
   primary:
-    background: '#000000'
-    foreground: '#ffffff'
-  cursor:
-    text: '#F81CE5'
-    cursor: '#ffffff'
+    background: '#1a1a1a'
+    foreground: '#c4c5b5'
 
   # Normal colors
   normal:
-    black: '#000000'
-    red: '#fe0100'
-    green: '#33ff00'
-    yellow: '#feff00'
-    blue: '#0066ff'
-    magenta: '#cc00ff'
-    cyan: '#00ffff'
-    white: '#d0d0d0'
+    black: '#1a1a1a'
+    red: '#f4005f'
+    green: '#98e024'
+    yellow: '#fa8419'
+    blue: '#9d65ff'
+    magenta: '#f4005f'
+    cyan: '#58d1eb'
+    white: '#c4c5b5'
 
   # Bright colors
   bright:
-    black: '#808080'
-    red: '#fe0100'
-    green: '#33ff00'
-    yellow: '#feff00'
-    blue: '#0066ff'
-    magenta: '#cc00ff'
-    cyan: '#00ffff'
-    white: '#FFFFFF'
+    black: '#625e4c'
+    red: '#f4005f'
+    green: '#98e024'
+    yellow: '#e0d561'
+    blue: '#9d65ff'
+    magenta: '#f4005f'
+    cyan: '#58d1eb'
+    white: '#f6f6ef'
 font:
   bold:
     family: SFMono
@@ -78,4 +75,4 @@ key_bindings:
       action: ScrollToBottom,
       mode: ~Alt
     }
-theme: Hyper
+theme: Monokai-Soda
