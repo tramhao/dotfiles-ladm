@@ -48,7 +48,7 @@ key_bindings:
   - { key: Paste, action: Paste }
   - { key: Copy, action: Copy }
   - { key: L, mods: Control, action: ClearLogNotice }
-  # - { key: L,         mods: Control, chars: "\x0c"                            }
+  - { key: L,         mods: Control, chars: "\x0c"                            }
   - { key: Up, mods: Alt, action: ScrollLineUp, mode: ~Alt }
   - {
       key: Left,
