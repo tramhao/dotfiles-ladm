@@ -19,7 +19,8 @@ current_shell = true
 #  theme should be uncommented and set to "Sodium"
 #
 # theme = ""
-theme = "Hydrogen"
+# theme = "Hydrogen"
+theme = "abc"
 # Displays only the specified readouts.
 # Conflicts with: hide
 # Accepted values (case-sensitive):
