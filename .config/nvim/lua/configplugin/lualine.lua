@@ -13,7 +13,7 @@ return function()
 			lualine_c = {
 				{
 					"diagnostics",
-					sources = { "nvim_lsp" },
+					sources = { "nvim_diagnostic" },
 					sections = { "error", "warn", "info" },
 				},
 				"filename",
