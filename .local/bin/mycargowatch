@@ -1,3 +1,3 @@
-cargo watch --postpone -c -d 5 --notify -s 'make && make full \
+cargo watch --postpone -c -d 5 --notify -i README.md -s 'make && make full \
 && notify-send "Build Successful" "Congratulations" \
 || notify-send "Failed building your code!" "Please check code  \n more carefully."'
