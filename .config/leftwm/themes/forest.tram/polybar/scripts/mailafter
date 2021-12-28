@@ -33,7 +33,7 @@
 # cat "${XDG_DATA_HOME:-$HOME/.local/share}/mailupdate.tmp"
 
 # /usr/bin/notify-send "📬 Mail update complete."
-setsid -w -f kitty -e neomutt &&
+WINIT_X11_SCALE_FACTOR=1 setsid -w -f alacritty -e neomutt &&
 # setsid -w -f "$TERMINAL" -e neomutt &&
 unread="$(find "${XDG_DATA_HOME:-$HOME/.local/share}"/mail/*/*/new/* -type f 2>/dev/null | wc -l 2>/dev/null)"
 

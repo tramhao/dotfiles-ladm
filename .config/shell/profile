@@ -14,7 +14,7 @@ export PATH="$PATH:$(du "$HOME/.emacs.d/bin" | cut -f2 | paste -sd ':' -)"
 # Default programs:
 export EDITOR="nvim"
 export VISUAL="nvim"
-export TERMINAL="st"
+export TERMINAL="alacritty"
 export BROWSER="brave"
 export GLFW_IM_MODULE="ibus"
 

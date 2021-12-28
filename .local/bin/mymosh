@@ -1,2 +1,4 @@
-#unset LC_ALL LANG
-LC_ALL="en_US.UTF-8" mosh --ssh="ssh -p 27476" tramhao@www.antarestec.com
+#!/bin/sh
+
+export LC_ALL="en_US.UTF-8"
+mosh --ssh="ssh -p 27476" www.antarestec.com

@@ -26,8 +26,8 @@
 #                                               print ""}')" 
 # cat "${XDG_DATA_HOME:-$HOME/.local/share}/newsupdate.tmp"
 # /usr/bin/notify-send "📰 RSS feed update complete."
-export TERMINAL="kitty"
-setsid -w -f "$TERMINAL" -e newsboat &&
+export TERMINAL="alacritty"
+WINIT_X11_SCALE_FACTOR=1 setsid -w -f "$TERMINAL" -e newsboat &&
 
 /usr/bin/newsboat -x reload
 #   fi
