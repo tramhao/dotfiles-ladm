@@ -25,3 +25,4 @@ audio/x-ape=netease-cloud-music-gtk.desktop;
 application/x-mobipocket-ebook=FBReader.desktop;
 image/jpeg=sxiv.desktop;
 application/pdf=org.pwmt.zathura.desktop;
+audio/flac=org.kde.kid3.desktop;
