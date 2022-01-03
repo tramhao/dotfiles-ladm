@@ -13,8 +13,8 @@ workspaces = [
 # { x = 0, y = 0, width = 1920, height = 1080, id = 0 },
 
 # external screen as main internal
-{ x = 0, y = 0, width = 1080, height = 1920, id = 1},
-{ x = 1080, y = 0, width = 1920, height = 1200, id = 0},
+{ x = 0, y = 0, width = 1080, height = 1920, id = 1, layouts = ["EvenVertical","Monocle"] },
+{ x = 1080, y = 0, width = 1920, height = 1200, id = 0, layouts = ["MainAndVertStack", "MainAndHorizontalStack", "MainAndDeck", "GridHorizontal", "EvenHorizontal", "EvenVertical", "Fibonacci", "CenterMain", "CenterMainBalanced", "Monocle", "RightWiderLeftStack", "LeftWiderRightStack"] },
 ]
 
 disable_current_tag_swap = true

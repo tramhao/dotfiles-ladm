@@ -10,7 +10,7 @@ mousekey = "Mod4"
 # id = 0
 workspaces = [
 # only with internal screen
-{ x = 0, y = 0, width = 1920, height = 1080, id = 0 },
+{ x = 0, y = 0, width = 1920, height = 1080, id = 0, layouts = ["MainAndVertStack", "MainAndHorizontalStack", "MainAndDeck", "GridHorizontal", "EvenHorizontal", "EvenVertical", "Fibonacci", "CenterMain", "CenterMainBalanced", "Monocle", "RightWiderLeftStack", "LeftWiderRightStack"] },
 
 # external screen as main internal
 # { x = 0, y = 0, width = 1080, height = 1920, id = 1},
