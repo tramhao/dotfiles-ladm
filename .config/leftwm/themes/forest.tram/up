@@ -41,6 +41,10 @@ polybar-msg cmd quit
 
 export DEFAULT_NETWORK_INTERFACE=$(ip route | grep '^default' | awk '{print $5}' | head -n1)
 
+if [ $(uname -n) = "lenovo-pc" ]; then
+    export DEFAULT_NETWORK_INTERFACE=enp3s0
+fi
+
 cd ${SCRIPTPATH}/polybar
 # polybar -m | sed s/:.*// | tac | while read -r monitor
   for m in $(polybar --list-monitors | cut -d":" -f1); do
