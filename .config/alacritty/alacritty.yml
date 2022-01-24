@@ -1,31 +1,31 @@
-background_opacity: 0.9
+window.opacity: 0.5
 colors:
-  # Default colors
+  name: VisiBone
+  author: ""
   primary:
-    background: '#1a1a1a'
-    foreground: '#c4c5b5'
-
-  # Normal colors
+    background: "#000000"
+    foreground: "#ffffff"
+  cursor:
+    text: "#000000"
+    cursor: "#ffffff"
   normal:
-    black: '#1a1a1a'
-    red: '#f4005f'
-    green: '#98e024'
-    yellow: '#fa8419'
-    blue: '#9d65ff'
-    magenta: '#f4005f'
-    cyan: '#58d1eb'
-    white: '#c4c5b5'
-
-  # Bright colors
+    black: "#666666"
+    red: "#cc6666"
+    green: "#66cc99"
+    yellow: "#cc9966"
+    blue: "#6699cc"
+    magenta: "#cc6699"
+    cyan: "#66cccc"
+    white: "#cccccc"
   bright:
-    black: '#625e4c'
-    red: '#f4005f'
-    green: '#98e024'
-    yellow: '#e0d561'
-    blue: '#9d65ff'
-    magenta: '#f4005f'
-    cyan: '#58d1eb'
-    white: '#f6f6ef'
+    black: "#999999"
+    red: "#ff9999"
+    green: "#99ffcc"
+    yellow: "#ffcc99"
+    blue: "#99ccff"
+    magenta: "#ff99cc"
+    cyan: "#99ffff"
+    white: "#ffffff"
 font:
   bold:
     family: SFMono
@@ -48,7 +48,7 @@ key_bindings:
   - { key: Paste, action: Paste }
   - { key: Copy, action: Copy }
   - { key: L, mods: Control, action: ClearLogNotice }
-  - { key: L,         mods: Control, chars: "\x0c"                            }
+  - { key: L, mods: Control, chars: "\f" }
   - { key: Up, mods: Alt, action: ScrollLineUp, mode: ~Alt }
   - {
       key: Left,
@@ -75,4 +75,4 @@ key_bindings:
       action: ScrollToBottom,
       mode: ~Alt
     }
-theme: Monokai-Soda
+theme: Visibone
