@@ -1,5 +1,5 @@
 require("disable")
 require("settings")
 require("keys")
-require("impatient")
+-- require("impatient")
 require("plugins")

@@ -185,5 +185,5 @@ return require("packer").startup(function()
 	-- local packer_compiled = vim.fn.stdpath("config") .. "/plugin/packer_compiled.lua"
 	-- vim.cmd("luafile" .. packer_compiled)
 	use("alec-gibson/nvim-tetris")
-	use("lewis6991/impatient.nvim")
+	-- use("lewis6991/impatient.nvim")
 end)
