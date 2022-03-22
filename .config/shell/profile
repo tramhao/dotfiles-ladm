@@ -8,6 +8,7 @@
 # Adds `~/.local/bin` to $PATH
 export PATH="$PATH:$(du "$HOME/.local/bin" | cut -f2 | paste -sd ':' -)"
 export PATH="$PATH:$(du "$HOME/.emacs.d/bin" | cut -f2 | paste -sd ':' -)"
+export PATH="$PATH:/var/lib/snapd/snap/bin"
 
 # unsetopt PROMPT_SP
 
