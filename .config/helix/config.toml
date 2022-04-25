@@ -1,0 +1,6 @@
+theme = "monokai_pro_machine"
+
+[keys.insert]
+j = { k = "normal_mode" }
+
+

@@ -31,6 +31,7 @@ alias \
 	e="devour emacsclient -c -a 'emacs'" \
 	v="$EDITOR" \
 	n="$EDITOR" \
+	h="helix" \
 	l="lvim" \
 	p="sudo pacman" \
 	xi="sudo xbps-install" \

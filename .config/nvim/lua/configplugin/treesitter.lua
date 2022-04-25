@@ -1,8 +1,9 @@
 return function()
-    require'nvim-treesitter.configs'.setup {
-        ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+    require 'nvim-treesitter.configs'.setup {
+        ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
         highlight = {
-            enable = true -- false will disable the whole extension
+            enable = true, -- false will disable the whole extension
+            additional_vim_regex_highlighting = true,
         },
         playground = {
             enable = true,
@@ -10,7 +11,7 @@ return function()
             updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
             persist_queries = false -- Whether the query persists across vim sessions
         },
-        rainbow = {enable = true}
+        rainbow = { enable = true }
         -- refactor = {highlight_definitions = {enable = true}}
     }
 end
