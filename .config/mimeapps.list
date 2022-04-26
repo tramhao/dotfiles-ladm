@@ -18,6 +18,7 @@ x-scheme-handler/http=brave-browser.desktop
 x-scheme-handler/kite=kite-copilot.desktop
 audio/mp4=org.kde.kid3.desktop
 application/x-mobipocket-ebook=FBReader.desktop
+x-scheme-handler/discord-474605546457137157=discord-474605546457137157.desktop
 
 [Added Associations]
 audio/mp4=netease-cloud-music-gtk.desktop;org.kde.kid3.desktop;
