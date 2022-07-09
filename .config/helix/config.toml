@@ -8,7 +8,6 @@ display-messages = true
 
 [keys.insert]
 j = { k = "normal_mode" }
-k = { j = "normal_mode" }
 i = { i = "normal_mode" }
 
 
