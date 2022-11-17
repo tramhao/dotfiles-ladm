@@ -4,4 +4,13 @@ margin: 5,
 default_border_color: "#37474F",
 floating_border_color: "#22ff55",
 focused_border_color: "#FFB53A",
+gutter: Some([(
+       side: Left,
+       value: 20,
+       wsid: Some(0),
+       ),(
+       side: Right,
+       value: 20,
+       wsid: Some(0),
+       )])
 )
