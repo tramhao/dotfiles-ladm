@@ -12,7 +12,7 @@
     modkey: "Mod4",
     mousekey: "Mod4",
     workspaces: [
-        (x: 0, y: 0, height: 1080, width: 1920, id: 0, max_window_width: None, layouts: [EvenVertical, Monocle]),
+        (x: 0, y: 0, height: 1080, width: 1920, id: 0, max_window_width: None, layouts: [MainAndVertStack, Monocle]),
         // (x: 1080, y: 0, height: 1200, width: 1920, id: 0, max_window_width: None, layouts: [MainAndVertStack, MainAndHorizontalStack, MainAndDeck, GridHorizontal, EvenHorizontal, EvenVertical, Fibonacci, CenterMain, CenterMainBalanced, Monocle, RightWiderLeftStack, LeftWiderRightStack]),
     ],
     tags: [
@@ -26,9 +26,9 @@
     ],
     max_window_width: None,
     layouts: [
+        MainAndDeck,
         MainAndVertStack,
         MainAndHorizontalStack,
-        MainAndDeck,
         GridHorizontal,
         EvenHorizontal,
         EvenVertical,
