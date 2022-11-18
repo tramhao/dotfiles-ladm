@@ -20,7 +20,7 @@ elif [ -x "$(command -v compton)" ]; then
 fi
 
 #set the theme.toml config
-leftwm-command "LoadTheme $SCRIPTPATH/theme.toml"
+leftwm-command "LoadTheme $SCRIPTPATH/theme.ron"
 
 #set background
 # if [ -x "$(command -v feh)" ]; then
