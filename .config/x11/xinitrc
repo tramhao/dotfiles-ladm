@@ -36,8 +36,8 @@ fi
 
 # source .xrandr
 # ssh-agent dwm
-# exec dbus-launch --exit-with-session leftwm
-ssh-agent leftwm
+exec dbus-launch --exit-with-session leftwm
+# ssh-agent leftwm
 # exec dbus-launch `ssh-agent leftwm`
 # exec dbus-launch --exit-with-session `ssh-agent leftwm`
 # startplasma-x11
