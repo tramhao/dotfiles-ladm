@@ -27,6 +27,13 @@ fi
 # run dunst			# dunst for notifications
 run xset r rate 400 50 # Speed xrate up
 # run unclutter		# Rmove mouse when idle
+
+# export GTK_IM_MODULE=fcitx
+# export QT_IM_MODULE=fcitx
+# export XMODIFIERS=@im=fcitx
+# export SDL_IM_MODULE=fcitx
+# export GLFW_IM_MODULE=ibus
+
 run fcitx5
 # run /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # run eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg)

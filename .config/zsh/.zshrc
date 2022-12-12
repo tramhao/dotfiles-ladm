@@ -53,12 +53,13 @@ source /usr/share/doc/find-the-command/ftc.zsh
 #install by yay -S zsh-syntax-highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-export MESA_LOADER_DRIVER_OVERRIDE=i965 
+# export MESA_LOADER_DRIVER_OVERRIDE=i965 
 # export INPUT_METHOD=fcitx
 # export GTK_IM_MODULE=fcitx
 # export QT_IM_MODULE=fcitx
 # export XMODIFIERS=\@im=fcitx
 # export SDL_IM_MODULE=fcitx
+
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 if [ "$USER" = "root" ]; then
     export _ZO_DATA_DIR="/root/.local/share/zoxide"
