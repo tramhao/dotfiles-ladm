@@ -2,3 +2,8 @@
 name = "python"
 formatter = { command = "black", args = ["--quiet", "-"] }
 auto-format = true
+
+[[language]]
+name = "markdown"
+language-server = { command = "/home/tramhao/.local/share/cargo/bin/mdpls" }
+config = { markdown.preview.auto = true, markdown.preview.browser = "brave" }
