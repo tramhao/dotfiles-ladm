@@ -6,7 +6,7 @@ margin: 5,
 default_border_color: "#37474F",
 floating_border_color: "#22ff55",
 // focused_border_color: "#FFB53A",
-focused_border_color: "#C61ED8",
+focused_border_color: "#eeaa00",
 gutter: Some([(
        side: Left,
        value: 20,
