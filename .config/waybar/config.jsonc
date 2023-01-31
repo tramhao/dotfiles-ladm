@@ -16,8 +16,8 @@
         "tray",
         "custom/updates",
         "custom/language",
+        "cpu",
         "pulseaudio",
-        "pulseaudio#microphone"
     ],
 
     "hyprland/window": {
@@ -79,13 +79,9 @@
             "default": ["", "", ""]
         }
     },
-    "pulseaudio#microphone": {
-        "format": "{format_source}",
-        "format-source": " {volume}%",
-        "format-source-muted": " Muted",
-        "on-click": "pamixer --default-source -t",
-        "on-scroll-up": "pamixer --default-source -i 5",
-        "on-scroll-down": "pamixer --default-source -d 5",
-        "scroll-step": 5
-    }
+    "cpu": {
+     	"interval": 2,
+  	    "format": "{icon0}{icon1}{icon2}{icon3}{icon4}{icon5}{icon6}{icon7} {usage:>2}% ",
+  	    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+    },
 }
