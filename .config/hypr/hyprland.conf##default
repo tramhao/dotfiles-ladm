@@ -26,6 +26,7 @@ exec-once = waybar
 #wsbind = 7,eDP-1
 # monitor = eDP-1,disable
 monitor = ,preferred,auto,1
+monitor = ,addreserved,0,15,15,15
 
 # █ █▄░█ █▀█ █░█ ▀█▀
 # █ █░▀█ █▀▀ █▄█ ░█░
@@ -39,7 +40,7 @@ input {
 # █▄█ ██▄ █░▀█ ██▄ █▀▄ █▀█ █▄▄
 general {
   gaps_in=5
-  gaps_out=20
+  gaps_out=5
   border_size=4
   no_border_on_floating = true
   layout = dwindle
