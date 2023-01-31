@@ -134,7 +134,7 @@ return require("packer").startup(function()
     use({ "tweekmonster/startuptime.vim", opt = true, cmd = "StartupTime" })
     use({ "fatih/vim-go", ft = { "md", "zsh", "sh", "go" } })
     use({
-        "nvim-telescope/telescope.nvim",
+        "nvim-telescope/telescope.nvim", branch = "0.1.x",
         requires = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } },
         config = require("configplugin.telescope"),
     })

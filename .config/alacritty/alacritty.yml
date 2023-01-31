@@ -43,6 +43,8 @@ key_bindings:
   # - { key: V, mods: Control|Shift, action: Paste }
   - { key: V, mods: Alt, action: Paste }
   - { key: C, mods: Alt, action: Copy }
+  - { key: Q,        mods: Control|Shift, chars: "\x1b[81;5u"                }
+  - { key: Q,        mods: Control|Shift, chars: "\x1b[113;5u"                }
   # - { key: C, mods: Control|Shift, action: Copy }
   # - { key: Insert,   mods: Shift,         action: PasteSelection   }
   - { key: Paste, action: Paste }
