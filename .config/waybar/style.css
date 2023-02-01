@@ -50,6 +50,7 @@ tooltip {
 
 #custom-language,
 #custom-updates,
+#custom-mail,
 #custom-caffeine,
 #custom-weather,
 #window,
@@ -155,6 +156,12 @@ tooltip {
 #cpu {
     background: #1e1e2e;
     color: #a6e3a1;
+    border-right: 0px;
+    margin-left: 0px;
+}
+
+#custom-mail{
+    color: #fab387;
     border-right: 0px;
     margin-left: 0px;
 }

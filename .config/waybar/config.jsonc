@@ -18,6 +18,9 @@
     "modules-right": [
         "tray",
         "custom/updates",
+        "custom/mail",
+        "custom/mail-check",
+        "custom/wallpaper",
         "custom/language",
         "cpu",
         "battery",
@@ -106,4 +109,22 @@
     	"ignored-players": ["brave"]
     },
     
+    "custom/mail": {
+        "exec": "cat ~/.local/share/mailupdate.tmp",
+        "interval": 10,
+        "format": "📬 {}",
+        "on-click": "~/.config/waybar/scripts/mailafter",
+    },
+
+    "custom/mail-check": {
+        "exec": "~/.config/waybar/scripts/mailup",
+        "interval": 7200,
+        "format": "{}",
+    },
+
+    "custom/wallpaper": {
+        "exec": "setbg ~/Pictures/wallpapers",
+        "interval": 10,
+        "format": "{}",
+    },
 }

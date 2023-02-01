@@ -21,6 +21,7 @@ monitor = ,addreserved,0,15,15,15
 monitor = HDMI-A-2,preferred,0x0,1
 monitor = eDP-1,preferred,1920x0,1
 monitor = eDP-1,transform,3
+#workspace = eDP-1,7
 wsbind = 1,HDMI-A-2
 wsbind = 2,HDMI-A-2
 wsbind = 3,HDMI-A-2
