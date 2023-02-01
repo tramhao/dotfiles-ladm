@@ -73,5 +73,3 @@ fi
 GPG_TTY=$(tty)
 export GPG_TTY
 
-sleep 0.1
-macchina
