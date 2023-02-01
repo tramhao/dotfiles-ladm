@@ -53,6 +53,7 @@ tooltip {
 #custom-mail,
 #custom-caffeine,
 #custom-weather,
+#custom-wallpaper,
 #window,
 #mpris,
 #clock,
@@ -161,6 +162,12 @@ tooltip {
 }
 
 #custom-mail{
+    color: #fab387;
+    border-right: 0px;
+    margin-left: 0px;
+}
+
+#custom-wallpaper{
     color: #fab387;
     border-right: 0px;
     margin-left: 0px;
