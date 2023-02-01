@@ -20,7 +20,6 @@
         "custom/updates",
         "custom/mail",
         "custom/mail-check",
-        "custom/wallpaper",
         "custom/language",
         "cpu",
         "battery",
@@ -119,12 +118,6 @@
     "custom/mail-check": {
         "exec": "~/.config/waybar/scripts/mailup",
         "interval": 7200,
-        "format": "{}",
-    },
-
-    "custom/wallpaper": {
-        "exec": "export DISPLAY=:0; setbg ~/Pictures/wallpapers",
-        "interval": 10,
         "format": "{}",
     },
 }
