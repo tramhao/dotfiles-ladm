@@ -53,6 +53,7 @@ tooltip {
 #custom-caffeine,
 #custom-weather,
 #window,
+#mpris,
 #clock,
 #battery,
 #pulseaudio,
@@ -107,6 +108,12 @@ tooltip {
     margin-right: 60px;
 }
 
+#mpris {
+    border-radius: 10px;
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
 #clock {
     color: #fab387;
     border-radius: 10px 0px 0px 10px;
@@ -134,10 +141,9 @@ tooltip {
 }
 
 #battery {
-    color: #a6e3a1;
-    border-radius: 0 10px 10px 0;
-    margin-right: 10px;
+    color: #cba6f7;
     border-left: 0px;
+    border-right: 0px;
 }
 
 #custom-weather {
