@@ -18,7 +18,7 @@ bgloc="${XDG_DATA_HOME:-$HOME/.local/share/}/bg"
 
 # pidof leftwm >/dev/null && xdotool key super+F12
 # pidof dwm >/dev/null && xdotool key super+F12
-# xwallpaper --zoom "$bgloc"
-killall swaybg >/dev/null &&
-swaybg -m fill -i "$bgloc" & 
+xwallpaper --zoom "$bgloc"
+# killall swaybg >/dev/null &&
+# swaybg -m fill -i "$bgloc" & 
 # feh --bg-fill "$bgloc"
