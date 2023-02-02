@@ -39,9 +39,9 @@ unread="$(find "${XDG_DATA_HOME:-$HOME/.local/share}"/mail/*/*/new/* -type f 2>/
 
 # # [ "$unread" = "0" ] && [ "$icon" = "" ] || echo "📬$unread$icon" > /tmp/mailupdate
 if [ "$unread" -gt 0 ]; then
-  echo "$unread" > "${XDG_DATA_HOME:-$HOME/.local/share}/mailupdate.tmp"
+  echo "📬 $unread" > "${XDG_DATA_HOME:-$HOME/.local/share}/mailupdate.tmp"
 else
-  echo "0" > "${XDG_DATA_HOME:-$HOME/.local/share}/mailupdate.tmp"
+  echo "" > "${XDG_DATA_HOME:-$HOME/.local/share}/mailupdate.tmp"
 fi
 
 # polybar-msg hook mail 1

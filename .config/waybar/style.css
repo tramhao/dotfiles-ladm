@@ -53,16 +53,18 @@ tooltip {
 #custom-mail,
 #custom-caffeine,
 #custom-weather,
+#custom-nettraf,
+#custom-internet,
 #window,
 #mpris,
 #clock,
-#battery,
+#custom-battery,
 #pulseaudio,
 #network,
 #workspaces,
 #tray,
 #network,
-#cpu,
+#custom-cpu,
 #backlight {
     background: #1e1e2e;
     padding: 0px 10px;
@@ -142,19 +144,21 @@ tooltip {
     border-right: 0px;
 }
 
-#battery {
+#custom-battery {
     color: #cba6f7;
     border-left: 0px;
     border-right: 0px;
 }
 
 #custom-weather {
+    font-family: Weather Icons, regular;
+    color: #a6e3a1;
     border-radius: 0px 10px 10px 0px;
     border-right: 0px;
     margin-left: 0px;
 }
 
-#cpu {
+#custom-cpu {
     background: #1e1e2e;
     color: #a6e3a1;
     border-right: 0px;
@@ -172,3 +176,14 @@ tooltip {
     margin-left: 0px;
 }
 
+#custom-nettraf{
+    color: #a6f201;
+    border-right: 0px;
+    margin-left: 0px;
+}
+
+#custom-internet{
+    color: #fab387;
+    border-right: 0px;
+    margin-left: 0px;
+}

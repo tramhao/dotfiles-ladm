@@ -8,6 +8,12 @@
     "height": 0,
     "modules-left": [
         "clock",
+        "custom/weather-check",
+        "custom/mail",
+        "custom/mail-check",
+        "custom/news-check",
+        "custom/updates",
+        "custom/updates-check",
         "custom/weather",
         "wlr/workspaces"
     ],
@@ -17,13 +23,11 @@
     ],
     "modules-right": [
         "tray",
-        "custom/updates",
-        "custom/mail",
-        "custom/mail-check",
         "custom/language",
-        "network",
-        "cpu",
-        "battery",
+        "custom/nettraf",
+        "custom/internet",
+        "custom/cpu",
+        "custom/battery",
         "pulseaudio",
     ],
 
@@ -49,16 +53,30 @@
         }
     },
     "custom/updates": {
-        "exec": "(checkupdates ; yay -Qua) | wc -l",
+        "exec": "cat ~/.local/share/checkup.tmp",
+        "interval": 30,
+        "format": "{}",
+        "on-click": "~/.config/waybar/scripts/archafter",
+    },
+    "custom/updates-check": {
+        "exec": "~/.config/waybar/scripts/archup",
         "interval": 7200,
-        "format": " {}"
+        "format": "{}",
     },
    "custom/weather" : {
-        "tooltip" : true,
+        "exec" : "cat ~/.local/share/weatherup.tmp",
         "format" : "{}",
         "interval" : 30,
-        "exec" : "~/.config/waybar/scripts/waybar-wttr.py",
-        "return-type" : "json"
+    },
+   "custom/weather-check" : {
+        "exec" : "~/.config/waybar/scripts/weatherup",
+        "format" : "{}",
+        "interval" : 3600,
+    },
+   "custom/news-check" : {
+        "exec" : "~/.config/waybar/scripts/newsup",
+        "format" : "{}",
+        "interval" : 7200,
     },
     "tray": {
         "icon-size": 13,
@@ -86,16 +104,18 @@
             "default": ["", "", ""]
         }
     },
-    "cpu": {
-     	"interval": 2,
-  	    "format": "{icon0}{icon1}{icon2}{icon3}{usage:>2}% ",
-  	    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+    "custom/cpu": {
+        "exec": "~/.config/waybar/scripts/sb-cpubars",
+        "interval": 2,
+        "format": "{}",
+        "on-click": "",
+        "max-length": 50,
     },
-    "battery": {
-        "format": "{capacity}% {icon}",
-        "format-icons": ["", "", "", "", ""]
+    "custom/battery": {
+        "exec": "~/.config/waybar/scripts/sb-battery",
+        "interval": 60,
+        "format": "{}",
     },
-
     "mpris": {
 	    "format": "DEFAULT: {player_icon} {dynamic}",
     	"format-paused": "DEFAULT: {status_icon} <i>{dynamic}</i>",
@@ -111,8 +131,8 @@
     
     "custom/mail": {
         "exec": "cat ~/.local/share/mailupdate.tmp",
-        "interval": 10,
-        "format": "📬 {}",
+        "interval": 60,
+        "format": "{}",
         "on-click": "~/.config/waybar/scripts/mailafter",
     },
 
@@ -122,16 +142,19 @@
         "format": "{}",
     },
 
-    "network": {
-        "interface": "w*",
-        "format": "{ifname}",
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "format-disconnected": "", //An empty format will hide the module.
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
-        "tooltip-format-ethernet": "{ifname} ",
-        "tooltip-format-disconnected": "Disconnected",
-        "max-length": 50
-    }
+    "custom/nettraf": {
+        "exec": "~/.config/waybar/scripts/sb-nettraf",
+        "interval": 2,
+        "format": "{}",
+        "on-click": "nmtui",
+        "max-length": 50,
+    },
+
+    "custom/internet": {
+        "exec": "~/.config/waybar/scripts/sb-internet",
+        "interval": 60,
+        "format": "{}",
+        "on-click": "nmtui",
+        "max-length": 50,
+    },
 }

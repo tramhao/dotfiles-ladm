@@ -161,6 +161,7 @@ windowrule = size 800 600, title:^(Volume Control)$
 windowrule = move 75 44%, title:^(Volume Control)$
 windowrule = workspace special silent, Alacritty
 windowrule = opacity 1.0 override 0.8 override, Brave-browser
+windowrule = workspace 2, Brave-browser
 
 # █▄▀ █▀▀ █▄█ █▄▄ █ █▄░█ █▀▄
 # █░█ ██▄ ░█░ █▄█ █ █░▀█ █▄▀
