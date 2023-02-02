@@ -61,6 +61,7 @@ tooltip {
 #network,
 #workspaces,
 #tray,
+#network,
 #cpu,
 #backlight {
     background: #1e1e2e;
@@ -161,6 +162,11 @@ tooltip {
 }
 
 #custom-mail{
+    color: #fab387;
+    border-right: 0px;
+    margin-left: 0px;
+}
+#network{
     color: #fab387;
     border-right: 0px;
     margin-left: 0px;
