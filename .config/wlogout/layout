@@ -1,14 +1,14 @@
 {
-    "label" : "lock",
-    "action" : "swaylock",
-    "text" : "(L)ock",
+    "label" : "logout",
+    "action" : "hyprctl dispatch exit 0",
+    "text" : "(L)ogout",
     "keybind" : "l"
 }
 {
-    "label" : "logout",
-    "action" : "hyprctl dispatch exit 0",
-    "text" : "(e)Logout",
-    "keybind" : "e"
+    "label" : "lock",
+    "action" : "swaylock",
+    "text" : "Loc(k)",
+    "keybind" : "k"
 }
 {
     "label" : "suspend",
