@@ -22,13 +22,13 @@
         "custom/mpris",
     ],
     "modules-right": [
-        "tray",
         "custom/language",
         "custom/nettraf",
         "custom/internet",
         "custom/cpu",
         "custom/battery",
         "pulseaudio",
+        "tray",
     ],
 
     "hyprland/window": {
