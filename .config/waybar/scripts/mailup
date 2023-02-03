@@ -31,6 +31,6 @@ else
   echo "" > "${XDG_DATA_HOME:-$HOME/.local/share}/mailupdate.tmp"
 fi
 
-pkill -SIGRTMIN+12 waybar
+# pkill -SIGRTMIN+12 waybar
 # polybar-msg hook mail 1
 # /usr/bin/notify-send "📬 Mail update complete."

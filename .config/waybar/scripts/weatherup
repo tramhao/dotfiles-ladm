@@ -104,4 +104,4 @@ else
 fi
 
 
-pkill -SIGRTMIN+11 waybar
+# pkill -SIGRTMIN+11 waybar

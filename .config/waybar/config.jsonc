@@ -13,6 +13,7 @@
         "custom/mail-check",
         "custom/news-check",
         "custom/updates",
+        "custom/updates-check",
         "custom/weather",
         "wlr/workspaces"
     ],
@@ -53,20 +54,27 @@
         }
     },
     "custom/updates": {
-        "exec": "~/.config/waybar/scripts/archup 2> /dev/null",
+        "exec": "cat ~/.local/share/checkup.tmp",
         "exec-on-event": false,
+        "interval": "once",
+        "format": "{}",
+        "on-click": "WINIT_X11_SCALE_FACTOR=1 setsid -w -f alacritty -e ~/.config/waybar/scripts/archafter; pkill -SIGRTMIN+11 waybar",
+        "signal": 11,
+    },
+    "custom/updates-check": {
+        "exec": "~/.config/waybar/scripts/archup 2> /dev/null; pkill -SIGRTMIN+11 waybar",
         "interval": 7200,
         "format": "{}",
-        "on-click": "WINIT_X11_SCALE_FACTOR=1 setsid -w -f alacritty -e ~/.config/waybar/scripts/archafter; pkill -SIGRTMIN+10 waybar",
-        "signal": 10,
     },
    "custom/weather" : {
         "exec" : "cat ~/.local/share/weatherup.tmp",
+        "exec-on-event": false,
+        "interval": "once",
         "format" : "{}",
-        "signal": 11,
+        "signal": 12
     },
    "custom/weather-check" : {
-        "exec" : "~/.config/waybar/scripts/weatherup",
+        "exec" : "~/.config/waybar/scripts/weatherup; pkill -SIGRTMIN+12 waybar",
         "format" : "{}",
         "interval" : 3600,
     },
@@ -116,13 +124,15 @@
     
     "custom/mail": {
         "exec": "cat ~/.local/share/mailupdate.tmp",
-        "signal": 12,
+        "exec-on-event": false,
+        "interval": "once",
         "format": "{}",
-        "on-click": "~/.config/waybar/scripts/mailafter",
+        "on-click": "~/.config/waybar/scripts/mailafter; pkill -SIGRTMIN+10 waybar",
+        "signal": 10,
     },
 
     "custom/mail-check": {
-        "exec": "~/.config/waybar/scripts/mailup",
+        "exec": "~/.config/waybar/scripts/mailup; pkill -SIGRTMIN+10 waybar",
         "interval": 7200,
         "format": "{}",
     },
