@@ -13,7 +13,6 @@
         "custom/mail-check",
         "custom/news-check",
         "custom/updates",
-        "custom/updates-check",
         "custom/weather",
         "wlr/workspaces"
     ],
@@ -54,15 +53,12 @@
         }
     },
     "custom/updates": {
-        "exec": "cat ~/.local/share/checkup.tmp",
-        "signal": 10,
-        "format": "{}",
-        "on-click": "WINIT_X11_SCALE_FACTOR=1 setsid -w -f alacritty -e ~/.config/waybar/scripts/archafter",
-    },
-    "custom/updates-check": {
-        "exec": "~/.config/waybar/scripts/archup",
+        "exec": "~/.config/waybar/scripts/archup 2> /dev/null",
+        "exec-on-event": false,
         "interval": 7200,
         "format": "{}",
+        "on-click": "WINIT_X11_SCALE_FACTOR=1 setsid -w -f alacritty -e ~/.config/waybar/scripts/archafter; pkill -SIGRTMIN+10 waybar",
+        "signal": 10,
     },
    "custom/weather" : {
         "exec" : "cat ~/.local/share/weatherup.tmp",
