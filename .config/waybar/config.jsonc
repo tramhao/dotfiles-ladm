@@ -67,7 +67,7 @@
    "custom/weather" : {
         "exec" : "cat ~/.local/share/weatherup.tmp",
         "format" : "{}",
-        "interval" : 30,
+        "signal": 11,
     },
    "custom/weather-check" : {
         "exec" : "~/.config/waybar/scripts/weatherup",
@@ -120,7 +120,7 @@
     
     "custom/mail": {
         "exec": "cat ~/.local/share/mailupdate.tmp",
-        "interval": 60,
+        "signal": 12,
         "format": "{}",
         "on-click": "~/.config/waybar/scripts/mailafter",
     },
@@ -148,15 +148,17 @@
     },
 
     "custom/mpris": {
-        "format": "{icon}{}",
-        "return-type": "json",
-        "format-icons": {
-            "Playing": " ",
-            "Paused": " ",
-        },
-        "max-length":20,
-        "exec": "playerctl -a metadata --format '{\"text\": \"{{playerName}}: {{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
-        "on-click": "playerctl play-pause",
+        "format": "{}",
+        // "return-type": "json",
+        // "format-icons": {
+        //     "Playing": " ",
+        //     "Paused": " ",
+        // },
+        "max-length":30,
+        "exec": "~/.config/waybar/scripts/player-mpris-tail.py -f '{icon} {artist} - {title}' -b plasma-browser-integration -b chromium",
+        "on-click": "~/.config/waybar/scripts/player-mpris-tail.py play-pause",
+        "on-click-right": "~/.config/waybar/scripts/player-mpris-tail.py next",
+        "on-click-middle": "~/.config/waybar/scripts/player-mpris-tail.py previous",
     },
     
 }

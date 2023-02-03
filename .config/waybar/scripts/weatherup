@@ -102,3 +102,6 @@ if [ -n "$weather" ]; then
 else
     echo "Service not available" > "${XDG_DATA_HOME:-$HOME/.local/share}/weatherup.tmp"
 fi
+
+
+pkill -SIGRTMIN+11 waybar
