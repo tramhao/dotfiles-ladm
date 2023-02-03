@@ -56,7 +56,7 @@ tooltip {
 #custom-nettraf,
 #custom-internet,
 #window,
-#mpris,
+#custom-mpris,
 #clock,
 #custom-battery,
 #pulseaudio,
@@ -101,7 +101,6 @@ tooltip {
 
 #custom-updates {
     color: #f5c2e7;
-    border-radius: 10px 0px 0px 10px;
     border-left: 0px;
     border-right: 0px;
 }
@@ -112,7 +111,7 @@ tooltip {
     margin-right: 60px;
 }
 
-#mpris {
+#custom-mpris {
     border-radius: 10px;
     margin-left: 60px;
     margin-right: 60px;
@@ -178,6 +177,7 @@ tooltip {
 
 #custom-nettraf{
     color: #a6f201;
+    border-radius: 10px 0px 0px 10px;
     border-right: 0px;
     margin-left: 0px;
 }

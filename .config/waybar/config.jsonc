@@ -19,7 +19,7 @@
     ],
     "modules-center": [
         "hyprland/window",
-        "mpris",
+        "custom/mpris",
     ],
     "modules-right": [
         "tray",
@@ -32,7 +32,8 @@
     ],
 
     "hyprland/window": {
-        "format": "{}"
+        "format": "{}",
+        "max-length": 50,
     },
     "wlr/workspaces": {
         "disable-scroll": true,
@@ -54,9 +55,9 @@
     },
     "custom/updates": {
         "exec": "cat ~/.local/share/checkup.tmp",
-        "interval": 30,
+        "signal": 10,
         "format": "{}",
-        "on-click": "~/.config/waybar/scripts/archafter",
+        "on-click": "WINIT_X11_SCALE_FACTOR=1 setsid -w -f alacritty -e ~/.config/waybar/scripts/archafter",
     },
     "custom/updates-check": {
         "exec": "~/.config/waybar/scripts/archup",
@@ -116,18 +117,6 @@
         "interval": 60,
         "format": "{}",
     },
-    "mpris": {
-	    "format": "DEFAULT: {player_icon} {dynamic}",
-    	"format-paused": "DEFAULT: {status_icon} <i>{dynamic}</i>",
-	    "player-icons": {
-		    "default": "▶",
-	    	"mpv": "🎵"
-    	},
-	    "status-icons": {
-		    "paused": "⏸"
-    	},
-    	"ignored-players": ["brave"]
-    },
     
     "custom/mail": {
         "exec": "cat ~/.local/share/mailupdate.tmp",
@@ -157,4 +146,17 @@
         "on-click": "nmtui",
         "max-length": 50,
     },
+
+    "custom/mpris": {
+        "format": "{icon}{}",
+        "return-type": "json",
+        "format-icons": {
+            "Playing": " ",
+            "Paused": " ",
+        },
+        "max-length":20,
+        "exec": "playerctl -a metadata --format '{\"text\": \"{{playerName}}: {{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+        "on-click": "playerctl play-pause",
+    },
+    
 }

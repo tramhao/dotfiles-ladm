@@ -42,6 +42,8 @@ fi
 
 # polybar-msg hook arch 1
 
+pkill -SIGRTMIN+10 waybar
+
 # if [ "$updates" -gt 0 ]
 # # if pacman -Qu | grep -v "\[ignored\]"
 # then

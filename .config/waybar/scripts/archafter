@@ -23,6 +23,8 @@ else
     echo "" > "${XDG_DATA_HOME:-$HOME/.local/share}/checkup.tmp"
 fi
 
+pkill -SIGRTMIN+10 waybar
+
 printf "\\nUpgrade complete.\\nPress <Enter> to exit window.\\n\\n"
 read -r _
 
