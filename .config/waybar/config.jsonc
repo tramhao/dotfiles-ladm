@@ -1,0 +1,173 @@
+{
+    "layer": "top",
+    "position": "top",
+    "mod": "dock",
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+    "height": 0,
+    "modules-left": [
+        "clock",
+        "custom/weather-check",
+        "custom/mail",
+        "custom/mail-check",
+        "custom/news-check",
+        "custom/updates",
+        "custom/updates-check",
+        "custom/weather",
+        "wlr/workspaces"
+    ],
+    "modules-center": [
+        "hyprland/window",
+        "custom/mpris",
+    ],
+    "modules-right": [
+        "custom/language",
+        "custom/nettraf",
+        "custom/internet",
+        "custom/cpu",
+        "custom/battery",
+        "pulseaudio",
+        "tray",
+    ],
+
+    "hyprland/window": {
+        "format": "{}",
+        "max-length": 50,
+    },
+    "wlr/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "on-click": "activate",
+        //"format": "{icon}",
+        "persistent_workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": [],
+            "6": [],
+            "7": [],
+            "8": [],
+            "9": [],
+            "10": []
+        }
+    },
+    "custom/updates": {
+        "exec": "cat ~/.local/share/checkup.tmp",
+        "exec-on-event": false,
+        // "interval": "once",
+        "interval": 60,
+        "format": "{}",
+        "on-click": "WINIT_X11_SCALE_FACTOR=1 setsid -w -f alacritty -e ~/.config/waybar/scripts/archafter; pkill -SIGRTMIN+11 waybar",
+        "signal": 11,
+    },
+    "custom/updates-check": {
+        "exec": "~/.config/waybar/scripts/archup 2> /dev/null; pkill -SIGRTMIN+11 waybar",
+        "interval": 7200,
+        "format": "{}",
+    },
+   "custom/weather" : {
+        "exec" : "cat ~/.local/share/weatherup.tmp",
+        "exec-on-event": false,
+        // "interval": "once",
+        "interval": 60,
+        "format" : "{}",
+        "signal": 12
+    },
+   "custom/weather-check" : {
+        "exec" : "~/.config/waybar/scripts/weatherup; pkill -SIGRTMIN+12 waybar",
+        "format" : "{}",
+        "interval" : 3600,
+    },
+   "custom/news-check" : {
+        "exec" : "~/.config/waybar/scripts/newsup",
+        "format" : "{}",
+        "interval" : 7200,
+    },
+    "tray": {
+        "icon-size": 13,
+        "spacing": 10
+    },
+    "clock": {
+        "format": "{: %R   %m/%d}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "tooltip": false,
+        "format-muted": " Muted",
+        "on-click": "pamixer -t",
+        "on-scroll-up": "pamixer -i 5 --allow-boost",
+        "on-scroll-down": "pamixer -d 5 --allow-boost",
+        "scroll-step": 5,
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        }
+    },
+    "custom/cpu": {
+        "exec": "~/.config/waybar/scripts/sb-cpubars",
+        "interval": 2,
+        "format": "{}",
+        "on-click": "",
+        "max-length": 50,
+    },
+    "custom/battery": {
+        "exec": "~/.config/waybar/scripts/sb-battery",
+        "interval": 60,
+        "format": "{}",
+    },
+    
+    "custom/mail": {
+        "exec": "cat ~/.local/share/mailupdate.tmp",
+        "exec-on-event": false,
+        // "interval": "once",
+        "interval": 60,
+        "format": "{}",
+        "on-click": "~/.config/waybar/scripts/mailafter; pkill -SIGRTMIN+10 waybar",
+        "signal": 10,
+    },
+
+    "custom/mail-check": {
+        "exec": "~/.config/waybar/scripts/mailup; pkill -SIGRTMIN+10 waybar",
+        "interval": 7200,
+        "format": "{}",
+    },
+
+    "custom/nettraf": {
+        "exec": "~/.config/waybar/scripts/sb-nettraf",
+        "interval": 2,
+        "format": "{}",
+        "on-click": "nmtui",
+        "max-length": 50,
+    },
+
+    "custom/internet": {
+        "exec": "~/.config/waybar/scripts/sb-internet",
+        "interval": 60,
+        "format": "{}",
+        "on-click": "nmtui",
+        "max-length": 50,
+    },
+
+    "custom/mpris": {
+        "format": "{}",
+        // "return-type": "json",
+        // "format-icons": {
+        //     "Playing": " ",
+        //     "Paused": " ",
+        // },
+        "max-length":30,
+        "exec": "~/.config/waybar/scripts/player-mpris-tail.py -f '{icon} {artist} - {title}' -b plasma-browser-integration -b chromium",
+        "on-click": "~/.config/waybar/scripts/player-mpris-tail.py play-pause",
+        "on-click-right": "~/.config/waybar/scripts/player-mpris-tail.py next",
+        "on-click-middle": "~/.config/waybar/scripts/player-mpris-tail.py previous",
+    },
+    
+}

@@ -1,0 +1,31 @@
+#!/bin/sh
+
+# Syncs repositories and downloads updates, meant to be run as a cronjob.
+
+# setsid -w -f kitty -e paru &&
+paru
+
+wget -q --spider example.org || exit
+if ! updates_arch=$(checkupdates 2> /dev/null | wc -l ); then
+    updates_arch=0
+fi
+
+if ! updates_aur=$(paru -Qua | grep -v "\[ignored\]" 2> /dev/null | wc -l); then
+    updates_aur=0
+fi
+
+
+updates=$(("$updates_arch" + "$updates_aur"))
+
+if [ "$updates" -gt 0 ]; then
+    echo " $updates_arch+$updates_aur" > "${XDG_DATA_HOME:-$HOME/.local/share}/checkup.tmp"
+else
+    echo "" > "${XDG_DATA_HOME:-$HOME/.local/share}/checkup.tmp"
+fi
+
+# pkill -SIGRTMIN+10 waybar
+
+printf "\\nUpgrade complete.\\nPress <Enter> to exit window.\\n\\n"
+read -r _
+
+

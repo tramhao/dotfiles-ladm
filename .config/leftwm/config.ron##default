@@ -58,7 +58,7 @@
         (command: Execute, value: "pamixer --allow-boost -d 5", modifier: ["modkey"], key: "minus"),
         (command: Execute, value: "pamixer --allow-boost -i 5", modifier: ["modkey"], key: "equal"),
         (command: Execute, value: "setbg /home/tramhao/Pictures/wallpapers", modifier: ["modkey", "Shift"], key: "w"),
-        (command: Execute, value: "WINIT_X11_SCALE_FACTOR=1 alacritty", modifier: ["modkey"], key: "Return"),
+        (command: Execute, value: "WINIT_X11_SCALE_FACTOR=1 alacritty -e zsh -c 'macchina; exec zsh'", modifier: ["modkey"], key: "Return"),
         (command: CloseWindow, value: "", modifier: ["modkey"], key: "q"),
         (command: MoveWindowToNextWorkspace, value: "", modifier: ["modkey", "Control"], key: "w"),
         (command: Execute, value: "xdotool key Super_L+2 && brave", modifier: ["modkey"], key: "w"),
