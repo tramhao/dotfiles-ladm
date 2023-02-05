@@ -2,6 +2,7 @@
 -- Install packer
 local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 local is_bootstrap = false
+local opts = { noremap = true, silent = true }
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   is_bootstrap = true
   vim.fn.system { 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path }
@@ -133,6 +134,14 @@ vim.o.completeopt = 'menuone,noselect'
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+vim.api.nvim_set_keymap("c", "W!", "silent! execute 'w !doas tee > /dev/null %' <bar> edit!", { silent = false })
+vim.api.nvim_set_keymap("i", "jk", "<Esc>", opts)
+vim.api.nvim_set_keymap("i", "kj", "<Esc>", opts)
+vim.api.nvim_set_keymap("i", "ii", "<Esc>", opts)
+vim.api.nvim_set_keymap("v", "<", "<gv", opts)
+vim.api.nvim_set_keymap("v", ">", ">gv", opts)
+vim.api.nvim_set_keymap("n", "<Leader>o", "o<Esc>^Da", opts)
+vim.api.nvim_set_keymap("n", "<Leader>O", "O<Esc>^Da", opts)
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
