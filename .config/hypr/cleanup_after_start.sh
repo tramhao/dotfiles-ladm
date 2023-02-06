@@ -1,4 +1,3 @@
 #!/bin/sh
 sleep 2
-hyprctl keyword windowrule "workspace unset,Alacritty"
-hyprctl keyword windowrule "workspace unset,kitty"
+hyprctl --batch "keyword windowrule workspace unset,Alacritty; keyword windowrule workspace unset,kitty"
