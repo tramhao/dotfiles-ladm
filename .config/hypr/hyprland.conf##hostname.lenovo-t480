@@ -162,7 +162,7 @@ windowrule = size 800 600, title:^(Volume Control)$
 windowrule = move 75 44%, title:^(Volume Control)$
 windowrule = workspace special silent, Alacritty
 windowrule = workspace special silent, kitty
-windowrule = opacity 1.0 override 0.8 override, Brave-browser
+windowrule = opacity 1.0 override, Brave-browser
 windowrule = workspace 2, Brave-browser
 
 # █▄▀ █▀▀ █▄█ █▄▄ █ █▄░█ █▀▄
@@ -187,7 +187,7 @@ bind = SUPER, E, exec, thunar
 bind = SUPER, R, exec, killall rofi || rofi -show drun -theme ~/.config/rofi/global/rofi.rasi
 bind = SUPER, period, exec, killall rofi || rofi -show emoji -emoji-format "{emoji}" -modi emoji -theme ~/.config/rofi/global/emoji
 bind = SUPER, backspace, exec, wlogout --protocol layer-shell -b 5 -T 400 -B 400
-bind = SUPER, D, exec, bemenu-run -i --fn "pango:DejaVu Sans Mono 20"
+bind = SUPER, D, exec, bemenu-run -i --accept-single --fn "pango:DejaVu Sans Mono 20"
 
 # █░█░█ █ █▄░█ █▀▄ █▀█ █░█░█   █▀▄▀█ ▄▀█ █▄░█ ▄▀█ █▀▀ █▀▄▀█ █▀▀ █▄░█ ▀█▀
 # ▀▄▀▄▀ █ █░▀█ █▄▀ █▄█ ▀▄▀▄▀   █░▀░█ █▀█ █░▀█ █▀█ █▄█ █░▀░█ ██▄ █░▀█ ░█░
