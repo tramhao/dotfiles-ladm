@@ -7,6 +7,7 @@
     "gtk-layer-shell": true,
     "height": 0,
     "modules-left": [
+        "tray",
         "clock",
         "custom/weather-check",
         "custom/mail",
@@ -29,7 +30,6 @@
         "cpu",
         "custom/battery",
         "pulseaudio",
-        "tray",
     ],
 
     "hyprland/window": {
