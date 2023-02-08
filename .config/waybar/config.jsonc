@@ -26,6 +26,7 @@
         "custom/nettraf",
         "custom/internet",
         "custom/cpu",
+        "cpu",
         "custom/battery",
         "pulseaudio",
         "tray",
@@ -117,6 +118,11 @@
         "format": "{}",
         "on-click": "",
         "max-length": 50,
+    },
+    "cpu": {
+        "interval": 10,
+        "format": "{}% ",
+        "max-length": 10,
     },
     "custom/battery": {
         "exec": "~/.config/waybar/scripts/sb-battery",
