@@ -120,8 +120,8 @@
         "max-length": 50,
     },
     "cpu": {
-        "interval": 10,
-        "format": "{}% ",
+        "interval": 2,
+        "format": "{usage}% ",
         "max-length": 10,
     },
     "custom/battery": {
