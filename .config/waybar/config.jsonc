@@ -59,7 +59,7 @@
     "custom/updates": {
         "exec": "cat ~/.local/share/checkup.tmp",
         "exec-on-event": false,
-        "interval": "once",
+        "interval": 60,
         "format": "{}",
         "signal": 11,
         "on-click": "WINIT_X11_SCALE_FACTOR=1 setsid -w -f alacritty -e ~/.config/waybar/scripts/archafter; pkill -SIGRTMIN+11 waybar",
@@ -72,7 +72,7 @@
    "custom/weather" : {
         "exec" : "cat ~/.local/share/weatherup.tmp",
         "exec-on-event": false,
-        "interval": "once",
+        "interval": 60,
         "signal": 12,
         "format" : "{}",
     },
@@ -132,7 +132,7 @@
     
     "custom/mail": {
         "exec": "cat ~/.local/share/mailupdate.tmp",
-        "interval": "once",
+        "interval": 60,
         "format": "{}",
         "signal": 10,
         "on-click": "~/.config/waybar/scripts/mailafter; pkill -SIGRTMIN+10 waybar",
