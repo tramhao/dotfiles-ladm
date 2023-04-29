@@ -24,7 +24,7 @@ fi
 # run xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources # Uncomment to use Xresources colors/settings on startup
 
 # run picom -f -b --experimental-backends
-# run dunst			# dunst for notifications
+run dunst			# dunst for notifications
 # run xset r rate 400 50 # Speed xrate up
 # run unclutter		# Rmove mouse when idle
 
