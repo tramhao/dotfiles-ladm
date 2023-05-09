@@ -27,11 +27,11 @@ colors:
     white: '#ffffff'
 font:
   bold:
-    family: SFMono
+    family: FreeMono
   italic:
-    family: SFMono
+    family: FreeMono
   normal:
-    family: SFMono
+    family: Liberation Mono
     style: Regular
   size: 18
 window:
