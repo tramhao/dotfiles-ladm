@@ -9,7 +9,6 @@
     "modules-left": [
         "tray",
         "clock",
-        "custom/weather-check",
         "custom/mail",
         "custom/mail-check",
         "custom/news-check",
@@ -58,17 +57,13 @@
         "format": "{}",
     },
    "custom/weather" : {
-        "exec" : "cat ~/.local/share/weatherup.tmp",
-        "exec-on-event": false,
-        "interval": 60,
-        "signal": 12,
-        "format" : "{}",
-    },
-   "custom/weather-check" : {
-        "exec" : "~/.config/waybar/scripts/weatherup; pkill -SIGRTMIN+12 waybar",
-        "format" : "{}",
-        "interval" : 3600,
-    },
+        "format": "{} °",
+        "tooltip": true,
+        "interval": 7200,
+        "exec": "wttrbar --location Shenzhen",
+        "return-type": "json",
+   },
+
    "custom/news-check" : {
         "exec" : "~/.config/waybar/scripts/newsup",
         "format" : "{}",

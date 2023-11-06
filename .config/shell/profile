@@ -156,9 +156,10 @@ export GTK_THEME=Matcha-dark-aliz
 
 export LIBSEAT_BACKEND=logind
 
-export http_proxy=127.0.0.1:7890
-export https_proxy=127.0.0.1:7890
-export socks_proxy=127.0.0.1:7891
+# export http_proxy="http://127.0.0.1:20171"
+# export https_proxy="https://127.0.0.1:20171"
+# export socks_proxy="socks5://127.0.0.1:20170"
+#export V2RAYA_V2RAY_BIN=/usr/bin/xray
 
 
 if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
