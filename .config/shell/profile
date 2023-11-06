@@ -159,8 +159,7 @@ export LIBSEAT_BACKEND=logind
 # export http_proxy="http://127.0.0.1:20171"
 # export https_proxy="https://127.0.0.1:20171"
 # export socks_proxy="socks5://127.0.0.1:20170"
-#export V2RAYA_V2RAY_BIN=/usr/bin/xray
-
+# export V2RAYA_V2RAY_BIN=/usr/bin/xray
 
 if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
   # startx
