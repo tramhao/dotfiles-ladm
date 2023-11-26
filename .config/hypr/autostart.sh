@@ -20,7 +20,19 @@ if [ $(hostname) = "XMLaptop" ]; then
   fi
 fi
 
-sudo hid-feature set -f 30000 3 /dev/hidraw0
+
+if [ $(hostname) = "archMB14" ]; then
+  if sudo true; then
+    FILE1=/dev/hidraw3
+    FILE2=/dev/hidraw0
+    if [ -e "$FILE1" ]; then
+      sudo hid-feature set -f 30000 3 $FILE1
+    fi
+    if [ -e "$FILE2" ]; then
+      sudo hid-feature set -f 30000 3 $FILE2
+    fi
+  fi
+fi
 
 # run remaps
 # run xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources # Uncomment to use Xresources colors/settings on startup
