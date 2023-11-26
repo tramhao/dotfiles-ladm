@@ -20,7 +20,7 @@ if [ $(hostname) = "XMLaptop" ]; then
   fi
 fi
 
-sudo hid-feature set -f 30000 3 /dev/hidraw3
+sudo hid-feature set -f 30000 3 /dev/hidraw0
 
 # run remaps
 # run xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources # Uncomment to use Xresources colors/settings on startup
