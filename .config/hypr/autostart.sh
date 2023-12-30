@@ -22,16 +22,7 @@ fi
 
 
 if [ $(hostname) = "archMB14" ]; then
-  if sudo true; then
-    FILE1=/dev/hidraw3
-    FILE2=/dev/hidraw0
-    if [ -e "$FILE1" ]; then
-      sudo hid-feature set -f 30000 3 $FILE1
-    fi
-    if [ -e "$FILE2" ]; then
-      sudo hid-feature set -f 30000 3 $FILE2
-    fi
-  fi
+  ~/.config/hypr/fix_touchpad.sh
 fi
 
 # run remaps
