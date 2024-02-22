@@ -10,13 +10,10 @@
   "scratchpads": {
     "term": {
       "command": "kitty --class kitty-dropterm",
-      "animation": "fromTop",
-      "unfocus": "hide"
-    },
-    "volume": {
-      "command": "pavucontrol",
+      "animation": "fromBottom",
       "unfocus": "hide",
-      "animation": "fromRight"
+      "position": "50% 20%",
+      "size": "50% 80%"
     }
   },
   "monitors": {
