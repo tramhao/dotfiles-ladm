@@ -28,7 +28,7 @@ if [ $(uname -n) = "lenovo-t480" ]; then
 fi
 
 if [ $(uname -n) = "archMB14" ]; then
-  if [ `ifconfig wlan0 | awk '/inet /{ print $6;}'` = "192.168.50.255" ]; then
+  if [ `ifconfig wlan0 | awk '/inet /{ print $6;}'` = "192.168.30.255" ]; then
       sleep 2
       # command="keyword monitor HDMI-A-2, preferred,0x0,1;\  
       # keyword wsbind 1, HDMI-A-2;\
