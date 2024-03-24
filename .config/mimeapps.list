@@ -4,7 +4,7 @@ application/x-mobipocket-ebook=FBReader.desktop;
 audio/flac=org.kde.kid3.desktop;
 audio/mp4=netease-cloud-music-gtk.desktop;org.kde.kid3.desktop;
 audio/x-ape=netease-cloud-music-gtk.desktop;
-image/jpeg=img.desktop;krita_jpeg.desktop;sxiv.desktop;org.kde.gwenview.desktop;gimp.desktop;wine-extension-jfif.desktop;wine-extension-jpe.desktop;org.darktable.darktable.desktop;viewnior.desktop;pinta.desktop;okularApplication_kimgio.desktop;geeqie.desktop;chromium.desktop;brave-browser.desktop;google-chrome.desktop;
+image/jpeg=krita_jpeg.desktop;okularApplication_kimgio.desktop;sxiv.desktop;img.desktop;org.kde.gwenview.desktop;gimp.desktop;wine-extension-jfif.desktop;wine-extension-jpe.desktop;org.darktable.darktable.desktop;viewnior.desktop;pinta.desktop;geeqie.desktop;chromium.desktop;brave-browser.desktop;google-chrome.desktop;
 image/png=img.desktop;krita_png.desktop;org.kde.gwenview.desktop;org.darktable.darktable.desktop;brave-browser.desktop;viewnior.desktop;google-chrome.desktop;sxiv.desktop;pinta.desktop;chromium.desktop;okularApplication_kimgio.desktop;geeqie.desktop;gimp.desktop;wine-extension-png.desktop;
 
 [Default Applications]
