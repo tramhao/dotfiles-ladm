@@ -28,13 +28,13 @@ foreground = "#FCFCFA"
 size = 18
 
 [font.bold]
-family = "SFMonoNerdFontMono"
+family = "DejaVu Sans Mono"
 
 [font.italic]
-family = "SFMonoNerdFontMono"
+family = "DejaVu Sans Mono"
 
 [font.normal]
-family = "SFMonoNerdFontMono"
+family = "DejaVu Sans Mono"
 style = "Regular"
 
 [[keyboard.bindings]]

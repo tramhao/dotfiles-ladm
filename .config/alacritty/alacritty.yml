@@ -27,11 +27,11 @@ colors:
     white: "#f7f7f7"
 font:
   bold:
-    family: SFMonoNerdFontMono
+    family: UbuntuMono
   italic:
-    family: SFMonoNerdFontMono
+    family: UbuntuMono
   normal:
-    family: SFMonoNerdFontMono
+    family: UbuntuMono
     style: Regular
   size: 18
 window:
