@@ -1,4 +1,4 @@
-import= [ "~/.config/alacritty/themes/imonokai.yaml"]
+general.import= [ "~/.config/alacritty/themes/imonokai.yaml"]
 
 [colors.bright]
 black = "#727072"
