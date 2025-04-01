@@ -7,5 +7,5 @@ animation = "fromBottom"
 margin = 10
 unfocus = "hide"
 size = "50% 85%"
-position = "50% 150px"
+position = "49% 150px"
 max_size = "1920px 100%"
