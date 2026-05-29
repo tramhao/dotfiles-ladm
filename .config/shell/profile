@@ -163,13 +163,27 @@ export SUDO_EDITOR=helix
 # export socks_proxy="socks5://127.0.0.1:20170"
 # export V2RAYA_V2RAY_BIN=/usr/bin/xray
 
+# export http_proxy="http://127.0.0.1:10808"
+# export https_proxy="https://127.0.0.1:10808"
+
 if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
   # startx
   # startx -- -nolisten tcp >/dev/null 2>&1
+<<<<<<< HEAD
   exec start-hyprland
+=======
+  # exec Hyprland
+  start-cosmic
+>>>>>>> ab5ac69c9c7a000c69632030048b7df3481dae1d
 fi
 
 if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 2 ]; then
+  # startx
+  # startx -- -nolisten tcp >/dev/null 2>&1
+  start-hyprland
+fi
+
+if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 3 ]; then
   # startx
   startx -- -nolisten tcp >/dev/null 2>&1
   # exec Hyprland
