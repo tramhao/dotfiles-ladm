@@ -21,9 +21,9 @@ if [ $(hostname) = "XMLaptop" ]; then
 fi
 
 
-if [ $(hostname) = "archMB14" ]; then
-  ~/.config/hypr/fix_touchpad.sh
-fi
+# if [ $(hostname) = "archMB14" ]; then
+#   ~/.config/hypr/fix_touchpad.sh
+# fi
 
 # run remaps
 # run xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources # Uncomment to use Xresources colors/settings on startup

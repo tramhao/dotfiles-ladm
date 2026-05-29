@@ -98,7 +98,7 @@
                         "on-scroll-up": "shift_up",
                         "on-scroll-down": "shift_down"
                         }
-        },           
+        },
         "pulseaudio": {
         "format": "{icon} {volume}%",
         "tooltip": false,
