@@ -1,0 +1,10 @@
+
+# Use the [default] block to set fallback configurations for all outputs
+[default]
+duration = "30m"
+mode = "center"
+sorting = "ascending"
+
+# Use [any] to apply a baseline image to all monitors not explicitly configured
+[any]
+path = "/home/tramhao/Pictures/wallpapers2"

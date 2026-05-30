@@ -1,0 +1,33 @@
+[pyprland]
+# Define which plugins you want to load
+plugins = [
+  "scratchpads",
+  "monitors",
+  "magnify"
+]
+
+# Configure the dropdown scratchpads plugin
+[scratchpads.term]
+animation = "fromTop"
+command = "kitty --class pypr-term"
+class = "pypr-term"
+size = "75% 60%"
+unfocus = "hide"
+lazy = true
+
+[scratchpads.volume]
+animation = "fromRight"
+command = "pavucontrol"
+class = "pavucontrol"
+size = "40% 90%"
+position = "60% 5%"
+
+# Configure the dynamic monitor layouts plugin
+[monitors]
+# Automatically handle layouts when specific monitors are connected/disconnected
+"DP-1" = { scale = 1.0, pos = "0x0" }
+"eDP-1" = { scale = 1.2, pos = "1920x0" }
+
+# Configure the screen magnifier plugin
+[magnify]
+factor = 2.0
