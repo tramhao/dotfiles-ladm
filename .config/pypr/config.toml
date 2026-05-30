@@ -8,10 +8,11 @@ plugins = [
 
 # Configure the dropdown scratchpads plugin
 [scratchpads.term]
-animation = "fromTop"
+animation = "fromBottom"
 command = "kitty --class pypr-term"
 class = "pypr-term"
-size = "75% 60%"
+size = "45% 85%"
+position = "50% 10%"
 unfocus = "hide"
 lazy = true
 
