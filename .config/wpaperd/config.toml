@@ -7,4 +7,4 @@ sorting = "ascending"
 
 # Use [any] to apply a baseline image to all monitors not explicitly configured
 [any]
-path = "/home/tramhao/Pictures/wallpapers2"
+path = "/home/tramhao/Pictures/wallpapers"
