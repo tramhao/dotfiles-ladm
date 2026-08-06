@@ -322,6 +322,7 @@ hl.bind("XF86AudioPlay",  hl.dsp.exec_cmd("playerctl play-pause"), { locked = tr
 hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = true })
 
 hl.bind(mainMod .. " + BackSpace",  hl.dsp.exec_cmd("wlogout"))
+hl.bind("F12",  hl.dsp.exec_cmd("pypr toggle term"))
 
 
 --------------------------------
